@@ -15,6 +15,15 @@ import torch.nn as nn
 # Smaller values → lighter GPU load, faster training.
 
 # Recurrent State Space Model (RSSM) for the latent world model
+
+def actions_to_vec(actions, action_dim):
+    """Encode actions for the RSSM input: one-hot for integer (discrete)
+    actions, pass-through for float (continuous) actions already shaped
+    [..., action_dim]."""
+    if actions.dtype.is_floating_point:
+        return actions
+    return torch.nn.functional.one_hot(actions, num_classes=action_dim).float()
+
 class RSSM(nn.Module):
     def __init__(
         self,

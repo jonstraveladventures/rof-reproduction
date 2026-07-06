@@ -28,7 +28,7 @@ import torch
 import torch.nn.functional as F
 from torch.utils.data import DataLoader, Subset
 
-from models import WorldModel
+from models import actions_to_vec, WorldModel
 from train_models import (
     SequenceDataset, kl_divergence, set_seed,
 )
@@ -75,7 +75,7 @@ def compute_val_metrics(world_model, val_dataloader, beta_kl=0.5,
         z = rssm.sample_latent(mean_post, logstd_post)
 
         for t in range(seq_len):
-            a_t = F.one_hot(actions_seq[:, t], num_classes=action_dim).float()
+            a_t = actions_to_vec(actions_seq[:, t], action_dim)
             h = rssm.update_hidden(h, z, a_t)
             mean_prior, logstd_prior = rssm.prior(h)
             mean_post, logstd_post = rssm.posterior(h, next_obs_seq[:, t])
@@ -179,7 +179,7 @@ def compute_multistep_rollout(world_model, val_dataloader,
         z = rssm.sample_latent(mean_post, logstd_post)
 
         for t in range(warmup_steps):
-            a_t = F.one_hot(actions_seq[:, t], num_classes=action_dim).float()
+            a_t = actions_to_vec(actions_seq[:, t], action_dim)
             h = rssm.update_hidden(h, z, a_t)
             mean_post, logstd_post = rssm.posterior(h, next_obs_seq[:, t])
             z = rssm.sample_latent(mean_post, logstd_post)
@@ -193,7 +193,7 @@ def compute_multistep_rollout(world_model, val_dataloader,
             if t_idx >= seq_len:
                 break
 
-            a_k = F.one_hot(actions_seq[:, t_idx], num_classes=action_dim).float()
+            a_k = actions_to_vec(actions_seq[:, t_idx], action_dim)
             h = rssm.update_hidden(h, z, a_k)
             mean_prior, _ = rssm.prior(h)
             z = mean_prior
@@ -320,7 +320,7 @@ def compute_jacobian_metrics(world_model, val_dataloader,
             z = rssm.sample_latent(mean_post, logstd_post)
 
             for t in range(warmup_steps):
-                a_t = F.one_hot(actions_seq[:, t], num_classes=action_dim).float()
+                a_t = actions_to_vec(actions_seq[:, t], action_dim)
                 h = rssm.update_hidden(h, z, a_t)
                 mean_post, logstd_post = rssm.posterior(h, next_obs_seq[:, t])
                 z = rssm.sample_latent(mean_post, logstd_post)
@@ -362,7 +362,7 @@ def compute_jacobian_metrics(world_model, val_dataloader,
         for i in range(N):
             h_i = h_states[i:i+1].detach()
             z_i = z_states[i:i+1].detach()
-            a_onehot = F.one_hot(a_states[i], num_classes=action_dim).float()
+            a_onehot = actions_to_vec(a_states[i], action_dim)
 
             h_top = rssm.top_hidden(h_i).squeeze(0).detach()
             z_flat = z_i.squeeze(0).detach()
@@ -558,8 +558,7 @@ def compute_jacobian_metrics_tv(world_model, val_dataloader,
             z = rssm.sample_latent(mean_post, logstd_post)
 
             for t in range(warmup_steps):
-                a_t = F.one_hot(actions_seq[:, t],
-                                num_classes=action_dim).float()
+                a_t = actions_to_vec(actions_seq[:, t], action_dim)
                 h = rssm.update_hidden(h, z, a_t)
                 mean_post, logstd_post = rssm.posterior(h, next_obs_seq[:, t])
                 z = rssm.sample_latent(mean_post, logstd_post)
@@ -603,8 +602,7 @@ def compute_jacobian_metrics_tv(world_model, val_dataloader,
             spec_radii_i = []
 
             for k in range(horizon):
-                a_idx = act_seqs[i, k]
-                a_onehot = F.one_hot(a_idx, num_classes=action_dim).float()
+                a_onehot = actions_to_vec(act_seqs[i, k], action_dim)
 
                 h_top = rssm.top_hidden(h_cur).squeeze(0).detach()
                 z_flat = z_cur.squeeze(0).detach()
@@ -804,7 +802,7 @@ def compute_control_metrics(world_model, val_dataloader,
         z = rssm.sample_latent(mean_post, logstd_post)
 
         for t in range(seq_len):
-            a_t = F.one_hot(actions_seq[:, t], num_classes=action_dim).float()
+            a_t = actions_to_vec(actions_seq[:, t], action_dim)
             h = rssm.update_hidden(h, z, a_t)
             mean_post, logstd_post = rssm.posterior(h, next_obs_seq[:, t])
             z = rssm.sample_latent(mean_post, logstd_post)
@@ -830,18 +828,27 @@ def compute_control_metrics(world_model, val_dataloader,
     all_a = torch.cat(collected_a)[:max_states]
     N = all_h.size(0)
 
-    # Metric 1: Controllability (discrete actions)
-    h_rep = all_h.repeat_interleave(action_dim, dim=0)
-    z_rep = all_z.repeat_interleave(action_dim, dim=0)
-    a_all = torch.eye(action_dim, device=device).repeat(N, 1)
+    # Metric 1: Controllability (action sensitivity).
+    # Discrete: one probe per action (one-hot basis). Continuous: fixed
+    # extreme-action probes spanning the box (corners + centre).
+    if all_a.dtype.is_floating_point:
+        assert action_dim == 2, "continuous emp_C probes assume 2-D actions"
+        probes = torch.tensor([[-1., -1.], [-1., 1.], [1., -1.], [1., 1.], [0., 0.]],
+                              device=device)
+    else:
+        probes = torch.eye(action_dim, device=device)
+    K = probes.size(0)
+    h_rep = all_h.repeat_interleave(K, dim=0)
+    z_rep = all_z.repeat_interleave(K, dim=0)
+    a_all = probes.repeat(N, 1)
     h_next_all, z_next_all = _prior_step(h_rep, z_rep, a_all)
-    next_states = _state_cat(h_next_all, z_next_all).reshape(N, action_dim, -1)
+    next_states = _state_cat(h_next_all, z_next_all).reshape(N, K, -1)
 
     ctrl_per_state = torch.zeros(N, device=device)
-    for i in range(action_dim):
-        for j in range(i + 1, action_dim):
+    for i in range(K):
+        for j in range(i + 1, K):
             ctrl_per_state += (next_states[:, i] - next_states[:, j]).norm(dim=-1)
-    ctrl_per_state *= 2.0 / (action_dim * (action_dim - 1))
+    ctrl_per_state *= 2.0 / (K * (K - 1))
     ctrl_mean = ctrl_per_state.mean().item()
     ctrl_min = ctrl_per_state.min().item()
 
@@ -855,7 +862,7 @@ def compute_control_metrics(world_model, val_dataloader,
         si = obs_idx[pos]
         h_i = all_h[si:si + 1]
         z_i = all_z[si:si + 1]
-        a_i = F.one_hot(all_a[si], num_classes=action_dim).float().unsqueeze(0)
+        a_i = actions_to_vec(all_a[si], action_dim).unsqueeze(0)
 
         h_base, z_base = _prior_step(h_i, z_i, a_i)
         s_base = _state_cat(h_base, z_base)
@@ -875,7 +882,24 @@ def compute_control_metrics(world_model, val_dataloader,
     all_ratios = []
     eps_L = 1e-6
 
-    for action_id in range(action_dim):
+    if all_a.dtype.is_floating_point:
+        # Continuous actions: pair arbitrary states, evaluate both members
+        # under the first member's stored action (same-action-per-pair).
+        n_pairs = min(N * (N - 1) // 2, 2000)
+        idx_a = torch.randint(0, N, (n_pairs,), device=device, generator=rng)
+        idx_b = torch.randint(0, N, (n_pairs,), device=device, generator=rng)
+        _valid = idx_a != idx_b
+        idx_a, idx_b = idx_a[_valid], idx_b[_valid]
+        if idx_a.numel() > 0:
+            s_a = _state_cat(all_h[idx_a], all_z[idx_a])
+            s_b = _state_cat(all_h[idx_b], all_z[idx_b])
+            d_in = (s_a - s_b).norm(dim=-1)
+            a_pair = all_a[idx_a]
+            h_na, z_na = _prior_step(all_h[idx_a], all_z[idx_a], a_pair)
+            h_nb, z_nb = _prior_step(all_h[idx_b], all_z[idx_b], a_pair)
+            d_out = (_state_cat(h_na, z_na) - _state_cat(h_nb, z_nb)).norm(dim=-1)
+            all_ratios.append(d_out / (d_in + eps_L))
+    for action_id in range(0 if all_a.dtype.is_floating_point else action_dim):
         action_mask = (all_a == action_id)
         h_grp = all_h[action_mask]
         z_grp = all_z[action_mask]

@@ -1,0 +1,57 @@
+world_model:
+  action_dim: 2
+  capacity:
+    latent_dim: 16
+    hidden_dim: 256
+    mlp_hidden_dim: 256
+    gru_num_layers: 1
+  loss_weights:
+    reconstruction: 1.0
+    reward: 1.2
+    kl: 1.0
+    done: 0.5
+  epochs: 15
+  val_freq: 5
+  lr: 0.0001
+  beta_kl: 0.5
+  batch_size: 64
+  sequence_length: 30
+  dataset_seq_offset: 5
+  checkpoint_freq: 5
+  obs_structure:
+    physics_dim: 6
+    contact_dim: 2
+metrics:
+  warmup_steps: 5
+  planning_horizon: 25
+actor_critic:
+  action_dim: 2
+  sequence_length: 5
+  dataset_seq_offset: 5
+  warmup_steps: 5
+  imagination_steps: 15
+  gamma: 0.99
+  lambda_gae: 0.95
+  capacity:
+    latent_dim: 16
+    hidden_dim: 256
+    mlp_hidden_dim: 256
+    gru_num_layers: 1
+  loss_weights:
+    actor: 1.0
+    critic: 0.3
+    entropy: 0.5
+    entropy_final: 0.15
+  advantage_clip: 0.9
+  actor_grad_clip: 1.8
+  critic_grad_clip: 100.0
+  collapse_entropy_threshold: 0.1
+  collapse_actor_grad_threshold: 0.002
+  collapse_max_action_prob_threshold: 0.96
+  collapse_patience_epochs: 5
+  low_entropy_actor_lr_threshold: 0.25
+  reduced_actor_lr: 5.0e-06
+  epochs: 1000
+  lr: 3.0e-05
+  batch_size: 256
+  checkpoint_freq: 50

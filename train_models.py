@@ -17,7 +17,7 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
 
-from models import WorldModel, Actor, Critic
+from models import actions_to_vec, WorldModel, Actor, Critic
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 CHECKPOINT_DIR = "checkpoints"
@@ -46,7 +46,8 @@ def log_message(message, log_path=None):
             f.write(message + "\n")
 
 
-def get_latest_checkpoint(model_name, directory=CHECKPOINT_DIR):
+def get_latest_checkpoint(model_name, directory=None):
+    directory = directory or CHECKPOINT_DIR
     """Find the most recent checkpoint for a given model name."""
     pattern = os.path.join(directory, f"{model_name}_*.pt")
     checkpoints = glob.glob(pattern)
@@ -56,7 +57,8 @@ def get_latest_checkpoint(model_name, directory=CHECKPOINT_DIR):
     return checkpoints[0]
 
 
-def save_checkpoint_with_timestamp(model, model_name, epoch, directory=CHECKPOINT_DIR, log_path=None):
+def save_checkpoint_with_timestamp(model, model_name, epoch, directory=None, log_path=None):
+    directory = directory or CHECKPOINT_DIR
     """Save a model checkpoint with timestamp."""
     os.makedirs(directory, exist_ok=True)
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -74,7 +76,8 @@ class SequenceDataset(Dataset):
     def __init__(self, path, sequence_length, action_dim, random_start=True, dataset_seq_offset=20):
         data = np.load(path)
         self.obs = data["obs"].astype(np.float32)
-        self.actions = data["actions"].astype(np.int64)
+        _acts = data["actions"]
+        self.actions = _acts.astype(np.float32) if _acts.dtype.kind == "f" else _acts.astype(np.int64)
         self.rewards = data["rewards"].astype(np.float32)
         self.next_obs = data["next_obs"].astype(np.float32)
         self.dones = data["dones"].astype(np.int64)
@@ -85,7 +88,7 @@ class SequenceDataset(Dataset):
         self.dataset_seq_offset = max(1, int(dataset_seq_offset))
         self.obs_dim = self.obs.shape[1]
         self.action_dim = int(action_dim) # need to pass action_dim since we only store action IDs in the dataset
-        if self.actions.size and self.actions.max() >= self.action_dim:
+        if self.actions.dtype.kind != "f" and self.actions.size and self.actions.max() >= self.action_dim:
             raise ValueError(
                 f"Dataset actions exceed action_dim={self.action_dim}; "
                 f"max action={int(self.actions.max())}"
@@ -127,7 +130,10 @@ class SequenceDataset(Dataset):
         data_idxs = self.episode_indices[ep_pos]
 
         obs_seq = np.zeros((self.sequence_length, self.obs_dim), dtype=np.float32)
-        actions_seq = np.zeros((self.sequence_length,), dtype=np.int64)
+        if self.actions.ndim == 2:
+            actions_seq = np.zeros((self.sequence_length, self.actions.shape[1]), dtype=np.float32)
+        else:
+            actions_seq = np.zeros((self.sequence_length,), dtype=np.int64)
         rewards_seq = np.zeros((self.sequence_length,), dtype=np.float32)
         next_obs_seq = np.zeros((self.sequence_length, self.obs_dim), dtype=np.float32)
         dones_seq = np.zeros((self.sequence_length,), dtype=np.int64)
@@ -224,7 +230,7 @@ def train_world_model(world_model, train_dataloader, val_dataloader, epochs=10, 
             #   - predict_done(h_{t+1}, z_{t+1})   → done flag for (s_t, a_t) transition
             #   - KL(posterior || prior) at t+1
             for t in range(seq_len):
-                a_t = torch.nn.functional.one_hot(actions_seq[:, t], num_classes=action_dim).float()
+                a_t = actions_to_vec(actions_seq[:, t], action_dim)
 
                 # Roll hidden state forward: h_{t+1} = GRU(h_t, z_t, a_t)
                 h = world_model.rssm.update_hidden(h, z, a_t)
@@ -332,7 +338,7 @@ def validate_world_model(world_model, val_dataloader, beta_kl=1.0, loss_weights=
 
             # Transition loop: predict s_{t+1} from (s_t, a_t), supervise with next_obs[t]
             for t in range(seq_len):
-                a_t = torch.nn.functional.one_hot(actions_seq[:, t], num_classes=action_dim).float()
+                a_t = actions_to_vec(actions_seq[:, t], action_dim)
 
                 # h_{t+1} = GRU(h_t, z_t, a_t)
                 h = world_model.rssm.update_hidden(h, z, a_t)
@@ -461,7 +467,7 @@ def imagine_rollout(world_model, actor, obs_seq, actions_seq,
 
         # Continue warmup: transition (s_t, a_t) → s_{t+1} via obs_seq
         for t in range(warmup_steps - 1):
-            a_t = torch.nn.functional.one_hot(actions_seq[:, t], num_classes=action_dim).float()
+            a_t = actions_to_vec(actions_seq[:, t], action_dim)
             h = world_model.rssm.update_hidden(h, z, a_t)
             mean_post, logstd_post = world_model.rssm.posterior(h, obs_seq[:, t + 1])
             z = world_model.rssm.sample_latent(mean_post, logstd_post)
@@ -724,9 +730,16 @@ def main():
                         help='Path to training dataset')
     parser.add_argument('--val_dataset', type=str, default='lunarlander_val_dataset.npz',
                         help='Path to validation dataset (world model only)')
+    parser.add_argument('--fresh', action='store_true',
+                        help='Start training from scratch (skip auto-resume)')
+    parser.add_argument('--checkpoint_dir', default=None,
+                        help='Override checkpoint directory (default: checkpoints)')
     parser.add_argument('--seed', type=int, default=12345,
                         help='Random seed for reproducibility')
     args = parser.parse_args()
+    global CHECKPOINT_DIR
+    if args.checkpoint_dir:
+        CHECKPOINT_DIR = args.checkpoint_dir
 
     set_seed(args.seed)
 
@@ -777,7 +790,7 @@ def main():
             mlp_hidden_dim=mlp_hidden_dim,
         ).to(DEVICE)
 
-        latest_checkpoint = get_latest_checkpoint("world_model")
+        latest_checkpoint = None if args.fresh else get_latest_checkpoint("world_model")
         start_epoch = 0
         if latest_checkpoint:
             world_model.load_state_dict(torch.load(latest_checkpoint, map_location=DEVICE))
@@ -787,7 +800,7 @@ def main():
                 start_epoch = int(epoch_str)
             except ValueError:
                 pass
-        elif os.path.exists("world_model.pt"):
+        elif not args.fresh and os.path.exists("world_model.pt"):
             world_model.load_state_dict(torch.load("world_model.pt", map_location=DEVICE))
             log_message("Loaded world model from world_model.pt", log_path)
 
