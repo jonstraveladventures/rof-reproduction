@@ -357,6 +357,7 @@ def compute_jacobian_metrics(world_model, val_dataloader,
     rcf_list = []
     ocf_list = []
     rof_list = []
+    rof_soft_list = []
 
     try:
         for i in range(N):
@@ -467,6 +468,17 @@ def compute_jacobian_metrics(world_model, val_dataloader,
                 rof = float('nan')
             rof_list.append(rof)
 
+            # Soft-EIG ROF (pre-registered 2026-07-07): EIG-derived direction
+            # weights w_i = log(1+s_i^2)/log(1+s_max^2) replace the hard
+            # 1e-3 rank threshold. Unit prior scale; no other variants.
+            if R_norm_sq > 1e-12 and len(S_o) > 0:
+                w_soft = torch.log1p(S_o.pow(2))
+                w_soft = w_soft / w_soft[0].clamp_min(1e-12)
+                proj = (Mat_o.new_tensor(0.0) + (Vh_o @ R_vec)).pow(2) / R_norm_sq
+                rof_soft_list.append(float((w_soft * proj).sum().item()))
+            else:
+                rof_soft_list.append(float('nan'))
+
     finally:
         for name, p in world_model.named_parameters():
             p.requires_grad_(param_grad_flags[name])
@@ -489,6 +501,8 @@ def compute_jacobian_metrics(world_model, val_dataloader,
         'jac_rcf': float(np.mean(finite_rcf)) if finite_rcf else float('nan'),
         'jac_ocf': float(np.mean(finite_ocf)) if finite_ocf else float('nan'),
         'jac_rof': float(np.mean(finite_rof)) if finite_rof else float('nan'),
+        'jac_rof_soft': float(np.mean([v for v in rof_soft_list if not np.isnan(v)]))
+                        if any(not np.isnan(v) for v in rof_soft_list) else float('nan'),
     }
 
 
@@ -1015,6 +1029,10 @@ def format_metrics(metrics):
                 metrics.get('jac_dyn_rof', float('nan'))))
 
     # Jacobian ROF on bad episodes
+    if 'jac_rof_soft' in metrics:
+        lines.append("jac_rof_soft={:.4f} jac_rof_soft_bad={:.4f}".format(
+            metrics.get('jac_rof_soft', float('nan')),
+            metrics.get('jac_rof_soft_bad', float('nan'))))
     if 'jac_rof_bad' in metrics:
         lines.append(
             "jac_rof_bad={:.4f} jac_dyn_rof_bad={:.4f}".format(
@@ -1223,6 +1241,7 @@ def main():
                                                    horizon=planning_horizon,
                                                    warmup_steps=warmup_steps)
                 metrics['jac_rof_bad'] = jac_bad.get('jac_rof', float('nan'))
+                metrics['jac_rof_soft_bad'] = jac_bad.get('jac_rof_soft', float('nan'))
                 if args.compute_dyn_jac:
                     jac_dyn_bad = compute_jacobian_metrics_tv(world_model, jac_bad_dl,
                                                              n_states=args.n_jac_states,
