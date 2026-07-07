@@ -53,26 +53,46 @@ def load_world_model(config_path, checkpoint_path, obs_dim):
 
 @torch.no_grad()
 def evaluate_action_sequences(world_model, h0, z0, action_sequences, args):
-    """action_sequences: [P, H, A] in [-1, 1]. Returns discounted scores [P]."""
+    """action_sequences: [P, H, A] in [-1, 1]. Returns discounted scores [P].
+
+    Optional anti-exploitation terms (defaults off = matched-budget baseline):
+      args.done_gate: gate rewards by predicted survival (done head)
+      args.unc_lambda: penalise by the prior's predicted std (model's own
+                       uncertainty at imagined states)
+    """
     P = action_sequences.size(0)
-    h = h0.expand(P, *h0.shape[1:]).contiguous() if h0.dim() == 2 else \
-        h0.expand(P, *h0.shape[1:]).contiguous()
+    h = h0.expand(P, *h0.shape[1:]).contiguous()
     z = z0.expand(P, -1).contiguous()
     scores = torch.zeros(P, device=DEVICE)
+    alive = torch.ones(P, device=DEVICE)
+    done_gate = getattr(args, "done_gate", False)
+    unc_lambda = getattr(args, "unc_lambda", 0.0)
     discount = 1.0
     for k in range(args.horizon):
         a_k = action_sequences[:, k]
         h = world_model.rssm.update_hidden(h, z, a_k)
-        z, _ = world_model.rssm.prior(h)
+        z, logstd = world_model.rssm.prior(h)
         reward = world_model.predict_reward(h, z).squeeze(-1)
+        if unc_lambda > 0.0:
+            reward = reward - unc_lambda * logstd.exp().mean(dim=-1)
         discount *= args.gamma
-        scores += discount * reward
+        if done_gate:
+            scores += discount * alive * reward
+            _, _, done_logits = world_model.decode_heads(h, z)
+            p_done = torch.sigmoid(done_logits.squeeze(-1))
+            alive = alive * (1.0 - p_done)
+        else:
+            scores += discount * reward
     return scores
 
 
 @torch.no_grad()
-def cem_plan(world_model, h0, z0, action_dim, args):
-    mu = torch.zeros(args.horizon, action_dim, device=DEVICE)
+def cem_plan(world_model, h0, z0, action_dim, args, warm_mu=None):
+    if warm_mu is not None:
+        # shift previous plan one step; repeat last action for the tail
+        mu = torch.cat([warm_mu[1:], warm_mu[-1:]], dim=0).clone()
+    else:
+        mu = torch.zeros(args.horizon, action_dim, device=DEVICE)
     sigma = torch.full((args.horizon, action_dim), args.cem_init_std, device=DEVICE)
     best_sequence, best_score = None, float("-inf")
     for _ in range(args.cem_iters):
@@ -87,7 +107,7 @@ def cem_plan(world_model, h0, z0, action_dim, args):
         mu = args.cem_alpha * elite_seqs.mean(dim=0) + (1.0 - args.cem_alpha) * mu
         sigma = (args.cem_alpha * elite_seqs.std(dim=0, unbiased=False)
                  + (1.0 - args.cem_alpha) * sigma).clamp_min(args.cem_min_std)
-    return best_sequence[0].cpu().numpy(), best_score
+    return best_sequence[0].cpu().numpy(), best_score, mu
 
 
 def run_episodes(world_model, action_dim, args):
@@ -100,6 +120,7 @@ def run_episodes(world_model, action_dim, args):
         h = world_model.rssm.init_hidden(batch_size=1, device=DEVICE)
         z = torch.zeros(1, world_model.rssm.latent_dim, device=DEVICE)
         prev_action = np.zeros(action_dim, dtype=np.float32)
+        plan_mu = None
         ep_return, steps, done = 0.0, 0, False
         t0 = time.perf_counter()
         while not done and steps < args.max_steps:
@@ -111,8 +132,11 @@ def run_episodes(world_model, action_dim, args):
                 h, z, _, _, _, _ = world_model.rssm.step(h, z, prev_a, obs_t)
             if landed:
                 action = np.zeros(action_dim, dtype=np.float32)
+                plan_mu = None
             else:
-                action, _ = cem_plan(world_model, h, z, action_dim, args)
+                action, _, new_mu = cem_plan(world_model, h, z, action_dim, args,
+                                             warm_mu=plan_mu if args.warm_start else None)
+                plan_mu = new_mu
             next_obs, reward, terminated, truncated, _ = env.step(action)
             done = bool(terminated or truncated)
             ep_return += float(reward)
@@ -147,6 +171,9 @@ def main():
     p.add_argument("--cem_init_std", type=float, default=0.5)
     p.add_argument("--cem_min_std", type=float, default=0.05)
     p.add_argument("--gamma", type=float, default=0.97)
+    p.add_argument("--done_gate", type=lambda s: s.lower() not in {"0", "false", "no"}, default=False)
+    p.add_argument("--unc_lambda", type=float, default=0.0)
+    p.add_argument("--warm_start", type=lambda s: s.lower() not in {"0", "false", "no"}, default=False)
     args = p.parse_args()
 
     env = gym.make("LunarLander-v3", continuous=True)
