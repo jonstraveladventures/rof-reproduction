@@ -1,0 +1,173 @@
+% !TEX program = xelatex
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2.8cm]{geometry}
+\usepackage{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newtheorem{observation}{Observation}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Obs}{\mathcal{O}}
+\newcommand{\ROF}{\mathrm{ROF}}
+
+\title{What the Reward Observability Fraction measures:\\ the observable subspace as Fisher-information support}
+\author{Jonathan Shock\\University of Cape Town}
+\date{10 July 2026 (working note, draft v0.3)}
+
+\begin{document}
+\maketitle
+
+%\begin{abstract}
+%Smolyanskiy (2026) introduces the Reward Observability Fraction (ROF), the fraction of a learned world model's reward gradient lying in the observable subspace of its linearised dynamics, and shows that in the paper's training run it correlates strongly with closed-loop planning performance across checkpoints while prediction losses do not. This note gives the quantity a formal reading. In the linear-Gaussian setting, the observable subspace at planning horizon $H$ is exactly the set of state directions about which the observation bundle carries Fisher information; this holds for every positive-definite noise model and every prior. ROF is therefore the overlap between the reward read-out and the subspace that sensing can actually inform, and $1-\ROF$ is the fraction of the reward computation built on belief coordinates about which the likelihood is silent: coordinates that open-loop imagination must maintain without any possibility of correction. Under the homoscedastic (MSE) decoders used in practice, the paper's unweighted construction recovers the correctly Fisher-weighted object exactly. We also record a negative result, committed to before evaluation: weighting directions by information \emph{magnitude} rather than support membership destroys half the predictive signal, and the spectral profile of trained models explains why (reward-relevant observable energy is spread nearly uniformly across the spectrum, down to the marginally observable directions). Perturbation probes on the paper's released checkpoints validate the support statement at the nonlinear model and expose the actual correction mechanism of amortised RSSMs: the posterior corrects only the stochastic head $z$, never the deterministic path $h$.
+%\end{abstract}
+
+\section{Setting}
+
+Consider the linear-Gaussian state-space system
+\begin{equation}
+s_{t+1} = A s_t + B u_t + w_t, \qquad
+o_t = C s_t + v_t, \qquad
+r_t = R\, s_t,
+\label{eq:lgss}
+\end{equation}
+with state $s_t \in \R^n$, known inputs $u_t \in \R^m$, observations $o_t \in \R^p$, process noise $w_t \sim \mathcal N(0, Q)$ with $Q \succeq 0$, observation noise $v_t \sim \mathcal N(0, \Sigma_v)$ with $\Sigma_v \succ 0$, all noises independent across time, and a linear reward functional $R \in \R^{1\times n}$. In the intended application, \eqref{eq:lgss} is the linearisation of a learned recurrent state-space model (RSSM) at a sampled belief state. Here $A = \partial f_\theta/\partial s$, $C = \partial g_\theta/\partial s$, and $R = \partial \rho_\theta / \partial s$ in the notation of 2607.01736, and $H$ is that paper's planning horizon.
+
+Fix a horizon $H \ge 1$ and define the $H$-step observability matrix and Gramian
+\begin{equation}
+O_H \;=\; \begin{bmatrix} C \\ CA \\ \vdots \\ CA^{H-1} \end{bmatrix} \in \R^{Hp \times n},
+\qquad
+G_H \;=\; O_H^\top O_H \;=\; \sum_{k=0}^{H-1} (A^k)^\top C^\top C A^k .
+\end{equation}
+The \emph{$H$-step observable subspace} is $\Obs_H = \mathrm{range}(O_H^\top) = \mathrm{range}(G_H) \subseteq \R^n$, with orthogonal complement $\Obs_H^\perp = \ker(O_H)$. Write $P_{\Obs}$ for the orthogonal projector onto $\Obs_H$. All statements below are horizon-indexed. No controllability or minimality assumptions are made, and $H$ may be smaller than $n$.
+
+The empirical quantity of interest is the Reward Observability Fraction,
+\begin{equation}
+\ROF \;=\; \frac{\lVert P_{\Obs}\, R^\top \rVert^2}{\lVert R^\top \rVert^2} \;\in\; [0,1],
+\end{equation}
+the fraction of the reward gradient's energy in the observable subspace. (The empirical construction estimates $P_\Obs$ by thresholded SVD of $O_H$. Section~\ref{sec:homoscedastic} locates the gap between the thresholded estimate and the exact support.)
+
+\section{The observable subspace $=$ the support of the Fisher information}
+
+Stack the observation bundle $o_{0:H-1} = (o_0^\top, \dots, o_{H-1}^\top)^\top$: the current observation and the $H-1$ that follow. This convention matches the empirical construction, which builds $O_H$ from Jacobians at the current state. From \eqref{eq:lgss}, conditional on the current state $s_0$ and the known inputs,
+\begin{equation}
+o_{0:H-1} \;=\; O_H\, s_0 \;+\; \mu(u_{0:H-2}) \;+\; \eta,
+\qquad \eta \sim \mathcal N(0, \Sigma_o),
+\label{eq:bundle}
+\end{equation}
+where $\mu(\cdot)$ collects the known input contributions and $\eta$ collects the propagated process noise and the observation noise. The sensitivity of the bundle to the state is then exactly $\partial o_{0:H-1}/\partial s_0 = O_H$, so the matrix $J$ in the theorem below is literally the bundle's Fisher information. Since $\Sigma_v \succ 0$, we have $\Sigma_o \succ 0$ regardless of $Q$. Note that the noise $\eta$ is correlated across blocks whenever $Q \ne 0$, and nothing below requires whiteness.
+
+\begin{theorem}[Support form]\label{thm:support}
+For the system \eqref{eq:lgss} with $\Sigma_v \succ 0$:
+\begin{enumerate}
+\item[(a)] The Fisher information of the bundle $o_{0:H-1}$ about the state $s$,
+$J = O_H^\top \Sigma_o^{-1} O_H$,
+satisfies $\ker J = \ker O_H$; hence $\mathrm{range}(J) = \Obs_H$ for \emph{every} admissible noise model $(Q, \Sigma_v)$.
+\item[(b)] The likelihood factorises through the observable projection:
+$p(o_{0:H-1} \mid s) = p(o_{0:H-1} \mid P_{\Obs}\, s)$.
+Consequently, for every prior $\pi$ over $s$,
+\[
+I\big(s;\, o_{0:H-1}\big) \;=\; I\big(P_{\Obs}\, s;\, o_{0:H-1}\big),
+\]
+and any reduction in posterior uncertainty about a functional of $(I - P_{\Obs})\,s$ is mediated entirely by prior correlations with $P_{\Obs}\, s$, never by the likelihood.
+\item[(c)] Therefore $\ROF$ is the fraction of the reward gradient's energy lying in the subspace observations carry information about, and $1 - \ROF$ is the fraction lying in directions about which observations are likelihood-wise silent over the horizon.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) For $x \in \R^n$, $x^\top J x = \lVert \Sigma_o^{-1/2} O_H x \rVert^2$, which vanishes iff $O_H x = 0$ since $\Sigma_o^{-1/2}$ is invertible. Positive semidefiniteness gives $\ker J = \{x : x^\top J x = 0\}$, and $\mathrm{range}(J) = (\ker J)^\perp = (\ker O_H)^\perp = \Obs_H$.
+
+(b) By \eqref{eq:bundle} the conditional law of $o_{0:H-1}$ given $s$ is Gaussian with mean $O_H s + \mu$ and covariance $\Sigma_o$ free of $s$. Since $O_H (I - P_\Obs) = 0$, the mean depends on $s$ only through $P_\Obs s$, and hence so does the conditional law. The mutual-information identity follows from the data-processing equality for sufficient statistics: $P_\Obs s$ is a sufficient ``parameter'' for the channel $s \to o_{0:H-1}$. The final clause is the standard observation that a likelihood carrying no direct information about a coordinate can reduce its posterior uncertainty only through prior coupling.
+
+(c) Immediate from (b) and the definition of $\ROF$.
+\end{proof}
+
+\begin{remark}
+Part (b) is deliberately prior-free. A statement of the form ``the posterior variance of $R s$ does not shrink when $R^\top \in \Obs_H^\perp$'' is \emph{false} in general, because a correlated prior lets observable coordinates inform unobservable ones. What is true without qualification is that sensing itself is silent about $\Obs_H^\perp$. Any apparent learning there is inherited correlation. This is the precise sense in which $\Obs_H$ is the support of what sensing can teach the belief.
+\end{remark}
+
+\begin{remark}[Planning reading]
+High $\ROF$: the reward read-out is built on coordinates that only observation-driven correction keeps calibrated, and open-loop imagination, which receives no observations by construction, must let them drift. Low $\ROF$: the reward read-out uses coordinates the model maintains endogenously, so severing the observation stream costs the value computation comparatively little. Section~\ref{sec:drift} tests the mechanism behind this reading and revises it: the correction that imagination forgoes turns out to be not per-coordinate Kalman innovation but a single amortised $z$-channel.
+\end{remark}
+
+\section{The homoscedastic case and thresholded estimates}\label{sec:homoscedastic}
+
+\begin{corollary}[MSE decoders]\label{cor:mse}
+Suppose $\Sigma_v = \sigma^2 I$ and $Q = 0$. Then $\Sigma_o = \sigma^2 I$ and $J = \sigma^{-2} G_H$: the Fisher information is a positive multiple of the unweighted Gramian, so the unweighted SVD of $O_H$ used in the empirical construction recovers not only the correct support but the correct principal directions and (up to the factor $\sigma^{-2}$) the correct spectrum.
+\end{corollary}
+
+For models trained with homoscedastic (MSE) reconstruction losses, the observation-noise assumption $\Sigma_v = \sigma^2 I$ is the model's own. The corollary's exact-spectrum claim additionally needs $Q = 0$, which an RSSM's stochastic latent transition violates, so for trained RSSMs the unweighted construction is guaranteed to recover only the support (Theorem~\ref{thm:support}(a)) rather than the Fisher directions and spectrum. The support is all the $\ROF$ projection uses. (The binary contact heads of the actual decoder make even the homoscedastic Gaussian observation model an idealisation, and again only the support statement is needed.)
+
+\begin{remark}
+With $Q \ne 0$ the whitening $\Sigma_o^{-1/2}$ generally changes singular values and vectors, but by Theorem~\ref{thm:support}(a) it never changes the support. Since the empirical quantity of interest is a projection onto the support, the unweighted construction remains correct wherever the numerical rank is unambiguous. The practical estimator thresholds the singular values $\sigma_i$ of $O_H$ at $10^{-3}\,\sigma_{\max}$, with $\sigma_{\max}$ the largest. This approximates the support and introduces the one genuine gap between theory and practice. The negative result in the next section probes the behaviour of the construction near exactly this threshold.
+\end{remark}
+
+\section{A negative result: support membership, not information magnitude}\label{sec:negative}
+
+Theorem~\ref{thm:support} says nothing about \emph{how much} information a direction carries, only whether it carries any. One might nevertheless conjecture that directions with larger singular values (more informative under sensing) matter more for the reward read-out, suggesting a threshold-free variant
+\[
+\ROF_{\mathrm{soft}} \;=\; \sum_i w_i\, \langle v_i, \hat r\rangle^2,
+\qquad w_i = \frac{\log(1+\sigma_i^2)}{\log(1+\sigma_{\max}^2)},
+\]
+with $\{(\sigma_i, v_i)\}$ the singular pairs of $O_H$ and $\hat r = R^\top/\lVert R^\top\rVert$. We fixed this variant (formula and all conventions) before computing any correlation, then evaluated it on the 100 released checkpoints of the empirical paper against its model-predictive-control (MPC) oracle.
+
+\begin{observation}[Magnitude weighting fails]\label{obs:soft}
+On the discrete LunarLander system: $\mathrm{rof\_combined}$, the empirical paper's pooled composite of the hard-threshold $\ROF$ defined above, correlates with smoothed MPC return at $\rho_s = -0.69$ (independent re-run; $-0.71$ in the original logs), while $\ROF_{\mathrm{soft}}$ achieves only $\rho_s = -0.345$, despite correlating with the hard form at $+0.71$ across checkpoints. The information-magnitude weighting destroys roughly half the predictive signal. This hard-versus-soft comparison is made within a single training run, so it is unaffected by the run-dependence of the correlation's sign discussed in the final section.
+\end{observation}
+
+\begin{observation}[Spectral profile]\label{obs:spectrum}
+At two representative checkpoints (epochs 280 and 450: plateau and late training), the reward gradient's energy within the observable subspace is spread nearly uniformly across the spectrum. Illustrative, non-exhaustive bands: the top five directions carry $\approx 0.08$ of the total energy, the mid-spectrum directions $\approx 0.06$, and the weakly observable band near the rank threshold $\approx 0.08$--$0.11$, with $\approx 0.60$ below threshold ($=1-\ROF$, a consistency check). Planning-relevant reward structure is therefore not concentrated in the strongly observable directions. It extends to the marginally observable ones. Support membership, not information magnitude, is the operative property, as Theorem~\ref{thm:support} asserts and Observation~\ref{obs:soft} confirms empirically.
+\end{observation}
+
+\section{Empirical validity of Theorem 1 at the nonlinear model}
+
+The theorem is exact only for the linearisation. Perturbation probes (five checkpoints, twelve belief states each, with probe design and acceptance bounds fixed before running) test whether the trained nonlinear model respects it.
+
+\begin{observation}[Observation silence]\label{obs:d1}
+We perturb belief states by $\varepsilon \in \{0.05, 0.1, 0.3\}$ along deep-kernel directions (directions well inside $\ker O_H = \Obs_H^\perp$) versus observable directions at matched magnitude, and roll open-loop for $H=25$. The ratio of observation-space responses (kernel over observable) has median $0.012$--$0.019$ at every $\varepsilon$ and every checkpoint tested. This is an order of magnitude inside the pre-set bound of $0.15$, and flat in $\varepsilon$ up to $0.3$. Likelihood-silence about the kernel is a property of the trained nonlinear model, not an artefact of linearisation.
+\end{observation}
+
+\section{Open-loop drift: the amortised correction channel}\label{sec:drift}
+
+A Kalman-style intuition offers an immediate mechanism for why reading reward from $\Obs_H$ should hurt \emph{planning} specifically: the filter corrects observable errors, and imagination forgoes those corrections. A perturbation probe shows this intuition is \emph{architecturally wrong} for amortised RSSMs, in an instructive way.
+
+\begin{observation}[The amortised filter corrects only the stochastic head]\label{obs:d2}
+Injecting matched-magnitude state errors and running the teacher-forced posterior chain on true observations: observable-direction errors \emph{persist} ($0.64$--$0.93$ of initial norm remaining at $t=10$) while kernel-direction errors decay fast ($0.11$--$0.17$), the reverse of the Kalman prediction, consistently across checkpoints. The mechanism is structural. The amortised posterior resamples only $z$, and the deterministic path $h$ receives no observation-driven correction, so error decay is governed by the trained recurrence rather than by observability: kernel directions are unused capacity the gated recurrent unit (GRU) contracts away, while observable directions carry information the recurrence is trained to preserve, perturbations included. Measured coupling confirms the same point at the linear level. Writing $V_o$ and $V_u$ for orthonormal bases of $\Obs_H$ and $\Obs_H^\perp$ respectively, the Frobenius-norm ratio $\lVert V_u^\top A V_o\rVert_F / \lVert V_o^\top A V_o\rVert_F$ has median $1.19$--$1.27$ across sampled states, so the decoupling idealisation below is far from trained systems.
+\end{observation}
+
+The correct mechanism statement for this model class is therefore: the \emph{only} difference between the filtered and open-loop chains is the per-step substitution of the prior's $z$ for the posterior's $z$, cascading into $h$ through the recurrence. High-$\ROF$ reward heads read from coordinates whose calibration is maintained through that single $z$-channel. In imagination the channel is severed, and the coordinates the recurrence faithfully preserves are then faithfully preserving \emph{stale} information. Kalman-style decoupling remains useful as an idealisation of when the severed channel's effect stays confined, but it needs a hypothesis the general setting does not supply.
+
+Decompose the state in observability coordinates, $s = (x_1, x_2)$ with $x_1 \in \Obs_H$ and $x_2 \in \Obs_H^\perp$. For the pair $(A, C)$ to take the block form
+\[
+A = \begin{bmatrix} A_{11} & 0 \\ A_{21} & A_{22} \end{bmatrix},
+\qquad
+C = \begin{bmatrix} C_1 & 0 \end{bmatrix},
+\]
+the unobservable subspace $\Obs_H^\perp = \ker O_H$ must be $A$-invariant, equivalently $\ker O_H = \ker O_{H+1}$ (the observability index is at most $H$). This holds automatically for $H \ge n$ by Cayley--Hamilton, but for $H < n$ it is a genuine additional hypothesis, and it fails in the intended application, where $H = 25$ is far below the state dimension. Assume it here to isolate the mechanism in its cleanest form. Run two mean chains under identical actions: the filtered chain (posterior means, receiving observations) and the open-loop chain (no observations). Let $\delta_t$ denote their difference.
+
+\begin{proposition}[Drift difference lives in the observable coordinates when they decouple]\label{prop:drift}
+Assume $\Obs_H^\perp$ is $A$-invariant, so the block form above holds. The innovation corrections applied by the filter enter through the Kalman gain, and the difference obeys $\delta_{t+1} = A\,\delta_t + K_{t+1}\,\iota_{t+1}$ with $\iota$ the innovation. If the filtered covariance remains block-diagonal in the observability coordinates (sufficient conditions: $A_{21} = 0$, $Q$ block-diagonal, block-diagonal initial covariance), then $\mathrm{range}(K_t) \subseteq \Obs_H \times \{0\}$ for all $t$ and hence $\delta_t \in \Obs_H \times \{0\}$: the two chains differ only in the observable coordinates. A reward functional with $R^\top \in \Obs_H^\perp$ then satisfies $R\,\delta_t = 0$ for all $t$ (its open-loop read-out agrees exactly with its filtered read-out), while a functional supported in $\Obs_H$ inherits the full drift.
+\end{proposition}
+
+\begin{proof}[Proof sketch]
+Under the stated conditions the predicted covariance stays block-diagonal (the $(2,1)$ block of $A \Sigma A^\top$ vanishes when $A_{21}=0$ and $\Sigma$ is block-diagonal, and $Q$ preserves this), so $\Sigma C^\top = (\Sigma_{11} C_1^\top, 0)^\top$ and the gain's second block is zero. Induction over $t$ gives both claims, with the block-triangularity of $A$ ($A_{12}=0$ from invariance, $A_{21}=0$ by assumption) keeping $\delta$ in the first block.
+\end{proof}
+
+\begin{remark}[Leakage]
+Both hypotheses fail at trained systems, in different ways. Without $A_{21} = 0$ (or with process noise coupling the blocks), corrections to the unobservable coordinates do occur, mediated by the correlations the dynamics build, and drift leaks from $\Obs_H$ into $\Obs_H^\perp$ at a rate governed by $A_{21}$ and the cross-covariances. The measured coupling ratio in Observation~\ref{obs:d2} quantifies exactly this $A_{21}$-type block and finds it large ($\approx 1.2$). The $A$-invariance hypothesis fails separately for $H < n$: the $A_{12}$ block, whose vanishing the block form itself requires, was not measured by probes. Proposition~\ref{prop:drift} should therefore be read as a limiting case that organises intuition, not as a description of trained systems.
+\end{remark}
+
+\section{Discussion: why prediction losses cannot see this failure mode}
+
+The empirical paper's failing criterion, validation loss, scores every conditional at teacher-forced (posterior-filtered) states. Planning evaluates the same heads at \emph{prior-rolled} states. The two agree on the filtered manifold and are progressively unconstrained off it: this is the objective mismatch of Lambert et al.\ (arXiv:2002.04523), given a geometric location by Theorem~\ref{thm:support}. One can add a hypothesis, stated as such because nothing in this note quantifies it: since teacher forcing corrects the evaluation point in all coordinates at once, the training loss is to first order insensitive to \emph{where} reward-relevant information lives, in coordinates the $z$-channel can correct or in coordinates it cannot. Open-loop planning is not insensitive to that placement, and the reward head's support (which is what $\ROF$ measures) determines whether the discrepancy is value-relevant. On this reading the dissociation observed in the empirical paper (monotonically improving validation loss, collapsing planning value) is not a paradox but an expected consequence of selecting models by a functional that never queries the open-loop compositions planning depends on. A recent position paper (arXiv:2606.15032) argues for decision-centric evaluation of world models on independent grounds. The present note supplies a formal account of where prediction-centric evaluation goes blind, and a derived quantity measuring exposure to that blindness.
+
+Two further consequences of the hypothesis suggest themselves, both testable. First, if the loss is nearly flat along directions that move reward-relevant information between correctable and uncorrectable coordinates, late training can drift along this flat direction, and where it drifts may depend on the optimisation path. On this reading the collapse, and with it the sign of any ROF-performance correlation, is a property of the individual training run rather than of the dataset or architecture. The seed-replication experiment is consistent with this: retraining on identical data with only the training seed changed produces no collapse and a sign-flipped correlation (reported separately). Note that the reading is offered after that result rather than as a prediction of it, and a seed panel would be needed to test it. The geometric reading of $\ROF$ given here is independent of that finding, and it suggests using $\ROF$ less as a checkpoint selector and more as an instrument for watching reward-gradient migration during training. Second, the $z$-only correction channel (Observation~\ref{obs:d2}) suggests an intervention: constrain the reward head to read from the stochastic head $z$ alone, the one coordinate block the posterior actually corrects (or add an open-loop reward-consistency term to training), and test whether the collapse disappears.
+
+\paragraph{Limitations.}
+(i) All statements are for the linearised model at sampled states. The aggregation over states used empirically (means over good/bad pools) has no theorem yet, though Observation~\ref{obs:d1} shows the central conclusion survives nonlinearity at finite perturbations. (ii) The RSSM posterior is amortised and corrects only the stochastic head (Observation~\ref{obs:d2}), so Kalman-filter language applies to the $z$-channel alone. Proposition~\ref{prop:drift} rests on two premises that fail at trained systems: the measured $A_{21}$-type coupling is $\approx 1.2$, and the $A$-invariance of $\ker O_H$ required by the block form is not guaranteed for $H < n$ and fails in the intended application. (iii) The thresholded-SVD estimate of the support is the one construction step with no exact counterpart. Observations~\ref{obs:soft}--\ref{obs:spectrum} bound its behaviour empirically, but a perturbation analysis is open. (iv) The deterministic-stochastic split of the RSSM state ($h$ vs $z$) is absorbed into the linearisation, and a treatment respecting the split may sharpen Proposition~\ref{prop:drift}. (v) Reward heads are nonlinear, and $R$ is a local gradient.
+
+\end{document}

@@ -1,0 +1,72 @@
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage{newunicodechar}
+\usepackage{xcolor}
+\definecolor{primary}{HTML}{0F5C6B}
+\definecolor{primaryd}{HTML}{0B3D47}
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\color{primaryd}}
+\usepackage{mdframed}
+\usepackage{booktabs}
+\setlength{\heavyrulewidth}{0.9pt}
+% blockquote (used for the displayed formulas) -> shaded callout box
+\renewenvironment{quote}
+  {\begin{mdframed}[backgroundcolor=primary!7,linecolor=primary!35,linewidth=0.6pt,
+     innertopmargin=7pt,innerbottommargin=7pt,skipabove=8pt,skipbelow=8pt,roundcorner=3pt]\centering}
+  {\end{mdframed}}
+% --- math symbols (render with the math font in any context) ---
+\newunicodechar{−}{\ensuremath{-}}
+\newunicodechar{×}{\ensuremath{\times}}
+\newunicodechar{÷}{\ensuremath{\div}}
+\newunicodechar{·}{\ensuremath{\cdot}}
+\newunicodechar{∑}{\ensuremath{\textstyle\sum}}
+\newunicodechar{∫}{\ensuremath{\textstyle\int}}
+\newunicodechar{∼}{\ensuremath{\sim}}
+\newunicodechar{≈}{\ensuremath{\approx}}
+\newunicodechar{≤}{\ensuremath{\leq}}
+\newunicodechar{≥}{\ensuremath{\geq}}
+\newunicodechar{→}{\ensuremath{\rightarrow}}
+\newunicodechar{↔}{\ensuremath{\leftrightarrow}}
+\newunicodechar{⟨}{\ensuremath{\langle}}
+\newunicodechar{⟩}{\ensuremath{\rangle}}
+\newunicodechar{′}{\ensuremath{{}^{\prime}}}
+\newunicodechar{Δ}{\ensuremath{\Delta}}
+\newunicodechar{Π}{\ensuremath{\Pi}}
+\newunicodechar{Φ}{\ensuremath{\Phi}}
+\newunicodechar{Ω}{\ensuremath{\Omega}}
+\newunicodechar{β}{\ensuremath{\beta}}
+\newunicodechar{ξ}{\ensuremath{\xi}}
+\newunicodechar{Ẋ}{\ensuremath{\dot{X}}}
+\newunicodechar{𝓘}{\ensuremath{\mathcal{I}}}
+\newunicodechar{✓}{\ensuremath{\checkmark}}
+\newunicodechar{°}{\textdegree}
+\newunicodechar{…}{\ldots}
+\newunicodechar{§}{\S}
+% --- subscripts ---
+\newunicodechar{₀}{\textsubscript{0}}
+\newunicodechar{₁}{\textsubscript{1}}
+\newunicodechar{₂}{\textsubscript{2}}
+\newunicodechar{₃}{\textsubscript{3}}
+\newunicodechar{₊}{\textsubscript{+}}
+\newunicodechar{₋}{\textsubscript{-}}
+\newunicodechar{ₜ}{\textsubscript{t}}
+% --- superscripts ---
+\newunicodechar{⁰}{\textsuperscript{0}}
+\newunicodechar{¹}{\textsuperscript{1}}
+\newunicodechar{²}{\textsuperscript{2}}
+\newunicodechar{⁴}{\textsuperscript{4}}
+\newunicodechar{⁶}{\textsuperscript{6}}
+\newunicodechar{⁷}{\textsuperscript{7}}
+\newunicodechar{⁺}{\textsuperscript{+}}
+\newunicodechar{⁻}{\textsuperscript{-}}
+% --- pandoc body requirements ---
+\usepackage{longtable,array}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=primaryd,urlcolor=primary,linktoc=all}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{parskip}
+\usepackage{calc}
+\providecommand{\real}[1]{#1}

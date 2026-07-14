@@ -1,0 +1,6 @@
+run_utc:    2026-07-06T14:55:23Z
+slurm_job:  997407
+git_commit: c2224f3 (local llc-crossenv branch; repo synced without .git)
+account:    l40sfree  partition: l40s  node: srvrocgpu014.uct.ac.za
+env:        /scratch/01440817/crof-env (torch CUDA, gymnasium[box2d])
+purpose:    CROF Stage B — LLC cross-env validation + A2 CUDA cross-check

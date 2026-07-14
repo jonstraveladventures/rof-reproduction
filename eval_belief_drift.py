@@ -109,6 +109,8 @@ def drift_for_checkpoint(wm, loader, warmup, horizon, max_seqs):
             z_p, z_o = mu_post, mu_pr
 
         nb = int(valid.sum().item())
+        sums.setdefault("rew_scale", 0.0)
+        sums["rew_scale"] += nb * r_p[valid].std().item()
         sums["kl_avg"] += nb * (sum(kl_steps) / horizon)
         sums["kl_end"] += nb * kl_steps[-1]
         sums["h_avg"] += nb * (sum(h_steps) / horizon)
@@ -116,7 +118,11 @@ def drift_for_checkpoint(wm, loader, warmup, horizon, max_seqs):
         sums["rew_avg"] += nb * (sum(rew_steps) / horizon)
         sums["rew_end"] += nb * rew_steps[-1]
         n_used += nb
-    return {k: v / max(n_used, 1) for k, v in sums.items()}, n_used
+    out = {k: v / max(n_used, 1) for k, v in sums.items()}
+    scale = max(out.pop("rew_scale", 1.0), 1e-6)
+    out["rew_norm_avg"] = out["rew_avg"] / scale
+    out["rew_norm_end"] = out["rew_end"] / scale
+    return out, n_used
 
 
 def main():
@@ -164,7 +170,8 @@ def main():
             line = (f"\n=== Epoch {e} === [{i}/{len(paths)}] (n={n})\n"
                     f"  drift_kl_avg={vals['kl_avg']:.4f} drift_kl_end={vals['kl_end']:.4f}\n"
                     f"  drift_h_avg={vals['h_avg']:.4f} drift_h_end={vals['h_end']:.4f}\n"
-                    f"  drift_rew_avg={vals['rew_avg']:.4f} drift_rew_end={vals['rew_end']:.4f}\n")
+                    f"  drift_rew_avg={vals['rew_avg']:.4f} drift_rew_end={vals['rew_end']:.4f}\n"
+                    f"  drift_rew_norm_avg={vals['rew_norm_avg']:.4f} drift_rew_norm_end={vals['rew_norm_end']:.4f}\n")
             out.write(line)
             out.flush()
             print(line, end="", flush=True)

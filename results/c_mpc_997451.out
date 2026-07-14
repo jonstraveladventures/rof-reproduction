@@ -1,0 +1,2406 @@
+
+MPC CEM Evaluation Sweep (continuous)
+Checkpoints: 100, Episodes per checkpoint: 20, Seed: 12345
+Device: cuda
+
+======================================================================
+  [1/100] Epoch 5 -- world_model_20260706_171018_epoch_5.pt
+======================================================================
+[Episode 1] return=-357.02, steps=228, done=True, elapsed=5.8s
+[Episode 2] return=-548.27, steps=94, done=True, elapsed=2.2s
+[Episode 3] return=-480.78, steps=149, done=True, elapsed=3.5s
+[Episode 4] return=-304.76, steps=128, done=True, elapsed=3.0s
+[Episode 5] return=-503.19, steps=90, done=True, elapsed=2.1s
+[Episode 6] return=-365.18, steps=135, done=True, elapsed=3.2s
+[Episode 7] return=-134.84, steps=85, done=True, elapsed=2.0s
+[Episode 8] return=-466.56, steps=117, done=True, elapsed=2.8s
+[Episode 9] return=-536.22, steps=131, done=True, elapsed=3.1s
+[Episode 10] return=-469.48, steps=91, done=True, elapsed=2.2s
+[Episode 11] return=-576.76, steps=114, done=True, elapsed=2.7s
+[Episode 12] return=-392.78, steps=159, done=True, elapsed=3.8s
+[Episode 13] return=-510.92, steps=181, done=True, elapsed=4.3s
+[Episode 14] return=-246.13, steps=105, done=True, elapsed=2.5s
+[Episode 15] return=-648.35, steps=149, done=True, elapsed=3.5s
+[Episode 16] return=-358.92, steps=85, done=True, elapsed=2.0s
+[Episode 17] return=-283.47, steps=81, done=True, elapsed=1.9s
+[Episode 18] return=-416.12, steps=84, done=True, elapsed=2.0s
+[Episode 19] return=-405.87, steps=144, done=True, elapsed=3.4s
+[Episode 20] return=-451.53, steps=118, done=True, elapsed=2.8s
+[Checkpoint summary] mean=-422.86 median=-433.82 min=-648.35 max=-134.84 n=20
+======================================================================
+  [2/100] Epoch 10 -- world_model_20260706_171436_epoch_10.pt
+======================================================================
+[Episode 1] return=-339.53, steps=145, done=True, elapsed=3.5s
+[Episode 2] return=-532.14, steps=106, done=True, elapsed=2.5s
+[Episode 3] return=-306.76, steps=94, done=True, elapsed=2.2s
+[Episode 4] return=-247.31, steps=69, done=True, elapsed=1.6s
+[Episode 5] return=-444.72, steps=101, done=True, elapsed=2.4s
+[Episode 6] return=-442.95, steps=73, done=True, elapsed=1.7s
+[Episode 7] return=-378.89, steps=64, done=True, elapsed=1.5s
+[Episode 8] return=-442.60, steps=110, done=True, elapsed=2.6s
+[Episode 9] return=-379.05, steps=105, done=True, elapsed=2.5s
+[Episode 10] return=-451.67, steps=100, done=True, elapsed=2.4s
+[Episode 11] return=-385.13, steps=113, done=True, elapsed=2.7s
+[Episode 12] return=-335.39, steps=125, done=True, elapsed=3.0s
+[Episode 13] return=-366.94, steps=109, done=True, elapsed=2.6s
+[Episode 14] return=-158.49, steps=115, done=True, elapsed=2.7s
+[Episode 15] return=-385.88, steps=110, done=True, elapsed=2.6s
+[Episode 16] return=-203.54, steps=75, done=True, elapsed=1.8s
+[Episode 17] return=-292.07, steps=73, done=True, elapsed=1.7s
+[Episode 18] return=-288.56, steps=71, done=True, elapsed=1.7s
+[Episode 19] return=-308.00, steps=69, done=True, elapsed=1.6s
+[Episode 20] return=-460.25, steps=94, done=True, elapsed=2.2s
+[Checkpoint summary] mean=-357.49 median=-372.91 min=-532.14 max=-158.49 n=20
+======================================================================
+  [3/100] Epoch 15 -- world_model_20260706_171853_epoch_15.pt
+======================================================================
+[Episode 1] return=-559.82, steps=109, done=True, elapsed=2.6s
+[Episode 2] return=-285.71, steps=109, done=True, elapsed=2.6s
+[Episode 3] return=-162.60, steps=116, done=True, elapsed=2.8s
+[Episode 4] return=-526.81, steps=73, done=True, elapsed=1.7s
+[Episode 5] return=-180.88, steps=112, done=True, elapsed=2.7s
+[Episode 6] return=-580.81, steps=84, done=True, elapsed=2.0s
+[Episode 7] return=-510.24, steps=67, done=True, elapsed=1.6s
+[Episode 8] return=-257.27, steps=125, done=True, elapsed=3.0s
+[Episode 9] return=-227.25, steps=110, done=True, elapsed=2.6s
+[Episode 10] return=-193.25, steps=108, done=True, elapsed=2.6s
+[Episode 11] return=-125.54, steps=120, done=True, elapsed=2.9s
+[Episode 12] return=-1101.13, steps=180, done=True, elapsed=4.3s
+[Episode 13] return=-543.39, steps=189, done=True, elapsed=4.5s
+[Episode 14] return=-316.68, steps=75, done=True, elapsed=1.8s
+[Episode 15] return=-516.35, steps=147, done=True, elapsed=3.5s
+[Episode 16] return=-424.72, steps=72, done=True, elapsed=1.7s
+[Episode 17] return=-360.11, steps=80, done=True, elapsed=1.9s
+[Episode 18] return=-444.64, steps=72, done=True, elapsed=1.7s
+[Episode 19] return=-464.90, steps=69, done=True, elapsed=1.6s
+[Episode 20] return=-301.82, steps=96, done=True, elapsed=2.3s
+[Checkpoint summary] mean=-404.20 median=-392.41 min=-1101.13 max=-125.54 n=20
+======================================================================
+  [4/100] Epoch 20 -- world_model_20260706_172311_epoch_20.pt
+======================================================================
+[Episode 1] return=-632.11, steps=81, done=True, elapsed=1.9s
+[Episode 2] return=-223.64, steps=104, done=True, elapsed=2.5s
+[Episode 3] return=-1060.96, steps=133, done=True, elapsed=3.2s
+[Episode 4] return=-499.73, steps=76, done=True, elapsed=1.8s
+[Episode 5] return=-276.18, steps=96, done=True, elapsed=2.3s
+[Episode 6] return=-712.00, steps=120, done=True, elapsed=2.9s
+[Episode 7] return=-551.15, steps=72, done=True, elapsed=1.7s
+[Episode 8] return=-282.39, steps=105, done=True, elapsed=2.5s
+[Episode 9] return=-1077.34, steps=167, done=True, elapsed=4.0s
+[Episode 10] return=-221.74, steps=102, done=True, elapsed=2.4s
+[Episode 11] return=-219.52, steps=111, done=True, elapsed=2.7s
+[Episode 12] return=-1136.70, steps=188, done=True, elapsed=4.5s
+[Episode 13] return=-919.92, steps=123, done=True, elapsed=2.9s
+[Episode 14] return=-639.28, steps=75, done=True, elapsed=1.8s
+[Episode 15] return=-843.75, steps=199, done=True, elapsed=4.8s
+[Episode 16] return=-105.31, steps=125, done=True, elapsed=3.0s
+[Episode 17] return=-185.81, steps=101, done=True, elapsed=2.4s
+[Episode 18] return=-173.05, steps=81, done=True, elapsed=1.9s
+[Episode 19] return=-507.06, steps=78, done=True, elapsed=1.9s
+[Episode 20] return=-290.75, steps=137, done=True, elapsed=3.3s
+[Checkpoint summary] mean=-527.92 median=-503.39 min=-1136.70 max=-105.31 n=20
+======================================================================
+  [5/100] Epoch 25 -- world_model_20260706_172729_epoch_25.pt
+======================================================================
+[Episode 1] return=-755.13, steps=85, done=True, elapsed=2.0s
+[Episode 2] return=-582.07, steps=115, done=True, elapsed=2.7s
+[Episode 3] return=-822.93, steps=93, done=True, elapsed=2.2s
+[Episode 4] return=-538.71, steps=71, done=True, elapsed=1.7s
+[Episode 5] return=-576.04, steps=106, done=True, elapsed=2.5s
+[Episode 6] return=-591.45, steps=85, done=True, elapsed=2.0s
+[Episode 7] return=-530.47, steps=67, done=True, elapsed=1.6s
+[Episode 8] return=-746.96, steps=128, done=True, elapsed=3.0s
+[Episode 9] return=-723.67, steps=94, done=True, elapsed=2.2s
+[Episode 10] return=-564.49, steps=111, done=True, elapsed=2.6s
+[Episode 11] return=-512.02, steps=110, done=True, elapsed=2.6s
+[Episode 12] return=-591.96, steps=142, done=True, elapsed=3.4s
+[Episode 13] return=-806.98, steps=122, done=True, elapsed=2.9s
+[Episode 14] return=-696.64, steps=78, done=True, elapsed=1.9s
+[Episode 15] return=-774.44, steps=97, done=True, elapsed=2.3s
+[Episode 16] return=-563.45, steps=81, done=True, elapsed=1.9s
+[Episode 17] return=-543.05, steps=81, done=True, elapsed=1.9s
+[Episode 18] return=-508.52, steps=83, done=True, elapsed=2.0s
+[Episode 19] return=-524.98, steps=70, done=True, elapsed=1.7s
+[Episode 20] return=-630.70, steps=98, done=True, elapsed=2.3s
+[Checkpoint summary] mean=-629.23 median=-586.76 min=-822.93 max=-508.52 n=20
+======================================================================
+  [6/100] Epoch 30 -- world_model_20260706_173146_epoch_30.pt
+======================================================================
+[Episode 1] return=-84.13, steps=93, done=True, elapsed=2.2s
+[Episode 2] return=-491.91, steps=92, done=True, elapsed=2.2s
+[Episode 3] return=-592.51, steps=79, done=True, elapsed=1.9s
+[Episode 4] return=-453.07, steps=62, done=True, elapsed=1.5s
+[Episode 5] return=-410.30, steps=101, done=True, elapsed=2.4s
+[Episode 6] return=-597.50, steps=75, done=True, elapsed=1.8s
+[Episode 7] return=-436.02, steps=62, done=True, elapsed=1.5s
+[Episode 8] return=-518.60, steps=89, done=True, elapsed=2.1s
+[Episode 9] return=-545.15, steps=86, done=True, elapsed=2.1s
+[Episode 10] return=-524.56, steps=88, done=True, elapsed=2.1s
+[Episode 11] return=-442.94, steps=89, done=True, elapsed=2.1s
+[Episode 12] return=-499.66, steps=100, done=True, elapsed=2.4s
+[Episode 13] return=-129.68, steps=94, done=True, elapsed=2.2s
+[Episode 14] return=-4.73, steps=115, done=True, elapsed=2.8s
+[Episode 15] return=-596.83, steps=82, done=True, elapsed=2.0s
+[Episode 16] return=-380.27, steps=65, done=True, elapsed=1.5s
+[Episode 17] return=-382.82, steps=69, done=True, elapsed=1.6s
+[Episode 18] return=-413.66, steps=69, done=True, elapsed=1.6s
+[Episode 19] return=-454.14, steps=62, done=True, elapsed=1.5s
+[Episode 20] return=-537.43, steps=76, done=True, elapsed=1.8s
+[Checkpoint summary] mean=-424.80 median=-453.60 min=-597.50 max=-4.73 n=20
+======================================================================
+  [7/100] Epoch 35 -- world_model_20260706_173603_epoch_35.pt
+======================================================================
+[Episode 1] return=-646.41, steps=78, done=True, elapsed=1.9s
+[Episode 2] return=-454.71, steps=95, done=True, elapsed=2.2s
+[Episode 3] return=-642.83, steps=88, done=True, elapsed=2.1s
+[Episode 4] return=-579.81, steps=70, done=True, elapsed=1.7s
+[Episode 5] return=-560.86, steps=94, done=True, elapsed=2.2s
+[Episode 6] return=-716.38, steps=93, done=True, elapsed=2.2s
+[Episode 7] return=-539.80, steps=67, done=True, elapsed=1.6s
+[Episode 8] return=-474.55, steps=94, done=True, elapsed=2.2s
+[Episode 9] return=-94.64, steps=139, done=True, elapsed=3.3s
+[Episode 10] return=-532.76, steps=89, done=True, elapsed=2.1s
+[Episode 11] return=-512.23, steps=92, done=True, elapsed=2.2s
+[Episode 12] return=-425.56, steps=124, done=True, elapsed=2.9s
+[Episode 13] return=-90.07, steps=134, done=True, elapsed=3.2s
+[Episode 14] return=-608.01, steps=73, done=True, elapsed=1.7s
+[Episode 15] return=-115.56, steps=113, done=True, elapsed=2.7s
+[Episode 16] return=-499.99, steps=68, done=True, elapsed=1.6s
+[Episode 17] return=-434.59, steps=71, done=True, elapsed=1.7s
+[Episode 18] return=-421.45, steps=72, done=True, elapsed=1.7s
+[Episode 19] return=-490.19, steps=67, done=True, elapsed=1.6s
+[Episode 20] return=-553.02, steps=78, done=True, elapsed=1.8s
+[Checkpoint summary] mean=-469.67 median=-506.11 min=-716.38 max=-90.07 n=20
+======================================================================
+  [8/100] Epoch 40 -- world_model_20260706_174014_epoch_40.pt
+======================================================================
+[Episode 1] return=-585.70, steps=79, done=True, elapsed=1.9s
+[Episode 2] return=-188.66, steps=110, done=True, elapsed=2.6s
+[Episode 3] return=-689.60, steps=85, done=True, elapsed=2.0s
+[Episode 4] return=-654.86, steps=78, done=True, elapsed=1.9s
+[Episode 5] return=-450.57, steps=101, done=True, elapsed=2.4s
+[Episode 6] return=-407.52, steps=98, done=True, elapsed=2.3s
+[Episode 7] return=-523.79, steps=66, done=True, elapsed=1.6s
+[Episode 8] return=-475.15, steps=102, done=True, elapsed=2.4s
+[Episode 9] return=-110.85, steps=151, done=True, elapsed=3.6s
+[Episode 10] return=-386.77, steps=100, done=True, elapsed=2.4s
+[Episode 11] return=-491.44, steps=97, done=True, elapsed=2.3s
+[Episode 12] return=-349.56, steps=125, done=True, elapsed=3.0s
+[Episode 13] return=-153.77, steps=122, done=True, elapsed=2.9s
+[Episode 14] return=-626.66, steps=77, done=True, elapsed=1.8s
+[Episode 15] return=-428.47, steps=127, done=True, elapsed=3.0s
+[Episode 16] return=-509.94, steps=71, done=True, elapsed=1.7s
+[Episode 17] return=-478.42, steps=78, done=True, elapsed=1.9s
+[Episode 18] return=-510.79, steps=83, done=True, elapsed=2.0s
+[Episode 19] return=-525.39, steps=70, done=True, elapsed=1.7s
+[Episode 20] return=-188.29, steps=108, done=True, elapsed=2.6s
+[Checkpoint summary] mean=-436.81 median=-476.78 min=-689.60 max=-110.85 n=20
+======================================================================
+  [9/100] Epoch 45 -- world_model_20260706_174424_epoch_45.pt
+======================================================================
+[Episode 1] return=-323.61, steps=158, done=True, elapsed=3.8s
+[Episode 2] return=-261.87, steps=104, done=True, elapsed=2.5s
+[Episode 3] return=-182.21, steps=103, done=True, elapsed=2.5s
+[Episode 4] return=-608.27, steps=70, done=True, elapsed=1.7s
+[Episode 5] return=-255.31, steps=102, done=True, elapsed=2.4s
+[Episode 6] return=-434.31, steps=93, done=True, elapsed=2.2s
+[Episode 7] return=-563.83, steps=66, done=True, elapsed=1.6s
+[Episode 8] return=-313.87, steps=103, done=True, elapsed=2.5s
+[Episode 9] return=-345.65, steps=115, done=True, elapsed=2.7s
+[Episode 10] return=-365.54, steps=110, done=True, elapsed=2.6s
+[Episode 11] return=-305.06, steps=117, done=True, elapsed=2.8s
+[Episode 12] return=-327.68, steps=120, done=True, elapsed=2.9s
+[Episode 13] return=-302.91, steps=127, done=True, elapsed=3.0s
+[Episode 14] return=-527.66, steps=83, done=True, elapsed=2.0s
+[Episode 15] return=-472.24, steps=129, done=True, elapsed=3.1s
+[Episode 16] return=-494.64, steps=70, done=True, elapsed=1.7s
+[Episode 17] return=-541.69, steps=75, done=True, elapsed=1.8s
+[Episode 18] return=-539.38, steps=78, done=True, elapsed=1.9s
+[Episode 19] return=-557.10, steps=67, done=True, elapsed=1.6s
+[Episode 20] return=-214.41, steps=105, done=True, elapsed=2.5s
+[Checkpoint summary] mean=-396.86 median=-355.59 min=-608.27 max=-182.21 n=20
+======================================================================
+  [10/100] Epoch 50 -- world_model_20260706_174833_epoch_50.pt
+======================================================================
+[Episode 1] return=-232.23, steps=127, done=True, elapsed=3.0s
+[Episode 2] return=-254.63, steps=93, done=True, elapsed=2.2s
+[Episode 3] return=-189.48, steps=92, done=True, elapsed=2.2s
+[Episode 4] return=-562.18, steps=66, done=True, elapsed=1.6s
+[Episode 5] return=-367.07, steps=109, done=True, elapsed=2.6s
+[Episode 6] return=-628.82, steps=76, done=True, elapsed=1.8s
+[Episode 7] return=-510.41, steps=65, done=True, elapsed=1.5s
+[Episode 8] return=-163.35, steps=96, done=True, elapsed=2.3s
+[Episode 9] return=-196.83, steps=101, done=True, elapsed=2.4s
+[Episode 10] return=-213.18, steps=98, done=True, elapsed=2.3s
+[Episode 11] return=-219.10, steps=99, done=True, elapsed=2.4s
+[Episode 12] return=-349.28, steps=104, done=True, elapsed=2.5s
+[Episode 13] return=-127.40, steps=110, done=True, elapsed=2.6s
+[Episode 14] return=-648.32, steps=75, done=True, elapsed=1.8s
+[Episode 15] return=-321.80, steps=120, done=True, elapsed=2.9s
+[Episode 16] return=-468.20, steps=67, done=True, elapsed=1.6s
+[Episode 17] return=-464.57, steps=71, done=True, elapsed=1.7s
+[Episode 18] return=-465.36, steps=68, done=True, elapsed=1.6s
+[Episode 19] return=-535.49, steps=68, done=True, elapsed=1.6s
+[Episode 20] return=-384.45, steps=87, done=True, elapsed=2.1s
+[Checkpoint summary] mean=-365.11 median=-358.18 min=-648.32 max=-127.40 n=20
+======================================================================
+  [11/100] Epoch 55 -- world_model_20260706_175242_epoch_55.pt
+======================================================================
+[Episode 1] return=-662.39, steps=136, done=True, elapsed=3.2s
+[Episode 2] return=-554.88, steps=110, done=True, elapsed=2.6s
+[Episode 3] return=-431.95, steps=90, done=True, elapsed=2.1s
+[Episode 4] return=-602.09, steps=70, done=True, elapsed=1.7s
+[Episode 5] return=-467.94, steps=107, done=True, elapsed=2.5s
+[Episode 6] return=-667.65, steps=83, done=True, elapsed=2.0s
+[Episode 7] return=-517.39, steps=67, done=True, elapsed=1.6s
+[Episode 8] return=-493.07, steps=106, done=True, elapsed=2.5s
+[Episode 9] return=-401.41, steps=98, done=True, elapsed=2.3s
+[Episode 10] return=-436.55, steps=103, done=True, elapsed=2.5s
+[Episode 11] return=-491.32, steps=102, done=True, elapsed=2.4s
+[Episode 12] return=-484.42, steps=116, done=True, elapsed=2.8s
+[Episode 13] return=-466.82, steps=128, done=True, elapsed=3.0s
+[Episode 14] return=-598.96, steps=75, done=True, elapsed=1.8s
+[Episode 15] return=-417.94, steps=118, done=True, elapsed=2.8s
+[Episode 16] return=-475.90, steps=70, done=True, elapsed=1.7s
+[Episode 17] return=-493.10, steps=73, done=True, elapsed=1.7s
+[Episode 18] return=-451.95, steps=75, done=True, elapsed=1.8s
+[Episode 19] return=-550.86, steps=71, done=True, elapsed=1.7s
+[Episode 20] return=-425.62, steps=89, done=True, elapsed=2.1s
+[Checkpoint summary] mean=-504.61 median=-487.87 min=-667.65 max=-401.41 n=20
+======================================================================
+  [12/100] Epoch 60 -- world_model_20260706_175651_epoch_60.pt
+======================================================================
+[Episode 1] return=-0.58, steps=109, done=True, elapsed=2.6s
+[Episode 2] return=-174.23, steps=128, done=True, elapsed=3.1s
+[Episode 3] return=-170.00, steps=88, done=True, elapsed=2.1s
+[Episode 4] return=-563.11, steps=66, done=True, elapsed=1.6s
+[Episode 5] return=-140.17, steps=96, done=True, elapsed=2.3s
+[Episode 6] return=-626.44, steps=73, done=True, elapsed=1.7s
+[Episode 7] return=-479.24, steps=64, done=True, elapsed=1.5s
+[Episode 8] return=-181.32, steps=100, done=True, elapsed=2.4s
+[Episode 9] return=-186.62, steps=91, done=True, elapsed=2.2s
+[Episode 10] return=-220.10, steps=110, done=True, elapsed=2.6s
+[Episode 11] return=-108.45, steps=102, done=True, elapsed=2.4s
+[Episode 12] return=-483.20, steps=97, done=True, elapsed=2.3s
+[Episode 13] return=-125.71, steps=88, done=True, elapsed=2.1s
+[Episode 14] return=-640.51, steps=75, done=True, elapsed=1.8s
+[Episode 15] return=-199.73, steps=87, done=True, elapsed=2.1s
+[Episode 16] return=-136.47, steps=73, done=True, elapsed=1.7s
+[Episode 17] return=-156.82, steps=81, done=True, elapsed=1.9s
+[Episode 18] return=-182.29, steps=90, done=True, elapsed=2.1s
+[Episode 19] return=-541.81, steps=67, done=True, elapsed=1.6s
+[Episode 20] return=-213.42, steps=83, done=True, elapsed=2.0s
+[Checkpoint summary] mean=-276.51 median=-184.46 min=-640.51 max=-0.58 n=20
+======================================================================
+  [13/100] Epoch 65 -- world_model_20260706_180059_epoch_65.pt
+======================================================================
+[Episode 1] return=-740.11, steps=85, done=True, elapsed=2.0s
+[Episode 2] return=-253.42, steps=119, done=True, elapsed=2.8s
+[Episode 3] return=-441.72, steps=90, done=True, elapsed=2.2s
+[Episode 4] return=-587.45, steps=67, done=True, elapsed=1.6s
+[Episode 5] return=-314.07, steps=110, done=True, elapsed=2.6s
+[Episode 6] return=-604.09, steps=78, done=True, elapsed=1.9s
+[Episode 7] return=-509.48, steps=63, done=True, elapsed=1.5s
+[Episode 8] return=-165.04, steps=92, done=True, elapsed=2.2s
+[Episode 9] return=-198.73, steps=102, done=True, elapsed=2.4s
+[Episode 10] return=-194.92, steps=94, done=True, elapsed=2.3s
+[Episode 11] return=-220.28, steps=110, done=True, elapsed=2.6s
+[Episode 12] return=-244.84, steps=126, done=True, elapsed=3.0s
+[Episode 13] return=-262.22, steps=121, done=True, elapsed=2.9s
+[Episode 14] return=-754.36, steps=80, done=True, elapsed=1.9s
+[Episode 15] return=-350.00, steps=117, done=True, elapsed=2.8s
+[Episode 16] return=-500.41, steps=68, done=True, elapsed=1.6s
+[Episode 17] return=-503.37, steps=70, done=True, elapsed=1.7s
+[Episode 18] return=-430.76, steps=73, done=True, elapsed=1.8s
+[Episode 19] return=-540.91, steps=66, done=True, elapsed=1.6s
+[Episode 20] return=-418.27, steps=82, done=True, elapsed=2.0s
+[Checkpoint summary] mean=-411.72 median=-424.52 min=-754.36 max=-165.04 n=20
+======================================================================
+  [14/100] Epoch 70 -- world_model_20260706_180509_epoch_70.pt
+======================================================================
+[Episode 1] return=-379.64, steps=129, done=True, elapsed=3.1s
+[Episode 2] return=-363.83, steps=97, done=True, elapsed=2.3s
+[Episode 3] return=-367.03, steps=81, done=True, elapsed=1.9s
+[Episode 4] return=-513.19, steps=66, done=True, elapsed=1.6s
+[Episode 5] return=-147.38, steps=104, done=True, elapsed=2.5s
+[Episode 6] return=-585.22, steps=77, done=True, elapsed=1.8s
+[Episode 7] return=-499.67, steps=64, done=True, elapsed=1.5s
+[Episode 8] return=-368.36, steps=83, done=True, elapsed=2.0s
+[Episode 9] return=-397.06, steps=92, done=True, elapsed=2.2s
+[Episode 10] return=-463.14, steps=97, done=True, elapsed=2.3s
+[Episode 11] return=-333.35, steps=99, done=True, elapsed=2.4s
+[Episode 12] return=-396.25, steps=98, done=True, elapsed=2.3s
+[Episode 13] return=-258.05, steps=94, done=True, elapsed=2.2s
+[Episode 14] return=-637.87, steps=77, done=True, elapsed=1.8s
+[Episode 15] return=-446.23, steps=90, done=True, elapsed=2.2s
+[Episode 16] return=-393.16, steps=74, done=True, elapsed=1.8s
+[Episode 17] return=-412.13, steps=73, done=True, elapsed=1.7s
+[Episode 18] return=-288.95, steps=90, done=True, elapsed=2.2s
+[Episode 19] return=-528.33, steps=66, done=True, elapsed=1.6s
+[Episode 20] return=-386.51, steps=77, done=True, elapsed=1.8s
+[Checkpoint summary] mean=-408.27 median=-394.70 min=-637.87 max=-147.38 n=20
+======================================================================
+  [15/100] Epoch 75 -- world_model_20260706_180918_epoch_75.pt
+======================================================================
+[Episode 1] return=-226.76, steps=90, done=True, elapsed=2.2s
+[Episode 2] return=-327.77, steps=103, done=True, elapsed=2.5s
+[Episode 3] return=-312.32, steps=84, done=True, elapsed=2.0s
+[Episode 4] return=-522.74, steps=64, done=True, elapsed=1.5s
+[Episode 5] return=-339.90, steps=89, done=True, elapsed=2.1s
+[Episode 6] return=-578.68, steps=74, done=True, elapsed=1.8s
+[Episode 7] return=-488.78, steps=63, done=True, elapsed=1.5s
+[Episode 8] return=-333.55, steps=88, done=True, elapsed=2.1s
+[Episode 9] return=-393.21, steps=86, done=True, elapsed=2.0s
+[Episode 10] return=-333.06, steps=92, done=True, elapsed=2.2s
+[Episode 11] return=-369.46, steps=96, done=True, elapsed=2.3s
+[Episode 12] return=-461.13, steps=105, done=True, elapsed=2.5s
+[Episode 13] return=-297.20, steps=87, done=True, elapsed=2.1s
+[Episode 14] return=-217.66, steps=88, done=True, elapsed=2.1s
+[Episode 15] return=-365.36, steps=91, done=True, elapsed=2.2s
+[Episode 16] return=-427.63, steps=78, done=True, elapsed=1.9s
+[Episode 17] return=-334.11, steps=74, done=True, elapsed=1.8s
+[Episode 18] return=-354.89, steps=67, done=True, elapsed=1.6s
+[Episode 19] return=-539.43, steps=66, done=True, elapsed=1.6s
+[Episode 20] return=-353.97, steps=79, done=True, elapsed=1.9s
+[Checkpoint summary] mean=-378.88 median=-354.43 min=-578.68 max=-217.66 n=20
+======================================================================
+  [16/100] Epoch 80 -- world_model_20260706_181327_epoch_80.pt
+======================================================================
+[Episode 1] return=-570.38, steps=103, done=True, elapsed=2.4s
+[Episode 2] return=-232.15, steps=95, done=True, elapsed=2.2s
+[Episode 3] return=-511.48, steps=124, done=True, elapsed=2.9s
+[Episode 4] return=-510.75, steps=68, done=True, elapsed=1.6s
+[Episode 5] return=-37.82, steps=142, done=True, elapsed=3.3s
+[Episode 6] return=-569.87, steps=79, done=True, elapsed=1.9s
+[Episode 7] return=-478.52, steps=64, done=True, elapsed=1.5s
+[Episode 8] return=-375.00, steps=89, done=True, elapsed=2.1s
+[Episode 9] return=-580.10, steps=109, done=True, elapsed=2.6s
+[Episode 10] return=-375.96, steps=99, done=True, elapsed=2.3s
+[Episode 11] return=-300.12, steps=99, done=True, elapsed=2.3s
+[Episode 12] return=-336.36, steps=126, done=True, elapsed=3.0s
+[Episode 13] return=-566.49, steps=97, done=True, elapsed=2.3s
+[Episode 14] return=-511.08, steps=134, done=True, elapsed=3.1s
+[Episode 15] return=-147.32, steps=179, done=True, elapsed=4.2s
+[Episode 16] return=-501.30, steps=71, done=True, elapsed=1.7s
+[Episode 17] return=-490.04, steps=73, done=True, elapsed=1.7s
+[Episode 18] return=-377.10, steps=72, done=True, elapsed=1.7s
+[Episode 19] return=-529.01, steps=67, done=True, elapsed=1.6s
+[Episode 20] return=-277.66, steps=92, done=True, elapsed=2.1s
+[Checkpoint summary] mean=-413.93 median=-484.28 min=-580.10 max=-37.82 n=20
+======================================================================
+  [17/100] Epoch 85 -- world_model_20260706_181736_epoch_85.pt
+======================================================================
+[Episode 1] return=-567.47, steps=101, done=True, elapsed=2.4s
+[Episode 2] return=-437.39, steps=99, done=True, elapsed=2.3s
+[Episode 3] return=-203.53, steps=104, done=True, elapsed=2.4s
+[Episode 4] return=-552.55, steps=70, done=True, elapsed=1.6s
+[Episode 5] return=-388.48, steps=87, done=True, elapsed=2.0s
+[Episode 6] return=-621.58, steps=85, done=True, elapsed=2.0s
+[Episode 7] return=-499.98, steps=67, done=True, elapsed=1.6s
+[Episode 8] return=-450.23, steps=84, done=True, elapsed=2.0s
+[Episode 9] return=-372.81, steps=99, done=True, elapsed=2.3s
+[Episode 10] return=-387.98, steps=91, done=True, elapsed=2.1s
+[Episode 11] return=-440.61, steps=96, done=True, elapsed=2.2s
+[Episode 12] return=-395.97, steps=103, done=True, elapsed=2.4s
+[Episode 13] return=-369.94, steps=119, done=True, elapsed=2.8s
+[Episode 14] return=-469.42, steps=119, done=True, elapsed=2.8s
+[Episode 15] return=-468.34, steps=102, done=True, elapsed=2.4s
+[Episode 16] return=-510.29, steps=88, done=True, elapsed=2.1s
+[Episode 17] return=-416.72, steps=78, done=True, elapsed=1.8s
+[Episode 18] return=-385.69, steps=69, done=True, elapsed=1.6s
+[Episode 19] return=-513.73, steps=70, done=True, elapsed=1.6s
+[Episode 20] return=-210.77, steps=87, done=True, elapsed=2.0s
+[Checkpoint summary] mean=-433.17 median=-439.00 min=-621.58 max=-203.53 n=20
+======================================================================
+  [18/100] Epoch 90 -- world_model_20260706_182145_epoch_90.pt
+======================================================================
+[Episode 1] return=-550.76, steps=135, done=True, elapsed=3.2s
+[Episode 2] return=-530.89, steps=98, done=True, elapsed=2.3s
+[Episode 3] return=-454.80, steps=95, done=True, elapsed=2.2s
+[Episode 4] return=-549.78, steps=68, done=True, elapsed=1.6s
+[Episode 5] return=-513.71, steps=85, done=True, elapsed=2.0s
+[Episode 6] return=-626.08, steps=81, done=True, elapsed=1.9s
+[Episode 7] return=-467.10, steps=72, done=True, elapsed=1.7s
+[Episode 8] return=-479.34, steps=83, done=True, elapsed=1.9s
+[Episode 9] return=-380.90, steps=101, done=True, elapsed=2.4s
+[Episode 10] return=-540.13, steps=95, done=True, elapsed=2.2s
+[Episode 11] return=-400.50, steps=99, done=True, elapsed=2.3s
+[Episode 12] return=-549.44, steps=114, done=True, elapsed=2.7s
+[Episode 13] return=-559.60, steps=120, done=True, elapsed=2.8s
+[Episode 14] return=-611.65, steps=144, done=True, elapsed=3.4s
+[Episode 15] return=-417.49, steps=93, done=True, elapsed=2.2s
+[Episode 16] return=-545.93, steps=91, done=True, elapsed=2.1s
+[Episode 17] return=-516.84, steps=73, done=True, elapsed=1.7s
+[Episode 18] return=-425.80, steps=75, done=True, elapsed=1.8s
+[Episode 19] return=-559.98, steps=68, done=True, elapsed=1.6s
+[Episode 20] return=-498.95, steps=86, done=True, elapsed=2.0s
+[Checkpoint summary] mean=-508.98 median=-523.87 min=-626.08 max=-380.90 n=20
+======================================================================
+  [19/100] Epoch 95 -- world_model_20260706_182554_epoch_95.pt
+======================================================================
+[Episode 1] return=-523.68, steps=105, done=True, elapsed=2.5s
+[Episode 2] return=-462.79, steps=97, done=True, elapsed=2.3s
+[Episode 3] return=-495.72, steps=100, done=True, elapsed=2.3s
+[Episode 4] return=-517.35, steps=71, done=True, elapsed=1.7s
+[Episode 5] return=-495.57, steps=86, done=True, elapsed=2.0s
+[Episode 6] return=-616.30, steps=85, done=True, elapsed=2.0s
+[Episode 7] return=-477.85, steps=68, done=True, elapsed=1.6s
+[Episode 8] return=-482.13, steps=83, done=True, elapsed=2.0s
+[Episode 9] return=-454.12, steps=96, done=True, elapsed=2.3s
+[Episode 10] return=-496.69, steps=88, done=True, elapsed=2.1s
+[Episode 11] return=-535.89, steps=93, done=True, elapsed=2.2s
+[Episode 12] return=-505.48, steps=102, done=True, elapsed=2.4s
+[Episode 13] return=-544.01, steps=109, done=True, elapsed=2.6s
+[Episode 14] return=-544.21, steps=121, done=True, elapsed=2.8s
+[Episode 15] return=-450.32, steps=105, done=True, elapsed=2.4s
+[Episode 16] return=-518.14, steps=83, done=True, elapsed=1.9s
+[Episode 17] return=-464.33, steps=74, done=True, elapsed=1.7s
+[Episode 18] return=-424.96, steps=76, done=True, elapsed=1.8s
+[Episode 19] return=-478.70, steps=69, done=True, elapsed=1.6s
+[Episode 20] return=-467.05, steps=81, done=True, elapsed=1.9s
+[Checkpoint summary] mean=-497.76 median=-495.64 min=-616.30 max=-424.96 n=20
+======================================================================
+  [20/100] Epoch 100 -- world_model_20260706_183012_epoch_100.pt
+======================================================================
+[Episode 1] return=-533.79, steps=162, done=True, elapsed=3.8s
+[Episode 2] return=-547.05, steps=87, done=True, elapsed=2.0s
+[Episode 3] return=-478.28, steps=90, done=True, elapsed=2.1s
+[Episode 4] return=-583.06, steps=74, done=True, elapsed=1.7s
+[Episode 5] return=-511.14, steps=84, done=True, elapsed=1.9s
+[Episode 6] return=-627.82, steps=86, done=True, elapsed=2.0s
+[Episode 7] return=-480.13, steps=67, done=True, elapsed=1.6s
+[Episode 8] return=-594.66, steps=90, done=True, elapsed=2.1s
+[Episode 9] return=-559.04, steps=94, done=True, elapsed=2.2s
+[Episode 10] return=-610.44, steps=91, done=True, elapsed=2.1s
+[Episode 11] return=-576.33, steps=90, done=True, elapsed=2.1s
+[Episode 12] return=-618.85, steps=112, done=True, elapsed=2.6s
+[Episode 13] return=-526.30, steps=124, done=True, elapsed=2.9s
+[Episode 14] return=-498.62, steps=87, done=True, elapsed=2.0s
+[Episode 15] return=-453.80, steps=99, done=True, elapsed=2.3s
+[Episode 16] return=-448.69, steps=82, done=True, elapsed=1.9s
+[Episode 17] return=-405.04, steps=91, done=True, elapsed=2.1s
+[Episode 18] return=-496.49, steps=79, done=True, elapsed=1.8s
+[Episode 19] return=-473.06, steps=69, done=True, elapsed=1.6s
+[Episode 20] return=-510.36, steps=81, done=True, elapsed=1.9s
+[Checkpoint summary] mean=-526.65 median=-518.72 min=-627.82 max=-405.04 n=20
+======================================================================
+  [21/100] Epoch 105 -- world_model_20260706_183422_epoch_105.pt
+======================================================================
+[Episode 1] return=-480.48, steps=97, done=True, elapsed=2.3s
+[Episode 2] return=-512.36, steps=93, done=True, elapsed=2.2s
+[Episode 3] return=-617.22, steps=85, done=True, elapsed=2.0s
+[Episode 4] return=-511.52, steps=74, done=True, elapsed=1.7s
+[Episode 5] return=-499.31, steps=89, done=True, elapsed=2.1s
+[Episode 6] return=-540.78, steps=89, done=True, elapsed=2.1s
+[Episode 7] return=-465.24, steps=69, done=True, elapsed=1.6s
+[Episode 8] return=-496.91, steps=94, done=True, elapsed=2.2s
+[Episode 9] return=-611.15, steps=105, done=True, elapsed=2.4s
+[Episode 10] return=-209.27, steps=93, done=True, elapsed=2.2s
+[Episode 11] return=-466.25, steps=101, done=True, elapsed=2.3s
+[Episode 12] return=-619.33, steps=122, done=True, elapsed=2.8s
+[Episode 13] return=-626.07, steps=118, done=True, elapsed=2.8s
+[Episode 14] return=-418.36, steps=107, done=True, elapsed=2.5s
+[Episode 15] return=-547.83, steps=132, done=True, elapsed=3.1s
+[Episode 16] return=-497.64, steps=74, done=True, elapsed=1.7s
+[Episode 17] return=-449.73, steps=74, done=True, elapsed=1.7s
+[Episode 18] return=-390.23, steps=126, done=True, elapsed=2.9s
+[Episode 19] return=-443.10, steps=69, done=True, elapsed=1.6s
+[Episode 20] return=-528.32, steps=95, done=True, elapsed=2.2s
+[Checkpoint summary] mean=-496.56 median=-498.47 min=-626.07 max=-209.27 n=20
+======================================================================
+  [22/100] Epoch 110 -- world_model_20260706_183831_epoch_110.pt
+======================================================================
+[Episode 1] return=-46.32, steps=157, done=True, elapsed=3.7s
+[Episode 2] return=-559.15, steps=90, done=True, elapsed=2.1s
+[Episode 3] return=-552.84, steps=92, done=True, elapsed=2.1s
+[Episode 4] return=-403.54, steps=93, done=True, elapsed=2.2s
+[Episode 5] return=-522.40, steps=85, done=True, elapsed=2.0s
+[Episode 6] return=-455.77, steps=117, done=True, elapsed=2.7s
+[Episode 7] return=-402.43, steps=108, done=True, elapsed=2.5s
+[Episode 8] return=-540.93, steps=95, done=True, elapsed=2.2s
+[Episode 9] return=-543.78, steps=93, done=True, elapsed=2.2s
+[Episode 10] return=-571.15, steps=89, done=True, elapsed=2.1s
+[Episode 11] return=-605.52, steps=88, done=True, elapsed=2.0s
+[Episode 12] return=-611.32, steps=106, done=True, elapsed=2.5s
+[Episode 13] return=-540.76, steps=115, done=True, elapsed=2.7s
+[Episode 14] return=-442.99, steps=144, done=True, elapsed=3.3s
+[Episode 15] return=-481.54, steps=99, done=True, elapsed=2.3s
+[Episode 16] return=-507.58, steps=81, done=True, elapsed=1.9s
+[Episode 17] return=-410.47, steps=94, done=True, elapsed=2.2s
+[Episode 18] return=-532.17, steps=82, done=True, elapsed=1.9s
+[Episode 19] return=-341.95, steps=113, done=True, elapsed=2.6s
+[Episode 20] return=-499.26, steps=83, done=True, elapsed=1.9s
+[Checkpoint summary] mean=-478.59 median=-514.99 min=-611.32 max=-46.32 n=20
+======================================================================
+  [23/100] Epoch 115 -- world_model_20260706_184246_epoch_115.pt
+======================================================================
+[Episode 1] return=-517.75, steps=85, done=True, elapsed=2.0s
+[Episode 2] return=-517.19, steps=93, done=True, elapsed=2.2s
+[Episode 3] return=-411.52, steps=102, done=True, elapsed=2.4s
+[Episode 4] return=-598.53, steps=76, done=True, elapsed=1.8s
+[Episode 5] return=-522.63, steps=87, done=True, elapsed=2.0s
+[Episode 6] return=-651.84, steps=85, done=True, elapsed=2.0s
+[Episode 7] return=-430.30, steps=74, done=True, elapsed=1.7s
+[Episode 8] return=-566.94, steps=92, done=True, elapsed=2.1s
+[Episode 9] return=-494.33, steps=94, done=True, elapsed=2.2s
+[Episode 10] return=-526.32, steps=84, done=True, elapsed=1.9s
+[Episode 11] return=-507.24, steps=98, done=True, elapsed=2.3s
+[Episode 12] return=-586.50, steps=105, done=True, elapsed=2.4s
+[Episode 13] return=-345.72, steps=123, done=True, elapsed=2.8s
+[Episode 14] return=-417.08, steps=147, done=True, elapsed=3.4s
+[Episode 15] return=-489.58, steps=103, done=True, elapsed=2.4s
+[Episode 16] return=-466.17, steps=113, done=True, elapsed=2.6s
+[Episode 17] return=-490.51, steps=75, done=True, elapsed=1.7s
+[Episode 18] return=-449.09, steps=81, done=True, elapsed=1.9s
+[Episode 19] return=-476.44, steps=70, done=True, elapsed=1.6s
+[Episode 20] return=-495.83, steps=81, done=True, elapsed=1.9s
+[Checkpoint summary] mean=-498.08 median=-495.08 min=-651.84 max=-345.72 n=20
+======================================================================
+  [24/100] Epoch 120 -- world_model_20260706_184655_epoch_120.pt
+======================================================================
+[Episode 1] return=-542.98, steps=84, done=True, elapsed=1.9s
+[Episode 2] return=-554.15, steps=88, done=True, elapsed=2.0s
+[Episode 3] return=-378.26, steps=107, done=True, elapsed=2.5s
+[Episode 4] return=-567.74, steps=99, done=True, elapsed=2.3s
+[Episode 5] return=-509.13, steps=80, done=True, elapsed=1.8s
+[Episode 6] return=-685.90, steps=90, done=True, elapsed=2.1s
+[Episode 7] return=-497.65, steps=72, done=True, elapsed=1.7s
+[Episode 8] return=-573.11, steps=87, done=True, elapsed=2.0s
+[Episode 9] return=-580.08, steps=101, done=True, elapsed=2.3s
+[Episode 10] return=-526.92, steps=85, done=True, elapsed=2.0s
+[Episode 11] return=-514.06, steps=93, done=True, elapsed=2.2s
+[Episode 12] return=-557.17, steps=100, done=True, elapsed=2.3s
+[Episode 13] return=-493.62, steps=103, done=True, elapsed=2.4s
+[Episode 14] return=-498.14, steps=119, done=True, elapsed=2.8s
+[Episode 15] return=-465.56, steps=99, done=True, elapsed=2.3s
+[Episode 16] return=-663.58, steps=101, done=True, elapsed=2.3s
+[Episode 17] return=-229.54, steps=122, done=True, elapsed=2.8s
+[Episode 18] return=-463.85, steps=78, done=True, elapsed=1.8s
+[Episode 19] return=-520.38, steps=73, done=True, elapsed=1.7s
+[Episode 20] return=-479.09, steps=81, done=True, elapsed=1.9s
+[Checkpoint summary] mean=-515.05 median=-517.22 min=-685.90 max=-229.54 n=20
+======================================================================
+  [25/100] Epoch 125 -- world_model_20260706_185104_epoch_125.pt
+======================================================================
+[Episode 1] return=-150.53, steps=150, done=True, elapsed=3.5s
+[Episode 2] return=-492.66, steps=85, done=True, elapsed=2.0s
+[Episode 3] return=-537.32, steps=121, done=True, elapsed=2.8s
+[Episode 4] return=-556.50, steps=93, done=True, elapsed=2.1s
+[Episode 5] return=-511.02, steps=81, done=True, elapsed=1.9s
+[Episode 6] return=-586.58, steps=102, done=True, elapsed=2.4s
+[Episode 7] return=-490.54, steps=78, done=True, elapsed=1.8s
+[Episode 8] return=-555.39, steps=95, done=True, elapsed=2.2s
+[Episode 9] return=-339.64, steps=117, done=True, elapsed=2.7s
+[Episode 10] return=-428.89, steps=83, done=True, elapsed=1.9s
+[Episode 11] return=-443.04, steps=94, done=True, elapsed=2.2s
+[Episode 12] return=-633.53, steps=108, done=True, elapsed=2.5s
+[Episode 13] return=-451.27, steps=140, done=True, elapsed=3.2s
+[Episode 14] return=-465.12, steps=120, done=True, elapsed=2.8s
+[Episode 15] return=-561.48, steps=137, done=True, elapsed=3.2s
+[Episode 16] return=-643.28, steps=98, done=True, elapsed=2.3s
+[Episode 17] return=-529.40, steps=87, done=True, elapsed=2.0s
+[Episode 18] return=-541.93, steps=103, done=True, elapsed=2.4s
+[Episode 19] return=-501.63, steps=74, done=True, elapsed=1.7s
+[Episode 20] return=-443.63, steps=109, done=True, elapsed=2.5s
+[Checkpoint summary] mean=-493.17 median=-506.32 min=-643.28 max=-150.53 n=20
+======================================================================
+  [26/100] Epoch 130 -- world_model_20260706_185513_epoch_130.pt
+======================================================================
+[Episode 1] return=-536.94, steps=86, done=True, elapsed=2.0s
+[Episode 2] return=-546.13, steps=87, done=True, elapsed=2.0s
+[Episode 3] return=-555.21, steps=124, done=True, elapsed=2.9s
+[Episode 4] return=-637.58, steps=84, done=True, elapsed=1.9s
+[Episode 5] return=-513.14, steps=78, done=True, elapsed=1.8s
+[Episode 6] return=-659.96, steps=85, done=True, elapsed=2.0s
+[Episode 7] return=-491.13, steps=73, done=True, elapsed=1.7s
+[Episode 8] return=-487.18, steps=90, done=True, elapsed=2.1s
+[Episode 9] return=-560.90, steps=144, done=True, elapsed=3.3s
+[Episode 10] return=-527.88, steps=83, done=True, elapsed=1.9s
+[Episode 11] return=-556.81, steps=90, done=True, elapsed=2.1s
+[Episode 12] return=-626.19, steps=123, done=True, elapsed=2.8s
+[Episode 13] return=-639.44, steps=152, done=True, elapsed=3.5s
+[Episode 14] return=-591.54, steps=91, done=True, elapsed=2.1s
+[Episode 15] return=-644.98, steps=121, done=True, elapsed=2.8s
+[Episode 16] return=-643.11, steps=96, done=True, elapsed=2.2s
+[Episode 17] return=-588.56, steps=88, done=True, elapsed=2.0s
+[Episode 18] return=-508.76, steps=93, done=True, elapsed=2.2s
+[Episode 19] return=-526.16, steps=72, done=True, elapsed=1.7s
+[Episode 20] return=-568.99, steps=95, done=True, elapsed=2.2s
+[Checkpoint summary] mean=-570.53 median=-558.86 min=-659.96 max=-487.18 n=20
+======================================================================
+  [27/100] Epoch 135 -- world_model_20260706_185923_epoch_135.pt
+======================================================================
+[Episode 1] return=-623.12, steps=81, done=True, elapsed=1.9s
+[Episode 2] return=-548.71, steps=93, done=True, elapsed=2.2s
+[Episode 3] return=-727.01, steps=93, done=True, elapsed=2.2s
+[Episode 4] return=-620.93, steps=80, done=True, elapsed=1.8s
+[Episode 5] return=-507.88, steps=90, done=True, elapsed=2.1s
+[Episode 6] return=-702.32, steps=92, done=True, elapsed=2.1s
+[Episode 7] return=-555.05, steps=74, done=True, elapsed=1.7s
+[Episode 8] return=-601.56, steps=92, done=True, elapsed=2.1s
+[Episode 9] return=-766.58, steps=114, done=True, elapsed=2.6s
+[Episode 10] return=-544.59, steps=87, done=True, elapsed=2.0s
+[Episode 11] return=-423.19, steps=96, done=True, elapsed=2.2s
+[Episode 12] return=-546.55, steps=98, done=True, elapsed=2.3s
+[Episode 13] return=-525.27, steps=130, done=True, elapsed=3.0s
+[Episode 14] return=-541.64, steps=92, done=True, elapsed=2.1s
+[Episode 15] return=-678.86, steps=128, done=True, elapsed=3.0s
+[Episode 16] return=-585.53, steps=80, done=True, elapsed=1.8s
+[Episode 17] return=-554.63, steps=80, done=True, elapsed=1.9s
+[Episode 18] return=-204.29, steps=98, done=True, elapsed=2.3s
+[Episode 19] return=-522.65, steps=72, done=True, elapsed=1.7s
+[Episode 20] return=-621.11, steps=90, done=True, elapsed=2.1s
+[Checkpoint summary] mean=-570.07 median=-554.84 min=-766.58 max=-204.29 n=20
+======================================================================
+  [28/100] Epoch 140 -- world_model_20260706_190332_epoch_140.pt
+======================================================================
+[Episode 1] return=-476.26, steps=97, done=True, elapsed=2.2s
+[Episode 2] return=-443.23, steps=90, done=True, elapsed=2.1s
+[Episode 3] return=-468.57, steps=138, done=True, elapsed=3.2s
+[Episode 4] return=-404.99, steps=92, done=True, elapsed=2.1s
+[Episode 5] return=-433.55, steps=85, done=True, elapsed=2.0s
+[Episode 6] return=-626.73, steps=88, done=True, elapsed=2.0s
+[Episode 7] return=-487.30, steps=74, done=True, elapsed=1.7s
+[Episode 8] return=-507.37, steps=94, done=True, elapsed=2.2s
+[Episode 9] return=-802.68, steps=121, done=True, elapsed=2.8s
+[Episode 10] return=-432.71, steps=91, done=True, elapsed=2.1s
+[Episode 11] return=-429.06, steps=99, done=True, elapsed=2.3s
+[Episode 12] return=-565.42, steps=111, done=True, elapsed=2.6s
+[Episode 13] return=-712.04, steps=128, done=True, elapsed=3.0s
+[Episode 14] return=-453.08, steps=106, done=True, elapsed=2.4s
+[Episode 15] return=-466.68, steps=161, done=True, elapsed=3.7s
+[Episode 16] return=-568.67, steps=95, done=True, elapsed=2.2s
+[Episode 17] return=-551.02, steps=90, done=True, elapsed=2.1s
+[Episode 18] return=-403.80, steps=89, done=True, elapsed=2.1s
+[Episode 19] return=-485.71, steps=77, done=True, elapsed=1.8s
+[Episode 20] return=-403.06, steps=126, done=True, elapsed=2.9s
+[Checkpoint summary] mean=-506.10 median=-472.42 min=-802.68 max=-403.06 n=20
+======================================================================
+  [29/100] Epoch 145 -- world_model_20260706_190741_epoch_145.pt
+======================================================================
+[Episode 1] return=-568.85, steps=77, done=True, elapsed=1.8s
+[Episode 2] return=-403.00, steps=106, done=True, elapsed=2.4s
+[Episode 3] return=-642.89, steps=104, done=True, elapsed=2.4s
+[Episode 4] return=-624.12, steps=80, done=True, elapsed=1.9s
+[Episode 5] return=-447.00, steps=95, done=True, elapsed=2.2s
+[Episode 6] return=-701.40, steps=96, done=True, elapsed=2.2s
+[Episode 7] return=-497.37, steps=73, done=True, elapsed=1.7s
+[Episode 8] return=-237.34, steps=116, done=True, elapsed=2.7s
+[Episode 9] return=-939.81, steps=123, done=True, elapsed=2.8s
+[Episode 10] return=-437.81, steps=94, done=True, elapsed=2.2s
+[Episode 11] return=-470.38, steps=95, done=True, elapsed=2.2s
+[Episode 12] return=-462.94, steps=139, done=True, elapsed=3.2s
+[Episode 13] return=-711.61, steps=104, done=True, elapsed=2.4s
+[Episode 14] return=-446.58, steps=82, done=True, elapsed=1.9s
+[Episode 15] return=-762.92, steps=123, done=True, elapsed=2.8s
+[Episode 16] return=-554.41, steps=82, done=True, elapsed=1.9s
+[Episode 17] return=-606.71, steps=84, done=True, elapsed=1.9s
+[Episode 18] return=-270.97, steps=129, done=True, elapsed=3.0s
+[Episode 19] return=-533.95, steps=73, done=True, elapsed=1.7s
+[Episode 20] return=-605.27, steps=117, done=True, elapsed=2.7s
+[Checkpoint summary] mean=-546.27 median=-544.18 min=-939.81 max=-237.34 n=20
+======================================================================
+  [30/100] Epoch 150 -- world_model_20260706_191152_epoch_150.pt
+======================================================================
+[Episode 1] return=-563.03, steps=80, done=True, elapsed=1.9s
+[Episode 2] return=-278.00, steps=98, done=True, elapsed=2.3s
+[Episode 3] return=-784.62, steps=103, done=True, elapsed=2.4s
+[Episode 4] return=-397.97, steps=99, done=True, elapsed=2.3s
+[Episode 5] return=-293.25, steps=99, done=True, elapsed=2.3s
+[Episode 6] return=-584.53, steps=88, done=True, elapsed=2.0s
+[Episode 7] return=-529.49, steps=74, done=True, elapsed=1.7s
+[Episode 8] return=-510.70, steps=129, done=True, elapsed=3.0s
+[Episode 9] return=-746.00, steps=121, done=True, elapsed=2.8s
+[Episode 10] return=-529.27, steps=147, done=True, elapsed=3.4s
+[Episode 11] return=-291.17, steps=109, done=True, elapsed=2.5s
+[Episode 12] return=-722.00, steps=129, done=True, elapsed=3.0s
+[Episode 13] return=-764.80, steps=111, done=True, elapsed=2.6s
+[Episode 14] return=-545.65, steps=77, done=True, elapsed=1.8s
+[Episode 15] return=-709.52, steps=101, done=True, elapsed=2.3s
+[Episode 16] return=-589.77, steps=85, done=True, elapsed=2.0s
+[Episode 17] return=-571.04, steps=88, done=True, elapsed=2.0s
+[Episode 18] return=-449.25, steps=128, done=True, elapsed=3.0s
+[Episode 19] return=-513.71, steps=75, done=True, elapsed=1.7s
+[Episode 20] return=-594.40, steps=127, done=True, elapsed=2.9s
+[Checkpoint summary] mean=-548.41 median=-554.34 min=-784.62 max=-278.00 n=20
+======================================================================
+  [31/100] Epoch 155 -- world_model_20260706_191601_epoch_155.pt
+======================================================================
+[Episode 1] return=-242.00, steps=98, done=True, elapsed=2.3s
+[Episode 2] return=-486.00, steps=83, done=True, elapsed=1.9s
+[Episode 3] return=-338.28, steps=97, done=True, elapsed=2.2s
+[Episode 4] return=-231.47, steps=103, done=True, elapsed=2.4s
+[Episode 5] return=-478.73, steps=81, done=True, elapsed=1.9s
+[Episode 6] return=-335.01, steps=118, done=True, elapsed=2.7s
+[Episode 7] return=-435.14, steps=81, done=True, elapsed=1.9s
+[Episode 8] return=-466.07, steps=98, done=True, elapsed=2.3s
+[Episode 9] return=-438.93, steps=104, done=True, elapsed=2.4s
+[Episode 10] return=-497.47, steps=87, done=True, elapsed=2.0s
+[Episode 11] return=-527.13, steps=93, done=True, elapsed=2.2s
+[Episode 12] return=-404.60, steps=128, done=True, elapsed=3.0s
+[Episode 13] return=-289.75, steps=102, done=True, elapsed=2.4s
+[Episode 14] return=-269.57, steps=91, done=True, elapsed=2.1s
+[Episode 15] return=-434.65, steps=105, done=True, elapsed=2.4s
+[Episode 16] return=-344.23, steps=129, done=True, elapsed=3.0s
+[Episode 17] return=-416.69, steps=126, done=True, elapsed=2.9s
+[Episode 18] return=-414.36, steps=85, done=True, elapsed=2.0s
+[Episode 19] return=-366.72, steps=82, done=True, elapsed=1.9s
+[Episode 20] return=-400.58, steps=88, done=True, elapsed=2.0s
+[Checkpoint summary] mean=-390.87 median=-409.48 min=-527.13 max=-231.47 n=20
+======================================================================
+  [32/100] Epoch 160 -- world_model_20260706_192010_epoch_160.pt
+======================================================================
+[Episode 1] return=-618.62, steps=76, done=True, elapsed=1.8s
+[Episode 2] return=-322.27, steps=104, done=True, elapsed=2.4s
+[Episode 3] return=-830.76, steps=92, done=True, elapsed=2.1s
+[Episode 4] return=-650.00, steps=82, done=True, elapsed=1.9s
+[Episode 5] return=-408.11, steps=85, done=True, elapsed=2.0s
+[Episode 6] return=-808.77, steps=94, done=True, elapsed=2.2s
+[Episode 7] return=-529.85, steps=71, done=True, elapsed=1.6s
+[Episode 8] return=-305.01, steps=128, done=True, elapsed=3.0s
+[Episode 9] return=-1031.95, steps=121, done=True, elapsed=2.8s
+[Episode 10] return=-394.92, steps=84, done=True, elapsed=1.9s
+[Episode 11] return=-404.75, steps=94, done=True, elapsed=2.2s
+[Episode 12] return=-795.49, steps=116, done=True, elapsed=2.7s
+[Episode 13] return=-760.43, steps=105, done=True, elapsed=2.4s
+[Episode 14] return=-637.17, steps=75, done=True, elapsed=1.7s
+[Episode 15] return=-822.80, steps=107, done=True, elapsed=2.5s
+[Episode 16] return=-560.42, steps=77, done=True, elapsed=1.8s
+[Episode 17] return=-606.19, steps=80, done=True, elapsed=1.8s
+[Episode 18] return=-367.37, steps=120, done=True, elapsed=2.8s
+[Episode 19] return=-539.11, steps=73, done=True, elapsed=1.7s
+[Episode 20] return=-598.77, steps=111, done=True, elapsed=2.6s
+[Checkpoint summary] mean=-599.64 median=-602.48 min=-1031.95 max=-305.01 n=20
+======================================================================
+  [33/100] Epoch 165 -- world_model_20260706_192419_epoch_165.pt
+======================================================================
+[Episode 1] return=-553.13, steps=89, done=True, elapsed=2.1s
+[Episode 2] return=-450.21, steps=84, done=True, elapsed=1.9s
+[Episode 3] return=-819.20, steps=107, done=True, elapsed=2.5s
+[Episode 4] return=-584.35, steps=86, done=True, elapsed=2.0s
+[Episode 5] return=-332.64, steps=84, done=True, elapsed=1.9s
+[Episode 6] return=-459.72, steps=103, done=True, elapsed=2.4s
+[Episode 7] return=-548.39, steps=76, done=True, elapsed=1.8s
+[Episode 8] return=-359.76, steps=95, done=True, elapsed=2.2s
+[Episode 9] return=-925.30, steps=110, done=True, elapsed=2.5s
+[Episode 10] return=-361.53, steps=89, done=True, elapsed=2.1s
+[Episode 11] return=-391.32, steps=92, done=True, elapsed=2.1s
+[Episode 12] return=-478.94, steps=119, done=True, elapsed=2.8s
+[Episode 13] return=-889.85, steps=127, done=True, elapsed=2.9s
+[Episode 14] return=-602.38, steps=123, done=True, elapsed=2.9s
+[Episode 15] return=-820.63, steps=108, done=True, elapsed=2.5s
+[Episode 16] return=-595.25, steps=81, done=True, elapsed=1.9s
+[Episode 17] return=-607.04, steps=82, done=True, elapsed=1.9s
+[Episode 18] return=-405.61, steps=79, done=True, elapsed=1.8s
+[Episode 19] return=-503.15, steps=77, done=True, elapsed=1.8s
+[Episode 20] return=-401.79, steps=104, done=True, elapsed=2.4s
+[Checkpoint summary] mean=-554.51 median=-525.77 min=-925.30 max=-332.64 n=20
+======================================================================
+  [34/100] Epoch 170 -- world_model_20260706_192829_epoch_170.pt
+======================================================================
+[Episode 1] return=-554.65, steps=74, done=True, elapsed=1.7s
+[Episode 2] return=-334.05, steps=109, done=True, elapsed=2.5s
+[Episode 3] return=-757.95, steps=99, done=True, elapsed=2.3s
+[Episode 4] return=-576.57, steps=92, done=True, elapsed=2.1s
+[Episode 5] return=-338.25, steps=96, done=True, elapsed=2.2s
+[Episode 6] return=-689.02, steps=89, done=True, elapsed=2.1s
+[Episode 7] return=-553.92, steps=75, done=True, elapsed=1.7s
+[Episode 8] return=-403.86, steps=120, done=True, elapsed=2.8s
+[Episode 9] return=-1100.89, steps=120, done=True, elapsed=2.8s
+[Episode 10] return=-438.58, steps=86, done=True, elapsed=2.0s
+[Episode 11] return=-492.56, steps=98, done=True, elapsed=2.3s
+[Episode 12] return=-481.31, steps=132, done=True, elapsed=3.1s
+[Episode 13] return=-896.00, steps=127, done=True, elapsed=2.9s
+[Episode 14] return=-571.48, steps=85, done=True, elapsed=2.0s
+[Episode 15] return=-817.48, steps=123, done=True, elapsed=2.8s
+[Episode 16] return=-592.29, steps=86, done=True, elapsed=2.0s
+[Episode 17] return=-608.32, steps=85, done=True, elapsed=2.0s
+[Episode 18] return=-397.88, steps=102, done=True, elapsed=2.4s
+[Episode 19] return=-508.02, steps=76, done=True, elapsed=1.8s
+[Episode 20] return=-599.09, steps=118, done=True, elapsed=2.7s
+[Checkpoint summary] mean=-585.61 median=-563.07 min=-1100.89 max=-334.05 n=20
+======================================================================
+  [35/100] Epoch 175 -- world_model_20260706_193238_epoch_175.pt
+======================================================================
+[Episode 1] return=-565.57, steps=111, done=True, elapsed=2.6s
+[Episode 2] return=-420.74, steps=89, done=True, elapsed=2.1s
+[Episode 3] return=-645.65, steps=111, done=True, elapsed=2.6s
+[Episode 4] return=-535.46, steps=90, done=True, elapsed=2.1s
+[Episode 5] return=-389.96, steps=91, done=True, elapsed=2.1s
+[Episode 6] return=-562.40, steps=97, done=True, elapsed=2.2s
+[Episode 7] return=-468.38, steps=71, done=True, elapsed=1.6s
+[Episode 8] return=-440.82, steps=91, done=True, elapsed=2.1s
+[Episode 9] return=-761.52, steps=130, done=True, elapsed=3.0s
+[Episode 10] return=-414.71, steps=89, done=True, elapsed=2.1s
+[Episode 11] return=-502.27, steps=97, done=True, elapsed=2.2s
+[Episode 12] return=-502.99, steps=115, done=True, elapsed=2.7s
+[Episode 13] return=-517.25, steps=132, done=True, elapsed=3.1s
+[Episode 14] return=-273.00, steps=138, done=True, elapsed=3.2s
+[Episode 15] return=-602.58, steps=142, done=True, elapsed=3.3s
+[Episode 16] return=-632.60, steps=92, done=True, elapsed=2.1s
+[Episode 17] return=-182.76, steps=122, done=True, elapsed=2.8s
+[Episode 18] return=-386.30, steps=78, done=True, elapsed=1.8s
+[Episode 19] return=-499.48, steps=71, done=True, elapsed=1.6s
+[Episode 20] return=-405.38, steps=107, done=True, elapsed=2.5s
+[Checkpoint summary] mean=-485.49 median=-500.87 min=-761.52 max=-182.76 n=20
+======================================================================
+  [36/100] Epoch 180 -- world_model_20260706_193647_epoch_180.pt
+======================================================================
+[Episode 1] return=-582.97, steps=83, done=True, elapsed=1.9s
+[Episode 2] return=-753.01, steps=126, done=True, elapsed=2.9s
+[Episode 3] return=-582.64, steps=91, done=True, elapsed=2.1s
+[Episode 4] return=-623.23, steps=87, done=True, elapsed=2.0s
+[Episode 5] return=-683.57, steps=106, done=True, elapsed=2.4s
+[Episode 6] return=-729.85, steps=88, done=True, elapsed=2.0s
+[Episode 7] return=-578.33, steps=74, done=True, elapsed=1.7s
+[Episode 8] return=-733.77, steps=111, done=True, elapsed=2.6s
+[Episode 9] return=-967.26, steps=118, done=True, elapsed=2.7s
+[Episode 10] return=-689.40, steps=128, done=True, elapsed=3.0s
+[Episode 11] return=-789.37, steps=138, done=True, elapsed=3.2s
+[Episode 12] return=-803.69, steps=123, done=True, elapsed=2.8s
+[Episode 13] return=-835.17, steps=120, done=True, elapsed=2.8s
+[Episode 14] return=-627.11, steps=83, done=True, elapsed=1.9s
+[Episode 15] return=-523.59, steps=95, done=True, elapsed=2.2s
+[Episode 16] return=-550.86, steps=78, done=True, elapsed=1.8s
+[Episode 17] return=-611.58, steps=84, done=True, elapsed=1.9s
+[Episode 18] return=-500.60, steps=109, done=True, elapsed=2.5s
+[Episode 19] return=-554.50, steps=71, done=True, elapsed=1.6s
+[Episode 20] return=-627.26, steps=94, done=True, elapsed=2.2s
+[Checkpoint summary] mean=-667.39 median=-627.18 min=-967.26 max=-500.60 n=20
+======================================================================
+  [37/100] Epoch 185 -- world_model_20260706_194056_epoch_185.pt
+======================================================================
+[Episode 1] return=-567.43, steps=83, done=True, elapsed=1.9s
+[Episode 2] return=-459.16, steps=92, done=True, elapsed=2.1s
+[Episode 3] return=-414.18, steps=96, done=True, elapsed=2.2s
+[Episode 4] return=-318.10, steps=111, done=True, elapsed=2.6s
+[Episode 5] return=-405.00, steps=88, done=True, elapsed=2.0s
+[Episode 6] return=-625.02, steps=109, done=True, elapsed=2.5s
+[Episode 7] return=-530.48, steps=77, done=True, elapsed=1.8s
+[Episode 8] return=-379.06, steps=94, done=True, elapsed=2.2s
+[Episode 9] return=-441.49, steps=101, done=True, elapsed=2.3s
+[Episode 10] return=-447.81, steps=87, done=True, elapsed=2.0s
+[Episode 11] return=-430.28, steps=98, done=True, elapsed=2.3s
+[Episode 12] return=-477.72, steps=100, done=True, elapsed=2.3s
+[Episode 13] return=-446.89, steps=91, done=True, elapsed=2.1s
+[Episode 14] return=-628.39, steps=84, done=True, elapsed=1.9s
+[Episode 15] return=-493.30, steps=152, done=True, elapsed=3.5s
+[Episode 16] return=-628.26, steps=95, done=True, elapsed=2.2s
+[Episode 17] return=-577.41, steps=85, done=True, elapsed=2.0s
+[Episode 18] return=-459.62, steps=82, done=True, elapsed=1.9s
+[Episode 19] return=-489.55, steps=77, done=True, elapsed=1.8s
+[Episode 20] return=-404.68, steps=85, done=True, elapsed=2.0s
+[Checkpoint summary] mean=-481.19 median=-459.39 min=-628.39 max=-318.10 n=20
+======================================================================
+  [38/100] Epoch 190 -- world_model_20260706_194505_epoch_190.pt
+======================================================================
+[Episode 1] return=-537.51, steps=82, done=True, elapsed=1.9s
+[Episode 2] return=-444.31, steps=91, done=True, elapsed=2.1s
+[Episode 3] return=-678.69, steps=146, done=True, elapsed=3.4s
+[Episode 4] return=-587.88, steps=90, done=True, elapsed=2.1s
+[Episode 5] return=-390.14, steps=86, done=True, elapsed=2.0s
+[Episode 6] return=-713.16, steps=100, done=True, elapsed=2.3s
+[Episode 7] return=-562.55, steps=74, done=True, elapsed=1.7s
+[Episode 8] return=-451.72, steps=92, done=True, elapsed=2.1s
+[Episode 9] return=-922.47, steps=118, done=True, elapsed=2.7s
+[Episode 10] return=-465.24, steps=83, done=True, elapsed=1.9s
+[Episode 11] return=-483.94, steps=90, done=True, elapsed=2.1s
+[Episode 12] return=-785.12, steps=131, done=True, elapsed=3.0s
+[Episode 13] return=-791.34, steps=127, done=True, elapsed=2.9s
+[Episode 14] return=-452.36, steps=147, done=True, elapsed=3.4s
+[Episode 15] return=-471.50, steps=162, done=True, elapsed=3.7s
+[Episode 16] return=-638.76, steps=85, done=True, elapsed=2.0s
+[Episode 17] return=-571.86, steps=89, done=True, elapsed=2.1s
+[Episode 18] return=-455.06, steps=88, done=True, elapsed=2.0s
+[Episode 19] return=-477.42, steps=74, done=True, elapsed=1.7s
+[Episode 20] return=-638.79, steps=103, done=True, elapsed=2.4s
+[Checkpoint summary] mean=-575.99 median=-550.03 min=-922.47 max=-390.14 n=20
+======================================================================
+  [39/100] Epoch 195 -- world_model_20260706_194915_epoch_195.pt
+======================================================================
+[Episode 1] return=-574.19, steps=106, done=True, elapsed=2.4s
+[Episode 2] return=-454.22, steps=91, done=True, elapsed=2.1s
+[Episode 3] return=-406.79, steps=86, done=True, elapsed=2.0s
+[Episode 4] return=-561.98, steps=84, done=True, elapsed=1.9s
+[Episode 5] return=-380.83, steps=89, done=True, elapsed=2.0s
+[Episode 6] return=-596.79, steps=90, done=True, elapsed=2.1s
+[Episode 7] return=-533.93, steps=72, done=True, elapsed=1.7s
+[Episode 8] return=-452.90, steps=100, done=True, elapsed=2.3s
+[Episode 9] return=-440.86, steps=98, done=True, elapsed=2.3s
+[Episode 10] return=-469.56, steps=83, done=True, elapsed=1.9s
+[Episode 11] return=-480.03, steps=95, done=True, elapsed=2.2s
+[Episode 12] return=-539.42, steps=122, done=True, elapsed=2.8s
+[Episode 13] return=-479.75, steps=90, done=True, elapsed=2.1s
+[Episode 14] return=-258.30, steps=87, done=True, elapsed=2.0s
+[Episode 15] return=-557.14, steps=130, done=True, elapsed=3.0s
+[Episode 16] return=-591.98, steps=82, done=True, elapsed=1.9s
+[Episode 17] return=-588.05, steps=89, done=True, elapsed=2.1s
+[Episode 18] return=-422.99, steps=74, done=True, elapsed=1.7s
+[Episode 19] return=-561.10, steps=76, done=True, elapsed=1.8s
+[Episode 20] return=-371.60, steps=106, done=True, elapsed=2.4s
+[Checkpoint summary] mean=-486.12 median=-479.89 min=-596.79 max=-258.30 n=20
+======================================================================
+  [40/100] Epoch 200 -- world_model_20260706_195323_epoch_200.pt
+======================================================================
+[Episode 1] return=-553.34, steps=111, done=True, elapsed=2.6s
+[Episode 2] return=-319.12, steps=122, done=True, elapsed=2.8s
+[Episode 3] return=-703.62, steps=96, done=True, elapsed=2.2s
+[Episode 4] return=-637.04, steps=90, done=True, elapsed=2.1s
+[Episode 5] return=-520.48, steps=116, done=True, elapsed=2.7s
+[Episode 6] return=-743.31, steps=94, done=True, elapsed=2.2s
+[Episode 7] return=-571.40, steps=73, done=True, elapsed=1.7s
+[Episode 8] return=-637.58, steps=117, done=True, elapsed=2.7s
+[Episode 9] return=-989.91, steps=120, done=True, elapsed=2.8s
+[Episode 10] return=-289.25, steps=105, done=True, elapsed=2.4s
+[Episode 11] return=-376.92, steps=106, done=True, elapsed=2.4s
+[Episode 12] return=-781.78, steps=113, done=True, elapsed=2.6s
+[Episode 13] return=-868.57, steps=125, done=True, elapsed=2.9s
+[Episode 14] return=-520.58, steps=91, done=True, elapsed=2.1s
+[Episode 15] return=-681.20, steps=121, done=True, elapsed=2.8s
+[Episode 16] return=-606.17, steps=91, done=True, elapsed=2.1s
+[Episode 17] return=-457.19, steps=90, done=True, elapsed=2.1s
+[Episode 18] return=-248.77, steps=122, done=True, elapsed=2.8s
+[Episode 19] return=-526.53, steps=76, done=True, elapsed=1.8s
+[Episode 20] return=-502.68, steps=106, done=True, elapsed=2.5s
+[Checkpoint summary] mean=-576.77 median=-562.37 min=-989.91 max=-248.77 n=20
+======================================================================
+  [41/100] Epoch 205 -- world_model_20260706_195733_epoch_205.pt
+======================================================================
+[Episode 1] return=-507.12, steps=88, done=True, elapsed=2.0s
+[Episode 2] return=-481.39, steps=91, done=True, elapsed=2.1s
+[Episode 3] return=-479.91, steps=93, done=True, elapsed=2.1s
+[Episode 4] return=-556.96, steps=87, done=True, elapsed=2.0s
+[Episode 5] return=-309.70, steps=101, done=True, elapsed=2.3s
+[Episode 6] return=-506.97, steps=94, done=True, elapsed=2.2s
+[Episode 7] return=-489.25, steps=71, done=True, elapsed=1.6s
+[Episode 8] return=-367.76, steps=108, done=True, elapsed=2.5s
+[Episode 9] return=-898.40, steps=107, done=True, elapsed=2.5s
+[Episode 10] return=-480.73, steps=83, done=True, elapsed=1.9s
+[Episode 11] return=-479.61, steps=98, done=True, elapsed=2.3s
+[Episode 12] return=-677.23, steps=117, done=True, elapsed=2.7s
+[Episode 13] return=-677.25, steps=114, done=True, elapsed=2.6s
+[Episode 14] return=-554.47, steps=85, done=True, elapsed=2.0s
+[Episode 15] return=-628.84, steps=129, done=True, elapsed=3.0s
+[Episode 16] return=-557.98, steps=83, done=True, elapsed=1.9s
+[Episode 17] return=-527.69, steps=80, done=True, elapsed=1.8s
+[Episode 18] return=-436.33, steps=79, done=True, elapsed=1.8s
+[Episode 19] return=-487.23, steps=78, done=True, elapsed=1.8s
+[Episode 20] return=-564.96, steps=123, done=True, elapsed=2.8s
+[Checkpoint summary] mean=-533.49 median=-507.05 min=-898.40 max=-309.70 n=20
+======================================================================
+  [42/100] Epoch 210 -- world_model_20260706_200142_epoch_210.pt
+======================================================================
+[Episode 1] return=-585.13, steps=95, done=True, elapsed=2.2s
+[Episode 2] return=-485.09, steps=89, done=True, elapsed=2.1s
+[Episode 3] return=-420.49, steps=136, done=True, elapsed=3.1s
+[Episode 4] return=-512.40, steps=90, done=True, elapsed=2.1s
+[Episode 5] return=-426.69, steps=85, done=True, elapsed=2.0s
+[Episode 6] return=-603.28, steps=86, done=True, elapsed=2.0s
+[Episode 7] return=-478.69, steps=72, done=True, elapsed=1.7s
+[Episode 8] return=-274.40, steps=101, done=True, elapsed=2.3s
+[Episode 9] return=-618.58, steps=115, done=True, elapsed=2.7s
+[Episode 10] return=-406.94, steps=91, done=True, elapsed=2.1s
+[Episode 11] return=-454.50, steps=100, done=True, elapsed=2.3s
+[Episode 12] return=-278.16, steps=155, done=True, elapsed=3.6s
+[Episode 13] return=-598.62, steps=131, done=True, elapsed=3.0s
+[Episode 14] return=-558.04, steps=83, done=True, elapsed=1.9s
+[Episode 15] return=-490.59, steps=168, done=True, elapsed=3.9s
+[Episode 16] return=-294.96, steps=133, done=True, elapsed=3.1s
+[Episode 17] return=-273.77, steps=135, done=True, elapsed=3.1s
+[Episode 18] return=-414.42, steps=81, done=True, elapsed=1.9s
+[Episode 19] return=-510.64, steps=78, done=True, elapsed=1.8s
+[Episode 20] return=-193.25, steps=116, done=True, elapsed=2.7s
+[Checkpoint summary] mean=-443.93 median=-466.59 min=-618.58 max=-193.25 n=20
+======================================================================
+  [43/100] Epoch 215 -- world_model_20260706_200551_epoch_215.pt
+======================================================================
+[Episode 1] return=-604.26, steps=93, done=True, elapsed=2.2s
+[Episode 2] return=-528.58, steps=115, done=True, elapsed=2.7s
+[Episode 3] return=-633.69, steps=87, done=True, elapsed=2.0s
+[Episode 4] return=-679.96, steps=87, done=True, elapsed=2.0s
+[Episode 5] return=-256.42, steps=104, done=True, elapsed=2.4s
+[Episode 6] return=-641.98, steps=84, done=True, elapsed=1.9s
+[Episode 7] return=-523.63, steps=71, done=True, elapsed=1.6s
+[Episode 8] return=-520.46, steps=117, done=True, elapsed=2.7s
+[Episode 9] return=-817.63, steps=108, done=True, elapsed=2.5s
+[Episode 10] return=-563.63, steps=124, done=True, elapsed=2.9s
+[Episode 11] return=-515.12, steps=163, done=True, elapsed=3.8s
+[Episode 12] return=-492.12, steps=109, done=True, elapsed=2.5s
+[Episode 13] return=-751.07, steps=122, done=True, elapsed=2.8s
+[Episode 14] return=-575.07, steps=85, done=True, elapsed=2.0s
+[Episode 15] return=-673.93, steps=99, done=True, elapsed=2.3s
+[Episode 16] return=-568.41, steps=82, done=True, elapsed=1.9s
+[Episode 17] return=-423.39, steps=106, done=True, elapsed=2.5s
+[Episode 18] return=-357.79, steps=101, done=True, elapsed=2.3s
+[Episode 19] return=-524.81, steps=77, done=True, elapsed=1.8s
+[Episode 20] return=-559.40, steps=86, done=True, elapsed=2.0s
+[Checkpoint summary] mean=-560.57 median=-561.51 min=-817.63 max=-256.42 n=20
+======================================================================
+  [44/100] Epoch 220 -- world_model_20260706_201000_epoch_220.pt
+======================================================================
+[Episode 1] return=-601.54, steps=85, done=True, elapsed=2.0s
+[Episode 2] return=-768.84, steps=133, done=True, elapsed=3.1s
+[Episode 3] return=-734.43, steps=96, done=True, elapsed=2.2s
+[Episode 4] return=-650.95, steps=90, done=True, elapsed=2.1s
+[Episode 5] return=-718.80, steps=112, done=True, elapsed=2.6s
+[Episode 6] return=-739.91, steps=92, done=True, elapsed=2.1s
+[Episode 7] return=-523.69, steps=73, done=True, elapsed=1.7s
+[Episode 8] return=-700.95, steps=115, done=True, elapsed=2.7s
+[Episode 9] return=-1082.33, steps=131, done=True, elapsed=3.0s
+[Episode 10] return=-657.99, steps=105, done=True, elapsed=2.4s
+[Episode 11] return=-684.41, steps=121, done=True, elapsed=2.8s
+[Episode 12] return=-816.56, steps=116, done=True, elapsed=2.7s
+[Episode 13] return=-736.49, steps=105, done=True, elapsed=2.4s
+[Episode 14] return=-487.55, steps=82, done=True, elapsed=1.9s
+[Episode 15] return=-702.51, steps=99, done=True, elapsed=2.3s
+[Episode 16] return=-628.19, steps=86, done=True, elapsed=2.0s
+[Episode 17] return=-592.40, steps=92, done=True, elapsed=2.1s
+[Episode 18] return=-350.54, steps=116, done=True, elapsed=2.7s
+[Episode 19] return=-513.21, steps=76, done=True, elapsed=1.8s
+[Episode 20] return=-594.28, steps=93, done=True, elapsed=2.1s
+[Checkpoint summary] mean=-664.28 median=-671.20 min=-1082.33 max=-350.54 n=20
+======================================================================
+  [45/100] Epoch 225 -- world_model_20260706_201410_epoch_225.pt
+======================================================================
+[Episode 1] return=-535.22, steps=94, done=True, elapsed=2.2s
+[Episode 2] return=-807.33, steps=175, done=True, elapsed=4.0s
+[Episode 3] return=-703.95, steps=94, done=True, elapsed=2.2s
+[Episode 4] return=-597.60, steps=89, done=True, elapsed=2.1s
+[Episode 5] return=-595.10, steps=113, done=True, elapsed=2.6s
+[Episode 6] return=-780.76, steps=96, done=True, elapsed=2.2s
+[Episode 7] return=-493.41, steps=74, done=True, elapsed=1.7s
+[Episode 8] return=-607.11, steps=120, done=True, elapsed=2.8s
+[Episode 9] return=-968.80, steps=110, done=True, elapsed=2.5s
+[Episode 10] return=-468.58, steps=125, done=True, elapsed=2.9s
+[Episode 11] return=-245.14, steps=119, done=True, elapsed=2.7s
+[Episode 12] return=-783.81, steps=112, done=True, elapsed=2.6s
+[Episode 13] return=-819.77, steps=117, done=True, elapsed=2.7s
+[Episode 14] return=-595.17, steps=82, done=True, elapsed=1.9s
+[Episode 15] return=-715.39, steps=114, done=True, elapsed=2.6s
+[Episode 16] return=-574.38, steps=83, done=True, elapsed=1.9s
+[Episode 17] return=-619.71, steps=85, done=True, elapsed=2.0s
+[Episode 18] return=-478.17, steps=86, done=True, elapsed=2.0s
+[Episode 19] return=-534.63, steps=76, done=True, elapsed=1.8s
+[Episode 20] return=-607.76, steps=98, done=True, elapsed=2.3s
+[Checkpoint summary] mean=-626.59 median=-602.35 min=-968.80 max=-245.14 n=20
+======================================================================
+  [46/100] Epoch 230 -- world_model_20260706_201820_epoch_230.pt
+======================================================================
+[Episode 1] return=-539.13, steps=94, done=True, elapsed=2.2s
+[Episode 2] return=-619.59, steps=120, done=True, elapsed=2.8s
+[Episode 3] return=-588.54, steps=89, done=True, elapsed=2.1s
+[Episode 4] return=-514.77, steps=86, done=True, elapsed=2.0s
+[Episode 5] return=-436.28, steps=113, done=True, elapsed=2.6s
+[Episode 6] return=-552.92, steps=80, done=True, elapsed=1.8s
+[Episode 7] return=-444.48, steps=71, done=True, elapsed=1.6s
+[Episode 8] return=-539.47, steps=114, done=True, elapsed=2.6s
+[Episode 9] return=-838.34, steps=104, done=True, elapsed=2.4s
+[Episode 10] return=-546.41, steps=102, done=True, elapsed=2.4s
+[Episode 11] return=-89.06, steps=176, done=True, elapsed=4.0s
+[Episode 12] return=-690.27, steps=110, done=True, elapsed=2.5s
+[Episode 13] return=-666.47, steps=111, done=True, elapsed=2.6s
+[Episode 14] return=-497.47, steps=79, done=True, elapsed=1.8s
+[Episode 15] return=-516.34, steps=104, done=True, elapsed=2.4s
+[Episode 16] return=-537.56, steps=87, done=True, elapsed=2.0s
+[Episode 17] return=-202.47, steps=112, done=True, elapsed=2.6s
+[Episode 18] return=-413.87, steps=85, done=True, elapsed=2.0s
+[Episode 19] return=-455.51, steps=76, done=True, elapsed=1.7s
+[Episode 20] return=-549.50, steps=94, done=True, elapsed=2.2s
+[Checkpoint summary] mean=-511.92 median=-538.35 min=-838.34 max=-89.06 n=20
+======================================================================
+  [47/100] Epoch 235 -- world_model_20260706_202230_epoch_235.pt
+======================================================================
+[Episode 1] return=-593.61, steps=110, done=True, elapsed=2.5s
+[Episode 2] return=-744.32, steps=120, done=True, elapsed=2.8s
+[Episode 3] return=-517.18, steps=92, done=True, elapsed=2.1s
+[Episode 4] return=-553.86, steps=87, done=True, elapsed=2.0s
+[Episode 5] return=-488.55, steps=120, done=True, elapsed=2.8s
+[Episode 6] return=-691.69, steps=90, done=True, elapsed=2.1s
+[Episode 7] return=-522.11, steps=76, done=True, elapsed=1.7s
+[Episode 8] return=-668.97, steps=109, done=True, elapsed=2.5s
+[Episode 9] return=-1027.88, steps=111, done=True, elapsed=2.6s
+[Episode 10] return=-563.65, steps=112, done=True, elapsed=2.6s
+[Episode 11] return=-634.63, steps=169, done=True, elapsed=3.9s
+[Episode 12] return=-825.34, steps=119, done=True, elapsed=2.7s
+[Episode 13] return=-953.86, steps=305, done=True, elapsed=7.0s
+[Episode 14] return=-545.78, steps=82, done=True, elapsed=1.9s
+[Episode 15] return=-581.55, steps=111, done=True, elapsed=2.6s
+[Episode 16] return=-620.64, steps=84, done=True, elapsed=1.9s
+[Episode 17] return=-555.76, steps=85, done=True, elapsed=2.0s
+[Episode 18] return=-437.31, steps=100, done=True, elapsed=2.3s
+[Episode 19] return=-498.73, steps=77, done=True, elapsed=1.8s
+[Episode 20] return=-636.29, steps=97, done=True, elapsed=2.2s
+[Checkpoint summary] mean=-633.09 median=-587.58 min=-1027.88 max=-437.31 n=20
+======================================================================
+  [48/100] Epoch 240 -- world_model_20260706_202639_epoch_240.pt
+======================================================================
+[Episode 1] return=-634.60, steps=97, done=True, elapsed=2.2s
+[Episode 2] return=-431.42, steps=87, done=True, elapsed=2.0s
+[Episode 3] return=-612.80, steps=116, done=True, elapsed=2.7s
+[Episode 4] return=-242.22, steps=223, done=True, elapsed=5.1s
+[Episode 5] return=-170.98, steps=115, done=True, elapsed=2.6s
+[Episode 6] return=-586.16, steps=88, done=True, elapsed=2.0s
+[Episode 7] return=-499.48, steps=77, done=True, elapsed=1.8s
+[Episode 8] return=-592.86, steps=138, done=True, elapsed=3.2s
+[Episode 9] return=-702.75, steps=142, done=True, elapsed=3.3s
+[Episode 10] return=-445.49, steps=89, done=True, elapsed=2.0s
+[Episode 11] return=-516.03, steps=95, done=True, elapsed=2.2s
+[Episode 12] return=-717.79, steps=125, done=True, elapsed=2.9s
+[Episode 13] return=-501.86, steps=193, done=True, elapsed=4.4s
+[Episode 14] return=-508.67, steps=82, done=True, elapsed=1.9s
+[Episode 15] return=-562.73, steps=211, done=True, elapsed=4.9s
+[Episode 16] return=-355.46, steps=149, done=True, elapsed=3.4s
+[Episode 17] return=-297.88, steps=142, done=True, elapsed=3.3s
+[Episode 18] return=-393.29, steps=83, done=True, elapsed=1.9s
+[Episode 19] return=-461.45, steps=76, done=True, elapsed=1.8s
+[Episode 20] return=-330.39, steps=120, done=True, elapsed=2.8s
+[Checkpoint summary] mean=-478.22 median=-500.67 min=-717.79 max=-170.98 n=20
+======================================================================
+  [49/100] Epoch 245 -- world_model_20260706_203049_epoch_245.pt
+======================================================================
+[Episode 1] return=-582.63, steps=92, done=True, elapsed=2.1s
+[Episode 2] return=-709.25, steps=108, done=True, elapsed=2.5s
+[Episode 3] return=-502.71, steps=93, done=True, elapsed=2.1s
+[Episode 4] return=-615.44, steps=90, done=True, elapsed=2.1s
+[Episode 5] return=-397.07, steps=108, done=True, elapsed=2.5s
+[Episode 6] return=-615.05, steps=87, done=True, elapsed=2.0s
+[Episode 7] return=-528.56, steps=74, done=True, elapsed=1.7s
+[Episode 8] return=-662.51, steps=102, done=True, elapsed=2.4s
+[Episode 9] return=-908.95, steps=105, done=True, elapsed=2.4s
+[Episode 10] return=-475.31, steps=96, done=True, elapsed=2.2s
+[Episode 11] return=-665.18, steps=164, done=True, elapsed=3.8s
+[Episode 12] return=-705.37, steps=124, done=True, elapsed=2.9s
+[Episode 13] return=-857.84, steps=110, done=True, elapsed=2.5s
+[Episode 14] return=-577.30, steps=81, done=True, elapsed=1.9s
+[Episode 15] return=-485.90, steps=133, done=True, elapsed=3.1s
+[Episode 16] return=-624.14, steps=87, done=True, elapsed=2.0s
+[Episode 17] return=-591.68, steps=88, done=True, elapsed=2.0s
+[Episode 18] return=-482.25, steps=89, done=True, elapsed=2.1s
+[Episode 19] return=-542.40, steps=77, done=True, elapsed=1.8s
+[Episode 20] return=-603.63, steps=85, done=True, elapsed=2.0s
+[Checkpoint summary] mean=-606.66 median=-597.65 min=-908.95 max=-397.07 n=20
+======================================================================
+  [50/100] Epoch 250 -- world_model_20260706_203458_epoch_250.pt
+======================================================================
+[Episode 1] return=-577.14, steps=95, done=True, elapsed=2.2s
+[Episode 2] return=-693.75, steps=119, done=True, elapsed=2.7s
+[Episode 3] return=-522.56, steps=93, done=True, elapsed=2.1s
+[Episode 4] return=-598.21, steps=91, done=True, elapsed=2.1s
+[Episode 5] return=-582.04, steps=102, done=True, elapsed=2.4s
+[Episode 6] return=-563.46, steps=85, done=True, elapsed=2.0s
+[Episode 7] return=-490.70, steps=77, done=True, elapsed=1.8s
+[Episode 8] return=-535.06, steps=127, done=True, elapsed=2.9s
+[Episode 9] return=-855.82, steps=102, done=True, elapsed=2.3s
+[Episode 10] return=-469.47, steps=132, done=True, elapsed=3.0s
+[Episode 11] return=-712.01, steps=141, done=True, elapsed=3.2s
+[Episode 12] return=-492.36, steps=145, done=True, elapsed=3.3s
+[Episode 13] return=-649.38, steps=116, done=True, elapsed=2.7s
+[Episode 14] return=-541.63, steps=80, done=True, elapsed=1.8s
+[Episode 15] return=-640.52, steps=123, done=True, elapsed=2.8s
+[Episode 16] return=-627.96, steps=95, done=True, elapsed=2.2s
+[Episode 17] return=-517.62, steps=91, done=True, elapsed=2.1s
+[Episode 18] return=-289.26, steps=130, done=True, elapsed=3.0s
+[Episode 19] return=-512.45, steps=76, done=True, elapsed=1.8s
+[Episode 20] return=-586.40, steps=100, done=True, elapsed=2.3s
+[Checkpoint summary] mean=-572.89 median=-570.30 min=-855.82 max=-289.26 n=20
+======================================================================
+  [51/100] Epoch 255 -- world_model_20260706_203906_epoch_255.pt
+======================================================================
+[Episode 1] return=-576.48, steps=92, done=True, elapsed=2.1s
+[Episode 2] return=-696.51, steps=122, done=True, elapsed=2.8s
+[Episode 3] return=-686.35, steps=110, done=True, elapsed=2.5s
+[Episode 4] return=-616.30, steps=97, done=True, elapsed=2.2s
+[Episode 5] return=-154.92, steps=104, done=True, elapsed=2.4s
+[Episode 6] return=-599.62, steps=89, done=True, elapsed=2.1s
+[Episode 7] return=-524.61, steps=77, done=True, elapsed=1.8s
+[Episode 8] return=-497.31, steps=123, done=True, elapsed=2.8s
+[Episode 9] return=-883.39, steps=124, done=True, elapsed=2.9s
+[Episode 10] return=-189.48, steps=110, done=True, elapsed=2.5s
+[Episode 11] return=-332.71, steps=125, done=True, elapsed=2.9s
+[Episode 12] return=-441.65, steps=144, done=True, elapsed=3.3s
+[Episode 13] return=-569.91, steps=118, done=True, elapsed=2.7s
+[Episode 14] return=-574.54, steps=81, done=True, elapsed=1.9s
+[Episode 15] return=-624.75, steps=143, done=True, elapsed=3.3s
+[Episode 16] return=-547.49, steps=110, done=True, elapsed=2.5s
+[Episode 17] return=-461.63, steps=91, done=True, elapsed=2.1s
+[Episode 18] return=-359.62, steps=79, done=True, elapsed=1.8s
+[Episode 19] return=-457.08, steps=77, done=True, elapsed=1.8s
+[Episode 20] return=-543.87, steps=104, done=True, elapsed=2.4s
+[Checkpoint summary] mean=-516.91 median=-545.68 min=-883.39 max=-154.92 n=20
+======================================================================
+  [52/100] Epoch 260 -- world_model_20260706_204315_epoch_260.pt
+======================================================================
+[Episode 1] return=-617.00, steps=84, done=True, elapsed=1.9s
+[Episode 2] return=-671.16, steps=115, done=True, elapsed=2.6s
+[Episode 3] return=-776.61, steps=93, done=True, elapsed=2.1s
+[Episode 4] return=-589.74, steps=85, done=True, elapsed=2.0s
+[Episode 5] return=-359.66, steps=212, done=True, elapsed=4.0s
+[Episode 6] return=-512.07, steps=124, done=True, elapsed=2.9s
+[Episode 7] return=-523.11, steps=75, done=True, elapsed=1.7s
+[Episode 8] return=-503.64, steps=118, done=True, elapsed=2.7s
+[Episode 9] return=-887.22, steps=105, done=True, elapsed=2.4s
+[Episode 10] return=-559.17, steps=136, done=True, elapsed=3.1s
+[Episode 11] return=-608.56, steps=109, done=True, elapsed=2.5s
+[Episode 12] return=-636.72, steps=115, done=True, elapsed=2.7s
+[Episode 13] return=-814.57, steps=114, done=True, elapsed=2.6s
+[Episode 14] return=-549.12, steps=82, done=True, elapsed=1.9s
+[Episode 15] return=-766.55, steps=94, done=True, elapsed=2.2s
+[Episode 16] return=-656.80, steps=86, done=True, elapsed=2.0s
+[Episode 17] return=-629.56, steps=84, done=True, elapsed=1.9s
+[Episode 18] return=-378.79, steps=143, done=True, elapsed=3.3s
+[Episode 19] return=-563.50, steps=78, done=True, elapsed=1.8s
+[Episode 20] return=-580.28, steps=85, done=True, elapsed=2.0s
+[Checkpoint summary] mean=-609.19 median=-599.15 min=-887.22 max=-359.66 n=20
+======================================================================
+  [53/100] Epoch 265 -- world_model_20260706_204723_epoch_265.pt
+======================================================================
+[Episode 1] return=-658.90, steps=88, done=True, elapsed=2.0s
+[Episode 2] return=-500.64, steps=103, done=True, elapsed=2.4s
+[Episode 3] return=-609.70, steps=96, done=True, elapsed=2.2s
+[Episode 4] return=-595.97, steps=87, done=True, elapsed=2.0s
+[Episode 5] return=-631.19, steps=95, done=True, elapsed=2.2s
+[Episode 6] return=-604.50, steps=88, done=True, elapsed=2.0s
+[Episode 7] return=-510.89, steps=75, done=True, elapsed=1.7s
+[Episode 8] return=-465.84, steps=94, done=True, elapsed=2.2s
+[Episode 9] return=-821.18, steps=97, done=True, elapsed=2.2s
+[Episode 10] return=-519.39, steps=93, done=True, elapsed=2.1s
+[Episode 11] return=-501.11, steps=93, done=True, elapsed=2.1s
+[Episode 12] return=-641.19, steps=98, done=True, elapsed=2.3s
+[Episode 13] return=-717.07, steps=99, done=True, elapsed=2.3s
+[Episode 14] return=-587.96, steps=81, done=True, elapsed=1.9s
+[Episode 15] return=-563.66, steps=121, done=True, elapsed=2.8s
+[Episode 16] return=-605.27, steps=88, done=True, elapsed=2.0s
+[Episode 17] return=-608.18, steps=82, done=True, elapsed=1.9s
+[Episode 18] return=-515.46, steps=78, done=True, elapsed=1.8s
+[Episode 19] return=-504.70, steps=75, done=True, elapsed=1.7s
+[Episode 20] return=-581.38, steps=78, done=True, elapsed=1.8s
+[Checkpoint summary] mean=-587.21 median=-591.96 min=-821.18 max=-465.84 n=20
+======================================================================
+  [54/100] Epoch 270 -- world_model_20260706_205132_epoch_270.pt
+======================================================================
+[Episode 1] return=-670.45, steps=92, done=True, elapsed=2.1s
+[Episode 2] return=-465.05, steps=111, done=True, elapsed=2.6s
+[Episode 3] return=-734.78, steps=88, done=True, elapsed=2.0s
+[Episode 4] return=-609.03, steps=86, done=True, elapsed=2.0s
+[Episode 5] return=-337.00, steps=110, done=True, elapsed=2.5s
+[Episode 6] return=-656.37, steps=91, done=True, elapsed=2.1s
+[Episode 7] return=-508.06, steps=73, done=True, elapsed=1.7s
+[Episode 8] return=-596.94, steps=102, done=True, elapsed=2.4s
+[Episode 9] return=-857.95, steps=100, done=True, elapsed=2.3s
+[Episode 10] return=-582.47, steps=96, done=True, elapsed=2.2s
+[Episode 11] return=-413.59, steps=118, done=True, elapsed=2.7s
+[Episode 12] return=-565.40, steps=131, done=True, elapsed=3.0s
+[Episode 13] return=-579.78, steps=108, done=True, elapsed=2.5s
+[Episode 14] return=-588.67, steps=81, done=True, elapsed=1.9s
+[Episode 15] return=-555.07, steps=104, done=True, elapsed=2.4s
+[Episode 16] return=-646.32, steps=88, done=True, elapsed=2.0s
+[Episode 17] return=-588.87, steps=84, done=True, elapsed=1.9s
+[Episode 18] return=-220.30, steps=145, done=True, elapsed=3.3s
+[Episode 19] return=-520.44, steps=77, done=True, elapsed=1.8s
+[Episode 20] return=-497.75, steps=82, done=True, elapsed=1.9s
+[Checkpoint summary] mean=-559.71 median=-581.12 min=-857.95 max=-220.30 n=20
+======================================================================
+  [55/100] Epoch 275 -- world_model_20260706_205541_epoch_275.pt
+======================================================================
+[Episode 1] return=-640.12, steps=88, done=True, elapsed=2.0s
+[Episode 2] return=-710.78, steps=112, done=True, elapsed=2.6s
+[Episode 3] return=-610.14, steps=103, done=True, elapsed=2.4s
+[Episode 4] return=-614.23, steps=90, done=True, elapsed=2.1s
+[Episode 5] return=-645.44, steps=103, done=True, elapsed=2.4s
+[Episode 6] return=-661.58, steps=100, done=True, elapsed=2.3s
+[Episode 7] return=-528.45, steps=76, done=True, elapsed=1.8s
+[Episode 8] return=-595.54, steps=119, done=True, elapsed=2.8s
+[Episode 9] return=-1003.99, steps=105, done=True, elapsed=2.4s
+[Episode 10] return=-529.44, steps=96, done=True, elapsed=2.2s
+[Episode 11] return=-461.94, steps=104, done=True, elapsed=2.4s
+[Episode 12] return=-657.59, steps=124, done=True, elapsed=2.9s
+[Episode 13] return=-556.76, steps=119, done=True, elapsed=2.7s
+[Episode 14] return=-610.90, steps=83, done=True, elapsed=1.9s
+[Episode 15] return=-580.45, steps=91, done=True, elapsed=2.1s
+[Episode 16] return=-513.54, steps=111, done=True, elapsed=2.6s
+[Episode 17] return=-592.87, steps=89, done=True, elapsed=2.1s
+[Episode 18] return=-269.84, steps=116, done=True, elapsed=2.7s
+[Episode 19] return=-459.42, steps=79, done=True, elapsed=1.8s
+[Episode 20] return=-599.01, steps=83, done=True, elapsed=1.9s
+[Checkpoint summary] mean=-592.10 median=-597.28 min=-1003.99 max=-269.84 n=20
+======================================================================
+  [56/100] Epoch 280 -- world_model_20260706_205950_epoch_280.pt
+======================================================================
+[Episode 1] return=-613.89, steps=87, done=True, elapsed=2.0s
+[Episode 2] return=-603.66, steps=109, done=True, elapsed=2.5s
+[Episode 3] return=-548.15, steps=90, done=True, elapsed=2.1s
+[Episode 4] return=-652.90, steps=91, done=True, elapsed=2.1s
+[Episode 5] return=-598.39, steps=109, done=True, elapsed=2.5s
+[Episode 6] return=-612.82, steps=83, done=True, elapsed=1.9s
+[Episode 7] return=-539.11, steps=78, done=True, elapsed=1.8s
+[Episode 8] return=-653.14, steps=97, done=True, elapsed=2.2s
+[Episode 9] return=-848.86, steps=101, done=True, elapsed=2.3s
+[Episode 10] return=-571.80, steps=114, done=True, elapsed=2.6s
+[Episode 11] return=-434.85, steps=118, done=True, elapsed=2.7s
+[Episode 12] return=-717.04, steps=118, done=True, elapsed=2.7s
+[Episode 13] return=-602.12, steps=109, done=True, elapsed=2.5s
+[Episode 14] return=-587.72, steps=81, done=True, elapsed=1.9s
+[Episode 15] return=-523.30, steps=104, done=True, elapsed=2.4s
+[Episode 16] return=-635.91, steps=89, done=True, elapsed=2.1s
+[Episode 17] return=-637.08, steps=85, done=True, elapsed=2.0s
+[Episode 18] return=-527.47, steps=110, done=True, elapsed=2.5s
+[Episode 19] return=-499.30, steps=76, done=True, elapsed=1.8s
+[Episode 20] return=-536.36, steps=81, done=True, elapsed=1.9s
+[Checkpoint summary] mean=-597.19 median=-600.26 min=-848.86 max=-434.85 n=20
+======================================================================
+  [57/100] Epoch 285 -- world_model_20260706_210359_epoch_285.pt
+======================================================================
+[Episode 1] return=-565.53, steps=88, done=True, elapsed=2.0s
+[Episode 2] return=-652.98, steps=144, done=True, elapsed=3.3s
+[Episode 3] return=-706.41, steps=90, done=True, elapsed=2.1s
+[Episode 4] return=-643.93, steps=103, done=True, elapsed=2.4s
+[Episode 5] return=-503.66, steps=98, done=True, elapsed=2.3s
+[Episode 6] return=-684.63, steps=92, done=True, elapsed=2.1s
+[Episode 7] return=-518.21, steps=77, done=True, elapsed=1.8s
+[Episode 8] return=-430.64, steps=102, done=True, elapsed=2.4s
+[Episode 9] return=-843.74, steps=104, done=True, elapsed=2.4s
+[Episode 10] return=-557.43, steps=98, done=True, elapsed=2.3s
+[Episode 11] return=-214.78, steps=126, done=True, elapsed=2.9s
+[Episode 12] return=-686.39, steps=123, done=True, elapsed=2.8s
+[Episode 13] return=-689.29, steps=116, done=True, elapsed=2.7s
+[Episode 14] return=-553.50, steps=85, done=True, elapsed=2.0s
+[Episode 15] return=-666.67, steps=86, done=True, elapsed=2.0s
+[Episode 16] return=-636.50, steps=92, done=True, elapsed=2.1s
+[Episode 17] return=-651.60, steps=86, done=True, elapsed=2.0s
+[Episode 18] return=-564.68, steps=81, done=True, elapsed=1.9s
+[Episode 19] return=-542.36, steps=79, done=True, elapsed=1.8s
+[Episode 20] return=-609.85, steps=84, done=True, elapsed=1.9s
+[Checkpoint summary] mean=-596.14 median=-623.17 min=-843.74 max=-214.78 n=20
+======================================================================
+  [58/100] Epoch 290 -- world_model_20260706_210808_epoch_290.pt
+======================================================================
+[Episode 1] return=-614.03, steps=97, done=True, elapsed=2.2s
+[Episode 2] return=-624.66, steps=107, done=True, elapsed=2.5s
+[Episode 3] return=-541.67, steps=113, done=True, elapsed=2.6s
+[Episode 4] return=-660.93, steps=105, done=True, elapsed=2.4s
+[Episode 5] return=-531.81, steps=101, done=True, elapsed=2.3s
+[Episode 6] return=-577.67, steps=85, done=True, elapsed=2.0s
+[Episode 7] return=-504.92, steps=83, done=True, elapsed=1.9s
+[Episode 8] return=-627.89, steps=102, done=True, elapsed=2.3s
+[Episode 9] return=-830.37, steps=103, done=True, elapsed=2.4s
+[Episode 10] return=-552.50, steps=99, done=True, elapsed=2.3s
+[Episode 11] return=-439.51, steps=162, done=True, elapsed=3.7s
+[Episode 12] return=-720.89, steps=118, done=True, elapsed=2.7s
+[Episode 13] return=-653.95, steps=106, done=True, elapsed=2.4s
+[Episode 14] return=-588.48, steps=81, done=True, elapsed=1.9s
+[Episode 15] return=-670.86, steps=102, done=True, elapsed=2.3s
+[Episode 16] return=-700.63, steps=97, done=True, elapsed=2.2s
+[Episode 17] return=-548.12, steps=97, done=True, elapsed=2.2s
+[Episode 18] return=-584.25, steps=81, done=True, elapsed=1.9s
+[Episode 19] return=-436.81, steps=76, done=True, elapsed=1.7s
+[Episode 20] return=-585.58, steps=80, done=True, elapsed=1.8s
+[Checkpoint summary] mean=-599.78 median=-587.03 min=-830.37 max=-436.81 n=20
+======================================================================
+  [59/100] Epoch 295 -- world_model_20260706_211217_epoch_295.pt
+======================================================================
+[Episode 1] return=-567.94, steps=89, done=True, elapsed=2.0s
+[Episode 2] return=-223.01, steps=113, done=True, elapsed=2.6s
+[Episode 3] return=-645.01, steps=115, done=True, elapsed=2.6s
+[Episode 4] return=-697.85, steps=116, done=True, elapsed=2.7s
+[Episode 5] return=-187.23, steps=101, done=True, elapsed=2.3s
+[Episode 6] return=-630.21, steps=100, done=True, elapsed=2.3s
+[Episode 7] return=-543.60, steps=86, done=True, elapsed=2.0s
+[Episode 8] return=-231.19, steps=125, done=True, elapsed=2.9s
+[Episode 9] return=-590.08, steps=122, done=True, elapsed=2.8s
+[Episode 10] return=-159.62, steps=109, done=True, elapsed=2.5s
+[Episode 11] return=-161.59, steps=114, done=True, elapsed=2.6s
+[Episode 12] return=-293.83, steps=186, done=True, elapsed=4.3s
+[Episode 13] return=-584.03, steps=136, done=True, elapsed=3.1s
+[Episode 14] return=-515.39, steps=87, done=True, elapsed=2.0s
+[Episode 15] return=-581.08, steps=168, done=True, elapsed=3.9s
+[Episode 16] return=-592.15, steps=96, done=True, elapsed=2.2s
+[Episode 17] return=-598.37, steps=93, done=True, elapsed=2.1s
+[Episode 18] return=-476.88, steps=84, done=True, elapsed=1.9s
+[Episode 19] return=-455.45, steps=82, done=True, elapsed=1.9s
+[Episode 20] return=-593.64, steps=88, done=True, elapsed=2.0s
+[Checkpoint summary] mean=-466.41 median=-555.77 min=-697.85 max=-159.62 n=20
+======================================================================
+  [60/100] Epoch 300 -- world_model_20260706_211626_epoch_300.pt
+======================================================================
+[Episode 1] return=-621.43, steps=91, done=True, elapsed=2.1s
+[Episode 2] return=-488.70, steps=97, done=True, elapsed=2.2s
+[Episode 3] return=-418.96, steps=96, done=True, elapsed=2.2s
+[Episode 4] return=-597.96, steps=85, done=True, elapsed=2.0s
+[Episode 5] return=-476.77, steps=97, done=True, elapsed=2.2s
+[Episode 6] return=-653.86, steps=89, done=True, elapsed=2.0s
+[Episode 7] return=-520.50, steps=73, done=True, elapsed=1.7s
+[Episode 8] return=-557.36, steps=98, done=True, elapsed=2.3s
+[Episode 9] return=-782.14, steps=108, done=True, elapsed=2.5s
+[Episode 10] return=-472.05, steps=94, done=True, elapsed=2.2s
+[Episode 11] return=-419.62, steps=102, done=True, elapsed=2.4s
+[Episode 12] return=-383.10, steps=142, done=True, elapsed=3.3s
+[Episode 13] return=-623.06, steps=103, done=True, elapsed=2.4s
+[Episode 14] return=-536.96, steps=80, done=True, elapsed=1.8s
+[Episode 15] return=-495.38, steps=87, done=True, elapsed=2.0s
+[Episode 16] return=-635.61, steps=84, done=True, elapsed=1.9s
+[Episode 17] return=-647.10, steps=85, done=True, elapsed=2.0s
+[Episode 18] return=-565.14, steps=79, done=True, elapsed=1.8s
+[Episode 19] return=-542.36, steps=80, done=True, elapsed=1.8s
+[Episode 20] return=-603.48, steps=79, done=True, elapsed=1.8s
+[Checkpoint summary] mean=-552.08 median=-549.86 min=-782.14 max=-383.10 n=20
+======================================================================
+  [61/100] Epoch 305 -- world_model_20260706_212035_epoch_305.pt
+======================================================================
+[Episode 1] return=-636.75, steps=96, done=True, elapsed=2.2s
+[Episode 2] return=-227.57, steps=96, done=True, elapsed=2.2s
+[Episode 3] return=-629.52, steps=115, done=True, elapsed=2.6s
+[Episode 4] return=-663.64, steps=98, done=True, elapsed=2.3s
+[Episode 5] return=-514.31, steps=82, done=True, elapsed=1.9s
+[Episode 6] return=-542.74, steps=98, done=True, elapsed=2.3s
+[Episode 7] return=-583.35, steps=79, done=True, elapsed=1.8s
+[Episode 8] return=-671.71, steps=125, done=True, elapsed=2.9s
+[Episode 9] return=-654.16, steps=122, done=True, elapsed=2.8s
+[Episode 10] return=-273.41, steps=93, done=True, elapsed=2.1s
+[Episode 11] return=-306.22, steps=183, done=True, elapsed=4.2s
+[Episode 12] return=-583.60, steps=147, done=True, elapsed=3.4s
+[Episode 13] return=-625.30, steps=138, done=True, elapsed=3.2s
+[Episode 14] return=-540.22, steps=86, done=True, elapsed=2.0s
+[Episode 15] return=-677.86, steps=167, done=True, elapsed=3.8s
+[Episode 16] return=-572.44, steps=99, done=True, elapsed=2.3s
+[Episode 17] return=-682.35, steps=84, done=True, elapsed=1.9s
+[Episode 18] return=-650.00, steps=105, done=True, elapsed=2.4s
+[Episode 19] return=-515.43, steps=78, done=True, elapsed=1.8s
+[Episode 20] return=-648.45, steps=111, done=True, elapsed=2.6s
+[Checkpoint summary] mean=-559.95 median=-604.45 min=-682.35 max=-227.57 n=20
+======================================================================
+  [62/100] Epoch 310 -- world_model_20260706_212444_epoch_310.pt
+======================================================================
+[Episode 1] return=-606.88, steps=88, done=True, elapsed=2.0s
+[Episode 2] return=-186.21, steps=114, done=True, elapsed=2.6s
+[Episode 3] return=-688.51, steps=101, done=True, elapsed=2.3s
+[Episode 4] return=-654.07, steps=94, done=True, elapsed=2.2s
+[Episode 5] return=-270.66, steps=97, done=True, elapsed=2.2s
+[Episode 6] return=-596.32, steps=84, done=True, elapsed=1.9s
+[Episode 7] return=-512.76, steps=74, done=True, elapsed=1.7s
+[Episode 8] return=-539.11, steps=129, done=True, elapsed=3.0s
+[Episode 9] return=-637.94, steps=122, done=True, elapsed=2.8s
+[Episode 10] return=-151.96, steps=115, done=True, elapsed=2.7s
+[Episode 11] return=-310.76, steps=108, done=True, elapsed=2.5s
+[Episode 12] return=-593.35, steps=133, done=True, elapsed=3.1s
+[Episode 13] return=-542.34, steps=118, done=True, elapsed=2.7s
+[Episode 14] return=-549.76, steps=80, done=True, elapsed=1.8s
+[Episode 15] return=-621.55, steps=114, done=True, elapsed=2.6s
+[Episode 16] return=-622.06, steps=88, done=True, elapsed=2.0s
+[Episode 17] return=-591.31, steps=85, done=True, elapsed=2.0s
+[Episode 18] return=-489.31, steps=84, done=True, elapsed=1.9s
+[Episode 19] return=-554.95, steps=78, done=True, elapsed=1.8s
+[Episode 20] return=-615.95, steps=87, done=True, elapsed=2.0s
+[Checkpoint summary] mean=-516.79 median=-573.13 min=-688.51 max=-151.96 n=20
+======================================================================
+  [63/100] Epoch 315 -- world_model_20260706_212853_epoch_315.pt
+======================================================================
+[Episode 1] return=-628.46, steps=94, done=True, elapsed=2.2s
+[Episode 2] return=-448.04, steps=87, done=True, elapsed=2.0s
+[Episode 3] return=-669.57, steps=103, done=True, elapsed=2.4s
+[Episode 4] return=-655.68, steps=91, done=True, elapsed=2.1s
+[Episode 5] return=-284.59, steps=94, done=True, elapsed=2.2s
+[Episode 6] return=-560.39, steps=97, done=True, elapsed=2.2s
+[Episode 7] return=-507.15, steps=82, done=True, elapsed=1.9s
+[Episode 8] return=-571.81, steps=153, done=True, elapsed=3.5s
+[Episode 9] return=-677.41, steps=139, done=True, elapsed=3.2s
+[Episode 10] return=-459.93, steps=90, done=True, elapsed=2.1s
+[Episode 11] return=-432.77, steps=107, done=True, elapsed=2.5s
+[Episode 12] return=-344.14, steps=187, done=True, elapsed=4.3s
+[Episode 13] return=-601.39, steps=112, done=True, elapsed=2.6s
+[Episode 14] return=-595.03, steps=86, done=True, elapsed=2.0s
+[Episode 15] return=-560.55, steps=128, done=True, elapsed=3.0s
+[Episode 16] return=-576.36, steps=94, done=True, elapsed=2.2s
+[Episode 17] return=-580.16, steps=100, done=True, elapsed=2.3s
+[Episode 18] return=-425.11, steps=121, done=True, elapsed=2.8s
+[Episode 19] return=-565.33, steps=79, done=True, elapsed=1.8s
+[Episode 20] return=-603.81, steps=93, done=True, elapsed=2.1s
+[Checkpoint summary] mean=-537.38 median=-568.57 min=-677.41 max=-284.59 n=20
+======================================================================
+  [64/100] Epoch 320 -- world_model_20260706_213303_epoch_320.pt
+======================================================================
+[Episode 1] return=-572.36, steps=88, done=True, elapsed=2.0s
+[Episode 2] return=-193.54, steps=100, done=True, elapsed=2.3s
+[Episode 3] return=-635.61, steps=94, done=True, elapsed=2.2s
+[Episode 4] return=-667.47, steps=92, done=True, elapsed=2.1s
+[Episode 5] return=-559.81, steps=141, done=True, elapsed=3.2s
+[Episode 6] return=-658.29, steps=93, done=True, elapsed=2.1s
+[Episode 7] return=-507.80, steps=83, done=True, elapsed=1.9s
+[Episode 8] return=-582.06, steps=123, done=True, elapsed=2.8s
+[Episode 9] return=-867.20, steps=105, done=True, elapsed=2.4s
+[Episode 10] return=-178.86, steps=97, done=True, elapsed=2.2s
+[Episode 11] return=-332.19, steps=153, done=True, elapsed=3.5s
+[Episode 12] return=-647.77, steps=140, done=True, elapsed=3.2s
+[Episode 13] return=-687.26, steps=123, done=True, elapsed=2.8s
+[Episode 14] return=-557.58, steps=83, done=True, elapsed=1.9s
+[Episode 15] return=-697.20, steps=114, done=True, elapsed=2.6s
+[Episode 16] return=-646.56, steps=90, done=True, elapsed=2.1s
+[Episode 17] return=-605.00, steps=99, done=True, elapsed=2.3s
+[Episode 18] return=-647.51, steps=92, done=True, elapsed=2.1s
+[Episode 19] return=-559.99, steps=77, done=True, elapsed=1.8s
+[Episode 20] return=-642.90, steps=83, done=True, elapsed=1.9s
+[Checkpoint summary] mean=-572.35 median=-620.31 min=-867.20 max=-178.86 n=20
+======================================================================
+  [65/100] Epoch 325 -- world_model_20260706_213712_epoch_325.pt
+======================================================================
+[Episode 1] return=-686.05, steps=91, done=True, elapsed=2.1s
+[Episode 2] return=-223.07, steps=100, done=True, elapsed=2.3s
+[Episode 3] return=-694.87, steps=89, done=True, elapsed=2.0s
+[Episode 4] return=-699.51, steps=94, done=True, elapsed=2.2s
+[Episode 5] return=-236.02, steps=97, done=True, elapsed=2.2s
+[Episode 6] return=-612.89, steps=82, done=True, elapsed=1.9s
+[Episode 7] return=-548.25, steps=78, done=True, elapsed=1.8s
+[Episode 8] return=-481.97, steps=141, done=True, elapsed=3.2s
+[Episode 9] return=-867.65, steps=109, done=True, elapsed=2.5s
+[Episode 10] return=-506.95, steps=111, done=True, elapsed=2.6s
+[Episode 11] return=-571.85, steps=170, done=True, elapsed=3.9s
+[Episode 12] return=-621.64, steps=135, done=True, elapsed=3.1s
+[Episode 13] return=-601.27, steps=105, done=True, elapsed=2.4s
+[Episode 14] return=-640.21, steps=83, done=True, elapsed=1.9s
+[Episode 15] return=-460.58, steps=87, done=True, elapsed=2.0s
+[Episode 16] return=-618.96, steps=94, done=True, elapsed=2.2s
+[Episode 17] return=-650.44, steps=85, done=True, elapsed=2.0s
+[Episode 18] return=-515.81, steps=89, done=True, elapsed=2.1s
+[Episode 19] return=-537.58, steps=76, done=True, elapsed=1.7s
+[Episode 20] return=-658.33, steps=83, done=True, elapsed=1.9s
+[Checkpoint summary] mean=-571.70 median=-607.08 min=-867.65 max=-223.07 n=20
+======================================================================
+  [66/100] Epoch 330 -- world_model_20260706_214120_epoch_330.pt
+======================================================================
+[Episode 1] return=-648.93, steps=89, done=True, elapsed=2.0s
+[Episode 2] return=-218.99, steps=96, done=True, elapsed=2.2s
+[Episode 3] return=-712.58, steps=94, done=True, elapsed=2.2s
+[Episode 4] return=-656.85, steps=91, done=True, elapsed=2.1s
+[Episode 5] return=-270.32, steps=97, done=True, elapsed=2.2s
+[Episode 6] return=-484.09, steps=95, done=True, elapsed=2.2s
+[Episode 7] return=-540.35, steps=83, done=True, elapsed=1.9s
+[Episode 8] return=-570.16, steps=116, done=True, elapsed=2.7s
+[Episode 9] return=-921.00, steps=112, done=True, elapsed=2.6s
+[Episode 10] return=-522.32, steps=142, done=True, elapsed=3.3s
+[Episode 11] return=-544.74, steps=175, done=True, elapsed=4.0s
+[Episode 12] return=-594.29, steps=124, done=True, elapsed=2.9s
+[Episode 13] return=-678.11, steps=109, done=True, elapsed=2.5s
+[Episode 14] return=-605.10, steps=83, done=True, elapsed=1.9s
+[Episode 15] return=-608.70, steps=95, done=True, elapsed=2.2s
+[Episode 16] return=-645.33, steps=97, done=True, elapsed=2.2s
+[Episode 17] return=-569.13, steps=100, done=True, elapsed=2.3s
+[Episode 18] return=-334.83, steps=136, done=True, elapsed=3.1s
+[Episode 19] return=-542.73, steps=77, done=True, elapsed=1.8s
+[Episode 20] return=-622.15, steps=86, done=True, elapsed=2.0s
+[Checkpoint summary] mean=-564.54 median=-582.23 min=-921.00 max=-218.99 n=20
+======================================================================
+  [67/100] Epoch 335 -- world_model_20260706_214529_epoch_335.pt
+======================================================================
+[Episode 1] return=-638.85, steps=88, done=True, elapsed=2.0s
+[Episode 2] return=-574.07, steps=141, done=True, elapsed=3.2s
+[Episode 3] return=-512.89, steps=123, done=True, elapsed=2.8s
+[Episode 4] return=-610.31, steps=89, done=True, elapsed=2.1s
+[Episode 5] return=-456.80, steps=103, done=True, elapsed=2.4s
+[Episode 6] return=-615.28, steps=84, done=True, elapsed=1.9s
+[Episode 7] return=-509.56, steps=75, done=True, elapsed=1.7s
+[Episode 8] return=-504.11, steps=131, done=True, elapsed=3.0s
+[Episode 9] return=-881.55, steps=104, done=True, elapsed=2.4s
+[Episode 10] return=-532.24, steps=110, done=True, elapsed=2.5s
+[Episode 11] return=-593.54, steps=128, done=True, elapsed=2.9s
+[Episode 12] return=-551.87, steps=121, done=True, elapsed=2.8s
+[Episode 13] return=-709.44, steps=110, done=True, elapsed=2.5s
+[Episode 14] return=-541.44, steps=80, done=True, elapsed=1.8s
+[Episode 15] return=-665.51, steps=92, done=True, elapsed=2.1s
+[Episode 16] return=-670.71, steps=93, done=True, elapsed=2.1s
+[Episode 17] return=-640.78, steps=101, done=True, elapsed=2.3s
+[Episode 18] return=-423.92, steps=183, done=True, elapsed=4.2s
+[Episode 19] return=-548.34, steps=77, done=True, elapsed=1.8s
+[Episode 20] return=-640.32, steps=85, done=True, elapsed=2.0s
+[Checkpoint summary] mean=-591.08 median=-583.80 min=-881.55 max=-423.92 n=20
+======================================================================
+  [68/100] Epoch 340 -- world_model_20260706_214938_epoch_340.pt
+======================================================================
+[Episode 1] return=-584.52, steps=89, done=True, elapsed=2.0s
+[Episode 2] return=-484.24, steps=92, done=True, elapsed=2.1s
+[Episode 3] return=-517.57, steps=88, done=True, elapsed=2.0s
+[Episode 4] return=-630.78, steps=90, done=True, elapsed=2.1s
+[Episode 5] return=-428.27, steps=85, done=True, elapsed=2.0s
+[Episode 6] return=-578.81, steps=82, done=True, elapsed=1.9s
+[Episode 7] return=-538.75, steps=76, done=True, elapsed=1.7s
+[Episode 8] return=-499.28, steps=117, done=True, elapsed=2.7s
+[Episode 9] return=-841.71, steps=109, done=True, elapsed=2.5s
+[Episode 10] return=-169.07, steps=100, done=True, elapsed=2.3s
+[Episode 11] return=-400.58, steps=132, done=True, elapsed=3.0s
+[Episode 12] return=-677.75, steps=121, done=True, elapsed=2.8s
+[Episode 13] return=-666.06, steps=110, done=True, elapsed=2.5s
+[Episode 14] return=-603.07, steps=82, done=True, elapsed=1.9s
+[Episode 15] return=-534.38, steps=91, done=True, elapsed=2.1s
+[Episode 16] return=-676.49, steps=104, done=True, elapsed=2.4s
+[Episode 17] return=-603.90, steps=99, done=True, elapsed=2.3s
+[Episode 18] return=-145.91, steps=170, done=True, elapsed=3.9s
+[Episode 19] return=-528.57, steps=77, done=True, elapsed=1.8s
+[Episode 20] return=-654.54, steps=96, done=True, elapsed=2.2s
+[Checkpoint summary] mean=-538.21 median=-558.78 min=-841.71 max=-145.91 n=20
+======================================================================
+  [69/100] Epoch 345 -- world_model_20260706_215347_epoch_345.pt
+======================================================================
+[Episode 1] return=-577.80, steps=92, done=True, elapsed=2.1s
+[Episode 2] return=-236.13, steps=95, done=True, elapsed=2.2s
+[Episode 3] return=-729.29, steps=106, done=True, elapsed=2.4s
+[Episode 4] return=-661.36, steps=92, done=True, elapsed=2.1s
+[Episode 5] return=-368.81, steps=91, done=True, elapsed=2.1s
+[Episode 6] return=-630.63, steps=90, done=True, elapsed=2.1s
+[Episode 7] return=-568.89, steps=76, done=True, elapsed=1.7s
+[Episode 8] return=-384.00, steps=127, done=True, elapsed=2.9s
+[Episode 9] return=-669.06, steps=122, done=True, elapsed=2.8s
+[Episode 10] return=-166.20, steps=97, done=True, elapsed=2.2s
+[Episode 11] return=-386.85, steps=101, done=True, elapsed=2.3s
+[Episode 12] return=-538.94, steps=183, done=True, elapsed=4.2s
+[Episode 13] return=-616.46, steps=110, done=True, elapsed=2.5s
+[Episode 14] return=-525.29, steps=80, done=True, elapsed=1.8s
+[Episode 15] return=-675.65, steps=108, done=True, elapsed=2.5s
+[Episode 16] return=-623.43, steps=94, done=True, elapsed=2.2s
+[Episode 17] return=-657.19, steps=96, done=True, elapsed=2.2s
+[Episode 18] return=-443.01, steps=106, done=True, elapsed=2.4s
+[Episode 19] return=-511.46, steps=79, done=True, elapsed=1.8s
+[Episode 20] return=-701.63, steps=121, done=True, elapsed=2.8s
+[Checkpoint summary] mean=-533.60 median=-573.35 min=-729.29 max=-166.20 n=20
+======================================================================
+  [70/100] Epoch 350 -- world_model_20260706_215755_epoch_350.pt
+======================================================================
+[Episode 1] return=-605.24, steps=90, done=True, elapsed=2.1s
+[Episode 2] return=-552.87, steps=145, done=True, elapsed=3.3s
+[Episode 3] return=-734.42, steps=90, done=True, elapsed=2.1s
+[Episode 4] return=-634.88, steps=90, done=True, elapsed=2.1s
+[Episode 5] return=-539.49, steps=102, done=True, elapsed=2.4s
+[Episode 6] return=-629.56, steps=85, done=True, elapsed=2.0s
+[Episode 7] return=-510.76, steps=82, done=True, elapsed=1.9s
+[Episode 8] return=-581.87, steps=134, done=True, elapsed=3.1s
+[Episode 9] return=-630.74, steps=100, done=True, elapsed=2.3s
+[Episode 10] return=-538.34, steps=102, done=True, elapsed=2.3s
+[Episode 11] return=-327.11, steps=136, done=True, elapsed=3.1s
+[Episode 12] return=-614.51, steps=132, done=True, elapsed=3.0s
+[Episode 13] return=-658.24, steps=123, done=True, elapsed=2.8s
+[Episode 14] return=-556.44, steps=80, done=True, elapsed=1.8s
+[Episode 15] return=-481.48, steps=121, done=True, elapsed=2.8s
+[Episode 16] return=-659.84, steps=94, done=True, elapsed=2.2s
+[Episode 17] return=-648.61, steps=94, done=True, elapsed=2.2s
+[Episode 18] return=-501.74, steps=116, done=True, elapsed=2.7s
+[Episode 19] return=-541.64, steps=78, done=True, elapsed=1.8s
+[Episode 20] return=-551.18, steps=88, done=True, elapsed=2.0s
+[Checkpoint summary] mean=-574.95 median=-569.16 min=-734.42 max=-327.11 n=20
+======================================================================
+  [71/100] Epoch 355 -- world_model_20260706_220204_epoch_355.pt
+======================================================================
+[Episode 1] return=-561.03, steps=88, done=True, elapsed=2.0s
+[Episode 2] return=-246.92, steps=96, done=True, elapsed=2.2s
+[Episode 3] return=-527.22, steps=136, done=True, elapsed=3.1s
+[Episode 4] return=-660.31, steps=110, done=True, elapsed=2.5s
+[Episode 5] return=-185.88, steps=109, done=True, elapsed=2.5s
+[Episode 6] return=-639.81, steps=90, done=True, elapsed=2.1s
+[Episode 7] return=-551.65, steps=85, done=True, elapsed=2.0s
+[Episode 8] return=-592.39, steps=126, done=True, elapsed=2.9s
+[Episode 9] return=-694.51, steps=133, done=True, elapsed=3.1s
+[Episode 10] return=-504.10, steps=134, done=True, elapsed=3.1s
+[Episode 11] return=-204.58, steps=111, done=True, elapsed=2.6s
+[Episode 12] return=-657.29, steps=139, done=True, elapsed=3.2s
+[Episode 13] return=-636.84, steps=122, done=True, elapsed=2.8s
+[Episode 14] return=-548.83, steps=83, done=True, elapsed=1.9s
+[Episode 15] return=-677.19, steps=178, done=True, elapsed=4.1s
+[Episode 16] return=-650.27, steps=135, done=True, elapsed=3.1s
+[Episode 17] return=-645.95, steps=116, done=True, elapsed=2.7s
+[Episode 18] return=-468.87, steps=124, done=True, elapsed=2.9s
+[Episode 19] return=-463.96, steps=85, done=True, elapsed=2.0s
+[Episode 20] return=-706.95, steps=117, done=True, elapsed=2.7s
+[Checkpoint summary] mean=-541.23 median=-576.71 min=-706.95 max=-185.88 n=20
+======================================================================
+  [72/100] Epoch 360 -- world_model_20260706_220612_epoch_360.pt
+======================================================================
+[Episode 1] return=-588.36, steps=96, done=True, elapsed=2.2s
+[Episode 2] return=-489.45, steps=91, done=True, elapsed=2.1s
+[Episode 3] return=-684.12, steps=118, done=True, elapsed=2.7s
+[Episode 4] return=-590.96, steps=99, done=True, elapsed=2.3s
+[Episode 5] return=-426.33, steps=93, done=True, elapsed=2.1s
+[Episode 6] return=-636.95, steps=90, done=True, elapsed=2.1s
+[Episode 7] return=-495.13, steps=80, done=True, elapsed=1.8s
+[Episode 8] return=-170.51, steps=122, done=True, elapsed=2.8s
+[Episode 9] return=-185.71, steps=150, done=True, elapsed=3.5s
+[Episode 10] return=-375.16, steps=97, done=True, elapsed=2.2s
+[Episode 11] return=-464.94, steps=108, done=True, elapsed=2.5s
+[Episode 12] return=-569.12, steps=135, done=True, elapsed=3.1s
+[Episode 13] return=-639.14, steps=116, done=True, elapsed=2.7s
+[Episode 14] return=-534.97, steps=87, done=True, elapsed=2.0s
+[Episode 15] return=-305.66, steps=229, done=True, elapsed=5.3s
+[Episode 16] return=-644.63, steps=112, done=True, elapsed=2.6s
+[Episode 17] return=-373.22, steps=131, done=True, elapsed=3.0s
+[Episode 18] return=-482.70, steps=104, done=True, elapsed=2.4s
+[Episode 19] return=-489.87, steps=78, done=True, elapsed=1.8s
+[Episode 20] return=-648.64, steps=114, done=True, elapsed=2.6s
+[Checkpoint summary] mean=-489.78 median=-492.50 min=-684.12 max=-170.51 n=20
+======================================================================
+  [73/100] Epoch 365 -- world_model_20260706_221021_epoch_365.pt
+======================================================================
+[Episode 1] return=-553.78, steps=89, done=True, elapsed=2.1s
+[Episode 2] return=-232.48, steps=97, done=True, elapsed=2.2s
+[Episode 3] return=-540.29, steps=120, done=True, elapsed=2.8s
+[Episode 4] return=-657.57, steps=91, done=True, elapsed=2.1s
+[Episode 5] return=-257.79, steps=92, done=True, elapsed=2.1s
+[Episode 6] return=-683.99, steps=92, done=True, elapsed=2.1s
+[Episode 7] return=-563.58, steps=80, done=True, elapsed=1.8s
+[Episode 8] return=-499.59, steps=150, done=True, elapsed=3.5s
+[Episode 9] return=-730.30, steps=120, done=True, elapsed=2.8s
+[Episode 10] return=-180.61, steps=98, done=True, elapsed=2.3s
+[Episode 11] return=-358.01, steps=105, done=True, elapsed=2.4s
+[Episode 12] return=-325.68, steps=212, done=True, elapsed=4.9s
+[Episode 13] return=-590.85, steps=111, done=True, elapsed=2.6s
+[Episode 14] return=-591.60, steps=82, done=True, elapsed=1.9s
+[Episode 15] return=-660.70, steps=125, done=True, elapsed=2.9s
+[Episode 16] return=-611.53, steps=112, done=True, elapsed=2.6s
+[Episode 17] return=-641.64, steps=108, done=True, elapsed=2.5s
+[Episode 18] return=-493.59, steps=129, done=True, elapsed=3.0s
+[Episode 19] return=-535.09, steps=80, done=True, elapsed=1.8s
+[Episode 20] return=-637.98, steps=96, done=True, elapsed=2.2s
+[Checkpoint summary] mean=-517.33 median=-558.68 min=-730.30 max=-180.61 n=20
+======================================================================
+  [74/100] Epoch 370 -- world_model_20260706_221429_epoch_370.pt
+======================================================================
+[Episode 1] return=-566.69, steps=89, done=True, elapsed=2.1s
+[Episode 2] return=-293.04, steps=101, done=True, elapsed=2.3s
+[Episode 3] return=-709.08, steps=101, done=True, elapsed=2.3s
+[Episode 4] return=-638.64, steps=85, done=True, elapsed=2.0s
+[Episode 5] return=-311.19, steps=97, done=True, elapsed=2.2s
+[Episode 6] return=-624.22, steps=84, done=True, elapsed=1.9s
+[Episode 7] return=-564.34, steps=75, done=True, elapsed=1.7s
+[Episode 8] return=-547.84, steps=132, done=True, elapsed=3.0s
+[Episode 9] return=-671.81, steps=118, done=True, elapsed=2.7s
+[Episode 10] return=-507.87, steps=137, done=True, elapsed=3.2s
+[Episode 11] return=-498.69, steps=176, done=True, elapsed=4.1s
+[Episode 12] return=-573.80, steps=150, done=True, elapsed=3.5s
+[Episode 13] return=-715.79, steps=103, done=True, elapsed=2.4s
+[Episode 14] return=-569.19, steps=82, done=True, elapsed=1.9s
+[Episode 15] return=-696.83, steps=104, done=True, elapsed=2.4s
+[Episode 16] return=-698.88, steps=99, done=True, elapsed=2.3s
+[Episode 17] return=-661.17, steps=103, done=True, elapsed=2.4s
+[Episode 18] return=-653.42, steps=123, done=True, elapsed=2.8s
+[Episode 19] return=-551.79, steps=77, done=True, elapsed=1.8s
+[Episode 20] return=-600.70, steps=90, done=True, elapsed=2.1s
+[Checkpoint summary] mean=-582.75 median=-587.25 min=-715.79 max=-293.04 n=20
+======================================================================
+  [75/100] Epoch 375 -- world_model_20260706_221838_epoch_375.pt
+======================================================================
+[Episode 1] return=-594.05, steps=86, done=True, elapsed=2.0s
+[Episode 2] return=-537.33, steps=138, done=True, elapsed=3.2s
+[Episode 3] return=-673.34, steps=100, done=True, elapsed=2.3s
+[Episode 4] return=-628.86, steps=93, done=True, elapsed=2.1s
+[Episode 5] return=-583.92, steps=112, done=True, elapsed=2.6s
+[Episode 6] return=-611.69, steps=90, done=True, elapsed=2.1s
+[Episode 7] return=-473.27, steps=79, done=True, elapsed=1.8s
+[Episode 8] return=-564.07, steps=119, done=True, elapsed=2.8s
+[Episode 9] return=-633.55, steps=104, done=True, elapsed=2.4s
+[Episode 10] return=-521.28, steps=108, done=True, elapsed=2.5s
+[Episode 11] return=-475.78, steps=149, done=True, elapsed=3.4s
+[Episode 12] return=-572.12, steps=139, done=True, elapsed=3.2s
+[Episode 13] return=-618.58, steps=108, done=True, elapsed=2.5s
+[Episode 14] return=-437.11, steps=94, done=True, elapsed=2.2s
+[Episode 15] return=-565.49, steps=101, done=True, elapsed=2.3s
+[Episode 16] return=-601.86, steps=94, done=True, elapsed=2.2s
+[Episode 17] return=-646.91, steps=93, done=True, elapsed=2.1s
+[Episode 18] return=-527.86, steps=110, done=True, elapsed=2.5s
+[Episode 19] return=-492.48, steps=79, done=True, elapsed=1.8s
+[Episode 20] return=-623.94, steps=82, done=True, elapsed=1.9s
+[Checkpoint summary] mean=-569.17 median=-578.02 min=-673.34 max=-437.11 n=20
+======================================================================
+  [76/100] Epoch 380 -- world_model_20260706_222247_epoch_380.pt
+======================================================================
+[Episode 1] return=-669.22, steps=89, done=True, elapsed=2.0s
+[Episode 2] return=-200.10, steps=101, done=True, elapsed=2.3s
+[Episode 3] return=-692.67, steps=109, done=True, elapsed=2.5s
+[Episode 4] return=-637.80, steps=90, done=True, elapsed=2.1s
+[Episode 5] return=-210.33, steps=99, done=True, elapsed=2.3s
+[Episode 6] return=-654.38, steps=83, done=True, elapsed=1.9s
+[Episode 7] return=-553.69, steps=74, done=True, elapsed=1.7s
+[Episode 8] return=-410.10, steps=136, done=True, elapsed=3.1s
+[Episode 9] return=-689.60, steps=123, done=True, elapsed=2.8s
+[Episode 10] return=-221.89, steps=99, done=True, elapsed=2.3s
+[Episode 11] return=-410.46, steps=110, done=True, elapsed=2.5s
+[Episode 12] return=-615.36, steps=136, done=True, elapsed=3.1s
+[Episode 13] return=-697.57, steps=105, done=True, elapsed=2.4s
+[Episode 14] return=-585.47, steps=79, done=True, elapsed=1.8s
+[Episode 15] return=-651.18, steps=127, done=True, elapsed=2.9s
+[Episode 16] return=-643.10, steps=96, done=True, elapsed=2.2s
+[Episode 17] return=-267.04, steps=135, done=True, elapsed=3.1s
+[Episode 18] return=-437.80, steps=180, done=True, elapsed=4.1s
+[Episode 19] return=-576.21, steps=75, done=True, elapsed=1.7s
+[Episode 20] return=-624.66, steps=99, done=True, elapsed=2.3s
+[Checkpoint summary] mean=-522.43 median=-600.42 min=-697.57 max=-200.10 n=20
+======================================================================
+  [77/100] Epoch 385 -- world_model_20260706_222656_epoch_385.pt
+======================================================================
+[Episode 1] return=-597.48, steps=86, done=True, elapsed=2.0s
+[Episode 2] return=-289.57, steps=106, done=True, elapsed=2.4s
+[Episode 3] return=-685.33, steps=113, done=True, elapsed=2.6s
+[Episode 4] return=-654.80, steps=102, done=True, elapsed=2.4s
+[Episode 5] return=-152.94, steps=104, done=True, elapsed=2.4s
+[Episode 6] return=-631.44, steps=96, done=True, elapsed=2.2s
+[Episode 7] return=-525.20, steps=87, done=True, elapsed=2.0s
+[Episode 8] return=-492.29, steps=128, done=True, elapsed=3.0s
+[Episode 9] return=-663.45, steps=126, done=True, elapsed=2.9s
+[Episode 10] return=-506.26, steps=129, done=True, elapsed=3.0s
+[Episode 11] return=-236.39, steps=131, done=True, elapsed=3.0s
+[Episode 12] return=-561.61, steps=169, done=True, elapsed=3.9s
+[Episode 13] return=-645.38, steps=118, done=True, elapsed=2.7s
+[Episode 14] return=-582.31, steps=84, done=True, elapsed=1.9s
+[Episode 15] return=-568.64, steps=184, done=True, elapsed=4.2s
+[Episode 16] return=-638.54, steps=105, done=True, elapsed=2.4s
+[Episode 17] return=-601.40, steps=104, done=True, elapsed=2.4s
+[Episode 18] return=-518.98, steps=132, done=True, elapsed=3.0s
+[Episode 19] return=-533.79, steps=78, done=True, elapsed=1.8s
+[Episode 20] return=-612.05, steps=109, done=True, elapsed=2.5s
+[Checkpoint summary] mean=-534.89 median=-575.48 min=-685.33 max=-152.94 n=20
+======================================================================
+  [78/100] Epoch 390 -- world_model_20260706_223104_epoch_390.pt
+======================================================================
+[Episode 1] return=-607.30, steps=91, done=True, elapsed=2.1s
+[Episode 2] return=-596.51, steps=152, done=True, elapsed=3.5s
+[Episode 3] return=-489.44, steps=151, done=True, elapsed=3.5s
+[Episode 4] return=-654.55, steps=95, done=True, elapsed=2.2s
+[Episode 5] return=-249.97, steps=120, done=True, elapsed=2.8s
+[Episode 6] return=-655.52, steps=91, done=True, elapsed=2.1s
+[Episode 7] return=-564.20, steps=83, done=True, elapsed=1.9s
+[Episode 8] return=-554.65, steps=127, done=True, elapsed=2.9s
+[Episode 9] return=-702.85, steps=122, done=True, elapsed=2.8s
+[Episode 10] return=-521.98, steps=127, done=True, elapsed=2.9s
+[Episode 11] return=-530.29, steps=138, done=True, elapsed=3.2s
+[Episode 12] return=-615.48, steps=140, done=True, elapsed=3.2s
+[Episode 13] return=-622.80, steps=126, done=True, elapsed=2.9s
+[Episode 14] return=-594.59, steps=79, done=True, elapsed=1.8s
+[Episode 15] return=-654.25, steps=146, done=True, elapsed=3.4s
+[Episode 16] return=-581.79, steps=105, done=True, elapsed=2.4s
+[Episode 17] return=-476.74, steps=125, done=True, elapsed=2.9s
+[Episode 18] return=-595.46, steps=121, done=True, elapsed=2.8s
+[Episode 19] return=-530.20, steps=75, done=True, elapsed=1.7s
+[Episode 20] return=-496.17, steps=142, done=True, elapsed=3.3s
+[Checkpoint summary] mean=-564.74 median=-588.19 min=-702.85 max=-249.97 n=20
+======================================================================
+  [79/100] Epoch 395 -- world_model_20260706_223513_epoch_395.pt
+======================================================================
+[Episode 1] return=-567.50, steps=89, done=True, elapsed=2.1s
+[Episode 2] return=-510.74, steps=162, done=True, elapsed=3.7s
+[Episode 3] return=-722.91, steps=118, done=True, elapsed=2.7s
+[Episode 4] return=-674.24, steps=93, done=True, elapsed=2.1s
+[Episode 5] return=-182.44, steps=101, done=True, elapsed=2.3s
+[Episode 6] return=-687.66, steps=93, done=True, elapsed=2.1s
+[Episode 7] return=-565.22, steps=83, done=True, elapsed=1.9s
+[Episode 8] return=-565.29, steps=128, done=True, elapsed=2.9s
+[Episode 9] return=-676.33, steps=146, done=True, elapsed=3.4s
+[Episode 10] return=-524.47, steps=118, done=True, elapsed=2.7s
+[Episode 11] return=-557.79, steps=154, done=True, elapsed=3.5s
+[Episode 12] return=-562.39, steps=141, done=True, elapsed=3.2s
+[Episode 13] return=-637.36, steps=119, done=True, elapsed=2.7s
+[Episode 14] return=-567.89, steps=85, done=True, elapsed=2.0s
+[Episode 15] return=-645.78, steps=122, done=True, elapsed=2.8s
+[Episode 16] return=-744.84, steps=101, done=True, elapsed=2.3s
+[Episode 17] return=-677.47, steps=101, done=True, elapsed=2.3s
+[Episode 18] return=-550.25, steps=117, done=True, elapsed=2.7s
+[Episode 19] return=-526.73, steps=81, done=True, elapsed=1.9s
+[Episode 20] return=-706.02, steps=109, done=True, elapsed=2.5s
+[Checkpoint summary] mean=-592.67 median=-567.70 min=-744.84 max=-182.44 n=20
+======================================================================
+  [80/100] Epoch 400 -- world_model_20260706_223921_epoch_400.pt
+======================================================================
+[Episode 1] return=-558.13, steps=92, done=True, elapsed=2.1s
+[Episode 2] return=-401.73, steps=99, done=True, elapsed=2.3s
+[Episode 3] return=-444.42, steps=137, done=True, elapsed=3.2s
+[Episode 4] return=-654.00, steps=91, done=True, elapsed=2.1s
+[Episode 5] return=-452.90, steps=87, done=True, elapsed=2.0s
+[Episode 6] return=-589.29, steps=84, done=True, elapsed=1.9s
+[Episode 7] return=-505.30, steps=83, done=True, elapsed=1.9s
+[Episode 8] return=-405.21, steps=101, done=True, elapsed=2.3s
+[Episode 9] return=-258.95, steps=155, done=True, elapsed=3.6s
+[Episode 10] return=-474.99, steps=98, done=True, elapsed=2.3s
+[Episode 11] return=-441.16, steps=104, done=True, elapsed=2.4s
+[Episode 12] return=-418.31, steps=210, done=True, elapsed=4.8s
+[Episode 13] return=-583.89, steps=165, done=True, elapsed=3.8s
+[Episode 14] return=-597.25, steps=86, done=True, elapsed=2.0s
+[Episode 15] return=-347.61, steps=214, done=True, elapsed=4.9s
+[Episode 16] return=-675.35, steps=106, done=True, elapsed=2.4s
+[Episode 17] return=-482.52, steps=135, done=True, elapsed=3.1s
+[Episode 18] return=-347.49, steps=228, done=True, elapsed=5.2s
+[Episode 19] return=-440.98, steps=79, done=True, elapsed=1.8s
+[Episode 20] return=-718.01, steps=114, done=True, elapsed=2.6s
+[Checkpoint summary] mean=-489.87 median=-463.94 min=-718.01 max=-258.95 n=20
+======================================================================
+  [81/100] Epoch 405 -- world_model_20260706_224330_epoch_405.pt
+======================================================================
+[Episode 1] return=-650.61, steps=91, done=True, elapsed=2.1s
+[Episode 2] return=-630.14, steps=147, done=True, elapsed=3.4s
+[Episode 3] return=-671.69, steps=102, done=True, elapsed=2.3s
+[Episode 4] return=-646.25, steps=85, done=True, elapsed=2.0s
+[Episode 5] return=-174.93, steps=98, done=True, elapsed=2.3s
+[Episode 6] return=-584.94, steps=81, done=True, elapsed=1.9s
+[Episode 7] return=-511.82, steps=78, done=True, elapsed=1.8s
+[Episode 8] return=-263.23, steps=116, done=True, elapsed=2.7s
+[Episode 9] return=-664.87, steps=116, done=True, elapsed=2.7s
+[Episode 10] return=-231.05, steps=114, done=True, elapsed=2.6s
+[Episode 11] return=-561.23, steps=159, done=True, elapsed=3.7s
+[Episode 12] return=-606.94, steps=124, done=True, elapsed=2.9s
+[Episode 13] return=-652.56, steps=105, done=True, elapsed=2.4s
+[Episode 14] return=-571.10, steps=79, done=True, elapsed=1.8s
+[Episode 15] return=-671.17, steps=106, done=True, elapsed=2.4s
+[Episode 16] return=-702.81, steps=92, done=True, elapsed=2.1s
+[Episode 17] return=-632.70, steps=103, done=True, elapsed=2.4s
+[Episode 18] return=-658.43, steps=97, done=True, elapsed=2.2s
+[Episode 19] return=-513.97, steps=79, done=True, elapsed=1.8s
+[Episode 20] return=-662.50, steps=80, done=True, elapsed=1.8s
+[Checkpoint summary] mean=-563.15 median=-631.42 min=-702.81 max=-174.93 n=20
+======================================================================
+  [82/100] Epoch 410 -- world_model_20260706_224738_epoch_410.pt
+======================================================================
+[Episode 1] return=-643.93, steps=91, done=True, elapsed=2.1s
+[Episode 2] return=-209.36, steps=104, done=True, elapsed=2.4s
+[Episode 3] return=-752.23, steps=108, done=True, elapsed=2.5s
+[Episode 4] return=-672.93, steps=91, done=True, elapsed=2.1s
+[Episode 5] return=-240.56, steps=94, done=True, elapsed=2.2s
+[Episode 6] return=-638.86, steps=88, done=True, elapsed=2.0s
+[Episode 7] return=-555.37, steps=82, done=True, elapsed=1.9s
+[Episode 8] return=-525.70, steps=134, done=True, elapsed=3.1s
+[Episode 9] return=-683.04, steps=118, done=True, elapsed=2.7s
+[Episode 10] return=-537.04, steps=138, done=True, elapsed=3.2s
+[Episode 11] return=-443.56, steps=115, done=True, elapsed=2.6s
+[Episode 12] return=-686.68, steps=135, done=True, elapsed=3.1s
+[Episode 13] return=-630.69, steps=117, done=True, elapsed=2.7s
+[Episode 14] return=-610.97, steps=79, done=True, elapsed=1.8s
+[Episode 15] return=-676.46, steps=141, done=True, elapsed=3.2s
+[Episode 16] return=-760.09, steps=99, done=True, elapsed=2.3s
+[Episode 17] return=-626.83, steps=100, done=True, elapsed=2.3s
+[Episode 18] return=-491.64, steps=111, done=True, elapsed=2.6s
+[Episode 19] return=-523.32, steps=78, done=True, elapsed=1.8s
+[Episode 20] return=-575.48, steps=103, done=True, elapsed=2.4s
+[Checkpoint summary] mean=-574.24 median=-618.90 min=-760.09 max=-209.36 n=20
+======================================================================
+  [83/100] Epoch 415 -- world_model_20260706_225147_epoch_415.pt
+======================================================================
+[Episode 1] return=-593.11, steps=86, done=True, elapsed=2.0s
+[Episode 2] return=-660.09, steps=148, done=True, elapsed=3.4s
+[Episode 3] return=-480.13, steps=133, done=True, elapsed=3.1s
+[Episode 4] return=-689.84, steps=91, done=True, elapsed=2.1s
+[Episode 5] return=-193.80, steps=105, done=True, elapsed=2.4s
+[Episode 6] return=-674.34, steps=86, done=True, elapsed=2.0s
+[Episode 7] return=-546.20, steps=82, done=True, elapsed=1.9s
+[Episode 8] return=-612.89, steps=128, done=True, elapsed=3.0s
+[Episode 9] return=-780.63, steps=150, done=True, elapsed=3.5s
+[Episode 10] return=-171.78, steps=107, done=True, elapsed=2.5s
+[Episode 11] return=-578.74, steps=150, done=True, elapsed=3.5s
+[Episode 12] return=-535.59, steps=143, done=True, elapsed=3.3s
+[Episode 13] return=-666.84, steps=126, done=True, elapsed=2.9s
+[Episode 14] return=-579.26, steps=81, done=True, elapsed=1.9s
+[Episode 15] return=-634.78, steps=125, done=True, elapsed=2.9s
+[Episode 16] return=-705.34, steps=101, done=True, elapsed=2.3s
+[Episode 17] return=-619.61, steps=109, done=True, elapsed=2.5s
+[Episode 18] return=-517.61, steps=124, done=True, elapsed=2.9s
+[Episode 19] return=-565.04, steps=75, done=True, elapsed=1.7s
+[Episode 20] return=-730.72, steps=125, done=True, elapsed=2.9s
+[Checkpoint summary] mean=-576.82 median=-603.00 min=-780.63 max=-171.78 n=20
+======================================================================
+  [84/100] Epoch 420 -- world_model_20260706_225555_epoch_420.pt
+======================================================================
+[Episode 1] return=-606.65, steps=86, done=True, elapsed=2.0s
+[Episode 2] return=-400.63, steps=97, done=True, elapsed=2.2s
+[Episode 3] return=-674.32, steps=107, done=True, elapsed=2.5s
+[Episode 4] return=-645.22, steps=90, done=True, elapsed=2.1s
+[Episode 5] return=-298.92, steps=109, done=True, elapsed=2.5s
+[Episode 6] return=-669.68, steps=85, done=True, elapsed=2.0s
+[Episode 7] return=-517.97, steps=90, done=True, elapsed=2.1s
+[Episode 8] return=-534.46, steps=129, done=True, elapsed=3.0s
+[Episode 9] return=-499.68, steps=168, done=True, elapsed=3.9s
+[Episode 10] return=-488.51, steps=130, done=True, elapsed=3.0s
+[Episode 11] return=-452.11, steps=113, done=True, elapsed=2.6s
+[Episode 12] return=-476.38, steps=177, done=True, elapsed=4.1s
+[Episode 13] return=-706.36, steps=113, done=True, elapsed=2.6s
+[Episode 14] return=-574.54, steps=79, done=True, elapsed=1.8s
+[Episode 15] return=-684.75, steps=113, done=True, elapsed=2.6s
+[Episode 16] return=-771.79, steps=103, done=True, elapsed=2.4s
+[Episode 17] return=-602.99, steps=99, done=True, elapsed=2.3s
+[Episode 18] return=-627.05, steps=102, done=True, elapsed=2.4s
+[Episode 19] return=-459.83, steps=79, done=True, elapsed=1.8s
+[Episode 20] return=-662.34, steps=95, done=True, elapsed=2.2s
+[Checkpoint summary] mean=-567.71 median=-588.77 min=-771.79 max=-298.92 n=20
+======================================================================
+  [85/100] Epoch 425 -- world_model_20260706_230004_epoch_425.pt
+======================================================================
+[Episode 1] return=-577.96, steps=86, done=True, elapsed=2.0s
+[Episode 2] return=-495.97, steps=92, done=True, elapsed=2.1s
+[Episode 3] return=-559.97, steps=120, done=True, elapsed=2.8s
+[Episode 4] return=-450.82, steps=109, done=True, elapsed=2.5s
+[Episode 5] return=-396.12, steps=91, done=True, elapsed=2.1s
+[Episode 6] return=-647.88, steps=91, done=True, elapsed=2.1s
+[Episode 7] return=-499.23, steps=90, done=True, elapsed=2.1s
+[Episode 8] return=-405.56, steps=135, done=True, elapsed=3.1s
+[Episode 9] return=-590.97, steps=188, done=True, elapsed=4.3s
+[Episode 10] return=-463.08, steps=92, done=True, elapsed=2.1s
+[Episode 11] return=-484.31, steps=106, done=True, elapsed=2.4s
+[Episode 12] return=-427.37, steps=149, done=True, elapsed=3.4s
+[Episode 13] return=-660.60, steps=124, done=True, elapsed=2.9s
+[Episode 14] return=-543.65, steps=79, done=True, elapsed=1.8s
+[Episode 15] return=-635.80, steps=186, done=True, elapsed=4.3s
+[Episode 16] return=-613.36, steps=110, done=True, elapsed=2.5s
+[Episode 17] return=-404.53, steps=141, done=True, elapsed=3.3s
+[Episode 18] return=-433.18, steps=181, done=True, elapsed=4.2s
+[Episode 19] return=-509.38, steps=82, done=True, elapsed=1.9s
+[Episode 20] return=-691.22, steps=98, done=True, elapsed=2.3s
+[Checkpoint summary] mean=-524.55 median=-504.30 min=-691.22 max=-396.12 n=20
+======================================================================
+  [86/100] Epoch 430 -- world_model_20260706_230413_epoch_430.pt
+======================================================================
+[Episode 1] return=-700.89, steps=90, done=True, elapsed=2.1s
+[Episode 2] return=-487.04, steps=141, done=True, elapsed=3.3s
+[Episode 3] return=-603.29, steps=112, done=True, elapsed=2.6s
+[Episode 4] return=-662.62, steps=90, done=True, elapsed=2.1s
+[Episode 5] return=-249.22, steps=115, done=True, elapsed=2.7s
+[Episode 6] return=-664.00, steps=91, done=True, elapsed=2.1s
+[Episode 7] return=-582.08, steps=84, done=True, elapsed=1.9s
+[Episode 8] return=-628.77, steps=134, done=True, elapsed=3.1s
+[Episode 9] return=-547.36, steps=134, done=True, elapsed=3.1s
+[Episode 10] return=-572.69, steps=126, done=True, elapsed=2.9s
+[Episode 11] return=-430.01, steps=106, done=True, elapsed=2.4s
+[Episode 12] return=-617.42, steps=134, done=True, elapsed=3.1s
+[Episode 13] return=-700.85, steps=137, done=True, elapsed=3.2s
+[Episode 14] return=-610.40, steps=79, done=True, elapsed=1.8s
+[Episode 15] return=-729.37, steps=100, done=True, elapsed=2.3s
+[Episode 16] return=-779.81, steps=110, done=True, elapsed=2.5s
+[Episode 17] return=-683.87, steps=107, done=True, elapsed=2.5s
+[Episode 18] return=-645.35, steps=112, done=True, elapsed=2.6s
+[Episode 19] return=-547.70, steps=75, done=True, elapsed=1.7s
+[Episode 20] return=-651.94, steps=95, done=True, elapsed=2.2s
+[Checkpoint summary] mean=-604.73 median=-623.10 min=-779.81 max=-249.22 n=20
+======================================================================
+  [87/100] Epoch 435 -- world_model_20260706_230821_epoch_435.pt
+======================================================================
+[Episode 1] return=-631.00, steps=87, done=True, elapsed=2.0s
+[Episode 2] return=-214.33, steps=124, done=True, elapsed=2.9s
+[Episode 3] return=-700.69, steps=103, done=True, elapsed=2.4s
+[Episode 4] return=-655.62, steps=90, done=True, elapsed=2.1s
+[Episode 5] return=-328.10, steps=102, done=True, elapsed=2.4s
+[Episode 6] return=-663.34, steps=86, done=True, elapsed=2.0s
+[Episode 7] return=-544.85, steps=84, done=True, elapsed=1.9s
+[Episode 8] return=-554.92, steps=128, done=True, elapsed=3.0s
+[Episode 9] return=-659.17, steps=126, done=True, elapsed=2.9s
+[Episode 10] return=-407.90, steps=99, done=True, elapsed=2.3s
+[Episode 11] return=-241.63, steps=132, done=True, elapsed=3.1s
+[Episode 12] return=-214.54, steps=155, done=True, elapsed=3.6s
+[Episode 13] return=-467.02, steps=152, done=True, elapsed=3.5s
+[Episode 14] return=-604.92, steps=83, done=True, elapsed=1.9s
+[Episode 15] return=-705.22, steps=102, done=True, elapsed=2.4s
+[Episode 16] return=-662.68, steps=104, done=True, elapsed=2.4s
+[Episode 17] return=-614.92, steps=90, done=True, elapsed=2.1s
+[Episode 18] return=-547.99, steps=128, done=True, elapsed=3.0s
+[Episode 19] return=-493.90, steps=85, done=True, elapsed=2.0s
+[Episode 20] return=-677.32, steps=115, done=True, elapsed=2.7s
+[Checkpoint summary] mean=-529.50 median=-579.92 min=-705.22 max=-214.33 n=20
+======================================================================
+  [88/100] Epoch 440 -- world_model_20260706_231230_epoch_440.pt
+======================================================================
+[Episode 1] return=-657.69, steps=91, done=True, elapsed=2.1s
+[Episode 2] return=-557.97, steps=110, done=True, elapsed=2.5s
+[Episode 3] return=-740.57, steps=98, done=True, elapsed=2.3s
+[Episode 4] return=-629.26, steps=89, done=True, elapsed=2.1s
+[Episode 5] return=-590.09, steps=97, done=True, elapsed=2.2s
+[Episode 6] return=-636.09, steps=83, done=True, elapsed=1.9s
+[Episode 7] return=-501.18, steps=82, done=True, elapsed=1.9s
+[Episode 8] return=-543.55, steps=118, done=True, elapsed=2.7s
+[Episode 9] return=-805.78, steps=114, done=True, elapsed=2.6s
+[Episode 10] return=-499.17, steps=101, done=True, elapsed=2.3s
+[Episode 11] return=-540.31, steps=126, done=True, elapsed=2.9s
+[Episode 12] return=-638.39, steps=122, done=True, elapsed=2.8s
+[Episode 13] return=-607.94, steps=186, done=True, elapsed=4.3s
+[Episode 14] return=-567.08, steps=83, done=True, elapsed=1.9s
+[Episode 15] return=-594.49, steps=86, done=True, elapsed=2.0s
+[Episode 16] return=-556.07, steps=97, done=True, elapsed=2.2s
+[Episode 17] return=-612.05, steps=99, done=True, elapsed=2.3s
+[Episode 18] return=-331.54, steps=115, done=True, elapsed=2.7s
+[Episode 19] return=-486.56, steps=77, done=True, elapsed=1.8s
+[Episode 20] return=-583.89, steps=89, done=True, elapsed=2.1s
+[Checkpoint summary] mean=-583.98 median=-586.99 min=-805.78 max=-331.54 n=20
+======================================================================
+  [89/100] Epoch 445 -- world_model_20260706_231639_epoch_445.pt
+======================================================================
+[Episode 1] return=-589.06, steps=84, done=True, elapsed=1.9s
+[Episode 2] return=-497.97, steps=145, done=True, elapsed=3.3s
+[Episode 3] return=-492.91, steps=157, done=True, elapsed=3.6s
+[Episode 4] return=-702.08, steps=101, done=True, elapsed=2.3s
+[Episode 5] return=-579.18, steps=128, done=True, elapsed=3.0s
+[Episode 6] return=-609.12, steps=79, done=True, elapsed=1.8s
+[Episode 7] return=-533.12, steps=79, done=True, elapsed=1.8s
+[Episode 8] return=-518.99, steps=132, done=True, elapsed=3.1s
+[Episode 9] return=-496.26, steps=164, done=True, elapsed=3.8s
+[Episode 10] return=-556.38, steps=118, done=True, elapsed=2.7s
+[Episode 11] return=-510.30, steps=159, done=True, elapsed=3.7s
+[Episode 12] return=-637.60, steps=127, done=True, elapsed=2.9s
+[Episode 13] return=-462.51, steps=148, done=True, elapsed=3.4s
+[Episode 14] return=-466.06, steps=87, done=True, elapsed=2.0s
+[Episode 15] return=-730.58, steps=111, done=True, elapsed=2.6s
+[Episode 16] return=-599.87, steps=116, done=True, elapsed=2.7s
+[Episode 17] return=-433.48, steps=112, done=True, elapsed=2.6s
+[Episode 18] return=-481.34, steps=112, done=True, elapsed=2.6s
+[Episode 19] return=-489.31, steps=76, done=True, elapsed=1.8s
+[Episode 20] return=-653.06, steps=103, done=True, elapsed=2.4s
+[Checkpoint summary] mean=-551.96 median=-526.05 min=-730.58 max=-433.48 n=20
+======================================================================
+  [90/100] Epoch 450 -- world_model_20260706_232047_epoch_450.pt
+======================================================================
+[Episode 1] return=-602.58, steps=88, done=True, elapsed=2.0s
+[Episode 2] return=-518.91, steps=87, done=True, elapsed=2.0s
+[Episode 3] return=-501.92, steps=135, done=True, elapsed=3.1s
+[Episode 4] return=-686.61, steps=86, done=True, elapsed=2.0s
+[Episode 5] return=-496.59, steps=86, done=True, elapsed=2.0s
+[Episode 6] return=-591.56, steps=87, done=True, elapsed=2.0s
+[Episode 7] return=-526.37, steps=78, done=True, elapsed=1.8s
+[Episode 8] return=-446.43, steps=93, done=True, elapsed=2.1s
+[Episode 9] return=-520.76, steps=124, done=True, elapsed=2.9s
+[Episode 10] return=-486.05, steps=88, done=True, elapsed=2.0s
+[Episode 11] return=-516.68, steps=94, done=True, elapsed=2.2s
+[Episode 12] return=-532.15, steps=149, done=True, elapsed=3.4s
+[Episode 13] return=-615.59, steps=145, done=True, elapsed=3.4s
+[Episode 14] return=-617.16, steps=82, done=True, elapsed=1.9s
+[Episode 15] return=-464.59, steps=158, done=True, elapsed=3.6s
+[Episode 16] return=-609.99, steps=105, done=True, elapsed=2.4s
+[Episode 17] return=-455.39, steps=170, done=True, elapsed=3.9s
+[Episode 18] return=-1029.16, steps=244, done=True, elapsed=5.6s
+[Episode 19] return=-499.95, steps=76, done=True, elapsed=1.8s
+[Episode 20] return=-506.26, steps=167, done=True, elapsed=3.9s
+[Checkpoint summary] mean=-561.24 median=-519.84 min=-1029.16 max=-446.43 n=20
+======================================================================
+  [91/100] Epoch 455 -- world_model_20260706_232456_epoch_455.pt
+======================================================================
+[Episode 1] return=-639.09, steps=87, done=True, elapsed=2.0s
+[Episode 2] return=-346.06, steps=106, done=True, elapsed=2.4s
+[Episode 3] return=-723.17, steps=103, done=True, elapsed=2.4s
+[Episode 4] return=-668.78, steps=89, done=True, elapsed=2.1s
+[Episode 5] return=-476.40, steps=90, done=True, elapsed=2.1s
+[Episode 6] return=-720.01, steps=94, done=True, elapsed=2.2s
+[Episode 7] return=-517.21, steps=98, done=True, elapsed=2.3s
+[Episode 8] return=-637.22, steps=137, done=True, elapsed=3.2s
+[Episode 9] return=-468.94, steps=133, done=True, elapsed=3.1s
+[Episode 10] return=-102.21, steps=223, done=True, elapsed=5.2s
+[Episode 11] return=-474.22, steps=97, done=True, elapsed=2.2s
+[Episode 12] return=-512.37, steps=149, done=True, elapsed=3.4s
+[Episode 13] return=-473.53, steps=146, done=True, elapsed=3.4s
+[Episode 14] return=-422.47, steps=91, done=True, elapsed=2.1s
+[Episode 15] return=-527.43, steps=144, done=True, elapsed=3.3s
+[Episode 16] return=-757.48, steps=117, done=True, elapsed=2.7s
+[Episode 17] return=-550.86, steps=103, done=True, elapsed=2.4s
+[Episode 18] return=-679.36, steps=95, done=True, elapsed=2.2s
+[Episode 19] return=-507.07, steps=76, done=True, elapsed=1.8s
+[Episode 20] return=-505.82, steps=97, done=True, elapsed=2.2s
+[Checkpoint summary] mean=-535.49 median=-514.79 min=-757.48 max=-102.21 n=20
+======================================================================
+  [92/100] Epoch 460 -- world_model_20260706_232904_epoch_460.pt
+======================================================================
+[Episode 1] return=-604.15, steps=89, done=True, elapsed=2.1s
+[Episode 2] return=-285.71, steps=115, done=True, elapsed=2.7s
+[Episode 3] return=-719.35, steps=94, done=True, elapsed=2.2s
+[Episode 4] return=-638.48, steps=90, done=True, elapsed=2.1s
+[Episode 5] return=-377.72, steps=96, done=True, elapsed=2.2s
+[Episode 6] return=-671.51, steps=90, done=True, elapsed=2.1s
+[Episode 7] return=-544.47, steps=81, done=True, elapsed=1.9s
+[Episode 8] return=-322.95, steps=128, done=True, elapsed=3.0s
+[Episode 9] return=-728.84, steps=132, done=True, elapsed=3.0s
+[Episode 10] return=-167.47, steps=190, done=True, elapsed=4.4s
+[Episode 11] return=-455.43, steps=110, done=True, elapsed=2.5s
+[Episode 12] return=-501.30, steps=132, done=True, elapsed=3.0s
+[Episode 13] return=-717.98, steps=117, done=True, elapsed=2.7s
+[Episode 14] return=-376.17, steps=95, done=True, elapsed=2.2s
+[Episode 15] return=-524.05, steps=91, done=True, elapsed=2.1s
+[Episode 16] return=-737.62, steps=122, done=True, elapsed=2.8s
+[Episode 17] return=-206.46, steps=122, done=True, elapsed=2.8s
+[Episode 18] return=-655.37, steps=113, done=True, elapsed=2.6s
+[Episode 19] return=-540.69, steps=79, done=True, elapsed=1.8s
+[Episode 20] return=-683.76, steps=107, done=True, elapsed=2.5s
+[Checkpoint summary] mean=-522.97 median=-542.58 min=-737.62 max=-167.47 n=20
+======================================================================
+  [93/100] Epoch 465 -- world_model_20260706_233313_epoch_465.pt
+======================================================================
+[Episode 1] return=-635.77, steps=90, done=True, elapsed=2.1s
+[Episode 2] return=-514.15, steps=142, done=True, elapsed=3.3s
+[Episode 3] return=-605.87, steps=110, done=True, elapsed=2.5s
+[Episode 4] return=-682.02, steps=92, done=True, elapsed=2.1s
+[Episode 5] return=-527.95, steps=129, done=True, elapsed=3.0s
+[Episode 6] return=-642.02, steps=87, done=True, elapsed=2.0s
+[Episode 7] return=-555.78, steps=79, done=True, elapsed=1.8s
+[Episode 8] return=-489.63, steps=129, done=True, elapsed=3.0s
+[Episode 9] return=-836.17, steps=116, done=True, elapsed=2.7s
+[Episode 10] return=-542.22, steps=110, done=True, elapsed=2.5s
+[Episode 11] return=-108.83, steps=170, done=True, elapsed=3.9s
+[Episode 12] return=-447.47, steps=176, done=True, elapsed=4.1s
+[Episode 13] return=-474.39, steps=162, done=True, elapsed=3.7s
+[Episode 14] return=-569.79, steps=85, done=True, elapsed=2.0s
+[Episode 15] return=-700.07, steps=108, done=True, elapsed=2.5s
+[Episode 16] return=-744.90, steps=114, done=True, elapsed=2.6s
+[Episode 17] return=-694.13, steps=95, done=True, elapsed=2.2s
+[Episode 18] return=-662.02, steps=103, done=True, elapsed=2.4s
+[Episode 19] return=-521.84, steps=78, done=True, elapsed=1.8s
+[Episode 20] return=-699.08, steps=100, done=True, elapsed=2.3s
+[Checkpoint summary] mean=-582.71 median=-587.83 min=-836.17 max=-108.83 n=20
+======================================================================
+  [94/100] Epoch 470 -- world_model_20260706_233721_epoch_470.pt
+======================================================================
+[Episode 1] return=-708.30, steps=86, done=True, elapsed=2.0s
+[Episode 2] return=-237.62, steps=184, done=True, elapsed=4.2s
+[Episode 3] return=-712.08, steps=107, done=True, elapsed=2.5s
+[Episode 4] return=-655.43, steps=85, done=True, elapsed=2.0s
+[Episode 5] return=-381.19, steps=223, done=True, elapsed=5.1s
+[Episode 6] return=-657.48, steps=81, done=True, elapsed=1.9s
+[Episode 7] return=-590.01, steps=74, done=True, elapsed=1.7s
+[Episode 8] return=-597.92, steps=132, done=True, elapsed=3.0s
+[Episode 9] return=-734.68, steps=125, done=True, elapsed=2.9s
+[Episode 10] return=-211.88, steps=159, done=True, elapsed=3.7s
+[Episode 11] return=-409.15, steps=213, done=True, elapsed=4.9s
+[Episode 12] return=-619.61, steps=129, done=True, elapsed=3.0s
+[Episode 13] return=-698.09, steps=110, done=True, elapsed=2.5s
+[Episode 14] return=-642.42, steps=79, done=True, elapsed=1.8s
+[Episode 15] return=-595.04, steps=98, done=True, elapsed=2.3s
+[Episode 16] return=-712.46, steps=108, done=True, elapsed=2.5s
+[Episode 17] return=-266.03, steps=128, done=True, elapsed=3.0s
+[Episode 18] return=-618.07, steps=118, done=True, elapsed=2.7s
+[Episode 19] return=-572.31, steps=76, done=True, elapsed=1.8s
+[Episode 20] return=-617.75, steps=100, done=True, elapsed=2.3s
+[Checkpoint summary] mean=-561.88 median=-617.91 min=-734.68 max=-211.88 n=20
+======================================================================
+  [95/100] Epoch 475 -- world_model_20260706_234130_epoch_475.pt
+======================================================================
+[Episode 1] return=-445.80, steps=118, done=True, elapsed=2.7s
+[Episode 2] return=-100.01, steps=201, done=True, elapsed=4.6s
+[Episode 3] return=-511.76, steps=128, done=True, elapsed=3.0s
+[Episode 4] return=-248.70, steps=123, done=True, elapsed=2.8s
+[Episode 5] return=-239.39, steps=122, done=True, elapsed=2.8s
+[Episode 6] return=-558.25, steps=106, done=True, elapsed=2.4s
+[Episode 7] return=-365.11, steps=132, done=True, elapsed=3.0s
+[Episode 8] return=-646.02, steps=128, done=True, elapsed=3.0s
+[Episode 9] return=-568.89, steps=139, done=True, elapsed=3.2s
+[Episode 10] return=-432.82, steps=134, done=True, elapsed=3.1s
+[Episode 11] return=-83.88, steps=156, done=True, elapsed=3.6s
+[Episode 12] return=-480.64, steps=161, done=True, elapsed=3.7s
+[Episode 13] return=-452.62, steps=119, done=True, elapsed=2.7s
+[Episode 14] return=-370.72, steps=114, done=True, elapsed=2.6s
+[Episode 15] return=-592.14, steps=124, done=True, elapsed=2.9s
+[Episode 16] return=-488.57, steps=146, done=True, elapsed=3.4s
+[Episode 17] return=-429.71, steps=155, done=True, elapsed=3.6s
+[Episode 18] return=-465.81, steps=131, done=True, elapsed=3.0s
+[Episode 19] return=-456.96, steps=79, done=True, elapsed=1.8s
+[Episode 20] return=-499.55, steps=135, done=True, elapsed=3.1s
+[Checkpoint summary] mean=-421.87 median=-454.79 min=-646.02 max=-83.88 n=20
+======================================================================
+  [96/100] Epoch 480 -- world_model_20260706_234538_epoch_480.pt
+======================================================================
+[Episode 1] return=-571.98, steps=98, done=True, elapsed=2.3s
+[Episode 2] return=-265.70, steps=219, done=True, elapsed=5.1s
+[Episode 3] return=-536.05, steps=135, done=True, elapsed=3.1s
+[Episode 4] return=-450.23, steps=110, done=True, elapsed=2.5s
+[Episode 5] return=-158.65, steps=118, done=True, elapsed=2.7s
+[Episode 6] return=-468.09, steps=144, done=True, elapsed=3.3s
+[Episode 7] return=-506.68, steps=87, done=True, elapsed=2.0s
+[Episode 8] return=-435.95, steps=132, done=True, elapsed=3.1s
+[Episode 9] return=-600.77, steps=151, done=True, elapsed=3.5s
+[Episode 10] return=-366.84, steps=231, done=True, elapsed=5.3s
+[Episode 11] return=-88.42, steps=179, done=True, elapsed=4.2s
+[Episode 12] return=-555.16, steps=163, done=True, elapsed=3.8s
+[Episode 13] return=-520.79, steps=129, done=True, elapsed=3.0s
+[Episode 14] return=-248.58, steps=98, done=True, elapsed=2.3s
+[Episode 15] return=-442.72, steps=157, done=True, elapsed=3.6s
+[Episode 16] return=-491.42, steps=150, done=True, elapsed=3.5s
+[Episode 17] return=-360.29, steps=167, done=True, elapsed=3.9s
+[Episode 18] return=-779.36, steps=134, done=True, elapsed=3.1s
+[Episode 19] return=-472.83, steps=82, done=True, elapsed=1.9s
+[Episode 20] return=-482.28, steps=173, done=True, elapsed=4.0s
+[Checkpoint summary] mean=-440.14 median=-470.46 min=-779.36 max=-88.42 n=20
+======================================================================
+  [97/100] Epoch 485 -- world_model_20260706_234946_epoch_485.pt
+======================================================================
+[Episode 1] return=-609.75, steps=89, done=True, elapsed=2.1s
+[Episode 2] return=-259.58, steps=150, done=True, elapsed=3.5s
+[Episode 3] return=-619.06, steps=113, done=True, elapsed=2.6s
+[Episode 4] return=-657.53, steps=97, done=True, elapsed=2.2s
+[Episode 5] return=-370.84, steps=97, done=True, elapsed=2.2s
+[Episode 6] return=-654.66, steps=92, done=True, elapsed=2.1s
+[Episode 7] return=-239.05, steps=111, done=True, elapsed=2.6s
+[Episode 8] return=-486.15, steps=118, done=True, elapsed=2.7s
+[Episode 9] return=-507.53, steps=153, done=True, elapsed=3.5s
+[Episode 10] return=-309.49, steps=197, done=True, elapsed=4.6s
+[Episode 11] return=-404.99, steps=116, done=True, elapsed=2.7s
+[Episode 12] return=-534.32, steps=148, done=True, elapsed=3.4s
+[Episode 13] return=-442.67, steps=151, done=True, elapsed=3.5s
+[Episode 14] return=-351.20, steps=93, done=True, elapsed=2.1s
+[Episode 15] return=-701.70, steps=111, done=True, elapsed=2.6s
+[Episode 16] return=-521.40, steps=130, done=True, elapsed=3.0s
+[Episode 17] return=-449.10, steps=160, done=True, elapsed=3.7s
+[Episode 18] return=-634.84, steps=135, done=True, elapsed=3.1s
+[Episode 19] return=-145.01, steps=103, done=True, elapsed=2.4s
+[Episode 20] return=-665.65, steps=107, done=True, elapsed=2.5s
+[Checkpoint summary] mean=-478.23 median=-496.84 min=-701.70 max=-145.01 n=20
+======================================================================
+  [98/100] Epoch 490 -- world_model_20260706_235354_epoch_490.pt
+======================================================================
+[Episode 1] return=-499.83, steps=95, done=True, elapsed=2.2s
+[Episode 2] return=-200.68, steps=123, done=True, elapsed=2.8s
+[Episode 3] return=-548.40, steps=127, done=True, elapsed=2.9s
+[Episode 4] return=-307.99, steps=148, done=True, elapsed=3.4s
+[Episode 5] return=-123.23, steps=191, done=True, elapsed=4.4s
+[Episode 6] return=-298.14, steps=168, done=True, elapsed=3.9s
+[Episode 7] return=-377.13, steps=120, done=True, elapsed=2.8s
+[Episode 8] return=-539.79, steps=130, done=True, elapsed=3.0s
+[Episode 9] return=-475.17, steps=220, done=True, elapsed=5.1s
+[Episode 10] return=-371.09, steps=146, done=True, elapsed=3.4s
+[Episode 11] return=-101.20, steps=193, done=True, elapsed=4.4s
+[Episode 12] return=-448.16, steps=166, done=True, elapsed=3.8s
+[Episode 13] return=-392.08, steps=147, done=True, elapsed=3.4s
+[Episode 14] return=-187.72, steps=102, done=True, elapsed=2.3s
+[Episode 15] return=-424.23, steps=158, done=True, elapsed=3.6s
+[Episode 16] return=-471.69, steps=170, done=True, elapsed=3.9s
+[Episode 17] return=-436.56, steps=149, done=True, elapsed=3.4s
+[Episode 18] return=-569.20, steps=125, done=True, elapsed=2.9s
+[Episode 19] return=-116.92, steps=101, done=True, elapsed=2.3s
+[Episode 20] return=-485.33, steps=170, done=True, elapsed=3.9s
+[Checkpoint summary] mean=-368.73 median=-408.16 min=-569.20 max=-101.20 n=20
+======================================================================
+  [99/100] Epoch 495 -- world_model_20260706_235803_epoch_495.pt
+======================================================================
+[Episode 1] return=-260.82, steps=110, done=True, elapsed=2.5s
+[Episode 2] return=-331.48, steps=100, done=True, elapsed=2.3s
+[Episode 3] return=-530.63, steps=126, done=True, elapsed=2.9s
+[Episode 4] return=-593.88, steps=93, done=True, elapsed=2.1s
+[Episode 5] return=-383.95, steps=97, done=True, elapsed=2.2s
+[Episode 6] return=-567.57, steps=87, done=True, elapsed=2.0s
+[Episode 7] return=-450.42, steps=85, done=True, elapsed=2.0s
+[Episode 8] return=-108.89, steps=168, done=True, elapsed=3.9s
+[Episode 9] return=-585.47, steps=138, done=True, elapsed=3.2s
+[Episode 10] return=-215.64, steps=152, done=True, elapsed=3.5s
+[Episode 11] return=-466.10, steps=109, done=True, elapsed=2.5s
+[Episode 12] return=-532.06, steps=157, done=True, elapsed=3.6s
+[Episode 13] return=-496.52, steps=142, done=True, elapsed=3.3s
+[Episode 14] return=-265.97, steps=95, done=True, elapsed=2.2s
+[Episode 15] return=-550.05, steps=129, done=True, elapsed=3.0s
+[Episode 16] return=-670.61, steps=114, done=True, elapsed=2.6s
+[Episode 17] return=-266.14, steps=149, done=True, elapsed=3.4s
+[Episode 18] return=-256.40, steps=171, done=True, elapsed=3.9s
+[Episode 19] return=-479.58, steps=78, done=True, elapsed=1.8s
+[Episode 20] return=-686.87, steps=118, done=True, elapsed=2.7s
+[Checkpoint summary] mean=-434.95 median=-472.84 min=-686.87 max=-108.89 n=20
+======================================================================
+  [100/100] Epoch 500 -- world_model_20260707_000211_epoch_500.pt
+======================================================================
+[Episode 1] return=-593.22, steps=91, done=True, elapsed=2.1s
+[Episode 2] return=-266.89, steps=285, done=True, elapsed=6.6s
+[Episode 3] return=-529.38, steps=117, done=True, elapsed=2.7s
+[Episode 4] return=-407.94, steps=158, done=True, elapsed=3.6s
+[Episode 5] return=-390.58, steps=99, done=True, elapsed=2.3s
+[Episode 6] return=-586.49, steps=85, done=True, elapsed=2.0s
+[Episode 7] return=-218.81, steps=109, done=True, elapsed=2.5s
+[Episode 8] return=-184.15, steps=167, done=True, elapsed=3.9s
+[Episode 9] return=-500.97, steps=134, done=True, elapsed=3.1s
+[Episode 10] return=-393.48, steps=244, done=True, elapsed=5.6s
+[Episode 11] return=-451.55, steps=110, done=True, elapsed=2.5s
+[Episode 12] return=-510.86, steps=153, done=True, elapsed=3.5s
+[Episode 13] return=-422.47, steps=116, done=True, elapsed=2.7s
+[Episode 14] return=-293.52, steps=94, done=True, elapsed=2.2s
+[Episode 15] return=-538.24, steps=134, done=True, elapsed=3.1s
+[Episode 16] return=-548.19, steps=152, done=True, elapsed=3.5s
+[Episode 17] return=-280.17, steps=138, done=True, elapsed=3.2s
+[Episode 18] return=-151.52, steps=146, done=True, elapsed=3.4s
+[Episode 19] return=-120.94, steps=97, done=True, elapsed=2.2s
+[Episode 20] return=-460.81, steps=165, done=True, elapsed=3.8s
+[Checkpoint summary] mean=-392.51 median=-415.20 min=-593.22 max=-120.94 n=20
+MPC-SWEEP-DONE

@@ -15,3 +15,4 @@ paper/
 paper/**
 *_logs*.txt
 
+checkpoints_llc_smoke/
