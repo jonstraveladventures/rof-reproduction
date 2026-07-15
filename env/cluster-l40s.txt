@@ -1,0 +1,1 @@
+# Cluster env (NVIDIA L40S, PyTorch 2.x CUDA): full freeze to be added; /scratch/01440817/crof-env
