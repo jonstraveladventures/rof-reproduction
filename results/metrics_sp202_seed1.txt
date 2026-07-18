@@ -1,0 +1,1109 @@
+
+Metrics Evaluation Sweep
+Checkpoints: 100, Seed: 1
+Parameters: batch_size=64, n_jac_states=128, warmup_steps=5, planning_horizon=25, epoch_stride=1, shuffle=True, compute_dyn_jac=False
+Jacobian sampling: good_ep_return>=100 (2713 seqs), bad_ep_return<=-100 (1027 seqs)
+Device: cpu
+Started: 2026-07-15 22:20:05
+
+=== Epoch 5 === [1/100] (30.5s)
+  val_loss=53.0479 val_kl=1.6847 val_recon=0.1517 post_obs_rmse=0.3678 post_rew_rmse=6.5856
+  ol_obs_start=0.4095 ol_obs_avg=0.6561 ol_obs_max=0.8301 ol_obs_end=0.8301
+  ol_rew_start=7.5150 ol_rew_avg=7.8943 ol_rew_max=9.3122 ol_rew_end=7.9630
+  ol_cumrew_err=35.2213
+  jac_spec_radius=1.0359 jac_spec_radius_max=1.1881 jac_ctrl_rank=24.8 jac_ctrl_cond=41221022.9 jac_obs_rank=33.9 jac_obs_cond=36645300.2
+  jac_rcf=0.4050 jac_ocf=0.2255 jac_rof=0.2348
+  jac_rof_soft=0.0555 jac_rof_soft_bad=0.0745
+  jac_rof_bad=0.2342 jac_dyn_rof_bad=nan
+  emp_C=0.6061 emp_O=0.3531 emp_L=1.1625
+
+=== Epoch 10 === [2/100] (31.1s)
+  val_loss=42.0590 val_kl=1.6021 val_recon=0.1060 post_obs_rmse=0.3093 post_rew_rmse=5.8554
+  ol_obs_start=0.3690 ol_obs_avg=0.6035 ol_obs_max=0.7585 ol_obs_end=0.7478
+  ol_rew_start=7.7350 ol_rew_avg=7.9136 ol_rew_max=9.4994 ol_rew_end=7.9305
+  ol_cumrew_err=34.0327
+  jac_spec_radius=1.0411 jac_spec_radius_max=1.2232 jac_ctrl_rank=26.5 jac_ctrl_cond=42624152.0 jac_obs_rank=35.5 jac_obs_cond=38865607.8
+  jac_rcf=0.4108 jac_ocf=0.1995 jac_rof=0.2703
+  jac_rof_soft=0.0505 jac_rof_soft_bad=0.0843
+  jac_rof_bad=0.2564 jac_dyn_rof_bad=nan
+  emp_C=0.6529 emp_O=0.3398 emp_L=1.1291
+
+=== Epoch 15 === [3/100] (31.2s)
+  val_loss=43.0859 val_kl=1.5574 val_recon=0.0884 post_obs_rmse=0.2869 post_rew_rmse=5.9309
+  ol_obs_start=0.3577 ol_obs_avg=0.5822 ol_obs_max=0.7033 ol_obs_end=0.7033
+  ol_rew_start=7.9029 ol_rew_avg=8.3458 ol_rew_max=10.0435 ol_rew_end=8.1728
+  ol_cumrew_err=62.5967
+  jac_spec_radius=1.0581 jac_spec_radius_max=1.4417 jac_ctrl_rank=25.5 jac_ctrl_cond=41130022.8 jac_obs_rank=34.4 jac_obs_cond=38588613.3
+  jac_rcf=0.4245 jac_ocf=0.1720 jac_rof=0.2556
+  jac_rof_soft=0.0510 jac_rof_soft_bad=0.0847
+  jac_rof_bad=0.2555 jac_dyn_rof_bad=nan
+  emp_C=0.6972 emp_O=0.3342 emp_L=1.1475
+
+=== Epoch 20 === [4/100] (30.6s)
+  val_loss=42.0104 val_kl=1.4481 val_recon=0.0720 post_obs_rmse=0.2583 post_rew_rmse=5.8599
+  ol_obs_start=0.3385 ol_obs_avg=0.5433 ol_obs_max=0.6442 ol_obs_end=0.6442
+  ol_rew_start=7.6813 ol_rew_avg=8.2932 ol_rew_max=10.1113 ol_rew_end=8.6242
+  ol_cumrew_err=61.6825
+  jac_spec_radius=1.0464 jac_spec_radius_max=1.2159 jac_ctrl_rank=27.1 jac_ctrl_cond=40565415.1 jac_obs_rank=35.2 jac_obs_cond=45014409.1
+  jac_rcf=0.4396 jac_ocf=0.1540 jac_rof=0.2296
+  jac_rof_soft=0.0517 jac_rof_soft_bad=0.0693
+  jac_rof_bad=0.2338 jac_dyn_rof_bad=nan
+  emp_C=0.7451 emp_O=0.3353 emp_L=1.1380
+
+=== Epoch 25 === [5/100] (30.2s)
+  val_loss=39.2191 val_kl=1.4927 val_recon=0.0641 post_obs_rmse=0.2408 post_rew_rmse=5.6570
+  ol_obs_start=0.3176 ol_obs_avg=0.5649 ol_obs_max=0.7066 ol_obs_end=0.7066
+  ol_rew_start=7.7373 ol_rew_avg=7.8785 ol_rew_max=9.5415 ol_rew_end=7.7240
+  ol_cumrew_err=32.0502
+  jac_spec_radius=1.0441 jac_spec_radius_max=1.1479 jac_ctrl_rank=27.3 jac_ctrl_cond=41937288.2 jac_obs_rank=35.4 jac_obs_cond=44562806.4
+  jac_rcf=0.4648 jac_ocf=0.1477 jac_rof=0.2391
+  jac_rof_soft=0.0480 jac_rof_soft_bad=0.0811
+  jac_rof_bad=0.2430 jac_dyn_rof_bad=nan
+  emp_C=0.7875 emp_O=0.3384 emp_L=1.2692
+
+=== Epoch 30 === [6/100] (30.1s)
+  val_loss=43.2682 val_kl=1.5450 val_recon=0.0589 post_obs_rmse=0.2312 post_rew_rmse=5.9462
+  ol_obs_start=0.3136 ol_obs_avg=0.5317 ol_obs_max=0.6406 ol_obs_end=0.6340
+  ol_rew_start=7.8841 ol_rew_avg=8.1229 ol_rew_max=9.8535 ol_rew_end=8.2033
+  ol_cumrew_err=49.7960
+  jac_spec_radius=1.0475 jac_spec_radius_max=1.2114 jac_ctrl_rank=26.8 jac_ctrl_cond=40825783.9 jac_obs_rank=35.0 jac_obs_cond=41826111.1
+  jac_rcf=0.4673 jac_ocf=0.1315 jac_rof=0.2164
+  jac_rof_soft=0.0454 jac_rof_soft_bad=0.0801
+  jac_rof_bad=0.2352 jac_dyn_rof_bad=nan
+  emp_C=0.8401 emp_O=0.3307 emp_L=1.1664
+
+=== Epoch 35 === [7/100] (30.2s)
+  val_loss=38.3990 val_kl=1.3712 val_recon=0.0548 post_obs_rmse=0.2196 post_rew_rmse=5.6015
+  ol_obs_start=0.3057 ol_obs_avg=0.5426 ol_obs_max=0.6652 ol_obs_end=0.6629
+  ol_rew_start=7.7376 ol_rew_avg=7.8922 ol_rew_max=9.5130 ol_rew_end=7.6714
+  ol_cumrew_err=40.2138
+  jac_spec_radius=1.0389 jac_spec_radius_max=1.2071 jac_ctrl_rank=27.6 jac_ctrl_cond=41190284.2 jac_obs_rank=35.1 jac_obs_cond=39856734.7
+  jac_rcf=0.4676 jac_ocf=0.1317 jac_rof=0.2265
+  jac_rof_soft=0.0525 jac_rof_soft_bad=0.0806
+  jac_rof_bad=0.2383 jac_dyn_rof_bad=nan
+  emp_C=0.8801 emp_O=0.3396 emp_L=1.1716
+
+=== Epoch 40 === [8/100] (30.4s)
+  val_loss=37.9015 val_kl=1.4031 val_recon=0.0529 post_obs_rmse=0.2120 post_rew_rmse=5.5633
+  ol_obs_start=0.2943 ol_obs_avg=0.5144 ol_obs_max=0.6359 ol_obs_end=0.6359
+  ol_rew_start=7.8181 ol_rew_avg=7.9334 ol_rew_max=9.5916 ol_rew_end=8.1748
+  ol_cumrew_err=42.7642
+  jac_spec_radius=1.0392 jac_spec_radius_max=1.3543 jac_ctrl_rank=27.1 jac_ctrl_cond=39427671.8 jac_obs_rank=34.7 jac_obs_cond=38451687.2
+  jac_rcf=0.4545 jac_ocf=0.1277 jac_rof=0.2130
+  jac_rof_soft=0.0463 jac_rof_soft_bad=0.0783
+  jac_rof_bad=0.2365 jac_dyn_rof_bad=nan
+  emp_C=0.9278 emp_O=0.3283 emp_L=1.1232
+
+=== Epoch 45 === [9/100] (30.2s)
+  val_loss=40.6959 val_kl=1.5085 val_recon=0.0540 post_obs_rmse=0.2182 post_rew_rmse=5.7649
+  ol_obs_start=0.3079 ol_obs_avg=0.5168 ol_obs_max=0.6271 ol_obs_end=0.6248
+  ol_rew_start=7.9924 ol_rew_avg=8.1557 ol_rew_max=9.8140 ol_rew_end=8.3417
+  ol_cumrew_err=51.3252
+  jac_spec_radius=1.0393 jac_spec_radius_max=1.0909 jac_ctrl_rank=27.5 jac_ctrl_cond=39742717.8 jac_obs_rank=34.9 jac_obs_cond=36797483.0
+  jac_rcf=0.4513 jac_ocf=0.1152 jac_rof=0.2191
+  jac_rof_soft=0.0474 jac_rof_soft_bad=0.0844
+  jac_rof_bad=0.2360 jac_dyn_rof_bad=nan
+  emp_C=0.9866 emp_O=0.3514 emp_L=1.1393
+
+=== Epoch 50 === [10/100] (30.3s)
+  val_loss=40.0523 val_kl=1.5881 val_recon=0.0435 post_obs_rmse=0.1932 post_rew_rmse=5.7161
+  ol_obs_start=0.2839 ol_obs_avg=0.5080 ol_obs_max=0.6518 ol_obs_end=0.6518
+  ol_rew_start=7.9857 ol_rew_avg=8.0821 ol_rew_max=9.8767 ol_rew_end=8.8853
+  ol_cumrew_err=50.7214
+  jac_spec_radius=1.0354 jac_spec_radius_max=1.1728 jac_ctrl_rank=27.4 jac_ctrl_cond=40183839.3 jac_obs_rank=35.0 jac_obs_cond=35533311.0
+  jac_rcf=0.4320 jac_ocf=0.1195 jac_rof=0.2257
+  jac_rof_soft=0.0467 jac_rof_soft_bad=0.0868
+  jac_rof_bad=0.2463 jac_dyn_rof_bad=nan
+  emp_C=1.0269 emp_O=0.3415 emp_L=1.1538
+
+=== Epoch 55 === [11/100] (30.3s)
+  val_loss=38.6350 val_kl=1.6722 val_recon=0.0481 post_obs_rmse=0.2011 post_rew_rmse=5.6084
+  ol_obs_start=0.2902 ol_obs_avg=0.5031 ol_obs_max=0.6248 ol_obs_end=0.6218
+  ol_rew_start=7.8099 ol_rew_avg=8.0459 ol_rew_max=9.8253 ol_rew_end=9.3419
+  ol_cumrew_err=46.5699
+  jac_spec_radius=1.0369 jac_spec_radius_max=1.1647 jac_ctrl_rank=27.7 jac_ctrl_cond=39386279.2 jac_obs_rank=35.0 jac_obs_cond=35504393.7
+  jac_rcf=0.4146 jac_ocf=0.1148 jac_rof=0.2341
+  jac_rof_soft=0.0471 jac_rof_soft_bad=0.0836
+  jac_rof_bad=0.2547 jac_dyn_rof_bad=nan
+  emp_C=1.0874 emp_O=0.3438 emp_L=1.1010
+
+=== Epoch 60 === [12/100] (30.2s)
+  val_loss=36.2336 val_kl=1.7224 val_recon=0.0407 post_obs_rmse=0.1857 post_rew_rmse=5.4257
+  ol_obs_start=0.2729 ol_obs_avg=0.5072 ol_obs_max=0.6647 ol_obs_end=0.6647
+  ol_rew_start=7.7262 ol_rew_avg=8.2590 ol_rew_max=10.7133 ol_rew_end=10.5019
+  ol_cumrew_err=50.9264
+  jac_spec_radius=1.0437 jac_spec_radius_max=1.1856 jac_ctrl_rank=27.6 jac_ctrl_cond=39957621.1 jac_obs_rank=34.5 jac_obs_cond=34625576.8
+  jac_rcf=0.3802 jac_ocf=0.1078 jac_rof=0.2313
+  jac_rof_soft=0.0514 jac_rof_soft_bad=0.0863
+  jac_rof_bad=0.2502 jac_dyn_rof_bad=nan
+  emp_C=1.1345 emp_O=0.3327 emp_L=1.1466
+
+=== Epoch 65 === [13/100] (30.2s)
+  val_loss=40.1220 val_kl=2.0030 val_recon=0.0441 post_obs_rmse=0.1989 post_rew_rmse=5.7060
+  ol_obs_start=0.2901 ol_obs_avg=0.5062 ol_obs_max=0.6850 ol_obs_end=0.6850
+  ol_rew_start=7.7656 ol_rew_avg=8.0081 ol_rew_max=9.6866 ol_rew_end=7.9590
+  ol_cumrew_err=47.7756
+  jac_spec_radius=1.0443 jac_spec_radius_max=1.1552 jac_ctrl_rank=27.9 jac_ctrl_cond=40985480.3 jac_obs_rank=34.5 jac_obs_cond=34679054.4
+  jac_rcf=0.3907 jac_ocf=0.1102 jac_rof=0.2372
+  jac_rof_soft=0.0451 jac_rof_soft_bad=0.0783
+  jac_rof_bad=0.2575 jac_dyn_rof_bad=nan
+  emp_C=1.1634 emp_O=0.3412 emp_L=1.1254
+
+=== Epoch 70 === [14/100] (30.4s)
+  val_loss=37.8700 val_kl=1.7567 val_recon=0.0380 post_obs_rmse=0.1793 post_rew_rmse=5.5489
+  ol_obs_start=0.2716 ol_obs_avg=0.5050 ol_obs_max=0.6995 ol_obs_end=0.6995
+  ol_rew_start=7.6809 ol_rew_avg=8.2495 ol_rew_max=10.4106 ol_rew_end=9.5002
+  ol_cumrew_err=54.5261
+  jac_spec_radius=1.0443 jac_spec_radius_max=1.3091 jac_ctrl_rank=27.9 jac_ctrl_cond=41539112.6 jac_obs_rank=34.2 jac_obs_cond=35974636.4
+  jac_rcf=0.3816 jac_ocf=0.1068 jac_rof=0.2364
+  jac_rof_soft=0.0508 jac_rof_soft_bad=0.0873
+  jac_rof_bad=0.2544 jac_dyn_rof_bad=nan
+  emp_C=1.1851 emp_O=0.3630 emp_L=1.2178
+
+=== Epoch 75 === [15/100] (30.4s)
+  val_loss=35.5748 val_kl=1.7084 val_recon=0.0373 post_obs_rmse=0.1739 post_rew_rmse=5.3757
+  ol_obs_start=0.2676 ol_obs_avg=0.4694 ol_obs_max=0.5829 ol_obs_end=0.5809
+  ol_rew_start=7.7627 ol_rew_avg=7.8016 ol_rew_max=9.4480 ol_rew_end=8.5710
+  ol_cumrew_err=35.5683
+  jac_spec_radius=1.0350 jac_spec_radius_max=1.1135 jac_ctrl_rank=28.4 jac_ctrl_cond=41744618.4 jac_obs_rank=34.7 jac_obs_cond=32866375.6
+  jac_rcf=0.3958 jac_ocf=0.1035 jac_rof=0.2379
+  jac_rof_soft=0.0495 jac_rof_soft_bad=0.0823
+  jac_rof_bad=0.2477 jac_dyn_rof_bad=nan
+  emp_C=1.2000 emp_O=0.3387 emp_L=1.0881
+
+=== Epoch 80 === [16/100] (30.4s)
+  val_loss=37.0993 val_kl=1.7920 val_recon=0.0413 post_obs_rmse=0.1810 post_rew_rmse=5.4891
+  ol_obs_start=0.2700 ol_obs_avg=0.4765 ol_obs_max=0.5825 ol_obs_end=0.5781
+  ol_rew_start=7.8239 ol_rew_avg=7.9403 ol_rew_max=9.7555 ol_rew_end=9.1241
+  ol_cumrew_err=41.2620
+  jac_spec_radius=1.0502 jac_spec_radius_max=1.2700 jac_ctrl_rank=27.7 jac_ctrl_cond=39821317.6 jac_obs_rank=33.8 jac_obs_cond=33866718.3
+  jac_rcf=0.3794 jac_ocf=0.0947 jac_rof=0.2158
+  jac_rof_soft=0.0414 jac_rof_soft_bad=0.0787
+  jac_rof_bad=0.2411 jac_dyn_rof_bad=nan
+  emp_C=1.2092 emp_O=0.3481 emp_L=1.2710
+
+=== Epoch 85 === [17/100] (30.2s)
+  val_loss=35.7932 val_kl=1.8906 val_recon=0.0382 post_obs_rmse=0.1777 post_rew_rmse=5.3855
+  ol_obs_start=0.2707 ol_obs_avg=0.4784 ol_obs_max=0.6039 ol_obs_end=0.6039
+  ol_rew_start=7.7570 ol_rew_avg=7.9412 ol_rew_max=9.5267 ol_rew_end=8.8547
+  ol_cumrew_err=38.9488
+  jac_spec_radius=1.0403 jac_spec_radius_max=1.2587 jac_ctrl_rank=28.1 jac_ctrl_cond=41195006.9 jac_obs_rank=33.9 jac_obs_cond=32681404.5
+  jac_rcf=0.3837 jac_ocf=0.0930 jac_rof=0.2220
+  jac_rof_soft=0.0431 jac_rof_soft_bad=0.0871
+  jac_rof_bad=0.2594 jac_dyn_rof_bad=nan
+  emp_C=1.2717 emp_O=0.3377 emp_L=1.2550
+
+=== Epoch 90 === [18/100] (30.3s)
+  val_loss=39.6860 val_kl=1.8191 val_recon=0.0405 post_obs_rmse=0.1817 post_rew_rmse=5.6811
+  ol_obs_start=0.2692 ol_obs_avg=0.4748 ol_obs_max=0.5854 ol_obs_end=0.5854
+  ol_rew_start=7.8263 ol_rew_avg=8.0093 ol_rew_max=10.0311 ol_rew_end=9.2470
+  ol_cumrew_err=41.0043
+  jac_spec_radius=1.0445 jac_spec_radius_max=1.3834 jac_ctrl_rank=28.2 jac_ctrl_cond=41507033.8 jac_obs_rank=33.9 jac_obs_cond=32445374.3
+  jac_rcf=0.3863 jac_ocf=0.0995 jac_rof=0.2211
+  jac_rof_soft=0.0446 jac_rof_soft_bad=0.0823
+  jac_rof_bad=0.2520 jac_dyn_rof_bad=nan
+  emp_C=1.2695 emp_O=0.3416 emp_L=1.1315
+
+=== Epoch 95 === [19/100] (30.1s)
+  val_loss=37.4238 val_kl=1.8089 val_recon=0.0368 post_obs_rmse=0.1762 post_rew_rmse=5.5134
+  ol_obs_start=0.2711 ol_obs_avg=0.4841 ol_obs_max=0.6185 ol_obs_end=0.6185
+  ol_rew_start=7.8721 ol_rew_avg=7.9538 ol_rew_max=9.9689 ol_rew_end=8.6615
+  ol_cumrew_err=41.9898
+  jac_spec_radius=1.0394 jac_spec_radius_max=1.1862 jac_ctrl_rank=28.6 jac_ctrl_cond=41822920.1 jac_obs_rank=33.7 jac_obs_cond=31580464.6
+  jac_rcf=0.3655 jac_ocf=0.0964 jac_rof=0.2284
+  jac_rof_soft=0.0434 jac_rof_soft_bad=0.0834
+  jac_rof_bad=0.2597 jac_dyn_rof_bad=nan
+  emp_C=1.2990 emp_O=0.3425 emp_L=1.1278
+
+=== Epoch 100 === [20/100] (30.1s)
+  val_loss=35.2526 val_kl=1.7581 val_recon=0.0364 post_obs_rmse=0.1706 post_rew_rmse=5.3488
+  ol_obs_start=0.2676 ol_obs_avg=0.4733 ol_obs_max=0.5986 ol_obs_end=0.5986
+  ol_rew_start=7.7033 ol_rew_avg=7.8609 ol_rew_max=9.6834 ol_rew_end=8.2039
+  ol_cumrew_err=42.9109
+  jac_spec_radius=1.0404 jac_spec_radius_max=1.2803 jac_ctrl_rank=28.4 jac_ctrl_cond=41360100.8 jac_obs_rank=33.9 jac_obs_cond=30969180.2
+  jac_rcf=0.3458 jac_ocf=0.0954 jac_rof=0.2333
+  jac_rof_soft=0.0492 jac_rof_soft_bad=0.0955
+  jac_rof_bad=0.2803 jac_dyn_rof_bad=nan
+  emp_C=1.3214 emp_O=0.3466 emp_L=1.0930
+
+=== Epoch 105 === [21/100] (30.0s)
+  val_loss=35.6324 val_kl=1.8287 val_recon=0.0418 post_obs_rmse=0.1840 post_rew_rmse=5.3752
+  ol_obs_start=0.2747 ol_obs_avg=0.4873 ol_obs_max=0.6173 ol_obs_end=0.6173
+  ol_rew_start=7.8006 ol_rew_avg=7.9966 ol_rew_max=9.8702 ol_rew_end=8.8217
+  ol_cumrew_err=39.4282
+  jac_spec_radius=1.0392 jac_spec_radius_max=1.1731 jac_ctrl_rank=28.7 jac_ctrl_cond=41864480.4 jac_obs_rank=34.0 jac_obs_cond=30799555.6
+  jac_rcf=0.3610 jac_ocf=0.0882 jac_rof=0.2182
+  jac_rof_soft=0.0482 jac_rof_soft_bad=0.0990
+  jac_rof_bad=0.2814 jac_dyn_rof_bad=nan
+  emp_C=1.3579 emp_O=0.3593 emp_L=1.4159
+
+=== Epoch 110 === [22/100] (30.1s)
+  val_loss=37.0622 val_kl=1.8539 val_recon=0.0366 post_obs_rmse=0.1693 post_rew_rmse=5.4843
+  ol_obs_start=0.2691 ol_obs_avg=0.4753 ol_obs_max=0.5879 ol_obs_end=0.5879
+  ol_rew_start=7.8158 ol_rew_avg=7.7556 ol_rew_max=9.6432 ol_rew_end=7.5877
+  ol_cumrew_err=32.6829
+  jac_spec_radius=1.0429 jac_spec_radius_max=1.3425 jac_ctrl_rank=28.4 jac_ctrl_cond=43365030.4 jac_obs_rank=33.7 jac_obs_cond=30783097.2
+  jac_rcf=0.3694 jac_ocf=0.0961 jac_rof=0.2294
+  jac_rof_soft=0.0428 jac_rof_soft_bad=0.0903
+  jac_rof_bad=0.2617 jac_dyn_rof_bad=nan
+  emp_C=1.3415 emp_O=0.3351 emp_L=1.2092
+
+=== Epoch 115 === [23/100] (30.1s)
+  val_loss=35.7744 val_kl=1.7197 val_recon=0.0390 post_obs_rmse=0.1744 post_rew_rmse=5.3905
+  ol_obs_start=0.2678 ol_obs_avg=0.4741 ol_obs_max=0.5831 ol_obs_end=0.5735
+  ol_rew_start=7.6777 ol_rew_avg=7.8904 ol_rew_max=9.7366 ol_rew_end=8.6888
+  ol_cumrew_err=34.0791
+  jac_spec_radius=1.0377 jac_spec_radius_max=1.2646 jac_ctrl_rank=28.9 jac_ctrl_cond=41384316.2 jac_obs_rank=34.1 jac_obs_cond=30922210.1
+  jac_rcf=0.3727 jac_ocf=0.0917 jac_rof=0.2266
+  jac_rof_soft=0.0440 jac_rof_soft_bad=0.0815
+  jac_rof_bad=0.2477 jac_dyn_rof_bad=nan
+  emp_C=1.4234 emp_O=0.3605 emp_L=1.1813
+
+=== Epoch 120 === [24/100] (30.2s)
+  val_loss=36.0370 val_kl=1.9316 val_recon=0.0360 post_obs_rmse=0.1708 post_rew_rmse=5.4029
+  ol_obs_start=0.2652 ol_obs_avg=0.4642 ol_obs_max=0.5698 ol_obs_end=0.5698
+  ol_rew_start=7.6118 ol_rew_avg=7.9708 ol_rew_max=9.9707 ol_rew_end=9.5224
+  ol_cumrew_err=42.7441
+  jac_spec_radius=1.0432 jac_spec_radius_max=1.2334 jac_ctrl_rank=28.9 jac_ctrl_cond=41604043.6 jac_obs_rank=34.3 jac_obs_cond=32706892.9
+  jac_rcf=0.3700 jac_ocf=0.0964 jac_rof=0.2296
+  jac_rof_soft=0.0467 jac_rof_soft_bad=0.0938
+  jac_rof_bad=0.2682 jac_dyn_rof_bad=nan
+  emp_C=1.3709 emp_O=0.3396 emp_L=1.2578
+
+=== Epoch 125 === [25/100] (30.3s)
+  val_loss=35.8013 val_kl=1.7844 val_recon=0.0427 post_obs_rmse=0.1864 post_rew_rmse=5.3899
+  ol_obs_start=0.2799 ol_obs_avg=0.4733 ol_obs_max=0.5629 ol_obs_end=0.5629
+  ol_rew_start=7.6350 ol_rew_avg=7.6767 ol_rew_max=9.0067 ol_rew_end=8.1129
+  ol_cumrew_err=30.9770
+  jac_spec_radius=1.0409 jac_spec_radius_max=1.2354 jac_ctrl_rank=28.9 jac_ctrl_cond=41967245.8 jac_obs_rank=33.9 jac_obs_cond=31667001.5
+  jac_rcf=0.3694 jac_ocf=0.0905 jac_rof=0.2209
+  jac_rof_soft=0.0387 jac_rof_soft_bad=0.0847
+  jac_rof_bad=0.2561 jac_dyn_rof_bad=nan
+  emp_C=1.3919 emp_O=0.3395 emp_L=1.1605
+
+=== Epoch 130 === [26/100] (30.4s)
+  val_loss=36.1034 val_kl=1.8254 val_recon=0.0341 post_obs_rmse=0.1692 post_rew_rmse=5.4123
+  ol_obs_start=0.2649 ol_obs_avg=0.4766 ol_obs_max=0.5898 ol_obs_end=0.5898
+  ol_rew_start=7.7924 ol_rew_avg=7.8761 ol_rew_max=9.2578 ol_rew_end=8.5554
+  ol_cumrew_err=34.4186
+  jac_spec_radius=1.0384 jac_spec_radius_max=1.2621 jac_ctrl_rank=29.0 jac_ctrl_cond=41613884.6 jac_obs_rank=33.9 jac_obs_cond=29303504.0
+  jac_rcf=0.3649 jac_ocf=0.0901 jac_rof=0.2184
+  jac_rof_soft=0.0390 jac_rof_soft_bad=0.0782
+  jac_rof_bad=0.2416 jac_dyn_rof_bad=nan
+  emp_C=1.4520 emp_O=0.3389 emp_L=1.2788
+
+=== Epoch 135 === [27/100] (30.1s)
+  val_loss=34.5482 val_kl=1.8522 val_recon=0.0335 post_obs_rmse=0.1641 post_rew_rmse=5.2902
+  ol_obs_start=0.2621 ol_obs_avg=0.4630 ol_obs_max=0.5766 ol_obs_end=0.5766
+  ol_rew_start=7.6552 ol_rew_avg=8.2315 ol_rew_max=9.9269 ol_rew_end=9.3056
+  ol_cumrew_err=42.8741
+  jac_spec_radius=1.0398 jac_spec_radius_max=1.3346 jac_ctrl_rank=29.1 jac_ctrl_cond=41743299.0 jac_obs_rank=33.9 jac_obs_cond=31436921.6
+  jac_rcf=0.3472 jac_ocf=0.0885 jac_rof=0.2149
+  jac_rof_soft=0.0434 jac_rof_soft_bad=0.0799
+  jac_rof_bad=0.2497 jac_dyn_rof_bad=nan
+  emp_C=1.4700 emp_O=0.3517 emp_L=1.1185
+
+=== Epoch 140 === [28/100] (30.3s)
+  val_loss=36.3254 val_kl=1.8402 val_recon=0.0346 post_obs_rmse=0.1676 post_rew_rmse=5.4287
+  ol_obs_start=0.2593 ol_obs_avg=0.4634 ol_obs_max=0.5762 ol_obs_end=0.5762
+  ol_rew_start=7.6417 ol_rew_avg=7.6898 ol_rew_max=8.9914 ol_rew_end=8.0846
+  ol_cumrew_err=28.8029
+  jac_spec_radius=1.0421 jac_spec_radius_max=1.2668 jac_ctrl_rank=29.3 jac_ctrl_cond=38198341.6 jac_obs_rank=34.2 jac_obs_cond=30344554.8
+  jac_rcf=0.3530 jac_ocf=0.0871 jac_rof=0.2210
+  jac_rof_soft=0.0417 jac_rof_soft_bad=0.0818
+  jac_rof_bad=0.2467 jac_dyn_rof_bad=nan
+  emp_C=1.5022 emp_O=0.3504 emp_L=1.5415
+
+=== Epoch 145 === [29/100] (30.5s)
+  val_loss=37.1773 val_kl=1.8047 val_recon=0.0350 post_obs_rmse=0.1680 post_rew_rmse=5.4950
+  ol_obs_start=0.2622 ol_obs_avg=0.4684 ol_obs_max=0.5853 ol_obs_end=0.5853
+  ol_rew_start=7.8894 ol_rew_avg=7.9035 ol_rew_max=9.2814 ol_rew_end=8.0986
+  ol_cumrew_err=39.0723
+  jac_spec_radius=1.0387 jac_spec_radius_max=1.3985 jac_ctrl_rank=29.4 jac_ctrl_cond=40839698.1 jac_obs_rank=34.1 jac_obs_cond=29353330.0
+  jac_rcf=0.3602 jac_ocf=0.0886 jac_rof=0.2055
+  jac_rof_soft=0.0395 jac_rof_soft_bad=0.0843
+  jac_rof_bad=0.2558 jac_dyn_rof_bad=nan
+  emp_C=1.4632 emp_O=0.3385 emp_L=1.1177
+
+=== Epoch 150 === [30/100] (30.2s)
+  val_loss=38.5875 val_kl=1.7731 val_recon=0.0349 post_obs_rmse=0.1678 post_rew_rmse=5.6021
+  ol_obs_start=0.2724 ol_obs_avg=0.4642 ol_obs_max=0.5643 ol_obs_end=0.5643
+  ol_rew_start=8.0440 ol_rew_avg=7.8043 ol_rew_max=9.2261 ol_rew_end=9.0538
+  ol_cumrew_err=28.5166
+  jac_spec_radius=1.0430 jac_spec_radius_max=1.6162 jac_ctrl_rank=29.3 jac_ctrl_cond=41358781.3 jac_obs_rank=33.7 jac_obs_cond=29866655.7
+  jac_rcf=0.3466 jac_ocf=0.0844 jac_rof=0.2077
+  jac_rof_soft=0.0401 jac_rof_soft_bad=0.0942
+  jac_rof_bad=0.2661 jac_dyn_rof_bad=nan
+  emp_C=1.4621 emp_O=0.3378 emp_L=1.3240
+
+=== Epoch 155 === [31/100] (30.4s)
+  val_loss=38.1091 val_kl=2.0771 val_recon=0.0336 post_obs_rmse=0.1646 post_rew_rmse=5.5551
+  ol_obs_start=0.2652 ol_obs_avg=0.4713 ol_obs_max=0.5930 ol_obs_end=0.5930
+  ol_rew_start=7.7479 ol_rew_avg=8.0594 ol_rew_max=9.4712 ol_rew_end=8.7159
+  ol_cumrew_err=41.2004
+  jac_spec_radius=1.0390 jac_spec_radius_max=1.2250 jac_ctrl_rank=29.4 jac_ctrl_cond=42389166.1 jac_obs_rank=34.1 jac_obs_cond=30725354.7
+  jac_rcf=0.3499 jac_ocf=0.0787 jac_rof=0.2091
+  jac_rof_soft=0.0398 jac_rof_soft_bad=0.0802
+  jac_rof_bad=0.2444 jac_dyn_rof_bad=nan
+  emp_C=1.5165 emp_O=0.3394 emp_L=1.1870
+
+=== Epoch 160 === [32/100] (30.3s)
+  val_loss=38.2995 val_kl=1.8053 val_recon=0.0379 post_obs_rmse=0.1732 post_rew_rmse=5.5792
+  ol_obs_start=0.2698 ol_obs_avg=0.4636 ol_obs_max=0.5663 ol_obs_end=0.5663
+  ol_rew_start=7.8532 ol_rew_avg=7.7673 ol_rew_max=9.1206 ol_rew_end=8.5138
+  ol_cumrew_err=23.4325
+  jac_spec_radius=1.0378 jac_spec_radius_max=1.2144 jac_ctrl_rank=29.6 jac_ctrl_cond=41441823.2 jac_obs_rank=34.3 jac_obs_cond=29949096.9
+  jac_rcf=0.3533 jac_ocf=0.0915 jac_rof=0.2285
+  jac_rof_soft=0.0426 jac_rof_soft_bad=0.0852
+  jac_rof_bad=0.2545 jac_dyn_rof_bad=nan
+  emp_C=1.4754 emp_O=0.3286 emp_L=1.1583
+
+=== Epoch 165 === [33/100] (30.0s)
+  val_loss=37.7440 val_kl=1.9504 val_recon=0.0337 post_obs_rmse=0.1644 post_rew_rmse=5.5324
+  ol_obs_start=0.2654 ol_obs_avg=0.4587 ol_obs_max=0.5575 ol_obs_end=0.5575
+  ol_rew_start=7.8143 ol_rew_avg=7.7718 ol_rew_max=8.9785 ol_rew_end=8.6746
+  ol_cumrew_err=35.9416
+  jac_spec_radius=1.0414 jac_spec_radius_max=1.3003 jac_ctrl_rank=29.5 jac_ctrl_cond=41343697.5 jac_obs_rank=34.3 jac_obs_cond=31438436.1
+  jac_rcf=0.3361 jac_ocf=0.0859 jac_rof=0.2185
+  jac_rof_soft=0.0462 jac_rof_soft_bad=0.0894
+  jac_rof_bad=0.2638 jac_dyn_rof_bad=nan
+  emp_C=1.5168 emp_O=0.3462 emp_L=1.4157
+
+=== Epoch 170 === [34/100] (29.9s)
+  val_loss=36.4556 val_kl=1.8805 val_recon=0.0340 post_obs_rmse=0.1654 post_rew_rmse=5.4372
+  ol_obs_start=0.2669 ol_obs_avg=0.4588 ol_obs_max=0.5591 ol_obs_end=0.5591
+  ol_rew_start=7.7621 ol_rew_avg=7.7170 ol_rew_max=9.1962 ol_rew_end=8.1437
+  ol_cumrew_err=36.1372
+  jac_spec_radius=1.0436 jac_spec_radius_max=1.2807 jac_ctrl_rank=29.3 jac_ctrl_cond=42226869.6 jac_obs_rank=33.8 jac_obs_cond=29370359.6
+  jac_rcf=0.3508 jac_ocf=0.0782 jac_rof=0.2039
+  jac_rof_soft=0.0425 jac_rof_soft_bad=0.0908
+  jac_rof_bad=0.2539 jac_dyn_rof_bad=nan
+  emp_C=1.5617 emp_O=0.3496 emp_L=1.3549
+
+=== Epoch 175 === [35/100] (29.6s)
+  val_loss=35.7652 val_kl=1.8398 val_recon=0.0345 post_obs_rmse=0.1634 post_rew_rmse=5.3856
+  ol_obs_start=0.2605 ol_obs_avg=0.4518 ol_obs_max=0.5515 ol_obs_end=0.5515
+  ol_rew_start=7.6981 ol_rew_avg=7.8115 ol_rew_max=9.7321 ol_rew_end=8.0075
+  ol_cumrew_err=35.0803
+  jac_spec_radius=1.0425 jac_spec_radius_max=1.2619 jac_ctrl_rank=29.4 jac_ctrl_cond=40110681.2 jac_obs_rank=33.8 jac_obs_cond=29757084.0
+  jac_rcf=0.3259 jac_ocf=0.0867 jac_rof=0.2211
+  jac_rof_soft=0.0433 jac_rof_soft_bad=0.0952
+  jac_rof_bad=0.2610 jac_dyn_rof_bad=nan
+  emp_C=1.5738 emp_O=0.3506 emp_L=1.1833
+
+=== Epoch 180 === [36/100] (29.9s)
+  val_loss=35.8359 val_kl=1.8581 val_recon=0.0335 post_obs_rmse=0.1603 post_rew_rmse=5.3904
+  ol_obs_start=0.2548 ol_obs_avg=0.4533 ol_obs_max=0.5550 ol_obs_end=0.5510
+  ol_rew_start=7.8414 ol_rew_avg=7.8531 ol_rew_max=9.1940 ol_rew_end=8.2492
+  ol_cumrew_err=35.5707
+  jac_spec_radius=1.0404 jac_spec_radius_max=1.2576 jac_ctrl_rank=29.8 jac_ctrl_cond=43373333.5 jac_obs_rank=34.1 jac_obs_cond=30877546.2
+  jac_rcf=0.3455 jac_ocf=0.0781 jac_rof=0.2238
+  jac_rof_soft=0.0464 jac_rof_soft_bad=0.0913
+  jac_rof_bad=0.2582 jac_dyn_rof_bad=nan
+  emp_C=1.5578 emp_O=0.3445 emp_L=1.4944
+
+=== Epoch 185 === [37/100] (29.4s)
+  val_loss=36.0701 val_kl=1.8527 val_recon=0.0353 post_obs_rmse=0.1672 post_rew_rmse=5.4085
+  ol_obs_start=0.2673 ol_obs_avg=0.4625 ol_obs_max=0.5660 ol_obs_end=0.5622
+  ol_rew_start=7.7453 ol_rew_avg=7.7172 ol_rew_max=8.9446 ol_rew_end=8.1615
+  ol_cumrew_err=29.9363
+  jac_spec_radius=1.0449 jac_spec_radius_max=1.4231 jac_ctrl_rank=29.4 jac_ctrl_cond=42210103.6 jac_obs_rank=33.6 jac_obs_cond=29275940.4
+  jac_rcf=0.3361 jac_ocf=0.0830 jac_rof=0.2260
+  jac_rof_soft=0.0437 jac_rof_soft_bad=0.0965
+  jac_rof_bad=0.2673 jac_dyn_rof_bad=nan
+  emp_C=1.6010 emp_O=0.3479 emp_L=1.2632
+
+=== Epoch 190 === [38/100] (29.8s)
+  val_loss=36.5263 val_kl=1.8494 val_recon=0.0327 post_obs_rmse=0.1604 post_rew_rmse=5.4439
+  ol_obs_start=0.2613 ol_obs_avg=0.4602 ol_obs_max=0.5587 ol_obs_end=0.5587
+  ol_rew_start=7.9543 ol_rew_avg=7.7173 ol_rew_max=8.8137 ol_rew_end=8.6540
+  ol_cumrew_err=27.3983
+  jac_spec_radius=1.0477 jac_spec_radius_max=1.5219 jac_ctrl_rank=29.4 jac_ctrl_cond=39535963.6 jac_obs_rank=33.4 jac_obs_cond=29685341.9
+  jac_rcf=0.3462 jac_ocf=0.0761 jac_rof=0.1933
+  jac_rof_soft=0.0374 jac_rof_soft_bad=0.0818
+  jac_rof_bad=0.2527 jac_dyn_rof_bad=nan
+  emp_C=1.6006 emp_O=0.3590 emp_L=1.1737
+
+=== Epoch 195 === [39/100] (29.1s)
+  val_loss=35.1160 val_kl=1.8337 val_recon=0.0315 post_obs_rmse=0.1595 post_rew_rmse=5.3356
+  ol_obs_start=0.2561 ol_obs_avg=0.4581 ol_obs_max=0.5567 ol_obs_end=0.5540
+  ol_rew_start=7.9808 ol_rew_avg=7.7251 ol_rew_max=9.0545 ol_rew_end=7.3857
+  ol_cumrew_err=31.4857
+  jac_spec_radius=1.0470 jac_spec_radius_max=1.4873 jac_ctrl_rank=29.5 jac_ctrl_cond=41683967.5 jac_obs_rank=33.3 jac_obs_cond=28714497.6
+  jac_rcf=0.3345 jac_ocf=0.0777 jac_rof=0.2114
+  jac_rof_soft=0.0438 jac_rof_soft_bad=0.0911
+  jac_rof_bad=0.2666 jac_dyn_rof_bad=nan
+  emp_C=1.5994 emp_O=0.3602 emp_L=1.1750
+
+=== Epoch 200 === [40/100] (28.4s)
+  val_loss=35.6342 val_kl=1.8837 val_recon=0.0376 post_obs_rmse=0.1677 post_rew_rmse=5.3735
+  ol_obs_start=0.2678 ol_obs_avg=0.4602 ol_obs_max=0.5589 ol_obs_end=0.5589
+  ol_rew_start=7.7688 ol_rew_avg=7.6652 ol_rew_max=8.7801 ol_rew_end=8.0422
+  ol_cumrew_err=31.9773
+  jac_spec_radius=1.0401 jac_spec_radius_max=1.3893 jac_ctrl_rank=29.5 jac_ctrl_cond=41072953.6 jac_obs_rank=34.1 jac_obs_cond=29437927.6
+  jac_rcf=0.3338 jac_ocf=0.0796 jac_rof=0.2157
+  jac_rof_soft=0.0394 jac_rof_soft_bad=0.0910
+  jac_rof_bad=0.2655 jac_dyn_rof_bad=nan
+  emp_C=1.5298 emp_O=0.3459 emp_L=1.3550
+
+=== Epoch 205 === [41/100] (29.7s)
+  val_loss=34.8325 val_kl=1.8511 val_recon=0.0325 post_obs_rmse=0.1573 post_rew_rmse=5.3126
+  ol_obs_start=0.2593 ol_obs_avg=0.4588 ol_obs_max=0.5630 ol_obs_end=0.5630
+  ol_rew_start=7.7585 ol_rew_avg=7.7991 ol_rew_max=9.3623 ol_rew_end=8.1703
+  ol_cumrew_err=42.1230
+  jac_spec_radius=1.0426 jac_spec_radius_max=1.2690 jac_ctrl_rank=29.8 jac_ctrl_cond=38299299.3 jac_obs_rank=34.0 jac_obs_cond=29227299.4
+  jac_rcf=0.3184 jac_ocf=0.0824 jac_rof=0.2163
+  jac_rof_soft=0.0444 jac_rof_soft_bad=0.0895
+  jac_rof_bad=0.2675 jac_dyn_rof_bad=nan
+  emp_C=1.5572 emp_O=0.3424 emp_L=1.2245
+
+=== Epoch 210 === [42/100] (28.5s)
+  val_loss=37.1275 val_kl=2.0172 val_recon=0.0354 post_obs_rmse=0.1612 post_rew_rmse=5.4831
+  ol_obs_start=0.2619 ol_obs_avg=0.4612 ol_obs_max=0.5686 ol_obs_end=0.5686
+  ol_rew_start=7.8276 ol_rew_avg=7.9744 ol_rew_max=9.8787 ol_rew_end=8.6723
+  ol_cumrew_err=45.5653
+  jac_spec_radius=1.0495 jac_spec_radius_max=1.5888 jac_ctrl_rank=29.4 jac_ctrl_cond=40539065.8 jac_obs_rank=33.4 jac_obs_cond=29739311.5
+  jac_rcf=0.3319 jac_ocf=0.0714 jac_rof=0.2180
+  jac_rof_soft=0.0509 jac_rof_soft_bad=0.0914
+  jac_rof_bad=0.2671 jac_dyn_rof_bad=nan
+  emp_C=1.6111 emp_O=0.3541 emp_L=1.1082
+
+=== Epoch 215 === [43/100] (28.4s)
+  val_loss=36.9359 val_kl=1.8668 val_recon=0.0339 post_obs_rmse=0.1588 post_rew_rmse=5.4744
+  ol_obs_start=0.2557 ol_obs_avg=0.4575 ol_obs_max=0.5596 ol_obs_end=0.5589
+  ol_rew_start=7.9043 ol_rew_avg=7.9669 ol_rew_max=9.5175 ol_rew_end=9.3608
+  ol_cumrew_err=38.9334
+  jac_spec_radius=1.0399 jac_spec_radius_max=1.1482 jac_ctrl_rank=30.0 jac_ctrl_cond=41211217.5 jac_obs_rank=34.3 jac_obs_cond=30236849.8
+  jac_rcf=0.3470 jac_ocf=0.0733 jac_rof=0.2132
+  jac_rof_soft=0.0466 jac_rof_soft_bad=0.0917
+  jac_rof_bad=0.2657 jac_dyn_rof_bad=nan
+  emp_C=1.5998 emp_O=0.3387 emp_L=1.3268
+
+=== Epoch 220 === [44/100] (28.4s)
+  val_loss=35.0230 val_kl=1.6817 val_recon=0.0313 post_obs_rmse=0.1577 post_rew_rmse=5.3343
+  ol_obs_start=0.2563 ol_obs_avg=0.4665 ol_obs_max=0.5684 ol_obs_end=0.5674
+  ol_rew_start=7.8473 ol_rew_avg=7.6790 ol_rew_max=8.8532 ol_rew_end=8.1470
+  ol_cumrew_err=26.5174
+  jac_spec_radius=1.0484 jac_spec_radius_max=1.3328 jac_ctrl_rank=29.5 jac_ctrl_cond=41606809.2 jac_obs_rank=34.1 jac_obs_cond=29048938.3
+  jac_rcf=0.3422 jac_ocf=0.0782 jac_rof=0.2192
+  jac_rof_soft=0.0442 jac_rof_soft_bad=0.0762
+  jac_rof_bad=0.2435 jac_dyn_rof_bad=nan
+  emp_C=1.6834 emp_O=0.3512 emp_L=1.6983
+
+=== Epoch 225 === [45/100] (28.8s)
+  val_loss=37.9569 val_kl=1.7467 val_recon=0.0336 post_obs_rmse=0.1609 post_rew_rmse=5.5561
+  ol_obs_start=0.2594 ol_obs_avg=0.4618 ol_obs_max=0.5697 ol_obs_end=0.5697
+  ol_rew_start=7.8835 ol_rew_avg=7.8472 ol_rew_max=9.0350 ol_rew_end=7.9234
+  ol_cumrew_err=34.7909
+  jac_spec_radius=1.0412 jac_spec_radius_max=1.2780 jac_ctrl_rank=29.8 jac_ctrl_cond=39683461.2 jac_obs_rank=34.0 jac_obs_cond=30948643.8
+  jac_rcf=0.3237 jac_ocf=0.0844 jac_rof=0.2160
+  jac_rof_soft=0.0439 jac_rof_soft_bad=0.0957
+  jac_rof_bad=0.2637 jac_dyn_rof_bad=nan
+  emp_C=1.6685 emp_O=0.3291 emp_L=1.3068
+
+=== Epoch 230 === [46/100] (28.3s)
+  val_loss=36.8263 val_kl=1.8315 val_recon=0.0340 post_obs_rmse=0.1592 post_rew_rmse=5.4674
+  ol_obs_start=0.2560 ol_obs_avg=0.4591 ol_obs_max=0.5603 ol_obs_end=0.5603
+  ol_rew_start=7.9278 ol_rew_avg=7.7845 ol_rew_max=9.0565 ol_rew_end=8.5683
+  ol_cumrew_err=31.3013
+  jac_spec_radius=1.0400 jac_spec_radius_max=1.2113 jac_ctrl_rank=30.3 jac_ctrl_cond=39846700.5 jac_obs_rank=34.4 jac_obs_cond=28648264.9
+  jac_rcf=0.3298 jac_ocf=0.0780 jac_rof=0.2154
+  jac_rof_soft=0.0437 jac_rof_soft_bad=0.0871
+  jac_rof_bad=0.2641 jac_dyn_rof_bad=nan
+  emp_C=1.6485 emp_O=0.3313 emp_L=1.1745
+
+=== Epoch 235 === [47/100] (28.3s)
+  val_loss=33.5241 val_kl=1.8166 val_recon=0.0323 post_obs_rmse=0.1571 post_rew_rmse=5.2104
+  ol_obs_start=0.2590 ol_obs_avg=0.4599 ol_obs_max=0.5625 ol_obs_end=0.5625
+  ol_rew_start=7.7590 ol_rew_avg=7.7615 ol_rew_max=8.9237 ol_rew_end=8.7860
+  ol_cumrew_err=33.4092
+  jac_spec_radius=1.0328 jac_spec_radius_max=1.1696 jac_ctrl_rank=30.5 jac_ctrl_cond=40182492.8 jac_obs_rank=34.4 jac_obs_cond=29629900.3
+  jac_rcf=0.3266 jac_ocf=0.0740 jac_rof=0.2209
+  jac_rof_soft=0.0418 jac_rof_soft_bad=0.0883
+  jac_rof_bad=0.2693 jac_dyn_rof_bad=nan
+  emp_C=1.6808 emp_O=0.3465 emp_L=1.1256
+
+=== Epoch 240 === [48/100] (28.4s)
+  val_loss=35.0432 val_kl=1.8602 val_recon=0.0333 post_obs_rmse=0.1578 post_rew_rmse=5.3287
+  ol_obs_start=0.2624 ol_obs_avg=0.4629 ol_obs_max=0.5645 ol_obs_end=0.5632
+  ol_rew_start=7.9117 ol_rew_avg=7.9578 ol_rew_max=8.9732 ol_rew_end=8.8003
+  ol_cumrew_err=32.5439
+  jac_spec_radius=1.0385 jac_spec_radius_max=1.2321 jac_ctrl_rank=30.0 jac_ctrl_cond=42121715.8 jac_obs_rank=34.6 jac_obs_cond=30088387.9
+  jac_rcf=0.3338 jac_ocf=0.0743 jac_rof=0.2297
+  jac_rof_soft=0.0494 jac_rof_soft_bad=0.0902
+  jac_rof_bad=0.2715 jac_dyn_rof_bad=nan
+  emp_C=1.6565 emp_O=0.3423 emp_L=1.6646
+
+=== Epoch 245 === [49/100] (29.4s)
+  val_loss=37.0710 val_kl=1.8755 val_recon=0.0321 post_obs_rmse=0.1568 post_rew_rmse=5.4845
+  ol_obs_start=0.2566 ol_obs_avg=0.4552 ol_obs_max=0.5538 ol_obs_end=0.5538
+  ol_rew_start=7.7236 ol_rew_avg=7.7209 ol_rew_max=9.0197 ol_rew_end=7.7105
+  ol_cumrew_err=34.2780
+  jac_spec_radius=1.0371 jac_spec_radius_max=1.3083 jac_ctrl_rank=30.2 jac_ctrl_cond=39745773.3 jac_obs_rank=34.2 jac_obs_cond=28524788.9
+  jac_rcf=0.3180 jac_ocf=0.0776 jac_rof=0.2109
+  jac_rof_soft=0.0450 jac_rof_soft_bad=0.0863
+  jac_rof_bad=0.2557 jac_dyn_rof_bad=nan
+  emp_C=1.6449 emp_O=0.3365 emp_L=1.1987
+
+=== Epoch 250 === [50/100] (30.2s)
+  val_loss=33.8694 val_kl=1.8366 val_recon=0.0306 post_obs_rmse=0.1540 post_rew_rmse=5.2373
+  ol_obs_start=0.2542 ol_obs_avg=0.4612 ol_obs_max=0.5638 ol_obs_end=0.5638
+  ol_rew_start=7.7541 ol_rew_avg=7.7298 ol_rew_max=9.0256 ol_rew_end=7.9147
+  ol_cumrew_err=33.5123
+  jac_spec_radius=1.0374 jac_spec_radius_max=1.3344 jac_ctrl_rank=30.2 jac_ctrl_cond=41855487.5 jac_obs_rank=34.7 jac_obs_cond=29604608.2
+  jac_rcf=0.3361 jac_ocf=0.0783 jac_rof=0.2154
+  jac_rof_soft=0.0440 jac_rof_soft_bad=0.0862
+  jac_rof_bad=0.2654 jac_dyn_rof_bad=nan
+  emp_C=1.6795 emp_O=0.3395 emp_L=1.5275
+
+=== Epoch 255 === [51/100] (30.1s)
+  val_loss=33.5417 val_kl=1.8036 val_recon=0.0345 post_obs_rmse=0.1558 post_rew_rmse=5.2122
+  ol_obs_start=0.2579 ol_obs_avg=0.4594 ol_obs_max=0.5641 ol_obs_end=0.5641
+  ol_rew_start=7.7614 ol_rew_avg=7.6167 ol_rew_max=8.8072 ol_rew_end=7.6295
+  ol_cumrew_err=30.2109
+  jac_spec_radius=1.0471 jac_spec_radius_max=1.5431 jac_ctrl_rank=29.8 jac_ctrl_cond=40998261.4 jac_obs_rank=34.1 jac_obs_cond=29270189.6
+  jac_rcf=0.3198 jac_ocf=0.0794 jac_rof=0.2249
+  jac_rof_soft=0.0509 jac_rof_soft_bad=0.0928
+  jac_rof_bad=0.2734 jac_dyn_rof_bad=nan
+  emp_C=1.6783 emp_O=0.3311 emp_L=1.1868
+
+=== Epoch 260 === [52/100] (29.9s)
+  val_loss=35.6124 val_kl=1.9134 val_recon=0.0328 post_obs_rmse=0.1559 post_rew_rmse=5.3710
+  ol_obs_start=0.2573 ol_obs_avg=0.4600 ol_obs_max=0.5628 ol_obs_end=0.5628
+  ol_rew_start=7.7186 ol_rew_avg=7.9175 ol_rew_max=9.6939 ol_rew_end=8.5379
+  ol_cumrew_err=43.6325
+  jac_spec_radius=1.0341 jac_spec_radius_max=1.2484 jac_ctrl_rank=30.4 jac_ctrl_cond=40977192.9 jac_obs_rank=34.5 jac_obs_cond=27785020.6
+  jac_rcf=0.3285 jac_ocf=0.0765 jac_rof=0.2227
+  jac_rof_soft=0.0443 jac_rof_soft_bad=0.0884
+  jac_rof_bad=0.2696 jac_dyn_rof_bad=nan
+  emp_C=1.6804 emp_O=0.3390 emp_L=1.1832
+
+=== Epoch 265 === [53/100] (30.1s)
+  val_loss=34.5513 val_kl=1.8317 val_recon=0.0336 post_obs_rmse=0.1559 post_rew_rmse=5.2912
+  ol_obs_start=0.2540 ol_obs_avg=0.4594 ol_obs_max=0.5620 ol_obs_end=0.5620
+  ol_rew_start=7.9696 ol_rew_avg=7.7726 ol_rew_max=9.0369 ol_rew_end=8.4565
+  ol_cumrew_err=30.4941
+  jac_spec_radius=1.0376 jac_spec_radius_max=1.2795 jac_ctrl_rank=30.0 jac_ctrl_cond=41064608.1 jac_obs_rank=34.7 jac_obs_cond=30574749.7
+  jac_rcf=0.3220 jac_ocf=0.0784 jac_rof=0.2282
+  jac_rof_soft=0.0443 jac_rof_soft_bad=0.0875
+  jac_rof_bad=0.2641 jac_dyn_rof_bad=nan
+  emp_C=1.6518 emp_O=0.3302 emp_L=1.1693
+
+=== Epoch 270 === [54/100] (30.1s)
+  val_loss=36.2600 val_kl=1.7733 val_recon=0.0319 post_obs_rmse=0.1558 post_rew_rmse=5.4264
+  ol_obs_start=0.2556 ol_obs_avg=0.4520 ol_obs_max=0.5492 ol_obs_end=0.5492
+  ol_rew_start=7.7313 ol_rew_avg=7.6654 ol_rew_max=8.7004 ol_rew_end=8.5276
+  ol_cumrew_err=34.2885
+  jac_spec_radius=1.0341 jac_spec_radius_max=1.1576 jac_ctrl_rank=30.5 jac_ctrl_cond=43689942.5 jac_obs_rank=34.9 jac_obs_cond=28719865.2
+  jac_rcf=0.3542 jac_ocf=0.0748 jac_rof=0.2194
+  jac_rof_soft=0.0406 jac_rof_soft_bad=0.0897
+  jac_rof_bad=0.2713 jac_dyn_rof_bad=nan
+  emp_C=1.6930 emp_O=0.3394 emp_L=1.1488
+
+=== Epoch 275 === [55/100] (30.0s)
+  val_loss=32.4001 val_kl=1.8412 val_recon=0.0334 post_obs_rmse=0.1550 post_rew_rmse=5.1186
+  ol_obs_start=0.2561 ol_obs_avg=0.4534 ol_obs_max=0.5553 ol_obs_end=0.5545
+  ol_rew_start=7.7589 ol_rew_avg=7.6110 ol_rew_max=8.9117 ol_rew_end=7.8607
+  ol_cumrew_err=30.0743
+  jac_spec_radius=1.0473 jac_spec_radius_max=1.5837 jac_ctrl_rank=29.6 jac_ctrl_cond=40447521.5 jac_obs_rank=34.1 jac_obs_cond=29938364.2
+  jac_rcf=0.3145 jac_ocf=0.0780 jac_rof=0.2193
+  jac_rof_soft=0.0476 jac_rof_soft_bad=0.0860
+  jac_rof_bad=0.2588 jac_dyn_rof_bad=nan
+  emp_C=1.6809 emp_O=0.3182 emp_L=1.1149
+
+=== Epoch 280 === [56/100] (29.8s)
+  val_loss=36.9869 val_kl=1.7210 val_recon=0.0311 post_obs_rmse=0.1507 post_rew_rmse=5.4840
+  ol_obs_start=0.2550 ol_obs_avg=0.4581 ol_obs_max=0.5609 ol_obs_end=0.5609
+  ol_rew_start=7.7502 ol_rew_avg=7.9698 ol_rew_max=9.4994 ol_rew_end=9.1100
+  ol_cumrew_err=37.4638
+  jac_spec_radius=1.0410 jac_spec_radius_max=1.3690 jac_ctrl_rank=30.0 jac_ctrl_cond=41962567.3 jac_obs_rank=34.3 jac_obs_cond=28929074.4
+  jac_rcf=0.3251 jac_ocf=0.0780 jac_rof=0.2175
+  jac_rof_soft=0.0468 jac_rof_soft_bad=0.0850
+  jac_rof_bad=0.2479 jac_dyn_rof_bad=nan
+  emp_C=1.7293 emp_O=0.3384 emp_L=1.3753
+
+=== Epoch 285 === [57/100] (29.8s)
+  val_loss=32.3361 val_kl=1.7662 val_recon=0.0318 post_obs_rmse=0.1511 post_rew_rmse=5.1166
+  ol_obs_start=0.2505 ol_obs_avg=0.4507 ol_obs_max=0.5490 ol_obs_end=0.5490
+  ol_rew_start=7.8605 ol_rew_avg=7.6679 ol_rew_max=8.9315 ol_rew_end=8.1593
+  ol_cumrew_err=28.1584
+  jac_spec_radius=1.0382 jac_spec_radius_max=1.4875 jac_ctrl_rank=30.0 jac_ctrl_cond=41460651.3 jac_obs_rank=34.7 jac_obs_cond=29819377.2
+  jac_rcf=0.3191 jac_ocf=0.0765 jac_rof=0.2146
+  jac_rof_soft=0.0433 jac_rof_soft_bad=0.1018
+  jac_rof_bad=0.2719 jac_dyn_rof_bad=nan
+  emp_C=1.6601 emp_O=0.3237 emp_L=1.1210
+
+=== Epoch 290 === [58/100] (29.9s)
+  val_loss=36.1988 val_kl=1.9818 val_recon=0.0345 post_obs_rmse=0.1584 post_rew_rmse=5.4135
+  ol_obs_start=0.2567 ol_obs_avg=0.4691 ol_obs_max=0.5827 ol_obs_end=0.5827
+  ol_rew_start=7.8362 ol_rew_avg=7.7939 ol_rew_max=8.9583 ol_rew_end=8.4127
+  ol_cumrew_err=35.3368
+  jac_spec_radius=1.0405 jac_spec_radius_max=1.3030 jac_ctrl_rank=30.2 jac_ctrl_cond=40773858.7 jac_obs_rank=34.3 jac_obs_cond=29197528.4
+  jac_rcf=0.3225 jac_ocf=0.0764 jac_rof=0.2234
+  jac_rof_soft=0.0488 jac_rof_soft_bad=0.1036
+  jac_rof_bad=0.2766 jac_dyn_rof_bad=nan
+  emp_C=1.7525 emp_O=0.3573 emp_L=1.3330
+
+=== Epoch 295 === [59/100] (29.9s)
+  val_loss=36.5396 val_kl=1.8400 val_recon=0.0320 post_obs_rmse=0.1547 post_rew_rmse=5.4453
+  ol_obs_start=0.2574 ol_obs_avg=0.4591 ol_obs_max=0.5669 ol_obs_end=0.5669
+  ol_rew_start=7.8841 ol_rew_avg=7.8964 ol_rew_max=9.3258 ol_rew_end=8.3959
+  ol_cumrew_err=38.5383
+  jac_spec_radius=1.0416 jac_spec_radius_max=1.2713 jac_ctrl_rank=30.1 jac_ctrl_cond=42056214.3 jac_obs_rank=34.4 jac_obs_cond=28607122.0
+  jac_rcf=0.3213 jac_ocf=0.0715 jac_rof=0.2205
+  jac_rof_soft=0.0470 jac_rof_soft_bad=0.0866
+  jac_rof_bad=0.2678 jac_dyn_rof_bad=nan
+  emp_C=1.7451 emp_O=0.3413 emp_L=1.2037
+
+=== Epoch 300 === [60/100] (29.8s)
+  val_loss=36.0155 val_kl=1.7037 val_recon=0.0322 post_obs_rmse=0.1514 post_rew_rmse=5.4103
+  ol_obs_start=0.2572 ol_obs_avg=0.4582 ol_obs_max=0.5612 ol_obs_end=0.5590
+  ol_rew_start=7.7879 ol_rew_avg=7.8565 ol_rew_max=8.9302 ol_rew_end=8.2835
+  ol_cumrew_err=33.7066
+  jac_spec_radius=1.0579 jac_spec_radius_max=1.5526 jac_ctrl_rank=28.6 jac_ctrl_cond=42640695.4 jac_obs_rank=34.2 jac_obs_cond=31378086.3
+  jac_rcf=0.3214 jac_ocf=0.0683 jac_rof=0.2184
+  jac_rof_soft=0.0494 jac_rof_soft_bad=0.0963
+  jac_rof_bad=0.2665 jac_dyn_rof_bad=nan
+  emp_C=1.7013 emp_O=0.3498 emp_L=1.6196
+
+=== Epoch 305 === [61/100] (29.8s)
+  val_loss=36.7655 val_kl=1.8732 val_recon=0.0342 post_obs_rmse=0.1576 post_rew_rmse=5.4611
+  ol_obs_start=0.2541 ol_obs_avg=0.4586 ol_obs_max=0.5653 ol_obs_end=0.5642
+  ol_rew_start=8.0730 ol_rew_avg=7.9170 ol_rew_max=9.1491 ol_rew_end=8.3824
+  ol_cumrew_err=32.8928
+  jac_spec_radius=1.0483 jac_spec_radius_max=1.4577 jac_ctrl_rank=29.3 jac_ctrl_cond=42572899.7 jac_obs_rank=34.0 jac_obs_cond=27940216.6
+  jac_rcf=0.3066 jac_ocf=0.0710 jac_rof=0.2126
+  jac_rof_soft=0.0478 jac_rof_soft_bad=0.1037
+  jac_rof_bad=0.2830 jac_dyn_rof_bad=nan
+  emp_C=1.7951 emp_O=0.3336 emp_L=1.5749
+
+=== Epoch 310 === [62/100] (29.9s)
+  val_loss=33.1350 val_kl=1.7943 val_recon=0.0347 post_obs_rmse=0.1502 post_rew_rmse=5.1799
+  ol_obs_start=0.2517 ol_obs_avg=0.4523 ol_obs_max=0.5506 ol_obs_end=0.5506
+  ol_rew_start=7.6854 ol_rew_avg=7.6740 ol_rew_max=9.0648 ol_rew_end=7.8684
+  ol_cumrew_err=24.6642
+  jac_spec_radius=1.0329 jac_spec_radius_max=1.3498 jac_ctrl_rank=30.4 jac_ctrl_cond=43119101.3 jac_obs_rank=35.2 jac_obs_cond=30141421.8
+  jac_rcf=0.3112 jac_ocf=0.0811 jac_rof=0.2308
+  jac_rof_soft=0.0457 jac_rof_soft_bad=0.0947
+  jac_rof_bad=0.2745 jac_dyn_rof_bad=nan
+  emp_C=1.7037 emp_O=0.3333 emp_L=1.2190
+
+=== Epoch 315 === [63/100] (30.0s)
+  val_loss=34.9106 val_kl=1.7987 val_recon=0.0312 post_obs_rmse=0.1528 post_rew_rmse=5.3209
+  ol_obs_start=0.2504 ol_obs_avg=0.4596 ol_obs_max=0.5640 ol_obs_end=0.5640
+  ol_rew_start=7.7662 ol_rew_avg=7.8237 ol_rew_max=9.1896 ol_rew_end=8.4432
+  ol_cumrew_err=36.5343
+  jac_spec_radius=1.0525 jac_spec_radius_max=1.2478 jac_ctrl_rank=29.3 jac_ctrl_cond=40982031.9 jac_obs_rank=35.0 jac_obs_cond=29647848.4
+  jac_rcf=0.3095 jac_ocf=0.0692 jac_rof=0.2126
+  jac_rof_soft=0.0487 jac_rof_soft_bad=0.0942
+  jac_rof_bad=0.2777 jac_dyn_rof_bad=nan
+  emp_C=1.7860 emp_O=0.3768 emp_L=1.8207
+
+=== Epoch 320 === [64/100] (29.9s)
+  val_loss=34.6863 val_kl=1.7170 val_recon=0.0372 post_obs_rmse=0.1629 post_rew_rmse=5.3060
+  ol_obs_start=0.2541 ol_obs_avg=0.4532 ol_obs_max=0.5503 ol_obs_end=0.5503
+  ol_rew_start=7.9983 ol_rew_avg=7.7616 ol_rew_max=9.1442 ol_rew_end=7.7706
+  ol_cumrew_err=26.8591
+  jac_spec_radius=1.0366 jac_spec_radius_max=1.3807 jac_ctrl_rank=30.4 jac_ctrl_cond=41421468.6 jac_obs_rank=34.8 jac_obs_cond=29077207.6
+  jac_rcf=0.3114 jac_ocf=0.0782 jac_rof=0.2100
+  jac_rof_soft=0.0395 jac_rof_soft_bad=0.0911
+  jac_rof_bad=0.2729 jac_dyn_rof_bad=nan
+  emp_C=1.7343 emp_O=0.3360 emp_L=1.1773
+
+=== Epoch 325 === [65/100] (29.8s)
+  val_loss=38.2617 val_kl=1.8108 val_recon=0.0339 post_obs_rmse=0.1595 post_rew_rmse=5.5765
+  ol_obs_start=0.2643 ol_obs_avg=0.4595 ol_obs_max=0.5568 ol_obs_end=0.5559
+  ol_rew_start=7.9655 ol_rew_avg=7.8137 ol_rew_max=9.0107 ol_rew_end=8.5134
+  ol_cumrew_err=31.4726
+  jac_spec_radius=1.0522 jac_spec_radius_max=1.4576 jac_ctrl_rank=29.4 jac_ctrl_cond=41069112.2 jac_obs_rank=34.4 jac_obs_cond=29120086.7
+  jac_rcf=0.3120 jac_ocf=0.0731 jac_rof=0.2098
+  jac_rof_soft=0.0437 jac_rof_soft_bad=0.0846
+  jac_rof_bad=0.2637 jac_dyn_rof_bad=nan
+  emp_C=1.7241 emp_O=0.3174 emp_L=1.4564
+
+=== Epoch 330 === [66/100] (29.8s)
+  val_loss=38.4807 val_kl=1.8142 val_recon=0.0336 post_obs_rmse=0.1544 post_rew_rmse=5.5927
+  ol_obs_start=0.2540 ol_obs_avg=0.4485 ol_obs_max=0.5428 ol_obs_end=0.5421
+  ol_rew_start=7.9470 ol_rew_avg=7.7501 ol_rew_max=9.0143 ol_rew_end=7.8821
+  ol_cumrew_err=31.9775
+  jac_spec_radius=1.0430 jac_spec_radius_max=1.2063 jac_ctrl_rank=29.9 jac_ctrl_cond=40153508.2 jac_obs_rank=34.8 jac_obs_cond=30301623.8
+  jac_rcf=0.2964 jac_ocf=0.0704 jac_rof=0.2293
+  jac_rof_soft=0.0572 jac_rof_soft_bad=0.0926
+  jac_rof_bad=0.2692 jac_dyn_rof_bad=nan
+  emp_C=1.6939 emp_O=0.3352 emp_L=1.1811
+
+=== Epoch 335 === [67/100] (29.8s)
+  val_loss=35.6995 val_kl=1.7990 val_recon=0.0325 post_obs_rmse=0.1526 post_rew_rmse=5.3822
+  ol_obs_start=0.2551 ol_obs_avg=0.4527 ol_obs_max=0.5533 ol_obs_end=0.5533
+  ol_rew_start=7.8365 ol_rew_avg=8.1039 ol_rew_max=9.4680 ol_rew_end=8.5384
+  ol_cumrew_err=38.6611
+  jac_spec_radius=1.0435 jac_spec_radius_max=1.5757 jac_ctrl_rank=30.1 jac_ctrl_cond=42324979.6 jac_obs_rank=35.0 jac_obs_cond=28551712.2
+  jac_rcf=0.2991 jac_ocf=0.0755 jac_rof=0.2231
+  jac_rof_soft=0.0490 jac_rof_soft_bad=0.0986
+  jac_rof_bad=0.2750 jac_dyn_rof_bad=nan
+  emp_C=1.7742 emp_O=0.3398 emp_L=1.2737
+
+=== Epoch 340 === [68/100] (29.8s)
+  val_loss=34.0573 val_kl=1.7667 val_recon=0.0347 post_obs_rmse=0.1556 post_rew_rmse=5.2546
+  ol_obs_start=0.2496 ol_obs_avg=0.4535 ol_obs_max=0.5552 ol_obs_end=0.5532
+  ol_rew_start=7.7722 ol_rew_avg=7.8166 ol_rew_max=9.0650 ol_rew_end=8.3730
+  ol_cumrew_err=37.5468
+  jac_spec_radius=1.0494 jac_spec_radius_max=1.4981 jac_ctrl_rank=29.7 jac_ctrl_cond=41410615.8 jac_obs_rank=34.7 jac_obs_cond=30585063.9
+  jac_rcf=0.3110 jac_ocf=0.0719 jac_rof=0.2210
+  jac_rof_soft=0.0465 jac_rof_soft_bad=0.0979
+  jac_rof_bad=0.2758 jac_dyn_rof_bad=nan
+  emp_C=1.7248 emp_O=0.3405 emp_L=1.3740
+
+=== Epoch 345 === [69/100] (29.8s)
+  val_loss=35.6451 val_kl=1.8450 val_recon=0.0321 post_obs_rmse=0.1504 post_rew_rmse=5.3762
+  ol_obs_start=0.2483 ol_obs_avg=0.4573 ol_obs_max=0.5570 ol_obs_end=0.5530
+  ol_rew_start=7.8604 ol_rew_avg=7.7687 ol_rew_max=8.9018 ol_rew_end=8.1804
+  ol_cumrew_err=35.3929
+  jac_spec_radius=1.0394 jac_spec_radius_max=1.4305 jac_ctrl_rank=30.2 jac_ctrl_cond=41965751.3 jac_obs_rank=34.7 jac_obs_cond=27989425.5
+  jac_rcf=0.2979 jac_ocf=0.0688 jac_rof=0.2262
+  jac_rof_soft=0.0479 jac_rof_soft_bad=0.0946
+  jac_rof_bad=0.2792 jac_dyn_rof_bad=nan
+  emp_C=1.8462 emp_O=0.3750 emp_L=1.3858
+
+=== Epoch 350 === [70/100] (29.8s)
+  val_loss=34.7951 val_kl=1.7373 val_recon=0.0326 post_obs_rmse=0.1521 post_rew_rmse=5.3141
+  ol_obs_start=0.2537 ol_obs_avg=0.4593 ol_obs_max=0.5590 ol_obs_end=0.5561
+  ol_rew_start=7.7160 ol_rew_avg=7.7556 ol_rew_max=9.6221 ol_rew_end=8.1498
+  ol_cumrew_err=29.7982
+  jac_spec_radius=1.0415 jac_spec_radius_max=1.2121 jac_ctrl_rank=30.4 jac_ctrl_cond=39790114.1 jac_obs_rank=35.0 jac_obs_cond=27967424.7
+  jac_rcf=0.3072 jac_ocf=0.0727 jac_rof=0.2224
+  jac_rof_soft=0.0465 jac_rof_soft_bad=0.1043
+  jac_rof_bad=0.2840 jac_dyn_rof_bad=nan
+  emp_C=1.6940 emp_O=0.3326 emp_L=1.1109
+
+=== Epoch 355 === [71/100] (29.8s)
+  val_loss=37.0383 val_kl=1.8621 val_recon=0.0312 post_obs_rmse=0.1489 post_rew_rmse=5.4825
+  ol_obs_start=0.2515 ol_obs_avg=0.4496 ol_obs_max=0.5491 ol_obs_end=0.5486
+  ol_rew_start=7.8420 ol_rew_avg=7.9558 ol_rew_max=9.4546 ol_rew_end=8.6480
+  ol_cumrew_err=40.2732
+  jac_spec_radius=1.0364 jac_spec_radius_max=1.2192 jac_ctrl_rank=30.7 jac_ctrl_cond=41446112.2 jac_obs_rank=35.2 jac_obs_cond=29076410.5
+  jac_rcf=0.3134 jac_ocf=0.0706 jac_rof=0.2261
+  jac_rof_soft=0.0464 jac_rof_soft_bad=0.1002
+  jac_rof_bad=0.2768 jac_dyn_rof_bad=nan
+  emp_C=1.7409 emp_O=0.3396 emp_L=1.1671
+
+=== Epoch 360 === [72/100] (29.8s)
+  val_loss=35.5992 val_kl=1.8933 val_recon=0.0331 post_obs_rmse=0.1530 post_rew_rmse=5.3707
+  ol_obs_start=0.2526 ol_obs_avg=0.4530 ol_obs_max=0.5557 ol_obs_end=0.5543
+  ol_rew_start=7.9240 ol_rew_avg=7.8042 ol_rew_max=9.0549 ol_rew_end=8.6009
+  ol_cumrew_err=36.5249
+  jac_spec_radius=1.0325 jac_spec_radius_max=1.2093 jac_ctrl_rank=31.1 jac_ctrl_cond=40738487.6 jac_obs_rank=35.1 jac_obs_cond=28975666.8
+  jac_rcf=0.3067 jac_ocf=0.0743 jac_rof=0.2247
+  jac_rof_soft=0.0506 jac_rof_soft_bad=0.0951
+  jac_rof_bad=0.2697 jac_dyn_rof_bad=nan
+  emp_C=1.7181 emp_O=0.3301 emp_L=1.5418
+
+=== Epoch 365 === [73/100] (29.9s)
+  val_loss=32.2445 val_kl=1.7888 val_recon=0.0309 post_obs_rmse=0.1471 post_rew_rmse=5.1082
+  ol_obs_start=0.2454 ol_obs_avg=0.4528 ol_obs_max=0.5484 ol_obs_end=0.5445
+  ol_rew_start=7.7959 ol_rew_avg=7.5388 ol_rew_max=8.9415 ol_rew_end=7.9549
+  ol_cumrew_err=26.2584
+  jac_spec_radius=1.0381 jac_spec_radius_max=1.2546 jac_ctrl_rank=30.6 jac_ctrl_cond=42083794.6 jac_obs_rank=34.7 jac_obs_cond=29134205.6
+  jac_rcf=0.3042 jac_ocf=0.0790 jac_rof=0.2170
+  jac_rof_soft=0.0460 jac_rof_soft_bad=0.0924
+  jac_rof_bad=0.2690 jac_dyn_rof_bad=nan
+  emp_C=1.6989 emp_O=0.3244 emp_L=1.1545
+
+=== Epoch 370 === [74/100] (29.9s)
+  val_loss=32.9911 val_kl=1.8312 val_recon=0.0280 post_obs_rmse=0.1439 post_rew_rmse=5.1673
+  ol_obs_start=0.2458 ol_obs_avg=0.4525 ol_obs_max=0.5490 ol_obs_end=0.5444
+  ol_rew_start=7.7734 ol_rew_avg=7.5834 ol_rew_max=8.9112 ol_rew_end=7.7463
+  ol_cumrew_err=29.7347
+  jac_spec_radius=1.0451 jac_spec_radius_max=1.4300 jac_ctrl_rank=30.4 jac_ctrl_cond=39082662.1 jac_obs_rank=35.4 jac_obs_cond=30408072.6
+  jac_rcf=0.2918 jac_ocf=0.0790 jac_rof=0.2091
+  jac_rof_soft=0.0436 jac_rof_soft_bad=0.0984
+  jac_rof_bad=0.2745 jac_dyn_rof_bad=nan
+  emp_C=1.7430 emp_O=0.3282 emp_L=1.3972
+
+=== Epoch 375 === [75/100] (29.9s)
+  val_loss=35.2118 val_kl=1.7790 val_recon=0.0326 post_obs_rmse=0.1497 post_rew_rmse=5.3451
+  ol_obs_start=0.2493 ol_obs_avg=0.4503 ol_obs_max=0.5504 ol_obs_end=0.5504
+  ol_rew_start=7.7785 ol_rew_avg=7.6579 ol_rew_max=8.9183 ol_rew_end=7.9426
+  ol_cumrew_err=32.2407
+  jac_spec_radius=1.0447 jac_spec_radius_max=1.3957 jac_ctrl_rank=30.0 jac_ctrl_cond=40601341.4 jac_obs_rank=34.7 jac_obs_cond=28400997.5
+  jac_rcf=0.3150 jac_ocf=0.0695 jac_rof=0.2233
+  jac_rof_soft=0.0474 jac_rof_soft_bad=0.0898
+  jac_rof_bad=0.2634 jac_dyn_rof_bad=nan
+  emp_C=1.7659 emp_O=0.3227 emp_L=1.2278
+
+=== Epoch 380 === [76/100] (29.8s)
+  val_loss=36.5536 val_kl=1.9343 val_recon=0.0306 post_obs_rmse=0.1473 post_rew_rmse=5.4428
+  ol_obs_start=0.2492 ol_obs_avg=0.4539 ol_obs_max=0.5562 ol_obs_end=0.5562
+  ol_rew_start=7.9318 ol_rew_avg=7.7227 ol_rew_max=8.9680 ol_rew_end=8.4532
+  ol_cumrew_err=36.9910
+  jac_spec_radius=1.0408 jac_spec_radius_max=1.2363 jac_ctrl_rank=30.7 jac_ctrl_cond=41193313.9 jac_obs_rank=35.0 jac_obs_cond=29465039.7
+  jac_rcf=0.3026 jac_ocf=0.0833 jac_rof=0.2203
+  jac_rof_soft=0.0443 jac_rof_soft_bad=0.0935
+  jac_rof_bad=0.2646 jac_dyn_rof_bad=nan
+  emp_C=1.7743 emp_O=0.3398 emp_L=1.2588
+
+=== Epoch 385 === [77/100] (29.9s)
+  val_loss=37.6576 val_kl=1.9161 val_recon=0.0337 post_obs_rmse=0.1525 post_rew_rmse=5.5271
+  ol_obs_start=0.2485 ol_obs_avg=0.4510 ol_obs_max=0.5499 ol_obs_end=0.5468
+  ol_rew_start=7.9419 ol_rew_avg=8.1024 ol_rew_max=9.8971 ol_rew_end=9.8971
+  ol_cumrew_err=42.6348
+  jac_spec_radius=1.0422 jac_spec_radius_max=1.4827 jac_ctrl_rank=30.1 jac_ctrl_cond=41849157.3 jac_obs_rank=34.8 jac_obs_cond=28538247.4
+  jac_rcf=0.3003 jac_ocf=0.0720 jac_rof=0.2213
+  jac_rof_soft=0.0440 jac_rof_soft_bad=0.0848
+  jac_rof_bad=0.2631 jac_dyn_rof_bad=nan
+  emp_C=1.8306 emp_O=0.3420 emp_L=1.4482
+
+=== Epoch 390 === [78/100] (29.9s)
+  val_loss=36.8225 val_kl=1.8459 val_recon=0.0328 post_obs_rmse=0.1500 post_rew_rmse=5.4666
+  ol_obs_start=0.2512 ol_obs_avg=0.4527 ol_obs_max=0.5545 ol_obs_end=0.5545
+  ol_rew_start=7.7969 ol_rew_avg=7.9338 ol_rew_max=9.2799 ol_rew_end=9.1496
+  ol_cumrew_err=37.1990
+  jac_spec_radius=1.0457 jac_spec_radius_max=1.2660 jac_ctrl_rank=29.9 jac_ctrl_cond=40827843.0 jac_obs_rank=35.1 jac_obs_cond=31438919.4
+  jac_rcf=0.3002 jac_ocf=0.0742 jac_rof=0.2330
+  jac_rof_soft=0.0485 jac_rof_soft_bad=0.0875
+  jac_rof_bad=0.2713 jac_dyn_rof_bad=nan
+  emp_C=1.7323 emp_O=0.3028 emp_L=1.5184
+
+=== Epoch 395 === [79/100] (29.9s)
+  val_loss=37.0613 val_kl=1.7722 val_recon=0.0325 post_obs_rmse=0.1487 post_rew_rmse=5.4875
+  ol_obs_start=0.2486 ol_obs_avg=0.4535 ol_obs_max=0.5514 ol_obs_end=0.5497
+  ol_rew_start=7.7784 ol_rew_avg=7.7628 ol_rew_max=9.0278 ol_rew_end=8.0350
+  ol_cumrew_err=27.3605
+  jac_spec_radius=1.0457 jac_spec_radius_max=1.3725 jac_ctrl_rank=29.7 jac_ctrl_cond=41596301.6 jac_obs_rank=34.5 jac_obs_cond=27296323.8
+  jac_rcf=0.3049 jac_ocf=0.0725 jac_rof=0.2267
+  jac_rof_soft=0.0536 jac_rof_soft_bad=0.0892
+  jac_rof_bad=0.2694 jac_dyn_rof_bad=nan
+  emp_C=1.7406 emp_O=0.3270 emp_L=1.2044
+
+=== Epoch 400 === [80/100] (29.8s)
+  val_loss=34.4264 val_kl=1.8315 val_recon=0.0313 post_obs_rmse=0.1464 post_rew_rmse=5.2815
+  ol_obs_start=0.2482 ol_obs_avg=0.4487 ol_obs_max=0.5465 ol_obs_end=0.5465
+  ol_rew_start=7.7041 ol_rew_avg=7.7285 ol_rew_max=9.0675 ol_rew_end=8.1878
+  ol_cumrew_err=28.9975
+  jac_spec_radius=1.0545 jac_spec_radius_max=1.6397 jac_ctrl_rank=29.4 jac_ctrl_cond=39278436.3 jac_obs_rank=33.8 jac_obs_cond=28064136.4
+  jac_rcf=0.2892 jac_ocf=0.0698 jac_rof=0.2169
+  jac_rof_soft=0.0416 jac_rof_soft_bad=0.0932
+  jac_rof_bad=0.2748 jac_dyn_rof_bad=nan
+  emp_C=1.7805 emp_O=0.3202 emp_L=1.3845
+
+=== Epoch 405 === [81/100] (29.9s)
+  val_loss=36.1002 val_kl=1.7716 val_recon=0.0323 post_obs_rmse=0.1503 post_rew_rmse=5.4141
+  ol_obs_start=0.2509 ol_obs_avg=0.4515 ol_obs_max=0.5469 ol_obs_end=0.5469
+  ol_rew_start=7.7361 ol_rew_avg=7.7306 ol_rew_max=9.0504 ol_rew_end=7.8887
+  ol_cumrew_err=29.7888
+  jac_spec_radius=1.0471 jac_spec_radius_max=1.5775 jac_ctrl_rank=29.6 jac_ctrl_cond=39358462.1 jac_obs_rank=34.6 jac_obs_cond=28822404.6
+  jac_rcf=0.2931 jac_ocf=0.0675 jac_rof=0.2251
+  jac_rof_soft=0.0478 jac_rof_soft_bad=0.0989
+  jac_rof_bad=0.2822 jac_dyn_rof_bad=nan
+  emp_C=1.7051 emp_O=0.3187 emp_L=1.2962
+
+=== Epoch 410 === [82/100] (29.8s)
+  val_loss=35.9544 val_kl=1.9173 val_recon=0.0336 post_obs_rmse=0.1468 post_rew_rmse=5.3972
+  ol_obs_start=0.2470 ol_obs_avg=0.4547 ol_obs_max=0.5527 ol_obs_end=0.5527
+  ol_rew_start=7.8130 ol_rew_avg=7.8141 ol_rew_max=9.1330 ol_rew_end=8.7178
+  ol_cumrew_err=35.8485
+  jac_spec_radius=1.0427 jac_spec_radius_max=1.6086 jac_ctrl_rank=30.7 jac_ctrl_cond=41569712.6 jac_obs_rank=35.4 jac_obs_cond=27801175.2
+  jac_rcf=0.3017 jac_ocf=0.0735 jac_rof=0.2366
+  jac_rof_soft=0.0503 jac_rof_soft_bad=0.0949
+  jac_rof_bad=0.2795 jac_dyn_rof_bad=nan
+  emp_C=1.8223 emp_O=0.3355 emp_L=1.1817
+
+=== Epoch 415 === [83/100] (30.0s)
+  val_loss=33.8440 val_kl=1.7994 val_recon=0.0295 post_obs_rmse=0.1458 post_rew_rmse=5.2368
+  ol_obs_start=0.2475 ol_obs_avg=0.4490 ol_obs_max=0.5468 ol_obs_end=0.5431
+  ol_rew_start=7.7969 ol_rew_avg=7.7470 ol_rew_max=8.9244 ol_rew_end=7.9857
+  ol_cumrew_err=25.8724
+  jac_spec_radius=1.0362 jac_spec_radius_max=1.3474 jac_ctrl_rank=30.7 jac_ctrl_cond=41349962.5 jac_obs_rank=35.4 jac_obs_cond=28602596.6
+  jac_rcf=0.3014 jac_ocf=0.0779 jac_rof=0.2330
+  jac_rof_soft=0.0491 jac_rof_soft_bad=0.0911
+  jac_rof_bad=0.2768 jac_dyn_rof_bad=nan
+  emp_C=1.8246 emp_O=0.3366 emp_L=1.4496
+
+=== Epoch 420 === [84/100] (29.9s)
+  val_loss=35.6890 val_kl=1.8754 val_recon=0.0309 post_obs_rmse=0.1467 post_rew_rmse=5.3785
+  ol_obs_start=0.2508 ol_obs_avg=0.4512 ol_obs_max=0.5463 ol_obs_end=0.5463
+  ol_rew_start=7.8097 ol_rew_avg=7.8853 ol_rew_max=9.1177 ol_rew_end=8.6694
+  ol_cumrew_err=36.1007
+  jac_spec_radius=1.0363 jac_spec_radius_max=1.2737 jac_ctrl_rank=30.8 jac_ctrl_cond=40874545.2 jac_obs_rank=35.6 jac_obs_cond=29804140.2
+  jac_rcf=0.2938 jac_ocf=0.0804 jac_rof=0.2260
+  jac_rof_soft=0.0443 jac_rof_soft_bad=0.0976
+  jac_rof_bad=0.2744 jac_dyn_rof_bad=nan
+  emp_C=1.7050 emp_O=0.3247 emp_L=1.1303
+
+=== Epoch 425 === [85/100] (30.0s)
+  val_loss=31.9305 val_kl=1.8076 val_recon=0.0330 post_obs_rmse=0.1503 post_rew_rmse=5.0816
+  ol_obs_start=0.2544 ol_obs_avg=0.4515 ol_obs_max=0.5499 ol_obs_end=0.5499
+  ol_rew_start=7.7035 ol_rew_avg=7.5531 ol_rew_max=8.9293 ol_rew_end=7.7848
+  ol_cumrew_err=26.7427
+  jac_spec_radius=1.0527 jac_spec_radius_max=1.3433 jac_ctrl_rank=29.5 jac_ctrl_cond=41640390.9 jac_obs_rank=34.4 jac_obs_cond=29664956.2
+  jac_rcf=0.2814 jac_ocf=0.0732 jac_rof=0.2244
+  jac_rof_soft=0.0460 jac_rof_soft_bad=0.1016
+  jac_rof_bad=0.2817 jac_dyn_rof_bad=nan
+  emp_C=1.7272 emp_O=0.3189 emp_L=1.1078
+
+=== Epoch 430 === [86/100] (29.8s)
+  val_loss=36.0144 val_kl=1.8220 val_recon=0.0298 post_obs_rmse=0.1452 post_rew_rmse=5.4058
+  ol_obs_start=0.2458 ol_obs_avg=0.4481 ol_obs_max=0.5409 ol_obs_end=0.5409
+  ol_rew_start=7.6036 ol_rew_avg=7.6014 ol_rew_max=9.1461 ol_rew_end=7.7324
+  ol_cumrew_err=25.4232
+  jac_spec_radius=1.0469 jac_spec_radius_max=1.3755 jac_ctrl_rank=30.1 jac_ctrl_cond=40345803.1 jac_obs_rank=34.8 jac_obs_cond=30813287.7
+  jac_rcf=0.2947 jac_ocf=0.0769 jac_rof=0.2317
+  jac_rof_soft=0.0468 jac_rof_soft_bad=0.0959
+  jac_rof_bad=0.2789 jac_dyn_rof_bad=nan
+  emp_C=1.7755 emp_O=0.3352 emp_L=1.3659
+
+=== Epoch 435 === [87/100] (29.8s)
+  val_loss=32.3159 val_kl=1.8467 val_recon=0.0313 post_obs_rmse=0.1479 post_rew_rmse=5.1117
+  ol_obs_start=0.2479 ol_obs_avg=0.4452 ol_obs_max=0.5385 ol_obs_end=0.5349
+  ol_rew_start=7.8611 ol_rew_avg=7.5538 ol_rew_max=8.8840 ol_rew_end=8.2525
+  ol_cumrew_err=28.7245
+  jac_spec_radius=1.0449 jac_spec_radius_max=1.4095 jac_ctrl_rank=30.3 jac_ctrl_cond=41013264.0 jac_obs_rank=35.0 jac_obs_cond=29605355.6
+  jac_rcf=0.2955 jac_ocf=0.0771 jac_rof=0.2294
+  jac_rof_soft=0.0450 jac_rof_soft_bad=0.1004
+  jac_rof_bad=0.2784 jac_dyn_rof_bad=nan
+  emp_C=1.8456 emp_O=0.3158 emp_L=1.3333
+
+=== Epoch 440 === [88/100] (29.7s)
+  val_loss=32.7781 val_kl=1.7618 val_recon=0.0362 post_obs_rmse=0.1527 post_rew_rmse=5.1522
+  ol_obs_start=0.2558 ol_obs_avg=0.4511 ol_obs_max=0.5435 ol_obs_end=0.5404
+  ol_rew_start=7.8576 ol_rew_avg=7.7293 ol_rew_max=9.0366 ol_rew_end=8.5334
+  ol_cumrew_err=27.9457
+  jac_spec_radius=1.0349 jac_spec_radius_max=1.3079 jac_ctrl_rank=30.8 jac_ctrl_cond=42803123.3 jac_obs_rank=35.0 jac_obs_cond=29816068.6
+  jac_rcf=0.2921 jac_ocf=0.0681 jac_rof=0.2261
+  jac_rof_soft=0.0478 jac_rof_soft_bad=0.0969
+  jac_rof_bad=0.2784 jac_dyn_rof_bad=nan
+  emp_C=1.7843 emp_O=0.3208 emp_L=1.5610
+
+=== Epoch 445 === [89/100] (29.8s)
+  val_loss=36.2220 val_kl=1.8448 val_recon=0.0335 post_obs_rmse=0.1464 post_rew_rmse=5.4206
+  ol_obs_start=0.2480 ol_obs_avg=0.4479 ol_obs_max=0.5495 ol_obs_end=0.5485
+  ol_rew_start=7.8500 ol_rew_avg=7.8704 ol_rew_max=9.0660 ol_rew_end=9.0660
+  ol_cumrew_err=33.1155
+  jac_spec_radius=1.0385 jac_spec_radius_max=1.3044 jac_ctrl_rank=30.4 jac_ctrl_cond=39078925.2 jac_obs_rank=34.6 jac_obs_cond=28520843.8
+  jac_rcf=0.2742 jac_ocf=0.0682 jac_rof=0.2151
+  jac_rof_soft=0.0515 jac_rof_soft_bad=0.0979
+  jac_rof_bad=0.2767 jac_dyn_rof_bad=nan
+  emp_C=1.7497 emp_O=0.3237 emp_L=1.2568
+
+=== Epoch 450 === [90/100] (29.7s)
+  val_loss=33.4235 val_kl=1.8704 val_recon=0.0303 post_obs_rmse=0.1465 post_rew_rmse=5.2003
+  ol_obs_start=0.2451 ol_obs_avg=0.4511 ol_obs_max=0.5545 ol_obs_end=0.5545
+  ol_rew_start=7.8804 ol_rew_avg=7.6004 ol_rew_max=9.0612 ol_rew_end=9.0340
+  ol_cumrew_err=28.0111
+  jac_spec_radius=1.0445 jac_spec_radius_max=1.7533 jac_ctrl_rank=30.3 jac_ctrl_cond=42974599.0 jac_obs_rank=35.4 jac_obs_cond=29102917.7
+  jac_rcf=0.2963 jac_ocf=0.0721 jac_rof=0.2446
+  jac_rof_soft=0.0497 jac_rof_soft_bad=0.0870
+  jac_rof_bad=0.2763 jac_dyn_rof_bad=nan
+  emp_C=1.7685 emp_O=0.3246 emp_L=1.2712
+
+=== Epoch 455 === [91/100] (29.8s)
+  val_loss=32.3808 val_kl=1.8453 val_recon=0.0326 post_obs_rmse=0.1516 post_rew_rmse=5.1169
+  ol_obs_start=0.2469 ol_obs_avg=0.4452 ol_obs_max=0.5383 ol_obs_end=0.5361
+  ol_rew_start=7.8800 ol_rew_avg=7.6483 ol_rew_max=9.0900 ol_rew_end=8.2610
+  ol_cumrew_err=24.8500
+  jac_spec_radius=1.0354 jac_spec_radius_max=1.2790 jac_ctrl_rank=30.8 jac_ctrl_cond=42338054.4 jac_obs_rank=35.3 jac_obs_cond=29176556.2
+  jac_rcf=0.3004 jac_ocf=0.0711 jac_rof=0.2283
+  jac_rof_soft=0.0440 jac_rof_soft_bad=0.0940
+  jac_rof_bad=0.2784 jac_dyn_rof_bad=nan
+  emp_C=1.7735 emp_O=0.3217 emp_L=1.1309
+
+=== Epoch 460 === [92/100] (30.0s)
+  val_loss=35.4772 val_kl=1.8170 val_recon=0.0304 post_obs_rmse=0.1431 post_rew_rmse=5.3643
+  ol_obs_start=0.2482 ol_obs_avg=0.4503 ol_obs_max=0.5439 ol_obs_end=0.5430
+  ol_rew_start=7.7121 ol_rew_avg=7.6382 ol_rew_max=9.1481 ol_rew_end=7.5754
+  ol_cumrew_err=23.6551
+  jac_spec_radius=1.0540 jac_spec_radius_max=1.6674 jac_ctrl_rank=29.7 jac_ctrl_cond=41599868.6 jac_obs_rank=34.4 jac_obs_cond=29404737.2
+  jac_rcf=0.2807 jac_ocf=0.0654 jac_rof=0.2279
+  jac_rof_soft=0.0527 jac_rof_soft_bad=0.0918
+  jac_rof_bad=0.2782 jac_dyn_rof_bad=nan
+  emp_C=1.8353 emp_O=0.3305 emp_L=1.3562
+
+=== Epoch 465 === [93/100] (30.0s)
+  val_loss=32.5513 val_kl=1.7902 val_recon=0.0319 post_obs_rmse=0.1474 post_rew_rmse=5.1331
+  ol_obs_start=0.2446 ol_obs_avg=0.4425 ol_obs_max=0.5346 ol_obs_end=0.5292
+  ol_rew_start=7.7217 ol_rew_avg=7.9163 ol_rew_max=9.4653 ol_rew_end=9.4653
+  ol_cumrew_err=36.7856
+  jac_spec_radius=1.0512 jac_spec_radius_max=1.5033 jac_ctrl_rank=29.7 jac_ctrl_cond=42349872.7 jac_obs_rank=34.8 jac_obs_cond=28989917.4
+  jac_rcf=0.2883 jac_ocf=0.0726 jac_rof=0.2296
+  jac_rof_soft=0.0480 jac_rof_soft_bad=0.0926
+  jac_rof_bad=0.2732 jac_dyn_rof_bad=nan
+  emp_C=1.7475 emp_O=0.2947 emp_L=1.4193
+
+=== Epoch 470 === [94/100] (30.0s)
+  val_loss=34.1340 val_kl=1.7399 val_recon=0.0348 post_obs_rmse=0.1508 post_rew_rmse=5.2617
+  ol_obs_start=0.2476 ol_obs_avg=0.4444 ol_obs_max=0.5411 ol_obs_end=0.5411
+  ol_rew_start=7.6892 ol_rew_avg=7.7469 ol_rew_max=9.0857 ol_rew_end=8.0234
+  ol_cumrew_err=25.3711
+  jac_spec_radius=1.0419 jac_spec_radius_max=1.3168 jac_ctrl_rank=30.5 jac_ctrl_cond=42518423.9 jac_obs_rank=35.0 jac_obs_cond=29883928.3
+  jac_rcf=0.2912 jac_ocf=0.0785 jac_rof=0.2274
+  jac_rof_soft=0.0513 jac_rof_soft_bad=0.0847
+  jac_rof_bad=0.2648 jac_dyn_rof_bad=nan
+  emp_C=1.8258 emp_O=0.3202 emp_L=1.3899
+
+=== Epoch 475 === [95/100] (30.1s)
+  val_loss=34.7438 val_kl=1.9867 val_recon=0.0350 post_obs_rmse=0.1502 post_rew_rmse=5.3001
+  ol_obs_start=0.2490 ol_obs_avg=0.4510 ol_obs_max=0.5467 ol_obs_end=0.5398
+  ol_rew_start=7.8707 ol_rew_avg=7.6911 ol_rew_max=8.9322 ol_rew_end=8.4935
+  ol_cumrew_err=32.1796
+  jac_spec_radius=1.0428 jac_spec_radius_max=1.4770 jac_ctrl_rank=30.3 jac_ctrl_cond=42419331.5 jac_obs_rank=35.0 jac_obs_cond=28821201.8
+  jac_rcf=0.2813 jac_ocf=0.0705 jac_rof=0.2314
+  jac_rof_soft=0.0520 jac_rof_soft_bad=0.0923
+  jac_rof_bad=0.2631 jac_dyn_rof_bad=nan
+  emp_C=1.7905 emp_O=0.3161 emp_L=1.7777
+
+=== Epoch 480 === [96/100] (30.1s)
+  val_loss=33.8687 val_kl=1.7735 val_recon=0.0326 post_obs_rmse=0.1462 post_rew_rmse=5.2395
+  ol_obs_start=0.2496 ol_obs_avg=0.4525 ol_obs_max=0.5546 ol_obs_end=0.5546
+  ol_rew_start=7.7874 ol_rew_avg=7.7648 ol_rew_max=9.0942 ol_rew_end=8.5376
+  ol_cumrew_err=27.7692
+  jac_spec_radius=1.0509 jac_spec_radius_max=1.5959 jac_ctrl_rank=29.8 jac_ctrl_cond=41094585.2 jac_obs_rank=35.0 jac_obs_cond=30829546.1
+  jac_rcf=0.2875 jac_ocf=0.0708 jac_rof=0.2243
+  jac_rof_soft=0.0557 jac_rof_soft_bad=0.0945
+  jac_rof_bad=0.2748 jac_dyn_rof_bad=nan
+  emp_C=1.7493 emp_O=0.3289 emp_L=1.1677
+
+=== Epoch 485 === [97/100] (30.0s)
+  val_loss=32.4532 val_kl=1.8086 val_recon=0.0323 post_obs_rmse=0.1455 post_rew_rmse=5.1243
+  ol_obs_start=0.2426 ol_obs_avg=0.4403 ol_obs_max=0.5311 ol_obs_end=0.5265
+  ol_rew_start=7.7840 ol_rew_avg=7.5258 ol_rew_max=8.9680 ol_rew_end=8.2104
+  ol_cumrew_err=24.0356
+  jac_spec_radius=1.0474 jac_spec_radius_max=1.3086 jac_ctrl_rank=30.0 jac_ctrl_cond=42300160.0 jac_obs_rank=34.9 jac_obs_cond=29316096.6
+  jac_rcf=0.2864 jac_ocf=0.0719 jac_rof=0.2262
+  jac_rof_soft=0.0470 jac_rof_soft_bad=0.0974
+  jac_rof_bad=0.2769 jac_dyn_rof_bad=nan
+  emp_C=1.8739 emp_O=0.3195 emp_L=1.3090
+
+=== Epoch 490 === [98/100] (30.0s)
+  val_loss=35.6248 val_kl=1.8291 val_recon=0.0329 post_obs_rmse=0.1515 post_rew_rmse=5.3751
+  ol_obs_start=0.2423 ol_obs_avg=0.4446 ol_obs_max=0.5407 ol_obs_end=0.5381
+  ol_rew_start=7.8900 ol_rew_avg=7.8180 ol_rew_max=9.0978 ol_rew_end=8.6928
+  ol_cumrew_err=31.6713
+  jac_spec_radius=1.0423 jac_spec_radius_max=1.5566 jac_ctrl_rank=30.4 jac_ctrl_cond=41731356.1 jac_obs_rank=34.8 jac_obs_cond=28403111.9
+  jac_rcf=0.2915 jac_ocf=0.0753 jac_rof=0.2156
+  jac_rof_soft=0.0423 jac_rof_soft_bad=0.0936
+  jac_rof_bad=0.2767 jac_dyn_rof_bad=nan
+  emp_C=1.8214 emp_O=0.3369 emp_L=1.5379
+
+=== Epoch 495 === [99/100] (30.0s)
+  val_loss=32.8418 val_kl=1.8376 val_recon=0.0307 post_obs_rmse=0.1425 post_rew_rmse=5.1548
+  ol_obs_start=0.2446 ol_obs_avg=0.4482 ol_obs_max=0.5491 ol_obs_end=0.5435
+  ol_rew_start=7.7135 ol_rew_avg=7.7103 ol_rew_max=8.9667 ol_rew_end=7.1489
+  ol_cumrew_err=27.0199
+  jac_spec_radius=1.0433 jac_spec_radius_max=1.2960 jac_ctrl_rank=30.1 jac_ctrl_cond=41901057.6 jac_obs_rank=35.4 jac_obs_cond=29665177.0
+  jac_rcf=0.2829 jac_ocf=0.0776 jac_rof=0.2283
+  jac_rof_soft=0.0497 jac_rof_soft_bad=0.0905
+  jac_rof_bad=0.2698 jac_dyn_rof_bad=nan
+  emp_C=1.7958 emp_O=0.3068 emp_L=1.2278
+
+=== Epoch 500 === [100/100] (29.8s)
+  val_loss=35.7903 val_kl=1.7979 val_recon=0.0320 post_obs_rmse=0.1447 post_rew_rmse=5.3892
+  ol_obs_start=0.2490 ol_obs_avg=0.4463 ol_obs_max=0.5413 ol_obs_end=0.5413
+  ol_rew_start=7.7435 ol_rew_avg=7.6856 ol_rew_max=8.9528 ol_rew_end=7.4881
+  ol_cumrew_err=28.1861
+  jac_spec_radius=1.0328 jac_spec_radius_max=1.3520 jac_ctrl_rank=31.1 jac_ctrl_cond=42682837.0 jac_obs_rank=35.4 jac_obs_cond=29028065.0
+  jac_rcf=0.2731 jac_ocf=0.0828 jac_rof=0.2263
+  jac_rof_soft=0.0437 jac_rof_soft_bad=0.0984
+  jac_rof_bad=0.2754 jac_dyn_rof_bad=nan
+  emp_C=1.7742 emp_O=0.3166 emp_L=1.1642
+
+Completed: 2026-07-15 23:09:55 (total: 49.8 min)

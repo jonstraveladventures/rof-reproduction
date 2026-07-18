@@ -1,0 +1,39 @@
+matched epochs: 100 (5-500), metric seeds: 3, episodes/ckpt: 20
+
+--- REGIME CHECK (read before the correlations) ---
+smoothed return: start +51.9, peak +157.0 @ epoch 135, final-10 mean +76.9, span 122.3
+monotonicity rho(epoch, smoothed return) = -0.47
+collapse-present (peak - tail > 0.5*span): True
+median per-checkpoint SE of mean return: 18.4
+interpretation: collapse-present -> pre-registered thresholds carry their meaning; near-monotone -> a weak rho is a 'no selection problem in this regime' null.
+
+--- CORRELATIONS vs MA-7 smoothed MPC mean ---
+metric                               pearson  spearman   R2quad
+emp_C                                 -0.138    -0.477    0.786
+ol_obs_avg [baseline]                 -0.079    +0.463    0.389
+post_obs_rmse [baseline]              -0.093    +0.460    0.298
+ol_cumrew_err [baseline]              +0.317    +0.457    0.338
+emp_O                                 +0.477    +0.427    0.233
+jac_obs_rank                          -0.339    -0.359    0.116
+CROF-A [HEADLINE]                     +0.110    +0.299    0.221
+ol_rew_end [baseline]                 +0.249    +0.252    0.063
+post_rew_rmse [baseline]              +0.076    +0.237    0.134
+jac_rof                               -0.169    -0.235    0.055
+val_loss [baseline]                   +0.055    +0.235    0.125
+jac_ctrl_rank                         +0.137    -0.208    0.247
+emp_L                                 -0.245    -0.185    0.061
+jac_rof_bad                           +0.313    +0.167    0.101
+CROF-B [HEADLINE]                     +0.137    +0.146    0.061
+val_kl [baseline]                     -0.108    +0.057    0.066
+jac_rof_combined [HEADLINE]           +0.106    -0.015    0.040
+
+--- CHECKPOINT SELECTION ---
+oracle (smoothed MPC): epoch 135 at +157.0
+min CROF-A (raw): epoch 490, smoothed return +75.1 (gap +81.9, 52% of oracle)
+min CROF-B (raw): epoch 490, smoothed return +75.1 (gap +81.9, 52% of oracle)
+min rof_combined (raw): epoch 60, smoothed return +111.5 (gap +45.5, 29% of oracle)
+
+--- PRE-REGISTERED DECISION RULE ---
+rho_s(jac_rof_combined, smoothed MPC) = -0.015
+VERDICT: |rho| < 0.30 -> run dataset-provenance control; scope-limit write-up; stop.
+(Prediction on record: rho in [-0.65, -0.45], P(generalise)=0.65. Interpret via the regime check above.)
