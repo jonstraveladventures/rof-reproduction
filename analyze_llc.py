@@ -119,9 +119,24 @@ def main():
     p.add_argument("--mpc_log", required=True)
     p.add_argument("--metrics_logs", required=True, help="glob, e.g. 'metrics_llc_seed*.txt'")
     p.add_argument("--drift_log", default=None)
+    p.add_argument("--allow-partial", action="store_true",
+                   help="tolerate uneven episode counts across checkpoints "
+                        "(empty blocks are dropped with a warning)")
     args = p.parse_args()
 
     mpc = parse_mpc(args.mpc_log)
+    counts = {e: len(v) for e, v in mpc.items()}
+    expected = max(set(counts.values()), key=list(counts.values()).count)
+    bad = {e: c for e, c in sorted(counts.items()) if c != expected}
+    if bad:
+        msg = (f"MPC log has uneven episode counts (expected {expected}/checkpoint): "
+               + ", ".join(f"epoch {e}: {c}" for e, c in bad.items()))
+        if not args.allow_partial:
+            raise SystemExit("ERROR: " + msg
+                             + "\nA truncated or partial sweep would be silently averaged; "
+                               "rerun the sweep or pass --allow-partial to proceed.")
+        print("WARNING: " + msg + " (empty blocks dropped)")
+        mpc = {e: v for e, v in mpc.items() if v}
     metric_runs = [parse_metrics(f) for f in sorted(glob.glob(args.metrics_logs))]
     assert metric_runs, "no metrics logs matched"
     drift = parse_metrics(args.drift_log) if args.drift_log else {}

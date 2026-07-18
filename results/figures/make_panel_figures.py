@@ -1,11 +1,15 @@
 """Seed-panel figures: heterogeneity grid, ROF-lead dumbbells, rho_s dot plot.
 
-Conventions inherited from analyze_llc.py (centred MA-7, alpha=0.5 combined).
+All statistics (rho_s, collapse flags, peak and argmin epochs) are computed at
+runtime from the raw logs via analyze_llc's own functions, using its exact
+conventions (centred MA-7 over matched epochs, alpha=0.5 combined ROF averaged
+across metric seeds, tie-corrected Spearman). Nothing is transcribed by hand.
+
 Colours: Okabe-Ito subset, validated (healthy #0072B2, collapse #D55E00,
 777 #009E73, paper reference #555555).
 """
+import glob
 import importlib.util
-import sys
 from pathlib import Path
 
 import matplotlib
@@ -21,55 +25,59 @@ an = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(an)
 
 C_HEALTHY, C_COLLAPSE, C_777, C_PAPER = "#0072B2", "#D55E00", "#009E73", "#555555"
-
 PANEL = [101, 202, 303, 404, 505, 606, 707, 808]
-COLLAPSE = {202, 303, 505, 606, 707}
-RHO = {101: +0.320, 202: -0.548, 303: -0.307, 404: +0.190,
-       505: -0.224, 606: +0.082, 707: -0.0155, 808: -0.019}
 
 
-def mpc_curve(path):
-    r = an.parse_mpc(str(path))
-    eps = sorted(r)
-    means = [sum(r[e]) / len(r[e]) for e in eps]
-    return eps, means, an.ma(means)
+def neg(s):
+    return s.replace("-", "\N{MINUS SIGN}")
 
 
-def rof_curve(paths):
-    per = [an.parse_metrics(str(p)) for p in paths]
-    eps = sorted(set.intersection(*[set(p) for p in per]))
+def run_stats(mpc_path, metric_glob):
+    """Everything the figures need for one run, by analyze_llc's conventions."""
+    mpc = an.parse_mpc(str(mpc_path))
+    runs = [an.parse_metrics(f) for f in sorted(glob.glob(str(metric_glob)))]
+    epochs = sorted(set(mpc) & set.intersection(*[set(m) for m in runs]))
+    means = [sum(mpc[e]) / len(mpc[e]) for e in epochs]
+    sm = an.ma(means)
     comb = []
-    for e in eps:
-        vals = [0.5 * p[e]["jac_rof"] + 0.5 * p[e]["jac_rof_bad"] for p in per]
-        comb.append(sum(vals) / len(vals))
-    return eps, comb
+    for e in epochs:
+        per = [0.5 * m[e]["jac_rof"] + 0.5 * m[e]["jac_rof_bad"] for m in runs]
+        comb.append(sum(per) / len(per))
+    tail = sum(sm[-10:]) / 10
+    return {
+        "epochs": epochs, "means": means, "sm": sm,
+        "rho": an.spearman(comb, sm),
+        "collapse": (max(sm) - tail) > 0.5 * (max(sm) - min(sm)),
+        "peak_epoch": epochs[sm.index(max(sm))],
+        "argmin_epoch": epochs[comb.index(min(comb))],
+    }
 
 
-runs = {}
+stats = {}
 for s in PANEL:
-    runs[s] = mpc_curve(RES / f"mpc_sp{s}.txt" if s != 707 else RES / "mpc_sp707_merged.txt")
-runs["777"] = mpc_curve(RES / "mpc_dq_f1rs.txt")
-runs["paper"] = mpc_curve(REPO / "logs" / "mpc_eval_logs.txt")
+    mpc = RES / (f"mpc_sp{s}.txt" if s != 707 else "mpc_sp707_merged.txt")
+    stats[s] = run_stats(mpc, RES / f"metrics_sp{s}_seed*.txt")
+stats["777"] = run_stats(RES / "mpc_dq_f1rs.txt", RES / "metrics_dq_f1rs_seed*.txt")
+stats["paper"] = run_stats(REPO / "logs" / "mpc_eval_logs.txt",
+                           REPO / "logs" / "metrics_eval_logs.txt")
 
 # ---------- Figure 1: small-multiples heterogeneity grid ----------
 fig, axes = plt.subplots(2, 5, figsize=(16, 6.2), sharex=True, sharey=True)
-order = PANEL + ["777", "paper"]
-for ax, key in zip(axes.flat, order):
-    eps, raw, sm = runs[key]
+for ax, key in zip(axes.flat, PANEL + ["777", "paper"]):
+    st = stats[key]
     if key == "777":
-        col, label = C_777, "seed 777 (reference) · healthy · ρₛ +0.76"
+        col, name = C_777, "seed 777 (reference)"
     elif key == "paper":
-        col, label = C_PAPER, "paper 12345 (resumed) · collapse · ρₛ −0.71"
+        col, name = C_PAPER, "paper 12345 (resumed)"
     else:
-        healthy = key not in COLLAPSE
-        col = C_HEALTHY if healthy else C_COLLAPSE
-        label = (f"seed {key} · {'healthy' if healthy else 'collapse'}"
-                 f" · ρₛ {RHO[key]:+.2f}".replace("-", "−"))
-    ax.plot(eps, raw, lw=0.7, color=col, alpha=0.30)
-    ax.plot(eps, sm, lw=2.0, color=col)
-    pk = max(range(len(sm)), key=lambda i: sm[i])
-    ax.plot(eps[pk], sm[pk], "o", ms=5, color=col)
-    ax.set_title(label, fontsize=9.5)
+        col = C_HEALTHY if not st["collapse"] else C_COLLAPSE
+        name = f"seed {key}"
+    fate = "collapse" if st["collapse"] else "healthy"
+    ax.plot(st["epochs"], st["means"], lw=0.7, color=col, alpha=0.30)
+    ax.plot(st["epochs"], st["sm"], lw=2.0, color=col)
+    pk = st["sm"].index(max(st["sm"]))
+    ax.plot(st["epochs"][pk], st["sm"][pk], "o", ms=5, color=col)
+    ax.set_title(neg(f"{name} · {fate} · ρₛ {st['rho']:+.2f}"), fontsize=9.5)
     ax.axhline(0, lw=0.6, color="#cccccc", zorder=0)
     ax.grid(True, lw=0.3, color="#eeeeee")
 for ax in axes[1]:
@@ -85,24 +93,21 @@ fig.savefig(HERE / "fig_panel_curves.png", dpi=170)
 plt.close(fig)
 
 # ---------- Figure 2: ROF argmin vs MPC peak dumbbells ----------
-rows = [("paper 12345", 250, 310, C_PAPER),
-        ("seed 707", 60, 135, C_COLLAPSE),
-        ("seed 606", 175, 135, C_COLLAPSE),
-        ("seed 505", 5, 265, C_COLLAPSE),
-        ("seed 303", 5, 110, C_COLLAPSE),
-        ("seed 202", 30, 160, C_COLLAPSE)]
+rows = [("paper 12345", stats["paper"], C_PAPER)]
+rows += [(f"seed {s}", stats[s], C_COLLAPSE)
+         for s in sorted(PANEL, reverse=True) if stats[s]["collapse"]]
 fig, ax = plt.subplots(figsize=(9, 4.4))
 ax.axvspan(0, 35, color="#f0f0f0", zorder=0)
 ax.text(17, len(rows) - 0.45, "training\nedge", ha="center", va="top",
         fontsize=8, color="#888888")
-for y, (name, rmin, peak, col) in enumerate(rows):
+for y, (name, st, col) in enumerate(rows):
+    rmin, peak = st["argmin_epoch"], st["peak_epoch"]
     ax.annotate("", xy=(peak, y), xytext=(rmin, y),
                 arrowprops=dict(arrowstyle="-|>", color=col, lw=1.8,
                                 shrinkA=6, shrinkB=6))
     ax.plot(rmin, y, "o", ms=9, mfc="white", mec=col, mew=2, zorder=3)
     ax.plot(peak, y, "o", ms=9, color=col, zorder=3)
-    lead = peak - rmin
-    ax.text(max(rmin, peak) + 18, y, f"lead {lead:+d}", va="center",
+    ax.text(max(rmin, peak) + 18, y, f"lead {peak - rmin:+d}", va="center",
             fontsize=9.5, color="#333333")
 ax.set_yticks(range(len(rows)), [r[0] for r in rows])
 ax.set_xlim(-10, 560)
@@ -116,17 +121,17 @@ fig.savefig(HERE / "fig_rof_lead.png", dpi=170)
 plt.close(fig)
 
 # ---------- Figure 3: rho_s dot plot ----------
-entries = [(f"seed {s}", RHO[s],
-            C_HEALTHY if s not in COLLAPSE else C_COLLAPSE, "o") for s in PANEL]
-entries += [("seed 777 (ref)", +0.763, C_777, "D"),
-            ("paper 12345 (ref)", -0.707, C_PAPER, "D")]
+entries = [(f"seed {s}", stats[s]["rho"],
+            C_HEALTHY if not stats[s]["collapse"] else C_COLLAPSE, "o")
+           for s in PANEL]
+entries += [("seed 777 (ref)", stats["777"]["rho"], C_777, "D"),
+            ("paper 12345 (ref)", stats["paper"]["rho"], C_PAPER, "D")]
 entries.sort(key=lambda t: t[1])
 fig, ax = plt.subplots(figsize=(7.4, 4.6))
 ax.axvline(0, lw=0.8, color="#bbbbbb", zorder=0)
 for y, (name, rho, col, mk) in enumerate(entries):
     ax.plot(rho, y, mk, ms=9 if mk == "o" else 8, color=col, zorder=3)
-    ax.text(rho + (0.045 if rho >= 0 else -0.045), y,
-            f"{rho:+.2f}".replace("-", "−"),
+    ax.text(rho + (0.045 if rho >= 0 else -0.045), y, neg(f"{rho:+.2f}"),
             va="center", ha="left" if rho >= 0 else "right",
             fontsize=9, color="#333333")
 ax.set_yticks(range(len(entries)), [e[0] for e in entries])
@@ -142,4 +147,9 @@ ax.legend(handles=h, loc="lower right", fontsize=9, frameon=False)
 fig.tight_layout()
 fig.savefig(HERE / "fig_rho_dist.png", dpi=170)
 plt.close(fig)
+
+summary = {k: (v["rho"], v["collapse"], v["peak_epoch"], v["argmin_epoch"])
+           for k, v in stats.items()}
+for k, (rho, c, pk, am) in summary.items():
+    print(f"{k}: rho={rho:+.3f} collapse={c} peak_ep={pk} argmin_ep={am}")
 print("figures written")
