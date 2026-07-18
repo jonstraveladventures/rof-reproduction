@@ -64,7 +64,7 @@ for ax, key in zip(axes.flat, order):
         healthy = key not in COLLAPSE
         col = C_HEALTHY if healthy else C_COLLAPSE
         label = (f"seed {key} · {'healthy' if healthy else 'collapse'}"
-                 f" · ρₛ {RHO[key]:+.2f}")
+                 f" · ρₛ {RHO[key]:+.2f}".replace("-", "−"))
     ax.plot(eps, raw, lw=0.7, color=col, alpha=0.30)
     ax.plot(eps, sm, lw=2.0, color=col)
     pk = max(range(len(sm)), key=lambda i: sm[i])
@@ -77,8 +77,8 @@ for ax in axes[1]:
 for ax in axes[:, 0]:
     ax.set_ylabel("MPC return (20 eps)")
 axes.flat[0].set_ylim(-115, 235)
-fig.suptitle("Ten runs, one dataset: MPC return across training "
-             "(thin: raw per-checkpoint mean · thick: centred MA-7 · dot: smoothed peak)",
+fig.suptitle("MPC return across training for ten runs on the same dataset "
+             "(thin lines: raw per-checkpoint means, thick: centred MA-7, dots: smoothed peaks)",
              fontsize=12)
 fig.tight_layout(rect=(0, 0, 1, 0.95))
 fig.savefig(HERE / "fig_panel_curves.png", dpi=170)
@@ -108,7 +108,8 @@ ax.set_yticks(range(len(rows)), [r[0] for r in rows])
 ax.set_xlim(-10, 560)
 ax.set_ylim(-0.7, len(rows) - 0.3)
 ax.set_xlabel("epoch")
-ax.set_title("Collapsing runs: ROF minimum (open) vs MPC peak (filled)", fontsize=12)
+ax.set_title("ROF minimum (open circles) and MPC peak (filled) in each collapsing run",
+             fontsize=12)
 ax.grid(True, axis="x", lw=0.3, color="#eeeeee")
 fig.tight_layout()
 fig.savefig(HERE / "fig_rof_lead.png", dpi=170)
@@ -124,13 +125,14 @@ fig, ax = plt.subplots(figsize=(7.4, 4.6))
 ax.axvline(0, lw=0.8, color="#bbbbbb", zorder=0)
 for y, (name, rho, col, mk) in enumerate(entries):
     ax.plot(rho, y, mk, ms=9 if mk == "o" else 8, color=col, zorder=3)
-    ax.text(rho + (0.045 if rho >= 0 else -0.045), y, f"{rho:+.2f}",
+    ax.text(rho + (0.045 if rho >= 0 else -0.045), y,
+            f"{rho:+.2f}".replace("-", "−"),
             va="center", ha="left" if rho >= 0 else "right",
             fontsize=9, color="#333333")
 ax.set_yticks(range(len(entries)), [e[0] for e in entries])
 ax.set_xlim(-1.0, 1.0)
 ax.set_xlabel("ρₛ(jac_rof_combined, smoothed MPC)")
-ax.set_title("Per-run ROF correlation: eight fresh seeds and the two reference runs",
+ax.set_title("Correlation between jac_rof_combined and smoothed MPC return, per run",
              fontsize=12)
 ax.grid(True, axis="x", lw=0.3, color="#eeeeee")
 h = [plt.Line2D([], [], marker="o", ls="", color=C_COLLAPSE, label="collapse"),
