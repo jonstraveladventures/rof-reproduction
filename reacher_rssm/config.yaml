@@ -1,0 +1,49 @@
+# ===========================================================================
+# Reacher RSSM - Dreamer-style World Models for Reacher-v5 policy training
+#
+# See DESIGN.md for the full rationale. Hyperparameters are kept aligned
+# with the lander config wherever possible; only the values that have to
+# change for continuous 2-D actions and the 10-D Reacher obs are different.
+# ===========================================================================
+
+world_model:
+  action_dim: 2            # continuous joint torques, shape (2,), in [-1, 1]
+                           # (lander used 4 discrete actions one-hotted)
+  capacity:
+    latent_dim: 16
+    hidden_dim: 256
+    mlp_hidden_dim: 256
+    gru_num_layers: 1      # stacked GRU layers in RSSM
+  loss_weights:
+    reconstruction: 1.0    # PER-DIM MEAN MSE on 10-D obs (was per-dim sum).
+                           # The new sin/cos-via-angle obs_head outputs 8 raw
+                           # scalars (2 angles + 6 'other'); the 10-D obs is
+                           # built by analytically applying cos/sin.
+    reward: 1.2            # Now ~10x relatively more weighted because recon
+                           # is per-dim mean (was per-dim sum over 10 dims).
+    kl: 1.0
+                           # NOTE: lander had 'done: 0.5'; Reacher episodes are
+                           # fixed-length (100 steps), so we drop the done head.
+  epochs: 500
+  val_freq: 5
+  lr: 0.0001
+  beta_kl: 0.5
+  kl_alpha: 0.8            # DreamerV2 KL-balancing coefficient. The KL is
+                           # split as alpha*KL(sg(post)||prior) + (1-alpha)*
+                           # KL(post||sg(prior)). alpha=0.8 strongly favors
+                           # "prior follows posterior", which matters for
+                           # open-loop CEM rollouts that run prior alone.
+  batch_size: 64
+  sequence_length: 30
+  dataset_seq_offset: 5
+  checkpoint_freq: 5
+
+metrics:
+  warmup_steps: 5          # posterior warmup before open-loop rollout
+  planning_horizon: 25     # open-loop rollout horizon (match Gaussian-CEM horizon)
+
+# ---------------------------------------------------------------------------
+# Actor-critic config (TBD): the continuous-action port (Gaussian policy via
+# tanh-squashed reparametrization) is implemented in a separate step. See
+# DESIGN.md section 7 for the planned hyperparameters.
+# ---------------------------------------------------------------------------

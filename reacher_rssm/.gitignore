@@ -1,0 +1,21 @@
+# Reacher RSSM - local artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Datasets and model checkpoints (large binary files)
+*.npz
+!reacher_train_dataset.npz
+!reacher_val_dataset.npz
+*.pt
+
+# Logs
+logs/
+*.log
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

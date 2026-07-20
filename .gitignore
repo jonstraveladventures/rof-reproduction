@@ -16,3 +16,10 @@ paper/**
 *_logs*.txt
 
 checkpoints_llc_smoke/
+
+# Reacher subproject (code committed; artifacts local-only)
+reacher_rssm/checkpoints/
+reacher_rssm/checkpoints/**
+reacher_rssm/logs/
+reacher_rssm/.venv/
+reacher_rssm/archive/

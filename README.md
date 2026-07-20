@@ -41,6 +41,12 @@ discrete-action result was produced by the upstream pipeline end to end.
   effect, and all result tables). `fisher-support-note.pdf` is the formal
   note (the observable subspace as Fisher-information support, validity
   probes, and the amortised z-only correction channel).
+- **`reacher_rssm/`**: Nikolai's Reacher-v5 port (continuous actions,
+  Markovian reward). Negative control for the seed panel: same RSSM +
+  metrics + CROF pipeline as lander, self-contained under this
+  subfolder. Includes `reacher_{train,val}_dataset.npz`. See
+  `reacher_rssm/README.md` for setup and run order. WM checkpoints are
+  not committed (same policy as lander WM weights).
 
 ## Reproducing the headline
 
