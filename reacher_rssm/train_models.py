@@ -67,7 +67,9 @@ def log_message(message, log_path=None):
             f.write(message + "\n")
 
 
-def get_latest_checkpoint(model_name, directory=CHECKPOINT_DIR):
+def get_latest_checkpoint(model_name, directory=None):
+    if directory is None:
+        directory = CHECKPOINT_DIR
     pattern = os.path.join(directory, f"{model_name}_*.pt")
     checkpoints = glob.glob(pattern)
     if not checkpoints:
@@ -76,7 +78,9 @@ def get_latest_checkpoint(model_name, directory=CHECKPOINT_DIR):
     return checkpoints[0]
 
 
-def save_checkpoint_with_timestamp(model, model_name, epoch, directory=CHECKPOINT_DIR, log_path=None):
+def save_checkpoint_with_timestamp(model, model_name, epoch, directory=None, log_path=None):
+    if directory is None:
+        directory = CHECKPOINT_DIR
     os.makedirs(directory, exist_ok=True)
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
     filename = os.path.join(directory, f"{model_name}_{timestamp}_epoch_{epoch}.pt")

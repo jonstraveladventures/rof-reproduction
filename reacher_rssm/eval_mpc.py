@@ -70,8 +70,9 @@ def main():
         checkpoints = checkpoints[::args.epoch_stride]
 
     if not checkpoints:
-        print(f"No matching world_model_*_epoch_*.pt files found in {ckpt_dir}")
-        return
+        raise SystemExit(
+            f"ERROR: no matching world_model_*_epoch_*.pt files found in {ckpt_dir}; "
+            "refusing to exit cleanly on an empty sweep")
 
     # Build the optional CEM-override fragment once; reused per subprocess call.
     cem_overrides = []

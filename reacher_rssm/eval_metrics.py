@@ -1170,8 +1170,9 @@ def main():
         checkpoints = checkpoints[::args.epoch_stride]
 
     if not checkpoints:
-        print("No matching checkpoints found in {}".format(ckpt_dir))
-        return
+        raise SystemExit(
+            "ERROR: no matching checkpoints found in {}; "
+            "refusing to exit cleanly on an empty sweep".format(ckpt_dir))
 
     print("Found {} checkpoints (epochs {}-{})".format(
         len(checkpoints), checkpoints[0][0], checkpoints[-1][0]))
