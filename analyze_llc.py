@@ -44,7 +44,7 @@ def parse_mpc(path):
         if m:
             cur = int(m.group(1)); returns[cur] = []
             continue
-        m = re.search(r"\[Episode \d+\] return=([-+0-9.]+),", line)
+        m = re.search(r"\[Episode\s+\d+\]\s+return=\s*([-+0-9.]+)", line)
         if m and cur is not None:
             returns[cur].append(float(m.group(1)))
     return returns
@@ -127,6 +127,9 @@ def main():
     mpc = parse_mpc(args.mpc_log)
     counts = {e: len(v) for e, v in mpc.items()}
     expected = max(set(counts.values()), key=list(counts.values()).count)
+    if expected == 0:
+        raise SystemExit("ERROR: no episode lines parsed from the MPC log at all "
+                         "(format mismatch?). Refusing to proceed.")
     bad = {e: c for e, c in sorted(counts.items()) if c != expected}
     if bad:
         msg = (f"MPC log has uneven episode counts (expected {expected}/checkpoint): "
