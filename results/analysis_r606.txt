@@ -1,0 +1,39 @@
+matched epochs: 99 (5-500), metric seeds: 3, episodes/ckpt: 20
+
+--- REGIME CHECK (read before the correlations) ---
+smoothed return: start -18.6, peak -16.5 @ epoch 355, final-10 mean -16.7, span 2.5
+monotonicity rho(epoch, smoothed return) = +0.87
+collapse-present (peak - tail > 0.5*span): False
+median per-checkpoint SE of mean return: 0.4
+interpretation: collapse-present -> pre-registered thresholds carry their meaning; near-monotone -> a weak rho is a 'no selection problem in this regime' null.
+
+--- CORRELATIONS vs MA-7 smoothed MPC mean ---
+metric                               pearson  spearman   R2quad
+emp_C                                 +0.945    +0.901    0.902
+ol_rew_end [baseline]                 -0.955    -0.882    0.918
+val_loss [baseline]                   -0.951    -0.879    0.938
+val_kl [baseline]                     -0.964    -0.879    0.940
+ol_obs_avg [baseline]                 -0.965    -0.877    0.938
+post_rew_rmse [baseline]              -0.824    -0.862    0.897
+emp_O                                 -0.951    -0.858    0.907
+ol_cumrew_err [baseline]              -0.901    -0.858    0.918
+post_obs_rmse [baseline]              -0.696    -0.850    0.803
+emp_L                                 +0.825    +0.849    0.765
+jac_rof_combined [HEADLINE]           +0.758    +0.803    0.597
+jac_rof                               +0.765    +0.787    0.611
+jac_ctrl_rank                         +0.527    +0.748    0.713
+jac_obs_rank                          -0.309    -0.579    0.466
+jac_rof_bad                           +0.542    +0.569    0.301
+CROF-A [HEADLINE]                     -0.718    -0.497    0.607
+CROF-B [HEADLINE]                     +0.030    +0.197    0.020
+
+--- CHECKPOINT SELECTION ---
+oracle (smoothed MPC): epoch 355 at -16.5
+min CROF-A (raw): epoch 215, smoothed return -16.8 (gap +0.4, 2% of oracle)
+min CROF-B (raw): epoch 215, smoothed return -16.8 (gap +0.4, 2% of oracle)
+min rof_combined (raw): epoch 5, smoothed return -18.6 (gap +2.1, 13% of oracle)
+
+--- PRE-REGISTERED DECISION RULE ---
+rho_s(jac_rof_combined, smoothed MPC) = +0.803
+VERDICT: ambiguous band (-0.45, -0.30] -> two more metric seeds, judge pooled estimate.
+(Prediction on record: rho in [-0.65, -0.45], P(generalise)=0.65. Interpret via the regime check above.)
