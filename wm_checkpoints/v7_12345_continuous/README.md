@@ -12,8 +12,9 @@ World-model checkpoints from Nikolai's archived V7 run
 | Checkpoints | 100 files, epochs 5–500, stride 5 |
 | MPC outcome | Severe late collapse (MA-7 final-10 ~−34) |
 
-Companion logs (in Nikolai's archive, not committed here): `mpc_eval_logs_v7.txt`,
-`train_worldmodel_logs.txt`.
+Companion logs:
+- MPC sweep: `results/mpc_v7_12345_continuous.txt` (100 ckpts × 20 eps, eval seed 12345)
+- Train log: in Nikolai's archive (`train_worldmodel_logs.txt`), not committed here
 
 Usage:
 
