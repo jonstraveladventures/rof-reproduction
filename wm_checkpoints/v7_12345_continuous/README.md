@@ -14,7 +14,7 @@ World-model checkpoints from Nikolai's archived V7 run
 
 Companion logs:
 - MPC sweep: `results/mpc_v7_12345_continuous.txt` (100 ckpts × 20 eps, eval seed 12345)
-- Train log: in Nikolai's archive (`train_worldmodel_logs.txt`), not committed here
+- Train log: `results/v7_12345_continuous_train.txt` (epochs 1–500, continuous, seed 12345)
 
 Usage:
 
