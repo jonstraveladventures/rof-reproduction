@@ -31,6 +31,8 @@ def main():
                         help="Append to output file instead of overwriting")
     parser.add_argument("--epoch_stride", type=int, default=1,
                         help="Take every N-th checkpoint (1=all, 2=every other, etc.)")
+    parser.add_argument("--config", default="config.yaml",
+                        help="Config file forwarded to wm_mpc_policy.py (needed for non-default capacities)")
     args = parser.parse_args()
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -91,6 +93,7 @@ def main():
                 "--world_model", ckpt_path,
                 "--episodes", str(args.episodes),
                 "--seed", str(args.seed),
+                "--config", args.config,
             ]
 
             result = subprocess.run(
