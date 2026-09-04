@@ -15,3 +15,11 @@ purpose:    Screening panel (4 data families x seeds 909/1010) + capacity varian
             run in {sp,f25_,f75_,scr_,h128_,z8_}{909,1010}. Design, sealed
             predictions, and scoring: docs/crof-screening-offset-panel.md (summary);
             training .out logs on cluster scratch, to be added.
+
+run_utc:    2026-09-04 (edge-of-reach probe; ada CPU jobs 1296831-38 + local z-only arm)
+purpose:    Planner-side mechanism test: eval_edge.py per checkpoint (every 25 epochs),
+            59 pre-contact val start states; CEM at MPC-eval defaults; imagined vs real
+            rollout of the chosen sequence, human-sequence baseline, 5-NN support distance
+            to the training set. Files: edge_<run>.txt for sp909/sp1010, h128_909/1010,
+            z8_909/1010, v7, f1rs (=777), zonly3080. Also adds train_<run>.txt: the twelve
+            August-panel training logs (SLURM .out) previously left on scratch.
