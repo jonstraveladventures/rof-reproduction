@@ -4,3 +4,14 @@ git_commit: c2224f3 (local llc-crossenv branch; repo synced without .git)
 account:    l40sfree  partition: l40s  node: srvrocgpu014.uct.ac.za
 env:        /scratch/01440817/crof-env (torch CUDA, gymnasium[box2d])
 purpose:    CROF Stage B — LLC cross-env validation + A2 CUDA cross-check
+
+run_utc:    2026-08-16T10:10:00Z (submission) .. 2026-08-18 (last MPC)
+slurm_job:  1239391-1239429 (12 chains: train ada CPU -> MPC l40s + metrics array)
+git_commit: (this commit; panel run from synced tree + config_h128/config_z8)
+account:    maths/ada (train, metrics), l40sfree/l40s (MPC)
+env:        /scratch/01440817/crof-env (torch 2.12.1)
+purpose:    Screening panel (4 data families x seeds 909/1010) + capacity variants
+            (h128, z8). Files: mpc_<run>.txt, metrics_<run>_seed{12345,1,2}.txt for
+            run in {sp,f25_,f75_,scr_,h128_,z8_}{909,1010}. Design, sealed
+            predictions, and scoring: docs/crof-screening-offset-panel.md (summary);
+            training .out logs on cluster scratch, to be added.
