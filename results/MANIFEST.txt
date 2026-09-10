@@ -23,3 +23,10 @@ purpose:    Planner-side mechanism test: eval_edge.py per checkpoint (every 25 e
             to the training set. Files: edge_<run>.txt for sp909/sp1010, h128_909/1010,
             z8_909/1010, v7, f1rs (=777), zonly3080. Also adds train_<run>.txt: the twelve
             August-panel training logs (SLURM .out) previously left on scratch.
+
+run_utc:    2026-09-10 (closed-loop probe; ada CPU jobs 1330793-1330800 + local z-only arm)
+purpose:    Instrumented MPC episodes (eval_closedloop.py): 10 checkpoints x 10 episodes per
+            arm, per-step planner predicted return vs realised 25-step return, posterior
+            reconstruction error, one-step model error, split flight / near-ground (y<0.35).
+            Files: cl_<run>.txt (per-checkpoint summary), cl_<run>_raw.npz (per-step arrays)
+            for sp909/sp1010, h128_909/1010, z8_909/1010, v7, f1rs, zonly3080.
