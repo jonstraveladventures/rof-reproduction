@@ -90,3 +90,59 @@ Reading: the strong edge-of-reach form (planner leaving the data support) is not
 supported. A weak form is present (a few reward points more optimism per 25-step plan in
 three of five collapsing runs) but is not a diagnostic. The probe is blind to the landing
 phase by construction.
+
+## 3. Closed-loop probe (instrumented MPC episodes)
+
+Script: `eval_closedloop.py`. The MPC-eval loop reproduced exactly (env reset seed 12345 +
+episode, `set_seed` per episode, `rssm.step` belief update with the previous action, CEM at
+the eval defaults, action 0 once landed, 600-step cap), with logging added at every planner
+step. Same nine arms; checkpoints every 50 epochs (ten per arm); ten episodes per
+checkpoint. Predictions written down before running.
+
+Per step: R̂ (the planner's predicted 25-step return of its chosen sequence, prior-mean
+rollout), R (the realised return over the next 25 real steps), gap = R̂ − R, recon (standardised
+error between the decoded belief and the current observation), pred1 (standardised error
+between the imagined next observation under the executed action and the real one).
+Phase: near-ground if y < 0.35, else flight. Windows: early = epochs 100–200, late = 400–500.
+
+Manipulation check: per-checkpoint mean return of the instrumented episodes against the MPC
+log's mean over episodes 1–10 at the same epochs: mean differences −15 to +10 return points,
+correlations 0.46–0.92, no systematic offset. The residual scatter is CPU-vs-GPU divergence
+on ten-episode means and is large: late-window crash fractions run 0.2–0.8, so window means
+move by tens of return points (z8_1010, healthy by its 20-episode sweep, gives 98 early and
+63 late here).
+
+| run | return E | L | gap near E | L | gap flight E | L | R̂ near E | L | recon near E | L | pred1 near E | L | crash L |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| sp909 (healthy) | 126 | 89 | 17.3 | 25.3 | 16.7 | 17.5 | 17.3 | 23.3 | 0.184 | 0.218 | 0.220 | 0.261 | 0.33 |
+| sp1010 (collapse) | 65 | 51 | 34.7 | 29.6 | 21.5 | 14.6 | 26.9 | 18.3 | 0.282 | 0.395 | 0.337 | 0.427 | 0.63 |
+| h128_1010 (healthy) | 82 | 137 | 25.4 | 26.2 | 20.3 | 18.2 | 20.5 | 28.1 | 0.261 | 0.339 | 0.314 | 0.416 | 0.23 |
+| h128_909 (collapse) | 146 | 100 | 25.2 | 20.1 | 19.1 | 13.7 | 24.0 | 16.9 | 0.276 | 0.260 | 0.352 | 0.309 | 0.27 |
+| z8_1010 (healthy) | 98 | 63 | 23.4 | 40.7 | 21.4 | 20.9 | 19.1 | 27.9 | 0.229 | 0.315 | 0.268 | 0.346 | 0.43 |
+| z8_909 (collapse) | 33 | 58 | 28.9 | 35.4 | 16.6 | 18.9 | 13.6 | 25.3 | 0.396 | 0.477 | 0.465 | 0.542 | 0.47 |
+| V7 12345 3080 (collapse) | 57 | −17 | 32.2 | 83.9 | 21.1 | 24.0 | 25.6 | 48.7 | 0.189 | 0.292 | 0.253 | 0.367 | 0.80 |
+| 777 (healthy) | 121 | 168 | 22.7 | 20.6 | 16.1 | 12.6 | 21.2 | 25.1 | 0.239 | 0.334 | 0.288 | 0.368 | 0.20 |
+| z-only 12345 3080 (collapse) | −21 | 25 | 37.8 | 46.2 | 17.2 | 10.7 | 16.1 | 20.5 | 0.230 | 0.331 | 0.269 | 0.387 | 0.73 |
+
+Predictions and outcomes:
+
+- Near-ground optimism (late − early gap) rises more in the collapsing arm than in its
+  healthy partner: 0 of 3 pairs (z8_1010, healthy, rose +17.3; sp1010 and h128_909 fell).
+- In collapsing runs the near-ground rise exceeds the flight rise: 5 of 5 formally, but in
+  sp1010 and h128_909 both changes are negative (−5.2 vs −6.9, −5.1 vs −5.5); the real
+  cases are V7 (+51.7 vs +2.9), z-only (+8.4 vs −6.5), z8_909 (+6.6 vs +2.3).
+- Near-ground belief error (recon) rises more in the collapsing arm: 1 of 3. It rises in
+  every run, healthy included (+0.03 to +0.11), so the rise is a universal late-training
+  effect, not the collapse.
+- The planner's near-ground R̂ holds up (late ≥ 0.8 × early) in collapsing runs: 3 of 5. It
+  falls in sp1010 and h128_909; it doubles in V7 (25.6 → 48.7) while V7's return goes to −17.
+- Within-run, near-ground recon tracks episode return (Spearman ≤ −0.5): 1 of 5 (V7, −0.68;
+  its pred1 −0.75). gap tracks return in 4 of 5 collapsing runs (−0.61 to −0.83), but that is
+  the mechanical link through the realised return; healthy arms give −0.16 to −0.49.
+
+Reading: no belief-drift or model-accuracy mechanism. One arm shows the confidently-wrong
+landing signature in full: V7, the severe collapse, whose predicted near-ground return doubles
+while its realised return collapses, with near-ground belief error tracking the fall. The
+moderate collapses do not show it, and at ten episodes per checkpoint the pairwise
+comparisons have little power. Five mechanism accounts have now been tested this way and
+none survives as a general one.
