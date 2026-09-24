@@ -13,31 +13,29 @@ separation margin (min over collapsing minus max over healthy; positive
 margin = a perfect in-sample threshold exists) and the best threshold's
 confusion counts. 18 runs: 8 LL + 777 + paper + 8 Reacher (6 collapse).
 """
-import glob
 import importlib.util
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-REPO = HERE.parent / "LunarLander_RSSM"
+# The analysis repo: the parent of results/ inside LunarLander_RSSM, or the
+# LunarLander_RSSM sibling of results-llc/.
+REPO = next(p / s for p in HERE.parents for s in ("", "LunarLander_RSSM")
+            if (p / s / "analyze_llc.py").exists())
 spec = importlib.util.spec_from_file_location("an", REPO / "analyze_llc.py")
 an = importlib.util.module_from_spec(spec); spec.loader.exec_module(an)
 
 WARMUP = 50
 
 
-def pool(metric_glob, key, epochs):
-    runs = [an.parse_metrics(f) for f in sorted(glob.glob(str(metric_glob)))]
+def pool(runs, key, epochs):
     return [sum(m[e][key] for m in runs) / len(runs) for e in epochs]
 
 
-def stats_for(mpc_path, metric_glob):
-    mruns = [an.parse_metrics(f) for f in sorted(glob.glob(str(metric_glob)))]
-    m_epochs = set.intersection(*[set(m) for m in mruns])
-    mpc = an.parse_mpc(str(mpc_path))
-    epochs = sorted(set(mpc) & m_epochs)
+def stats_for(mpc_path, metric_glob, **expect):
+    epochs, _, mruns = an.load_run(mpc_path, metric_glob, **expect)
     out = {}
     for label, key in (("good", "jac_rof"), ("bad", "jac_rof_bad")):
-        raw = pool(metric_glob, key, epochs)
+        raw = pool(mruns, key, epochs)
         w = [v for e, v in zip(epochs, raw) if e > WARMUP]
         sm = an.ma(w)
         rmax, dd = sm[0], 0.0
@@ -57,19 +55,21 @@ LL = [(101, False), (202, True), (303, True), (404, False),
       (505, True), (606, True), (707, True), (808, False)]
 for s, c in LL:
     mpc = HERE / ("mpc_sp707_merged.txt" if s == 707 else f"mpc_sp{s}.txt")
-    RUNS.append((f"LL-{s}", c, mpc, HERE / f"metrics_sp{s}_seed*.txt"))
-RUNS.append(("LL-777", False, HERE / "mpc_dq_f1rs.txt", HERE / "metrics_dq_f1rs_seed*.txt"))
+    RUNS.append((f"LL-{s}", c, mpc, HERE / f"metrics_sp{s}_seed*.txt", {}))
+RUNS.append(("LL-777", False, HERE / "mpc_dq_f1rs.txt", HERE / "metrics_dq_f1rs_seed*.txt", {}))
 RUNS.append(("paper", True, REPO / "logs" / "mpc_eval_logs.txt",
-             REPO / "logs" / "metrics_eval_logs.txt"))
+             REPO / "logs" / "metrics_eval_logs.txt", {"expected_seeds": (12345,)}))
 for s in (101, 202, 303, 404, 505, 606, 707, 808):
-    RUNS.append((f"R-{s}", False, HERE / f"mpc_r{s}.txt", HERE / f"metrics_r{s}_seed*.txt"))
+    # r606 epoch 10 was overwritten (reacher-panel ledger, 2026-07-21).
+    RUNS.append((f"R-{s}", False, HERE / f"mpc_r{s}.txt", HERE / f"metrics_r{s}_seed*.txt",
+                 {"known_missing": (10,)} if s == 606 else {}))
 
-vals = {name: stats_for(m, g) for name, c, m, g in RUNS}
-labels = {name: c for name, c, m, g in RUNS}
+vals = {name: stats_for(m, g, **x) for name, c, m, g, x in RUNS}
+labels = {name: c for name, c, m, g, x in RUNS}
 
 STATS = ["good_net", "good_dd", "bad_dd", "either_dd", "good_dd_norm"]
 print(f"{'run':10} {'collapse':>8}", *[f"{s:>13}" for s in STATS])
-for name, c, _, _ in RUNS:
+for name, c, _, _, _ in RUNS:
     v = vals[name]
     print(f"{name:10} {str(c):>8}", *[f"{v[s]:>13.4f}" for s in STATS])
 

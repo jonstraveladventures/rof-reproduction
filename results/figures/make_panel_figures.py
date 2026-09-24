@@ -8,7 +8,6 @@ across metric seeds, tie-corrected Spearman). Nothing is transcribed by hand.
 Colours: Okabe-Ito subset, validated (healthy #0072B2, collapse #D55E00,
 777 #009E73, paper reference #555555).
 """
-import glob
 import importlib.util
 from pathlib import Path
 
@@ -18,7 +17,10 @@ import matplotlib.pyplot as plt
 
 HERE = Path(__file__).resolve().parent
 RES = HERE.parent
-REPO = RES.parent / "LunarLander_RSSM"
+# The analysis repo: the parent of results/ inside LunarLander_RSSM, or the
+# LunarLander_RSSM sibling of results-llc/.
+REPO = next(p / s for p in HERE.parents for s in ("", "LunarLander_RSSM")
+            if (p / s / "analyze_llc.py").exists())
 
 spec = importlib.util.spec_from_file_location("an", REPO / "analyze_llc.py")
 an = importlib.util.module_from_spec(spec)
@@ -32,11 +34,9 @@ def neg(s):
     return s.replace("-", "\N{MINUS SIGN}")
 
 
-def run_stats(mpc_path, metric_glob):
+def run_stats(mpc_path, metric_glob, **expect):
     """Everything the figures need for one run, by analyze_llc's conventions."""
-    mpc = an.parse_mpc(str(mpc_path))
-    runs = [an.parse_metrics(f) for f in sorted(glob.glob(str(metric_glob)))]
-    epochs = sorted(set(mpc) & set.intersection(*[set(m) for m in runs]))
+    epochs, mpc, runs = an.load_run(mpc_path, metric_glob, **expect)
     means = [sum(mpc[e]) / len(mpc[e]) for e in epochs]
     sm = an.ma(means)
     comb = []
@@ -59,7 +59,8 @@ for s in PANEL:
     stats[s] = run_stats(mpc, RES / f"metrics_sp{s}_seed*.txt")
 stats["777"] = run_stats(RES / "mpc_dq_f1rs.txt", RES / "metrics_dq_f1rs_seed*.txt")
 stats["paper"] = run_stats(REPO / "logs" / "mpc_eval_logs.txt",
-                           REPO / "logs" / "metrics_eval_logs.txt")
+                           REPO / "logs" / "metrics_eval_logs.txt",
+                           expected_seeds=(12345,))
 
 # ---------- Figure 1: small-multiples heterogeneity grid ----------
 fig, axes = plt.subplots(2, 5, figsize=(16, 6.2), sharex=True, sharey=True)

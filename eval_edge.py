@@ -223,6 +223,8 @@ def main():
             acc["gap_human"].append(r_img_h.sum() - r_real_h.sum())
             acc["supp_plan"].append(supp(o_img)); acc["supp_human"].append(supp(o_img_h))
             acc["supp_real_plan"].append(supp(o_real) if len(o_real) else float("nan"))
+            # crash_plan = episode ended within the horizon for ANY reason (crash,
+            # out of bounds, came to rest, or truncation); not a crash rate as such.
             acc["crash_plan"].append(float(ended)); acc["score_plan"].append(score)
             acc["done_plan"].append(float(d_img.max()))
             acc["r_img_plan"].append(r_img.sum()); acc["r_real_plan"].append(r_real.sum())

@@ -50,6 +50,75 @@ def parse_mpc(path):
     return returns
 
 
+EXPECTED_EPOCHS = tuple(range(5, 501, 5))
+EXPECTED_SEEDS = (12345, 1, 2)
+EXPECTED_EPISODES = 20
+
+
+def metric_seed(path):
+    """Seeds named in a metrics log's sweep headers (one per sweep)."""
+    return [int(s) for s in re.findall(r"Seed: (\d+)", open(path).read())]
+
+
+def load_run(mpc_log, metrics_glob, fields=("jac_rof", "jac_rof_bad"),
+             expected_epochs=EXPECTED_EPOCHS, expected_seeds=EXPECTED_SEEDS,
+             expected_episodes=EXPECTED_EPISODES, known_missing=(),
+             allow_partial=False):
+    """Parse one run's MPC and metric logs and refuse incomplete inputs.
+
+    Checks, before any statistic is computed: every expected epoch has an MPC
+    block of exactly `expected_episodes` returns; the metric files are one per
+    expected seed (read from their headers, one sweep each); every metric file
+    has every expected epoch with every field in `fields`. `known_missing` lists
+    epochs documented as lost (e.g. r606 epoch 10); they are excluded from the
+    expectation rather than tolerated silently. Extra epochs beyond the expected
+    set are ignored. With allow_partial=True the problems are printed and the
+    run proceeds on the epochs that pass; otherwise it exits.
+
+    Returns (epochs, mpc, metric_runs): the sorted expected epochs, the MPC
+    returns by epoch, and one parsed metrics dict per seed file.
+    """
+    want = sorted(set(expected_epochs) - set(known_missing))
+    problems = []
+    mpc = parse_mpc(str(mpc_log))
+    for e in want:
+        n = len(mpc.get(e, []))
+        if n != expected_episodes:
+            problems.append(f"MPC epoch {e}: {n} episodes (expected {expected_episodes})")
+    files = sorted(glob.glob(str(metrics_glob)))
+    if not files:
+        raise SystemExit(f"ERROR: no metrics logs match {metrics_glob}")
+    seeds = []
+    for f in files:
+        s = metric_seed(f)
+        if len(s) != 1:
+            problems.append(f"{f}: {len(s)} sweep headers (expected 1)")
+        seeds += s
+    if sorted(seeds) != sorted(expected_seeds):
+        problems.append(f"metric seeds {sorted(seeds)} (expected {sorted(expected_seeds)})")
+    metric_runs = [parse_metrics(f) for f in files]
+    bad_epochs = set()
+    for f, m in zip(files, metric_runs):
+        missing = [e for e in want if e not in m]
+        if missing:
+            problems.append(f"{f}: missing epochs {missing}")
+        for e in want:
+            lack = [k for k in fields if k not in m.get(e, {})]
+            if e in m and lack:
+                problems.append(f"{f}: epoch {e} lacks {lack}")
+            if e not in m or lack:
+                bad_epochs.add(e)
+    bad_epochs |= {e for e in want if len(mpc.get(e, [])) != expected_episodes}
+    if problems:
+        msg = f"incomplete inputs for {mpc_log}:\n  " + "\n  ".join(problems)
+        if not allow_partial:
+            raise SystemExit("ERROR: " + msg + "\nPass allow_partial to proceed on the "
+                             "epochs that pass.")
+        print("WARNING: " + msg + f"\n  proceeding without epochs {sorted(bad_epochs)}")
+    epochs = [e for e in want if e not in bad_epochs]
+    return epochs, mpc, metric_runs
+
+
 def ma(xs, w=7):
     out = []
     for i in range(len(xs)):
@@ -120,31 +189,26 @@ def main():
     p.add_argument("--metrics_logs", required=True, help="glob, e.g. 'metrics_llc_seed*.txt'")
     p.add_argument("--drift_log", default=None)
     p.add_argument("--allow-partial", action="store_true",
-                   help="tolerate uneven episode counts across checkpoints "
-                        "(empty blocks are dropped with a warning)")
+                   help="proceed on the epochs that pass the completeness checks, "
+                        "printing what is missing")
+    p.add_argument("--seeds", default="12345,1,2",
+                   help="metric seeds the logs must cover (from their headers)")
+    p.add_argument("--epoch_start", type=int, default=5,
+                   help="first expected checkpoint epoch (expected set: start..500 step 5)")
+    p.add_argument("--known_missing", default="",
+                   help="comma-separated epochs documented as lost, e.g. '10' for r606")
+    p.add_argument("--episodes", type=int, default=EXPECTED_EPISODES)
     args = p.parse_args()
 
-    mpc = parse_mpc(args.mpc_log)
-    counts = {e: len(v) for e, v in mpc.items()}
-    expected = max(set(counts.values()), key=list(counts.values()).count)
-    if expected == 0:
-        raise SystemExit("ERROR: no episode lines parsed from the MPC log at all "
-                         "(format mismatch?). Refusing to proceed.")
-    bad = {e: c for e, c in sorted(counts.items()) if c != expected}
-    if bad:
-        msg = (f"MPC log has uneven episode counts (expected {expected}/checkpoint): "
-               + ", ".join(f"epoch {e}: {c}" for e, c in bad.items()))
-        if not args.allow_partial:
-            raise SystemExit("ERROR: " + msg
-                             + "\nA truncated or partial sweep would be silently averaged; "
-                               "rerun the sweep or pass --allow-partial to proceed.")
-        print("WARNING: " + msg + " (empty blocks dropped)")
-        mpc = {e: v for e, v in mpc.items() if v}
-    metric_runs = [parse_metrics(f) for f in sorted(glob.glob(args.metrics_logs))]
-    assert metric_runs, "no metrics logs matched"
+    epochs, mpc, metric_runs = load_run(
+        args.mpc_log, args.metrics_logs,
+        expected_epochs=range(args.epoch_start, 501, 5),
+        expected_seeds=[int(s) for s in args.seeds.split(",")],
+        expected_episodes=args.episodes,
+        known_missing=[int(e) for e in args.known_missing.split(",") if e],
+        allow_partial=args.allow_partial)
     drift = parse_metrics(args.drift_log) if args.drift_log else {}
 
-    epochs = sorted(set(mpc) & set.intersection(*[set(m) for m in metric_runs]))
     print(f"matched epochs: {len(epochs)} ({epochs[0]}-{epochs[-1]}), "
           f"metric seeds: {len(metric_runs)}, episodes/ckpt: {len(mpc[epochs[0]])}")
 

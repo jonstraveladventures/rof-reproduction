@@ -7,7 +7,9 @@ purpose:    CROF Stage B — LLC cross-env validation + A2 CUDA cross-check
 
 run_utc:    2026-08-16T10:10:00Z (submission) .. 2026-08-18 (last MPC)
 slurm_job:  1239391-1239429 (12 chains: train ada CPU -> MPC l40s + metrics array)
-git_commit: (this commit; panel run from synced tree + config_h128/config_z8)
+git_commit: 1f04d02 (code and configs committed after the run; the panel ran from a
+            synced tree; identity with 1f04d02 to be confirmed by checksum against
+            ~/crof on the cluster. No training, MPC or metric code changed after it)
 account:    maths/ada (train, metrics), l40sfree/l40s (MPC)
 env:        /scratch/01440817/crof-env (torch 2.12.1)
 purpose:    Screening panel (4 data families x seeds 909/1010) + capacity variants
@@ -17,6 +19,9 @@ purpose:    Screening panel (4 data families x seeds 909/1010) + capacity varian
             training .out logs on cluster scratch, to be added.
 
 run_utc:    2026-09-04 (edge-of-reach probe; ada CPU jobs 1296831-38 + local z-only arm)
+git_commit: 3b80255 (eval_edge.py; world-model code unchanged from 1f04d02)
+config:     start states from the standard human val set for every arm (ledger
+            2026-09-04-edge-of-reach.md); v7/zonly3080 checkpoints from wm_checkpoints/
 purpose:    Planner-side mechanism test: eval_edge.py per checkpoint (every 25 epochs),
             59 pre-contact val start states; CEM at MPC-eval defaults; imagined vs real
             rollout of the chosen sequence, human-sequence baseline, 5-NN support distance
@@ -25,6 +30,8 @@ purpose:    Planner-side mechanism test: eval_edge.py per checkpoint (every 25 e
             August-panel training logs (SLURM .out) previously left on scratch.
 
 run_utc:    2026-09-10 (closed-loop probe; ada CPU jobs 1330793-1330800 + local z-only arm)
+git_commit: 65ef8ba (eval_closedloop.py; world-model and MPC code unchanged from 1f04d02)
+config:     as the edge-of-reach entry; CPU, whereas the MPC sweeps ran on l40s GPU
 purpose:    Instrumented MPC episodes (eval_closedloop.py): 10 checkpoints x 10 episodes per
             arm, per-step planner predicted return vs realised 25-step return, posterior
             reconstruction error, one-step model error, split flight / near-ground (y<0.35).

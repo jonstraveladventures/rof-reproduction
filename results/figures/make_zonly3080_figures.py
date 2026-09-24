@@ -28,6 +28,9 @@ an = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(an)
 
 WARMUP = 50
+# Every curve must cover these checkpoints in full (the z-only metric sweeps
+# start at 55, so the window after WARMUP is the common expectation).
+EXPECTED = [e for e in an.EXPECTED_EPOCHS if e > WARMUP]
 
 # (label, mpc log, metrics glob, colour, linewidth, z-order)
 ARMS = [
@@ -57,20 +60,30 @@ def mpc_curve(path):
     nothing to do with the late collapse this figure is about.
     """
     mpc = an.parse_mpc(str(path))
-    eps = sorted(e for e in mpc if e > WARMUP)
+    short = [e for e in EXPECTED if len(mpc.get(e, [])) != an.EXPECTED_EPISODES]
+    if short:
+        raise SystemExit(f"ERROR: {path.name} lacks full {an.EXPECTED_EPISODES}-episode "
+                         f"blocks at epochs {short}")
+    eps = EXPECTED
     means = [float(np.mean(mpc[e])) for e in eps]
     return eps, means, an.ma(means)
 
 
 def metric_curve(glob_pat, key):
-    runs = [an.parse_metrics(str(f)) for f in sorted(RES.glob(glob_pat))]
-    if not runs:
+    files = sorted(RES.glob(glob_pat))
+    if not files:
         return [], []
-    eps = sorted(e for e in set.intersection(*[set(r) for r in runs]) if e > WARMUP)
-    vals = []
-    for e in eps:
-        per = [r[e][key] for r in runs if key in r.get(e, {})]
-        vals.append(float(np.mean(per)) if per else np.nan)
+    seeds = sorted(s for f in files for s in an.metric_seed(str(f)))
+    if seeds != sorted(an.EXPECTED_SEEDS):
+        raise SystemExit(f"ERROR: {glob_pat} covers metric seeds {seeds}, "
+                         f"expected {sorted(an.EXPECTED_SEEDS)}")
+    runs = [an.parse_metrics(str(f)) for f in files]
+    for f, r in zip(files, runs):
+        short = [e for e in EXPECTED if key not in r.get(e, {})]
+        if short:
+            raise SystemExit(f"ERROR: {f.name} lacks {key} at epochs {short}")
+    eps = EXPECTED
+    vals = [float(np.mean([r[e][key] for r in runs])) for e in eps]
     return eps, an.ma(vals)
 
 

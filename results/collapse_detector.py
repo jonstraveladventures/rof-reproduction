@@ -13,13 +13,15 @@ Ground-truth collapse labels come from analyze_llc's boolean on the MPC curve.
 Reports a confusion matrix and, for each fire, its epoch vs the MPC peak
 (lead > 0 = fires before the peak = genuine early warning).
 """
-import glob
 import importlib.util
 from pathlib import Path
 from statistics import pstdev
 
 HERE = Path(__file__).resolve().parent
-REPO = HERE.parent / "LunarLander_RSSM"
+# The analysis repo: the parent of results/ inside LunarLander_RSSM, or the
+# LunarLander_RSSM sibling of results-llc/.
+REPO = next(p / s for p in HERE.parents for s in ("", "LunarLander_RSSM")
+            if (p / s / "analyze_llc.py").exists())
 spec = importlib.util.spec_from_file_location("an", REPO / "analyze_llc.py")
 an = importlib.util.module_from_spec(spec); spec.loader.exec_module(an)
 
@@ -29,8 +31,7 @@ CONSEC = 4
 GOOD_DROP = 0.02
 
 
-def pool_series(metric_glob, key, epochs):
-    runs = [an.parse_metrics(f) for f in sorted(glob.glob(str(metric_glob)))]
+def pool_series(runs, key, epochs):
     return [sum(m[e][key] for m in runs) / len(runs) for e in epochs]
 
 
@@ -57,17 +58,14 @@ def detect_pool(raw, epochs):
     return False, None
 
 
-def run(name, mpc_path, metric_glob, collapse):
-    mpc = an.parse_mpc(str(mpc_path))
-    m_epochs = sorted(set.intersection(*[set(an.parse_metrics(f))
-                                         for f in sorted(glob.glob(str(metric_glob)))]))
-    epochs = sorted(set(mpc) & set(m_epochs))
+def run(name, mpc_path, metric_glob, collapse, **expect):
+    epochs, mpc, mruns = an.load_run(mpc_path, metric_glob, **expect)
     means = [sum(mpc[e]) / len(mpc[e]) for e in epochs]
     sm = an.ma(means)
     mpc_peak_ep = epochs[sm.index(max(sm))]
 
-    good = pool_series(metric_glob, "jac_rof", epochs)
-    bad = pool_series(metric_glob, "jac_rof_bad", epochs)
+    good = pool_series(mruns, "jac_rof", epochs)
+    bad = pool_series(mruns, "jac_rof_bad", epochs)
     fg, eg = detect_pool(good, epochs)
     fb, eb = detect_pool(bad, epochs)
     fires_core = fg or fb
@@ -97,10 +95,12 @@ for tag, coll in LL:
 rows.append(run("LL-777 (ref)", HERE / "mpc_dq_f1rs.txt",
                 HERE / "metrics_dq_f1rs_seed*.txt", False))
 rows.append(run("LL-paper (ref)", REPO / "logs" / "mpc_eval_logs.txt",
-                REPO / "logs" / "metrics_eval_logs.txt", True))
+                REPO / "logs" / "metrics_eval_logs.txt", True, expected_seeds=(12345,)))
 for tag in REACHER:
     s = tag.split("-")[1]
-    rows.append(run(tag, HERE / f"mpc_r{s}.txt", HERE / f"metrics_r{s}_seed*.txt", False))
+    # r606 epoch 10 was overwritten (reacher-panel ledger, 2026-07-21).
+    rows.append(run(tag, HERE / f"mpc_r{s}.txt", HERE / f"metrics_r{s}_seed*.txt", False,
+                    known_missing=(10,) if s == "606" else ()))
 
 print(f"{'run':16} {'collapse':>8} {'fires':>6} {'gated':>6} {'fire@':>6} "
       f"{'peak@':>6} {'lead':>6} {'good_net':>9}")
