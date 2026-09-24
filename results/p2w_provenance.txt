@@ -1,0 +1,30 @@
+run=sp909 seed=2 cfg=config.yaml val=lunarlander_val_dataset.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_2 node=srvrochpc106.uct.ac.za utc=2026-09-24T09:17:12Z
+run=sp1010 seed=2 cfg=config.yaml val=lunarlander_val_dataset.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_5 node=srvrochpc113.uct.ac.za utc=2026-09-24T09:17:12Z
+run=sp909 seed=1 cfg=config.yaml val=lunarlander_val_dataset.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_1 node=srvrochpc104.uct.ac.za utc=2026-09-24T09:17:12Z
+run=f25_909 seed=2 cfg=config.yaml val=mix_f25_val.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_8 node=srvrochpc118.uct.ac.za utc=2026-09-24T09:17:12Z
+run=f25_1010 seed=12345 cfg=config.yaml val=mix_f25_val.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_9 node=srvrochpc118.uct.ac.za utc=2026-09-24T09:17:12Z
+run=sp1010 seed=12345 cfg=config.yaml val=lunarlander_val_dataset.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_3 node=srvrochpc108.uct.ac.za utc=2026-09-24T09:17:12Z
+run=f25_1010 seed=2 cfg=config.yaml val=mix_f25_val.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_11 node=srvrochpc120.uct.ac.za utc=2026-09-24T09:17:12Z
+12Z
+run=f25_1010 seed=1 cfg=config.yaml val=mix_f25_val.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_10 node=srvrochpc120.uct.ac.za utc=2026-09-24T09:17:12Z
+run=scr_1010 seed=12345 cfg=config.yaml val=lunarlander_scripted_val_dataset.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_21 node=srvrochpc125.uct.ac.za utc=2026-09-24T09:17:12Z
+run=scr_909 seed=2 cfg=config.yaml val=lunarlander_scripted_val_dataset.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_20 node=srvrochpc125.uct.ac.za utc=2026-09-24T09:17:12Z
+run=z8_909 seed=12345 cfg=config_z8.yaml val=lunarlander_val_dataset.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_30 node=srvrochpc129.uct.ac.za utc=2026-09-24T09:17:12Z
+run=h128_1010 seed=2 cfg=config_h128.yaml val=lunarlander_val_dataset.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_29 node=srvrochpc129.uct.ac.za utc=2026-09-24T09:17:12Z
+run=sp1010 seed=1 cfg=config.yaml val=lunarlander_val_dataset.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_4 node=srvrochpc111.uct.ac.za utc=2026-09-24T09:17:12Z
+run=h128_1010 seed=1 cfg=config_h128.yaml val=lunarlander_val_dataset.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_28 node=srvrochpc128.uct.ac.za utc=2026-09-24T09:17:12Z
+run=h128_909 seed=2 cfg=config_h128.yaml val=lunarlander_val_dataset.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_26 node=srvrochpc128.uct.ac.za utc=2026-09-24T09:17:12Z
+run=h128_1010 seed=12345 cfg=config_h128.yaml val=lunarlander_val_dataset.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_27 node=srvrochpc128.uct.ac.za utc=2026-09-24T09:17:12Z
+run=scr_1010 seed=1 cfg=config.yaml val=lunarlander_scripted_val_dataset.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_22 node=srvrochpc126.uct.ac.za utc=2026-09-24T09:17:12Z
+run=f75_909 seed=12345 cfg=config.yaml val=mix_f75_val.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_12 node=srvrochpc121.uct.ac.za utc=2026-09-24T09:17:12Z
+-24T09:17:12Z
+run=h128_909 seed=12345 cfg=config_h128.yaml val=lunarlander_val_dataset.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_24 node=srvrochpc127.uct.ac.za utc=2026-09-24T09:17:12Z
+run=f25_909 seed=1 cfg=config.yaml val=mix_f25_val.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_7 node=srvrochpc117.uct.ac.za utc=2026-09-24T09:17:12Z
+run=f25_909 seed=12345 cfg=config.yaml val=mix_f25_val.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_6 node=srvrochpc117.uct.ac.za utc=2026-09-24T09:17:12Z
+run=sp909 seed=12345 cfg=config.yaml val=lunarlander_val_dataset.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_0 node=srvrochpc101.uct.ac.za utc=2026-09-2run=scr_909 seed=1 cfg=config.yaml val=lunarlander_scripted_val_dataset.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_19 node=srvrochpc124.uct.ac.za utc=2026-09-24T09:17:12Z
+run=f75_1010 seed=2 cfg=config.yaml val=mix_f75_val.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_17 node=srvrochpc124.uct.ac.za utc=2026-09-24T09:17:12Z
+run=scr_909 seed=12345 cfg=config.yaml val=lunarlander_scripted_val_dataset.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_18 node=srvrochpc124.uct.ac.za utc=2026-09-24T09:17:12Z
+run=z8_909 seed=2 cfg=config_z8.yaml val=lunarlander_val_dataset.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_32 node=srvrochpc130.uct.ac.za utc=2026-09-24T09:17:12Z
+run=z8_1010 seed=1 cfg=config_z8.yaml val=lunarlander_val_dataset.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_34 node=srvrochpc130.uct.ac.za utc=2026-09-24T09:17:12Z
+run=z8_1010 seed=12345 cfg=config_z8.yaml val=lunarlander_val_dataset.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_33 node=srvrochpc130.uct.ac.za utc=2026-09-24T09:17:12Z
+run=z8_909 seed=1 cfg=config_z8.yaml val=lunarlander_val_dataset.npz eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1367789_31 node=srvrochpc130.uct.ac.za utc=2026-09-24T09:17:12Z

@@ -8,8 +8,10 @@ purpose:    CROF Stage B — LLC cross-env validation + A2 CUDA cross-check
 run_utc:    2026-08-16T10:10:00Z (submission) .. 2026-08-18 (last MPC)
 slurm_job:  1239391-1239429 (12 chains: train ada CPU -> MPC l40s + metrics array)
 git_commit: 1f04d02 (code and configs committed after the run; the panel ran from a
-            synced tree; identity with 1f04d02 to be confirmed by checksum against
-            ~/crof on the cluster. No training, MPC or metric code changed after it)
+            synced tree. Checked 2026-09-24 by md5 against ~/crof on the cluster:
+            eval_metrics.py and all configs identical; models.py/train_models.py
+            there predate the z-only reward-head option merged into 1f04d02, which is
+            inert for [h, z] models. No training, MPC or metric code changed after it)
 account:    maths/ada (train, metrics), l40sfree/l40s (MPC)
 env:        /scratch/01440817/crof-env (torch 2.12.1)
 purpose:    Screening panel (4 data families x seeds 909/1010) + capacity variants
@@ -37,3 +39,15 @@ purpose:    Instrumented MPC episodes (eval_closedloop.py): 10 checkpoints x 10 
             reconstruction error, one-step model error, split flight / near-ground (y<0.35).
             Files: cl_<run>.txt (per-checkpoint summary), cl_<run>_raw.npz (per-step arrays)
             for sp909/sp1010, h128_909/1010, z8_909/1010, v7, f1rs, zonly3080.
+
+run_utc:    2026-09-24 (coordinate-invariance test; ada CPU array 1367789, 36 tasks + local V7/z-only arms)
+git_commit: 511f6e6 (eval_metrics.py --whiten; cluster copy md5 8bba496c, model code as the August panel)
+config:     each panel run's own config and val set (config.yaml / config_h128 / config_z8;
+            lunarlander_val_dataset, mix_f25_val, mix_f75_val, lunarlander_scripted_val);
+            n_jac_states=128, compute_dyn_jac=false, n_cov_states=1024, metric seeds
+            12345/1/2; V7 and z-only 3080 (epochs 55-500) locally on CPU, torch 2.11
+purpose:    Coordinate-invariant ROF variants (jac_rof_wfull, jac_rof_wdiag and _bad)
+            alongside the sealed fields. Files: metrics_w_<run>_seed{12345,1,2}.txt for the
+            twelve panel runs, v7 and zonly3080; p2w_provenance.txt (per task). Registration
+            and scoring: pre-registrations/2026-09-24-rof-coordinate-invariance.md; scorer
+            results/score_whiten.py.
