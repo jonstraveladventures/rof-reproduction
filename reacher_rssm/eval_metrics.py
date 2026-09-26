@@ -270,8 +270,68 @@ def compute_multistep_rollout(world_model, val_dataloader,
 # =========================================================================
 # 3. Jacobian-based controllability / observability analysis (fixed lin).
 # =========================================================================
+def hard_rof(Mat_o, r):
+    """ROF by the frozen construction: fraction of |r|^2 in the span of the right
+    singular vectors of Mat_o above 1e-3 of the largest singular value."""
+    r_sq = r.pow(2).sum().item()
+    _, S, Vh = torch.linalg.svd(Mat_o, full_matrices=False)
+    k = int((S > S[0].item() * 1e-3).sum().item())
+    if r_sq <= 1e-12 or k == 0:
+        return float('nan')
+    return (Vh[:k, :] @ r).pow(2).sum().item() / r_sq
+
+
+def state_whiteners(world_model, val_dataset, n_states=1024, warmup_steps=5,
+                    batch_size=64, seed=12345):
+    """Square-root state covariances for the coordinate-invariant ROF variants.
+
+    Port of the lander function (registered 2026-09-24; used here under
+    pre-registrations/2026-09-26-domain-contrast-invariance.md). Identical except
+    that Reacher actions are continuous and fed to update_hidden directly.
+    Returns {'wfull': Sigma^{1/2}, 'wdiag': diag(std)}. The caller saves and
+    restores the global torch RNG around this call.
+    """
+    rssm = world_model.rssm
+    action_dim, latent_dim = rssm.action_dim, rssm.latent_dim
+    device = next(world_model.parameters()).device
+    gen = torch.Generator().manual_seed(seed)
+    dl = DataLoader(val_dataset, batch_size=batch_size, shuffle=True, generator=gen)
+    states, n = [], 0
+    with torch.no_grad():
+        for batch in dl:
+            if n >= n_states:
+                break
+            obs_seq, actions_seq, _, next_obs_seq, _, mask = batch
+            obs_seq, actions_seq = obs_seq.to(device), actions_seq.to(device)
+            next_obs_seq, mask = next_obs_seq.to(device), mask.to(device)
+            bsz, seq_len = obs_seq.shape[:2]
+            if seq_len < warmup_steps + 1:
+                continue
+            h = rssm.init_hidden(bsz, device)
+            z = torch.zeros(bsz, latent_dim, device=device)
+            h = rssm.update_hidden(h, z, torch.zeros(bsz, action_dim, device=device))
+            mp, lp = rssm.posterior(h, obs_seq[:, 0])
+            z = rssm.sample_latent(mp, lp)
+            for t in range(warmup_steps):
+                h = rssm.update_hidden(h, z, actions_seq[:, t])
+                mp, lp = rssm.posterior(h, next_obs_seq[:, t])
+                z = rssm.sample_latent(mp, lp)
+            valid = (mask[:, warmup_steps] > 0).nonzero(as_tuple=True)[0][:n_states - n]
+            states.append(torch.cat([rssm.top_hidden(h)[valid], z[valid]], dim=1))
+            n += len(valid)
+    X = torch.cat(states).double()
+    X = X - X.mean(dim=0, keepdim=True)
+    cov = X.T @ X / (X.shape[0] - 1)
+    evals, evecs = torch.linalg.eigh(cov)
+    w_full = (evecs * evals.clamp_min(0).sqrt()) @ evecs.T
+    w_diag = torch.diag(cov.diagonal().clamp_min(0).sqrt())
+    dtype = next(world_model.parameters()).dtype
+    return {'wfull': w_full.to(dtype), 'wdiag': w_diag.to(dtype)}
+
+
 def compute_jacobian_metrics(world_model, val_dataloader,
-                             n_states=64, horizon=25, warmup_steps=5):
+                             n_states=64, horizon=25, warmup_steps=5,
+                             whiten=None):
     """Linearize the RSSM transition at sampled validation states.
 
     For each state, computes:
@@ -374,6 +434,7 @@ def compute_jacobian_metrics(world_model, val_dataloader,
     rcf_list = []
     ocf_list = []
     rof_list = []
+    rof_w_lists = {name: [] for name in (whiten or {})}
 
     try:
         for i in range(N):
@@ -484,6 +545,10 @@ def compute_jacobian_metrics(world_model, val_dataloader,
                 rof = float('nan')
             rof_list.append(rof)
 
+            # Coordinate-invariant ROF (registered 2026-09-24).
+            for name, W in (whiten or {}).items():
+                rof_w_lists[name].append(hard_rof(Mat_o @ W, W @ R_vec))
+
     finally:
         for name, p in world_model.named_parameters():
             p.requires_grad_(param_grad_flags[name])
@@ -495,8 +560,13 @@ def compute_jacobian_metrics(world_model, val_dataloader,
     finite_rcf = [v for v in rcf_list if not np.isnan(v)]
     finite_ocf = [v for v in ocf_list if not np.isnan(v)]
     finite_rof = [v for v in rof_list if not np.isnan(v)]
+    out_w = {}
+    for name, vals in rof_w_lists.items():
+        fin = [v for v in vals if not np.isnan(v)]
+        out_w['jac_rof_' + name] = float(np.mean(fin)) if fin else float('nan')
 
     return {
+        **out_w,
         'jac_spec_radius':     float(np.mean(spectral_radii)),
         'jac_spec_radius_max': float(np.max(spectral_radii)),
         'jac_ctrl_rank':       float(np.mean(ctrl_ranks)),
@@ -1040,6 +1110,15 @@ def format_metrics(metrics):
                 metrics.get('jac_rof_bad', float('nan')),
                 metrics.get('jac_dyn_rof_bad', float('nan'))))
 
+    if 'jac_rof_wfull' in metrics:
+        lines.append(
+            "jac_rof_wfull={:.4f} jac_rof_wdiag={:.4f}"
+            " jac_rof_wfull_bad={:.4f} jac_rof_wdiag_bad={:.4f}".format(
+                metrics.get('jac_rof_wfull', float('nan')),
+                metrics.get('jac_rof_wdiag', float('nan')),
+                metrics.get('jac_rof_wfull_bad', float('nan')),
+                metrics.get('jac_rof_wdiag_bad', float('nan'))))
+
     # Empirical
     lines.append(
         "emp_C={:.4f} emp_O={:.4f} emp_L={:.4f}".format(
@@ -1082,6 +1161,11 @@ def main():
                         help="Max episode return to qualify as 'bad' for "
                              "curated Jacobian sampling (Reacher: -100 captures "
                              "iid_random + aggressive_ik buckets)")
+    parser.add_argument("--whiten", action="store_true",
+                        help="also compute the coordinate-invariant ROF variants "
+                             "(registered 2026-09-24); leaves every other value unchanged")
+    parser.add_argument("--n_cov_states", type=int, default=1024,
+                        help="val states for the whitening covariance")
     parser.add_argument("--compute_dyn_jac",
                         type=lambda s: s.lower() not in {"0", "false", "no"},
                         default=False,
@@ -1220,6 +1304,15 @@ def main():
             t0 = time.time()
             metrics = {}
 
+            whiten = None
+            if args.whiten:
+                rng_state = torch.get_rng_state()
+                whiten = state_whiteners(world_model, val_dataset,
+                                         n_states=args.n_cov_states,
+                                         warmup_steps=warmup_steps,
+                                         batch_size=batch_size, seed=args.seed)
+                torch.set_rng_state(rng_state)
+
             # 1. Validation loss decomposition
             val = compute_val_metrics(world_model, val_dataloader, beta_kl,
                                       loss_weights)
@@ -1235,7 +1328,8 @@ def main():
             jac = compute_jacobian_metrics(world_model, jac_good_dl,
                                            n_states=args.n_jac_states,
                                            horizon=planning_horizon,
-                                           warmup_steps=warmup_steps)
+                                           warmup_steps=warmup_steps,
+                                           whiten=whiten)
             metrics.update(jac)
 
             # 3b. Time-varying Jacobian metrics (optional)
@@ -1253,8 +1347,12 @@ def main():
                     world_model, jac_bad_dl,
                     n_states=args.n_jac_states,
                     horizon=planning_horizon,
-                    warmup_steps=warmup_steps)
+                    warmup_steps=warmup_steps,
+                    whiten=whiten)
                 metrics['jac_rof_bad'] = jac_bad.get('jac_rof', float('nan'))
+                for name in (whiten or {}):
+                    metrics[f'jac_rof_{name}_bad'] = jac_bad.get(f'jac_rof_{name}',
+                                                                 float('nan'))
                 if args.compute_dyn_jac:
                     jac_dyn_bad = compute_jacobian_metrics_tv(
                         world_model, jac_bad_dl,
