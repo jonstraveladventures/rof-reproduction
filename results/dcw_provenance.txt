@@ -1,0 +1,43 @@
+run=sp505 seed=1 dir=/home/01440817/crof/LunarLander_RSSM eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1372245_13 node=srvrochpc104.uct.ac.za utc=2026-09-26T07:19:13Z
+run=sp101 seed=12345 dir=/home/01440817/crof/LunarLander_RSSM eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1372245_0 node=srvrochpc100.uct.ac.za utc=2026-09-26T07:19:13Z
+run=sp101 seed=2 dir=/home/01440817/crof/LunarLander_RSSM eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1372245_2 node=srvrochpc100.uct.ac.za utc=2026-09-26T07:19:13Z
+run=sp202 seed=12345 dir=/home/01440817/crof/LunarLander_RSSM eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1372245_3 node=srvrochpc100.uct.ac.za utc=2026-09-26T07:19:13Z
+run=sp101 seed=1 dir=/home/01440817/crof/LunarLander_RSSM eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1372245_1 node=srvrochpc100.uct.ac.za utc=2026-09-26T07:19:13Z
+run=sp808 seed=2 dir=/home/01440817/crof/LunarLander_RSSM eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1372245_23 node=srvrochpc113.uct.ac.za utc=2026-09-26T07:19:13Z
+run=r303 seed=12345 dir=/home/01440817/crof/LunarLander_RSSM/reacher_rssm eval_metrics_md5=9406af199162e013fca9935d19748715 job=1372245_30 node=srvrochpc119.uct.ac.za utc=2026-09-26T07:19:13Z
+run=sp808 seed=1 dir=/home/01440817/crof/LunarLander_RSSM eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1372245_22 node=srvrochpc112.uct.ac.za utc=2026-09-26T07:19:13Z
+run=r404 seed=1 dir=/home/01440817/crof/LunarLander_RSSM/reacher_rssm eval_metrics_md5=9406af199162e013fca9935d19748715 job=1372245_34 node=srvrochpc121.uct.ac.za utc=2026-09-26T07:19:13Z
+run=r505 seed=2 dir=/home/01440817/crof/LunarLander_RSSM/reacher_rssm eval_metrics_md5=9406af199162e013fca9935d19748715 job=1372245_38 node=srvrochpc124.uct.ac.za utc=2026-09-26T07:19:13Z
+13Z
+run=r606 seed=1 dir=/home/01440817/crof/LunarLander_RSSM/reacher_rssm eval_metrics_md5=9406af199162e013fca9935d19748715 job=1372245_40 node=srvrochpc124.uct.ac.za utc=2026-09-26T07:19:13Z
+run=r606 seed=12345 dir=/home/01440817/crof/LunarLander_RSSM/reacher_rssm eval_metrics_md5=9406af199162e013fca9935d19748715 job=1372245_39 node=srvrochpc124.uct.ac.za utc=2026-09-26T07:19:13Z
+run=r505 seed=12345 dir=/home/01440817/crof/LunarLander_RSSM/reacher_rssm eval_metrics_md5=9406af199162e013fca9935d19748715 job=1372245_36 node=srvrochpc122.uct.ac.za utc=2026-09-26T07:19:run=run=r404 seed=2 dir=/home/01440817/crof/LunarLander_RSSM/reacher_rssm eval_metrics_md5=9406af199162e013fca9935d19748715 job=1372245_35 node=srvrochpc122.uct.ac.za utc=2026-09-26T07:19:13Z
+run=r505 seed=1 dir=/home/01440817/crof/LunarLander_RSSM/reacher_rssm eval_metrics_md5=9406af199162e013fca9935d19748715 job=1372245_37 node=srvrochpc122.uct.ac.za utc=2026-09-26T07:19:13Z
+run=sp808 seed=12345 dir=/home/01440817/crof/LunarLander_RSSM eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1372245_21 node=srvrochpc111.uct.ac.za utc=2026-09-26T07:19:13Z
+6T07:19:13Z
+run=sp707 seed=1 dir=/home/01440817/crof/LunarLander_RSSM eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1372245_19 node=srvrochpc111.uct.ac.za utc=2026-09-26T07:19:13Z
+run=sp707 seed=2 dir=/home/01440817/crof/LunarLander_RSSM eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1372245_20 node=srvrochpc111.uct.ac.za utc=2026-09-26T07:19:13Z
+tc=2026-09-26T07:19:13Z
+run=sp404 seed=12345 dir=/home/01440817/crof/LunarLander_RSSM eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1372245_9 node=srvrochpc102.uct.ac.za utc=2026-09-26T07:19:13Z
+run=sp404 seed=1 dir=/home/01440817/crof/LunarLander_RSSM eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1372245_10 node=srvrochpc102.uct.ac.za utc=2026-09-26T07:19:13Z
+run=r101 seed=1 dir=/home/01440817/crof/LunarLander_RSSM/reacher_rssm eval_metrics_md5=9406af199162e013fca9935d19748715 job=1372245_25 node=srvrochpc114.uct.ac.za utc=2026-09-26T07:19:13Z
+run=r101 seed=12345 dir=/home/01440817/crof/LunarLander_RSSM/reacher_rssm eval_metrics_md5=9406af199162e013fca9935d19748715 job=1372245_24 node=srvrochpc114.uct.ac.za utc=2026-09-26T07:19:13Z
+run=r101 seed=2 dir=/home/01440817/crrun=sp707 seed=12345 dir=/home/01440817/crof/LunarLander_RSSM eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1372245_18 node=srvrochpc108.uct.ac.za utc=2026-09-26T07:19:13Z
+run=sp606 seed=2 dir=/home/01440817/crof/LunarLander_RSSM eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1372245_17 node=srvrochpc108.uct.ac.za utc=2026-09-26T07:19:13Z
+run=sp606 seed=1 dir=/home/01440817/crof/LunarLander_RSSM eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1372245_16 node=srvrochpc108.uct.ac.za utc=2026-09-26T07:19:13Z
+run=sp505 seed=2 dir=/home/01440817/crof/LunarLander_RSSM eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1372245_14 node=srvrochpc108.uct.ac.za utc=2026-09-26T07:19:13Z
+run=sp606 seed=12345 dir=/home/01440817/crof/LunarLander_RSSM eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1372245_15 node=srvrochpc108.uct.ac.za utc=2026-09-26T07:19:13Z
+run=sp505 seed=12345 dir=/home/01440817/crof/LunarLander_RSSM eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1372245_12 node=srvrochpc103.uct.ac.za utc=2026-09-26T07:19:13Z
+run=sp404 seed=2 dir=/home/01440817/crof/LunarLander_RSSM eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1372245_11 node=srvrochpc103.uct.ac.za utc=2026-09-26T07:19:13Z
+run=sp303 seed=2 dir=/home/01440817/crof/LunarLander_RSSM eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1372245_8 node=srvrochpc101.uct.ac.za utc=2026-09-26T07:19:13Z
+run=sp202 seed=2 dir=/home/01440817/crof/LunarLander_RSSM eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1372245_5 node=srvrochpc101.uct.ac.za utc=2026-09-26T07:19:13Z
+run=sp202 seed=1 dir=/home/01440817/crof/LunarLander_RSSM eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1372245_4 node=srvrochpc101.uct.ac.za utc=2026-09-26T07:19:13Z
+run=sp303 seed=1 dir=/home/01440817/crof/LunarLander_RSSM eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1372245_7 node=srvrochpc101.uct.ac.za utc=2026-09-26T07:19:13Z
+run=sp303 seed=12345 dir=/home/01440817/crof/LunarLander_RSSM eval_metrics_md5=8bba496ca5ff434deb84fe2872fec548 job=1372245_6 node=srvrochpc101.uct.ac.za utc=2026-09-26T07:19:13Z
+run=r606 seed=2 dir=/home/01440817/crof/LunarLander_RSSM/reacher_rssm eval_metrics_md5=9406af199162e013fca9935d19748715 job=1372245_41 node=srvrochpc124.uct.ac.za utc=2026-09-26T07:19:18Z
+run=r707 seed=1 dir=/home/01440817/crof/LunarLander_RSSM/reacher_rssm eval_metrics_md5=9406af199162e013fca9935d19748715 job=1372245_43 node=srvrochpc125.uct.ac.za utc=2026-09-26T07:19:18Z
+run=r707 seed=12345 dir=/home/01440817/crof/LunarLander_RSSM/reacher_rssm eval_metrics_md5=9406af199162e013fca9935d19748715 job=1372245_42 node=srvrochpc125.uct.ac.za utc=2026-09-26T07:19:18Z
+run=r808 seed=1 dir=/home/01440817/crof/LunarLander_RSSM/reacher_rssm eval_metrics_md5=9406af199162e013fca9935d19748715 job=1372245_46 node=srvrochpc126.uct.ac.za utc=2026-09-26T07:19:18Z
+run=r707 seed=2 dir=/home/01440817/crof/LunarLander_RSSM/reacher_rssm eval_metrics_md5=9406af199162e013fca9935d19748715 job=1372245_44 node=srvrochpc126.uct.ac.za utc=2026-09-26T07:19:18Z
+run=r808 seed=12345 dir=/home/01440817/crof/LunarLander_RSSM/reacher_rssm eval_metrics_md5=9406af199162e013fca9935d19748715 job=1372245_45 node=srvrochpc126.uct.ac.za utc=2026-09-26T07:19:18Z
+run=r808 seed=2 dir=/home/01440817/crof/LunarLander_RSSM/reacher_rssm eval_metrics_md5=9406af199162e013fca9935d19748715 job=1372245_47 node=srvrochpc126.uct.ac.za utc=2026-09-26T07:19:18Z

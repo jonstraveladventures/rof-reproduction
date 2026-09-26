@@ -51,3 +51,13 @@ purpose:    Coordinate-invariant ROF variants (jac_rof_wfull, jac_rof_wdiag and 
             twelve panel runs, v7 and zonly3080; p2w_provenance.txt (per task). Registration
             and scoring: pre-registrations/2026-09-24-rof-coordinate-invariance.md; scorer
             results/score_whiten.py.
+
+run_utc:    2026-09-26 (domain-contrast test; ada CPU array 1372245, 48 tasks)
+git_commit: 2de3563 (reacher_rssm/eval_metrics.py --whiten, cluster md5 9406af19); lander eval_metrics as 511f6e6
+config:     eight-seed LunarLander panel (sp101..sp808, config.yaml, lunarlander_val_dataset)
+            and eight-seed Reacher panel (r101..r808, reacher_rssm/config.yaml), metric seeds
+            12345/1/2, n_jac_states=128, compute_dyn_jac=false, n_cov_states=1024
+purpose:    Whitened ROF for the domain contrast. Files: metrics_w_sp<s>_seed*.txt,
+            metrics_w_r<s>_seed*.txt, dcw_provenance.txt. Registration and scoring:
+            pre-registrations/2026-09-26-domain-contrast-invariance.md; scorer
+            results/score_contrast.py.
