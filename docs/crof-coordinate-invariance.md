@@ -74,3 +74,40 @@ order, so this is not whitening flattening everything into noise.
 - Weighted by how the state varies, 85–93% of reward sensitivity lies in observable
   directions in every run. Native levels of 0.2–0.37 should not be read as "most of the
   reward is unobservable".
+
+
+## Addendum: the Reacher–LunarLander contrast
+
+The draft's domain contrast is the within-run Spearman correlation between pool-averaged ROF
+(0.5·good + 0.5·bad) and MA-7 MPC return, over the same eight training seeds on both tasks.
+The same statistic is computed here with the whitened measure. Expectations were written
+down before the sweeps ran: the contrast survives if Reacher stays positive in all eight
+runs and LunarLander still spans zero.
+
+| seed | Reacher ROF | Reacher wfull | Reacher wdiag | LunarLander ROF | LunarLander wfull | LunarLander wdiag |
+|---|---|---|---|---|---|---|
+| 101 | +0.60 | -0.56 | +0.40 | +0.32 | +0.10 | +0.27 |
+| 202 | +0.49 | -0.62 | +0.18 | -0.55 | +0.48 | -0.04 |
+| 303 | +0.87 | -0.73 | +0.75 | -0.31 | +0.77 | +0.20 |
+| 404 | +0.60 | -0.58 | +0.14 | +0.19 | +0.27 | +0.25 |
+| 505 | +0.74 | -0.57 | +0.61 | -0.22 | +0.03 | +0.20 |
+| 606 | +0.80 | -0.40 | +0.39 | +0.08 | +0.44 | +0.08 |
+| 707 | +0.44 | -0.58 | +0.27 | -0.02 | +0.47 | +0.44 |
+| 808 | +0.26 | -0.48 | -0.11 | -0.02 | +0.14 | +0.08 |
+| median | +0.60 | -0.58 | +0.33 | -0.02 | +0.35 | +0.20 |
+
+The ROF columns reproduce the draft's figure. Under wfull, the contrast reverses: every
+Reacher correlation is negative and every LunarLander correlation is positive. Under wdiag,
+both tasks are mostly positive and do not separate. Within each Reacher run, the ROF and
+wfull series themselves move in opposite directions, so the rise of ROF through Reacher's
+training reflects how the latent coordinates rescale, not the reward gradient moving into
+observable directions.
+
+Reading: the domain contrast is a native-coordinate measurement and cannot be offered as ROF
+behaving as the theory predicts. What remains of the contrast does not use ROF: collapse in
+five of eight LunarLander runs against none on Reacher, and the reward-predictability
+regressions. Of the geometry results, only the z-only intervention survives a change of
+coordinates.
+
+Files: `results/metrics_w_sp<s>_seed*.txt`, `results/metrics_w_r<s>_seed*.txt`; scorer
+`results/score_contrast.py`.
