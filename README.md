@@ -1,62 +1,51 @@
-# Reproduction and seed-sensitivity experiments for LunarLander_RSSM
+# rof-reproduction
 
-Companion repository to correspondence about arXiv:2607.01736 (*Predicting
-Closed-Loop Performance of Latent World Models*). It contains everything
-behind the numbers in that correspondence: the modified code with full git
-history, the generated datasets, the raw evaluation logs, and the two
-companion documents.
+Code, datasets and logs for the experiments in arXiv:2607.01736 (version 3 onwards). The paper tests the Reward Observability Fraction (ROF) as an offline checkpoint selector for RSSM world models on Gymnasium LunarLander-v3, with Reacher-v5 as a contrasting task.
 
-This is a fork of `nsmoly/LunarLander_RSSM` at upstream commit `e684ad1`.
-All modifications live on the `llc-crossenv` branch;
-`git log e684ad1..llc-crossenv` shows exactly what changed and why, commit
-by commit. The discrete code path after the modifications is
-regression-tested bit-identical to the upstream original, so every
-discrete-action result was produced by the upstream pipeline end to end.
+The RSSM, planner and training code come from [nsmoly/LunarLander_RSSM](https://github.com/nsmoly/LunarLander_RSSM), a minimal RSSM implementation for LunarLander. This repository is a fork at upstream commit `e684ad1`. All changes are on the `llc-crossenv` branch; `git log e684ad1..llc-crossenv` lists them.
 
-## Map
+## Contents
 
-- **Code** (repo root): upstream plus the additions described in the
-  commit history. Key added scripts: `collect_dataset_scripted.py`
-  (scripted data collector), `wm_mpc_policy_continuous.py` (Gaussian
-  CEM-MPC for continuous actions), `analyze_llc.py` (curve
-  characterisation, correlation table, composite picks),
-  `build_mixtures.py` and `data_measures.py` (mixture/subset datasets),
-  `test_theorem1.py` (perturbation probes), `reward_markovianity.py`.
-- **Datasets** (repo root, `*.npz`): the author's originals
-  (`lunarlander_{train,val}_dataset.npz`), scripted discrete
-  (`lunarlander_scripted_*`), scripted continuous
-  (`lunarlander_continuous_*`), mixtures (`mix_f{25,50,75}_*`), and
-  human subsets (`human_sub{25,50}_train.npz`). Construction recipes and
-  seeds are in `docs/repro-guide.pdf`.
-- **`results/`**: raw logs for every run reported. Per run: the MPC sweep
-  log (per-episode returns for all 100 checkpoints) and three metric-sweep
-  files (seeds 12345/1/2). `analysis_*.txt` are the corresponding
-  analysis outputs (regime check, correlation table, checkpoint picks).
-  File naming: `f1rs` = the seed-777 retrain on the original human data,
-  `disc_scripted` = the provenance control, `dq_f25/f75/h25` = the
-  mixture and subset cells, `llc`/`c_mpc` = the continuous-action leg.
-- **`docs/`**: the two companion documents, with LaTeX sources.
-  `repro-guide.pdf` is the step-by-step reproduction guide (the seed-777
-  recipe, the checkpoint auto-resume trap, the RNG stream-position
-  effect, and all result tables). `fisher-support-note.pdf` is the formal
-  note (the observable subspace as Fisher-information support, validity
-  probes, and the amortised z-only correction channel).
-- **`reacher_rssm/`**: Nikolai's Reacher-v5 port (continuous actions,
-  Markovian reward). Negative control for the seed panel: same RSSM +
-  metrics + CROF pipeline as lander, self-contained under this
-  subfolder. Includes `reacher_{train,val}_dataset.npz`. See
-  `reacher_rssm/README.md` for setup and run order. WM checkpoints are
-  not committed (same policy as lander WM weights).
+**Code** (repository root): upstream code and the scripts for these experiments.
 
-## Reproducing the headline
+- `eval_metrics.py`: per-checkpoint offline metrics, including ROF on the good and bad validation pools. `--whiten` adds coordinate-invariant variants.
+- `analyze_llc.py`: log loading with completeness checks, MA-7 smoothing, the collapse rule and correlation tables.
+- `eval_edge.py`: planner-support and planner-advantage probe.
+- `eval_closedloop.py`: instrumented closed-loop MPC episodes.
+- `test_theorem1.py`: perturbation probes of the Fisher-support statement at the nonlinear model.
+- `collect_dataset_scripted.py`, `build_mixtures.py`, `data_measures.py`: scripted data and human/scripted mixtures.
+- `wm_mpc_policy_continuous.py`: Gaussian CEM-MPC for the continuous-action variant.
 
-The seed-777 retrain needs only the upstream code: see the reproduction
-guide, which also documents the one practical trap (the trainer
-auto-resumes from existing checkpoints) and what to expect when comparing
-recomputed metrics against logged values.
+**`reacher_rssm/`**: the Reacher-v5 port (continuous actions), with its own `eval_metrics.py` and datasets. Setup and run order are in `reacher_rssm/README.md`.
+
+**Datasets** (`*.npz`, at the root and in `reacher_rssm/`): human demonstrations (`lunarlander_{train,val}_dataset.npz`), scripted data, mixtures (`mix_f{25,50,75}_*`) and human subsets (`human_sub{25,50}_train.npz`). Recipes and seeds are in `docs/repro-guide.pdf`.
+
+**`results/`**: raw logs for every run.
+
+- `mpc_<run>.txt`: MPC sweeps with per-episode returns at all 100 checkpoints.
+- `metrics_<run>_seed{12345,1,2}.txt`: offline metric sweeps, one per metric seed. `metrics_w_<run>_seed*.txt` adds whitened ROF.
+- `edge_<run>.txt`, `cl_<run>.txt` and `cl_<run>_raw.npz`: planner probes.
+- `gate_calibration.py`, `collapse_detector.py`, `score_whiten.py`, `score_contrast.py` and `figures/`: scripts behind the paper's tables and figures.
+- `MANIFEST.txt`: cluster jobs and code commit behind each set of runs.
+
+**`wm_checkpoints/`**: world-model checkpoints (100 per run) for the original run (`12345-3080-R` in the paper, at the top level), `v7_12345_continuous` (`12345-3080-C`), `zonly_12345_3080` (`12345-3080-Z`) and `zonly_12345_5090` (`12345-5090-Z`).
+
+**`docs/`**: results sheets, the Fisher-support note and the reproduction guide, with LaTeX sources.
+
+**`env/`**: package versions used on the cluster and locally.
+
+## Run names
+
+| In `results/` | In the paper |
+|---|---|
+| `sp101` to `sp808` | eight-seed panel, human data |
+| `sp909`, `sp1010`, `f25_*`, `f75_*`, `scr_*`, `h128_*`, `z8_*` | twelve-run panel: training-data mixtures and capacity variants |
+| `r101` to `r808` | Reacher eight-seed panel |
+| `v7` | `12345-3080-C` |
+| `zonly3080`, `zonly` | `12345-3080-Z`, `12345-5090-Z` |
+| `dq_f1rs` | `777-L40S-C` |
+| `disc_scripted`, `dq_f25`, `dq_f75`, `dq_h25`, `llc`, `c_mpc` | earlier experiments not in the paper (scripted-data control, data-quality cells, continuous actions); see `docs/repro-guide.pdf` |
 
 ## Not included
 
-Retrained model checkpoints (100 per run, several GB in total) are not
-committed; they are available on request. The `checkpoints_llc_smoke/`
-directory referenced by early commits is local-only smoke-test output.
+Checkpoints for the panel runs (about 350 MB per run) are not committed and are available on request.
