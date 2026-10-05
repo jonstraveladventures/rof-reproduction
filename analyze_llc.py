@@ -291,8 +291,12 @@ def main():
         print("VERDICT: rho <= -0.45 -> ROF generalises. Proceed: second environment + write-up.")
     elif abs(rho) < 0.30:
         print("VERDICT: |rho| < 0.30 -> run dataset-provenance control; scope-limit write-up; stop.")
-    else:
+    elif rho <= -0.30:
         print("VERDICT: ambiguous band (-0.45, -0.30] -> two more metric seeds, judge pooled estimate.")
+    else:
+        # The rule as fixed has no branch for a correlation of the wrong sign.
+        print("VERDICT: none. rho >= +0.30 has the opposite sign to the prediction, "
+              "a case the rule does not cover.")
     print("(Stage-B prediction, made with the rule: rho in [-0.65, -0.45], P(generalise)=0.65. "
           "Interpret via the regime check above.)")
 

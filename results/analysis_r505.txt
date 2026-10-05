@@ -35,5 +35,5 @@ min rof_combined (raw): epoch 10, smoothed return -18.6 (gap +1.9, 12% of oracle
 
 --- STAGE-B DECISION RULE (fixed 2026-07-05 for the LLC run) ---
 rho_s(jac_rof_combined, smoothed MPC) = +0.740
-VERDICT: ambiguous band (-0.45, -0.30] -> two more metric seeds, judge pooled estimate.
+VERDICT: none. rho >= +0.30 has the opposite sign to the prediction, a case the rule does not cover.
 (Stage-B prediction, made with the rule: rho in [-0.65, -0.45], P(generalise)=0.65. Interpret via the regime check above.)
