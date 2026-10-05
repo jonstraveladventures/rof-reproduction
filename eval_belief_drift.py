@@ -1,7 +1,7 @@
 """
 EXPLORATORY belief-drift diagnostics for world-model checkpoints.
 
-Not part of the pre-registered CROF headline analysis. Motivated by the
+Not part of the CROF headline analysis. Motivated by the
 active inference reading of ROF: open-loop imagination should stay on the
 posterior's expected path (martingale property of calibrated beliefs), and
 its systematic departure -- especially along value-relevant directions --

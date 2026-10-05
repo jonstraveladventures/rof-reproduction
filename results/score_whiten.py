@@ -1,11 +1,25 @@
 """
-Score the 2026-09-24 coordinate-invariance registration (W1-W5).
+Score the 2026-09-24 coordinate-invariance test (W1-W5).
 
 Reads the whitened metric sweeps (metrics_w_<run>_seed{12345,1,2}.txt, written by
-eval_metrics.py --whiten) next to the stored sealed sweeps and MPC logs. Every
+eval_metrics.py --whiten) next to the stored sweeps and MPC logs. Every
 input goes through analyze_llc.load_run, so an incomplete sweep stops the script.
-Arms whose sweeps are absent are reported as pending and their predictions are
-not scored.
+Arms whose sweeps are absent are reported as pending and not scored.
+
+The five checks and their thresholds were fixed before the sweeps ran. "raw" is
+the native-coordinate jac_rof; levels are seed-averaged over epochs >= 50. Each
+check holds if:
+  W1  the Spearman correlation over the twelve panel runs between raw and wfull
+      bad-pool levels is >= 0.6
+  W2  the top three of the eight screening runs by wfull bad-pool level are all
+      majority-scripted (f25, scr)
+  W3  the h128 offset ratio under wfull, |mean(h128 pair) - mean(sp pair)| over
+      the spread of the eight screening runs, is >= 0.47 (half the raw ratio)
+  W4  z-only 3080's wfull good-pool level over epochs >= 400 exceeds V7's
+  W5  the median over the twelve panel runs of the within-run Spearman, across
+      checkpoints at epochs >= 50, between raw and wfull good-pool series is >= 0.5
+wdiag is reported beside each as a secondary variant. Write-up:
+docs/crof-coordinate-invariance.md.
 
     python results/score_whiten.py
 """
@@ -50,7 +64,7 @@ def level(ep, series, lo=50):
 
 
 def manipulation(run, runs):
-    """Sealed fields in the new sweep against the stored sweep, per seed file."""
+    """jac_rof and jac_rof_bad in the new sweep against the stored sweep, per seed file."""
     kw = LOCAL.get(run, (None, {}))[1]
     _, _, old = an.load_run(HERE / mpc_name(run), HERE / f"metrics_{run}_seed*.txt", **kw)
     old = {an.metric_seed(str(f))[0]: m for f, m in
@@ -92,7 +106,7 @@ def main():
             tag = "" if v == "wfull" else "  [wdiag, secondary]"
             key = f"jac_rof_{v}_bad"
             rho = an.spearman([lv[r]["jac_rof_bad"] for r in PANEL], [lv[r][key] for r in PANEL])
-            print(f"W1 Spearman(sealed, {v}) bad level, 12 runs = {rho:+.3f} "
+            print(f"W1 Spearman(raw, {v}) bad level, 12 runs = {rho:+.3f} "
                   f"(>= 0.6: {'HELD' if rho >= 0.6 else 'FAILED'}){tag}")
             top = sorted(SCREEN, key=lambda r: -lv[r][key])[:3]
             print(f"W2 top three by {v}: {top} "
@@ -113,7 +127,7 @@ def main():
                                         [s[f"jac_rof_{v}"][i] for i in idx]))
             med = sorted(rhos)[len(rhos) // 2 - 1: len(rhos) // 2 + 1]
             med = sum(med) / 2
-            print(f"W5 median within-run Spearman(sealed, {v}) good = {med:+.3f} "
+            print(f"W5 median within-run Spearman(raw, {v}) good = {med:+.3f} "
                   f"(>= 0.5: {'HELD' if med >= 0.5 else 'FAILED'}); "
                   f"range {min(rhos):+.3f} .. {max(rhos):+.3f}{tag}")
     else:
@@ -123,7 +137,7 @@ def main():
         for v in ("", "_wfull", "_wdiag"):
             z = level(data["zonly3080"][0], data["zonly3080"][1][f"jac_rof{v}"], 400)
             c = level(data["v7"][0], data["v7"][1][f"jac_rof{v}"], 400)
-            name = v[1:] or "sealed"
+            name = v[1:] or "raw"
             verdict = f" ({'HELD' if z > c else 'FAILED'})" if v == "_wfull" else ""
             print(f"W4 good ep>=400, {name:6}: z-only {z:.4f} vs V7 {c:.4f}{verdict}")
     else:

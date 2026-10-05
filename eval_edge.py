@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Planner-side (edge-of-reach) mechanism test.
 
-Design and sealed predictions: pre-registrations/2026-09-04-edge-of-reach.md.
+Design, predictions (written before the runs) and results:
+docs/crof-heldout-and-planner-probe.md, section 2.
 For each checkpoint and each pre-chosen real start state (val episode, pre-contact step),
 warm up the belief on real observations, plan with the MPC-eval CEM (eval defaults), then
 compare the imagined rollout of the chosen sequence with its real execution, alongside the

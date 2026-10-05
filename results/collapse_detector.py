@@ -18,8 +18,8 @@ from pathlib import Path
 from statistics import pstdev
 
 HERE = Path(__file__).resolve().parent
-# The analysis repo: the parent of results/ inside LunarLander_RSSM, or the
-# LunarLander_RSSM sibling of results-llc/.
+# The analysis repo: the parent of results/, or a LunarLander_RSSM folder
+# beside one of its parents.
 REPO = next(p / s for p in HERE.parents for s in ("", "LunarLander_RSSM")
             if (p / s / "analyze_llc.py").exists())
 spec = importlib.util.spec_from_file_location("an", REPO / "analyze_llc.py")
@@ -98,7 +98,7 @@ rows.append(run("LL-paper (ref)", REPO / "logs" / "mpc_eval_logs.txt",
                 REPO / "logs" / "metrics_eval_logs.txt", True, expected_seeds=(12345,)))
 for tag in REACHER:
     s = tag.split("-")[1]
-    # r606 epoch 10 was overwritten (reacher-panel ledger, 2026-07-21).
+    # r606 epoch 10 was overwritten (recorded 2026-07-21).
     rows.append(run(tag, HERE / f"mpc_r{s}.txt", HERE / f"metrics_r{s}_seed*.txt", False,
                     known_missing=(10,) if s == "606" else ()))
 

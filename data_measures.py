@@ -1,6 +1,6 @@
 """
-Sealed a-priori dataset measures for the data-quality dial (pre-registered
-2026-07-07). Computed from data alone, before any training outcome exists.
+Dataset measures for the data-quality dial, defined on 2026-07-07 and
+computed from data alone, before any training outcome existed.
 
 M1 coverage: mean log distance to the 5th nearest neighbour over 20k
    subsampled (z-scored obs ++ one-hot action) points.

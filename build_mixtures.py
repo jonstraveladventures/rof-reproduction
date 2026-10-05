@@ -1,8 +1,8 @@
 """
-Build the data-quality-dial datasets (pre-registered 2026-07-07).
+Build the data-quality-dial datasets (design fixed 2026-07-07).
 
 Episode-level mixing of the author's human demonstrations with our scripted
-demonstrations, plus human-subset cells. Composition seed 12345, sealed.
+demonstrations, plus human-subset cells. Composition seed 12345, fixed with the design.
 
 Train conditions (750 episodes each unless a subset):
   mix_f25: 188 human + 562 scripted     mix_f50: 375 + 375
@@ -50,7 +50,7 @@ def main():
     s_va = episodes(load("lunarlander_scripted_val_dataset.npz"))
     print(f"pools: human {len(h_tr)}/{len(h_va)}, scripted {len(s_tr)}/{len(s_va)}")
 
-    # fixed random orderings, drawn once (sealed seed)
+    # fixed random orderings, drawn once (composition seed)
     h_tr_ord = RNG.permutation(len(h_tr))
     s_tr_ord = RNG.permutation(len(s_tr))
     h_va_ord = RNG.permutation(len(h_va))

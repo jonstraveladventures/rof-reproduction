@@ -16,14 +16,14 @@ account:    maths/ada (train, metrics), l40sfree/l40s (MPC)
 env:        /scratch/01440817/crof-env (torch 2.12.1)
 purpose:    Screening panel (4 data families x seeds 909/1010) + capacity variants
             (h128, z8). Files: mpc_<run>.txt, metrics_<run>_seed{12345,1,2}.txt for
-            run in {sp,f25_,f75_,scr_,h128_,z8_}{909,1010}. Design, sealed
-            predictions, and scoring: docs/crof-screening-offset-panel.md (summary);
-            training .out logs on cluster scratch, to be added.
+            run in {sp,f25_,f75_,scr_,h128_,z8_}{909,1010}. Design, expected
+            outcomes and results: docs/crof-screening-offset-panel.md. Training logs
+            added 2026-09-04 as train_<run>.txt (see that entry).
 
 run_utc:    2026-09-04 (edge-of-reach probe; ada CPU jobs 1296831-38 + local z-only arm)
 git_commit: 3b80255 (eval_edge.py; world-model code unchanged from 1f04d02)
-config:     start states from the standard human val set for every arm (ledger
-            2026-09-04-edge-of-reach.md); v7/zonly3080 checkpoints from wm_checkpoints/
+config:     start states from the standard human val set for every arm;
+            v7/zonly3080 checkpoints from wm_checkpoints/
 purpose:    Planner-side mechanism test: eval_edge.py per checkpoint (every 25 epochs),
             59 pre-contact val start states; CEM at MPC-eval defaults; imagined vs real
             rollout of the chosen sequence, human-sequence baseline, 5-NN support distance
@@ -47,10 +47,9 @@ config:     each panel run's own config and val set (config.yaml / config_h128 /
             n_jac_states=128, compute_dyn_jac=false, n_cov_states=1024, metric seeds
             12345/1/2; V7 and z-only 3080 (epochs 55-500) locally on CPU, torch 2.11
 purpose:    Coordinate-invariant ROF variants (jac_rof_wfull, jac_rof_wdiag and _bad)
-            alongside the sealed fields. Files: metrics_w_<run>_seed{12345,1,2}.txt for the
-            twelve panel runs, v7 and zonly3080; p2w_provenance.txt (per task). Registration
-            and scoring: pre-registrations/2026-09-24-rof-coordinate-invariance.md; scorer
-            results/score_whiten.py.
+            alongside the existing fields. Files: metrics_w_<run>_seed{12345,1,2}.txt for the
+            twelve panel runs, v7 and zonly3080; p2w_provenance.txt (per task). Design
+            and results: docs/crof-coordinate-invariance.md; scorer results/score_whiten.py.
 
 run_utc:    2026-09-26 (domain-contrast test; ada CPU array 1372245, 48 tasks)
 git_commit: 2de3563 (reacher_rssm/eval_metrics.py --whiten, cluster md5 9406af19); lander eval_metrics as 511f6e6
@@ -58,6 +57,5 @@ config:     eight-seed LunarLander panel (sp101..sp808, config.yaml, lunarlander
             and eight-seed Reacher panel (r101..r808, reacher_rssm/config.yaml), metric seeds
             12345/1/2, n_jac_states=128, compute_dyn_jac=false, n_cov_states=1024
 purpose:    Whitened ROF for the domain contrast. Files: metrics_w_sp<s>_seed*.txt,
-            metrics_w_r<s>_seed*.txt, dcw_provenance.txt. Registration and scoring:
-            pre-registrations/2026-09-26-domain-contrast-invariance.md; scorer
-            results/score_contrast.py.
+            metrics_w_r<s>_seed*.txt, dcw_provenance.txt. Design and results:
+            addendum to docs/crof-coordinate-invariance.md; scorer results/score_contrast.py.

@@ -1,5 +1,5 @@
 """
-Theorem-1 validity probes (pre-registered designs D1, D2, D4 + leakage, 2026-07-07).
+Theorem-1 validity probes (designs D1, D2, D4 + leakage, fixed 2026-07-07).
 
 Tests whether the trained nonlinear amortised RSSM behaves as its
 linearisation promises at sampled belief states:
@@ -8,13 +8,13 @@ linearisation promises at sampled belief states:
      observable directions (matched eps), roll open-loop under identical
      ground-truth actions, measure predicted-observation divergence over the
      horizon; also the reward-head response along the same rollouts.
-     Sealed prediction: median obs-response ratio (unobs/obs) < 0.15 at
-     eps = 0.1, growing with eps.
+     Prediction, made before the run: median obs-response ratio
+     (unobs/obs) < 0.15 at eps = 0.1, growing with eps.
 
   D2 filter corrects only observable errors: inject the same perturbations,
      then run the posterior (teacher-forced) chain with TRUE observations;
-     measure error decay. Sealed prediction: observable-error decay >= 3x
-     faster than unobservable-error decay. Side quantity: norm of the
+     measure error decay. Prediction, made before the run: observable-error
+     decay >= 3x faster than unobservable-error decay. Side quantity: norm of the
      leakage block V_u^T A V_o relative to diagonal blocks.
 
   D4 consistency closure: over all right-singular directions, classify

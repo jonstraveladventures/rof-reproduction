@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Closed-loop probe: instrumented MPC episodes.
 
-Design and sealed predictions: pre-registrations/2026-09-10-closedloop-probe.md.
+Design, predictions (written before the runs) and results:
+docs/crof-heldout-and-planner-probe.md, section 3.
 Reproduces the MPC-eval protocol (wm_mpc_policy.py at eval defaults: same seeds, same
 belief update, same CEM, action 0 once landed, 600-step cap) and logs, per planner step,
 the planner's predicted 25-step return of its chosen sequence, the realised 25-step return,

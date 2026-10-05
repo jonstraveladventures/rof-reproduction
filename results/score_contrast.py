@@ -1,10 +1,17 @@
 """
-Score the 2026-09-26 domain-contrast registration (D1-D3).
+Score the 2026-09-26 domain-contrast test (D1-D3).
 
 Per run: Spearman between the seed-averaged pool mean 0.5*good + 0.5*bad
 (unsmoothed) and MA-7 MPC mean return over all checkpoints, as in
-make_panel_figures.run_stats, for the sealed ROF, wfull and wdiag. Inputs go
-through analyze_llc.load_run, so an incomplete sweep stops the script.
+make_panel_figures.run_stats, for raw (native-coordinate) ROF, wfull and wdiag.
+Inputs go through analyze_llc.load_run, so an incomplete sweep stops the script.
+
+The checks, fixed before the sweeps ran, apply to wfull:
+  D1  all eight Reacher correlations > 0
+  D2  LunarLander spans zero: at least one correlation <= -0.1 and one >= +0.1
+  D3  the contrast survives: D1 and D2 both hold
+Raw and wdiag are reported alongside. Write-up: the addendum to
+docs/crof-coordinate-invariance.md.
 
     python results/score_contrast.py
 """
@@ -23,7 +30,7 @@ SEEDS = (101, 202, 303, 404, 505, 606, 707, 808)
 LL_COLLAPSE = {202, 303, 505, 606, 707}          # frozen collapse boolean, seed panel
 FIELDS = ("jac_rof", "jac_rof_bad", "jac_rof_wfull", "jac_rof_wfull_bad",
           "jac_rof_wdiag", "jac_rof_wdiag_bad")
-VARIANTS = (("sealed", "jac_rof", "jac_rof_bad"),
+VARIANTS = (("raw", "jac_rof", "jac_rof_bad"),
             ("wfull", "jac_rof_wfull", "jac_rof_wfull_bad"),
             ("wdiag", "jac_rof_wdiag", "jac_rof_wdiag_bad"))
 
@@ -49,13 +56,13 @@ def rhos(task, s):
 
 def main():
     res = {}
-    print(f"{'run':8} {'sealed':>7} {'wfull':>7} {'wdiag':>7}  max|new-stored|")
+    print(f"{'run':8} {'raw':>7} {'wfull':>7} {'wdiag':>7}  max|new-stored|")
     for task in ("LL", "R"):
         for s in SEEDS:
             r, worst = rhos(task, s)
             res[(task, s)] = r
             flag = " (collapse)" if task == "LL" and s in LL_COLLAPSE else ""
-            print(f"{task}-{s:<5} {r['sealed']:+7.2f} {r['wfull']:+7.2f} {r['wdiag']:+7.2f}  "
+            print(f"{task}-{s:<5} {r['raw']:+7.2f} {r['wfull']:+7.2f} {r['wdiag']:+7.2f}  "
                   f"{worst:.4f}{flag}")
     print()
     for name, _, _ in VARIANTS:
@@ -63,7 +70,7 @@ def main():
         rr = [res[("R", s)][name] for s in SEEDS]
         d1 = all(x > 0 for x in rr)
         d2 = min(ll) <= -0.1 and max(ll) >= 0.1
-        tag = "" if name == "wfull" else "  [not a registered test]"
+        tag = "" if name == "wfull" else "  [reported, not tested]"
         print(f"{name:6}: Reacher {min(rr):+.2f}..{max(rr):+.2f} (median {median(rr):+.2f}); "
               f"LunarLander {min(ll):+.2f}..{max(ll):+.2f} (median {median(ll):+.2f}){tag}")
         if name == "wfull":

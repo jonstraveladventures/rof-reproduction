@@ -20,7 +20,7 @@ spec.loader.exec_module(mpf)  # computes mpf.stats for LL panel + refs
 C_HEALTHY, C_COLLAPSE, C_777, C_PAPER = mpf.C_HEALTHY, mpf.C_COLLAPSE, mpf.C_777, mpf.C_PAPER
 PANEL = mpf.PANEL
 
-# r606 epoch 10 was overwritten (reacher-panel ledger, 2026-07-21).
+# r606 epoch 10 was overwritten (recorded 2026-07-21).
 r_stats = {s: mpf.run_stats(RES / f"mpc_r{s}.txt", RES / f"metrics_r{s}_seed*.txt",
                             known_missing=(10,) if s == 606 else ())
            for s in PANEL}

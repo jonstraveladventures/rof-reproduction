@@ -95,8 +95,8 @@ epochs (55–500) where MPC and all three metric seeds overlap:
 
 - smoothed return: start +29.1, peak +107.7 @ ep 240, final-10 +20.7, span 160.6
 - monotonicity ρ(epoch, smoothed return) = +0.28, `collapse-present: True`
-- ρₛ(`jac_rof_combined`, MA-7 MPC) = **+0.319** → pre-registered verdict lands in
-  the ambiguous band, sign opposite to the registered prediction of [−0.65, −0.45]
+- ρₛ(`jac_rof_combined`, MA-7 MPC) = **+0.319** → the Stage-B decision rule prints
+  its ambiguous verdict, with the sign opposite to the predicted [−0.65, −0.45]
 - ρₛ(`jac_rof`, MA-7 MPC) = +0.285
 - best offline selector on this run is CROF-A at ρₛ = −0.487, which picks epoch
   480 (+21.3) against an oracle of epoch 240 (+107.7) — an 80%-of-oracle gap

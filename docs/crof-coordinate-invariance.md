@@ -19,7 +19,7 @@ way the Jacobian states are (posterior warmup, [h, z] at t = 5). The same hard R
 - wdiag (diag of per-coordinate standard deviations): unchanged under per-coordinate rescaling
   only. Secondary.
 
-Code: `eval_metrics.py --whiten`. Every other field is unchanged, and the sealed jac_rof and
+Code: `eval_metrics.py --whiten`. Every other field is unchanged, and the raw jac_rof and
 jac_rof_bad reproduce the stored sweeps (19 of 7200 values differ, each by at most 0.0002).
 Files: `results/metrics_w_<run>_seed{12345,1,2}.txt`. Scorer: `results/score_whiten.py`.
 

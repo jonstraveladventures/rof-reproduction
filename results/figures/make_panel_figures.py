@@ -17,8 +17,8 @@ import matplotlib.pyplot as plt
 
 HERE = Path(__file__).resolve().parent
 RES = HERE.parent
-# The analysis repo: the parent of results/ inside LunarLander_RSSM, or the
-# LunarLander_RSSM sibling of results-llc/.
+# The analysis repo: the parent of results/, or a LunarLander_RSSM folder
+# beside one of its parents.
 REPO = next(p / s for p in HERE.parents for s in ("", "LunarLander_RSSM")
             if (p / s / "analyze_llc.py").exists())
 

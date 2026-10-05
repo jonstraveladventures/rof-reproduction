@@ -5,7 +5,7 @@ smoothed return: start +80.3, peak +163.9 @ epoch 265, final-10 mean +68.0, span
 monotonicity rho(epoch, smoothed return) = -0.23
 collapse-present (peak - tail > 0.5*span): True
 median per-checkpoint SE of mean return: 25.5
-interpretation: collapse-present -> pre-registered thresholds carry their meaning; near-monotone -> a weak rho is a 'no selection problem in this regime' null.
+interpretation: collapse-present -> the decision-rule thresholds carry their meaning; near-monotone -> a weak rho is a 'no selection problem in this regime' null.
 
 --- CORRELATIONS vs MA-7 smoothed MPC mean ---
 metric                               pearson  spearman   R2quad
@@ -33,7 +33,7 @@ min CROF-A (raw): epoch 345, smoothed return +119.3 (gap +44.6, 27% of oracle)
 min CROF-B (raw): epoch 345, smoothed return +119.3 (gap +44.6, 27% of oracle)
 min rof_combined (raw): epoch 5, smoothed return +80.3 (gap +83.6, 51% of oracle)
 
---- PRE-REGISTERED DECISION RULE ---
+--- STAGE-B DECISION RULE (fixed 2026-07-05 for the LLC run) ---
 rho_s(jac_rof_combined, smoothed MPC) = -0.224
 VERDICT: |rho| < 0.30 -> run dataset-provenance control; scope-limit write-up; stop.
-(Prediction on record: rho in [-0.65, -0.45], P(generalise)=0.65. Interpret via the regime check above.)
+(Stage-B prediction, made with the rule: rho in [-0.65, -0.45], P(generalise)=0.65. Interpret via the regime check above.)

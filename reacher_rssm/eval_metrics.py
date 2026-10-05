@@ -285,8 +285,8 @@ def state_whiteners(world_model, val_dataset, n_states=1024, warmup_steps=5,
                     batch_size=64, seed=12345):
     """Square-root state covariances for the coordinate-invariant ROF variants.
 
-    Port of the lander function (registered 2026-09-24; used here under
-    pre-registrations/2026-09-26-domain-contrast-invariance.md). Identical except
+    Port of the lander function, used here for the domain-contrast addendum to
+    docs/crof-coordinate-invariance.md. Identical except
     that Reacher actions are continuous and fed to update_hidden directly.
     Returns {'wfull': Sigma^{1/2}, 'wdiag': diag(std)}. The caller saves and
     restores the global torch RNG around this call.
@@ -545,7 +545,7 @@ def compute_jacobian_metrics(world_model, val_dataloader,
                 rof = float('nan')
             rof_list.append(rof)
 
-            # Coordinate-invariant ROF (registered 2026-09-24).
+            # Coordinate-invariant ROF (added 2026-09-24).
             for name, W in (whiten or {}).items():
                 rof_w_lists[name].append(hard_rof(Mat_o @ W, W @ R_vec))
 
@@ -1163,7 +1163,7 @@ def main():
                              "iid_random + aggressive_ik buckets)")
     parser.add_argument("--whiten", action="store_true",
                         help="also compute the coordinate-invariant ROF variants "
-                             "(registered 2026-09-24); leaves every other value unchanged")
+                             "(docs/crof-coordinate-invariance.md); leaves every other value unchanged")
     parser.add_argument("--n_cov_states", type=int, default=1024,
                         help="val states for the whitening covariance")
     parser.add_argument("--compute_dyn_jac",

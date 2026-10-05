@@ -276,7 +276,7 @@ def state_whiteners(world_model, val_dataset, n_states=1024, warmup_steps=5,
                     batch_size=64, seed=12345):
     """Square-root state covariances for the coordinate-invariant ROF variants.
 
-    Registered 2026-09-24 (pre-registrations/2026-09-24-rof-coordinate-invariance.md).
+    Added 2026-09-24; design and results in docs/crof-coordinate-invariance.md.
     States are collected exactly as compute_jacobian_metrics collects them
     (posterior warmup, state [top_hidden(h), z] at t = warmup_steps) but from the
     whole val set, so both pools share one coordinate normalisation per
@@ -288,8 +288,8 @@ def state_whiteners(world_model, val_dataset, n_states=1024, warmup_steps=5,
     invariant only under per-coordinate rescalings.
 
     The caller must save and restore the global torch RNG around this call:
-    sample_latent draws from it, and the registered sealed quantities must see
-    the same stream as before.
+    sample_latent draws from it, and the existing metrics must see the same
+    stream as before.
     """
     rssm = world_model.rssm
     action_dim, latent_dim = rssm.action_dim, rssm.latent_dim
@@ -539,7 +539,7 @@ def compute_jacobian_metrics(world_model, val_dataloader,
                 rof = float('nan')
             rof_list.append(rof)
 
-            # Soft-EIG ROF (pre-registered 2026-07-07): EIG-derived direction
+            # Soft-EIG ROF (definition fixed 2026-07-07): EIG-derived direction
             # weights w_i = log(1+s_i^2)/log(1+s_max^2) replace the hard
             # 1e-3 rank threshold. Unit prior scale; no other variants.
             if R_norm_sq > 1e-12 and len(S_o) > 0:
@@ -550,7 +550,7 @@ def compute_jacobian_metrics(world_model, val_dataloader,
             else:
                 rof_soft_list.append(float('nan'))
 
-            # Coordinate-invariant ROF (registered 2026-09-24): the same hard
+            # Coordinate-invariant ROF (added 2026-09-24): the same hard
             # 1e-3 construction on O_H W and W R^T, W from state_whiteners.
             for name, W in (whiten or {}).items():
                 rof_w_lists[name].append(hard_rof(Mat_o @ W, W @ R_vec))
@@ -1160,7 +1160,7 @@ def main():
                         help="Number of latent states for Jacobian analysis")
     parser.add_argument("--whiten", action="store_true",
                         help="also compute the coordinate-invariant ROF variants "
-                             "(registered 2026-09-24); leaves every other value unchanged")
+                             "(docs/crof-coordinate-invariance.md); leaves every other value unchanged")
     parser.add_argument("--n_cov_states", type=int, default=1024,
                         help="val states for the whitening covariance")
     parser.add_argument("--good_ep_return", type=float, default=100.0,

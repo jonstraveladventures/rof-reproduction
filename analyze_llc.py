@@ -1,15 +1,18 @@
 """
-Stage-B analysis for the CROF cross-environment validation (pre-registered).
+Stage-B analysis for the CROF cross-environment validation. The decision rule
+and the prediction in step 4 were fixed on 2026-07-05, before the LLC run; the
+same rule is printed for every run analysed.
 
 Inputs: the LLC MPC sweep log, three metric sweep logs (seeds averaged), and
 optionally the exploratory belief-drift log. Produces:
-  1. Regime characterisation of the MPC-over-training curve (pre-analysis
-     note of 2026-07-06: collapse-present vs Reacher-like monotone).
+  1. Regime characterisation of the MPC-over-training curve (interpretation
+     gate fixed 2026-07-06, before any Stage-B result: collapse-present vs
+     Reacher-like monotone).
   2. Correlation table (Pearson, Spearman, quadratic R^2) of metrics vs
-     MA-7-smoothed MPC mean return. Headline (pre-committed): jac_rof_combined
-     and CROF-A/B. Everything else labelled exploratory/baseline.
+     MA-7-smoothed MPC mean return. Headline, fixed before the LLC run:
+     jac_rof_combined and CROF-A/B. Everything else labelled exploratory/baseline.
   3. CROF checkpoint picks vs the smoothed-MPC oracle.
-  4. The pre-registered decision-rule verdict.
+  4. The decision-rule verdict.
 
 Conventions inherited from the paper: centred MA-7 smoothing, alpha=0.5 in
 rof_combined, min-max normalised CROF composites, N=100 checkpoints.
@@ -217,7 +220,7 @@ def main():
               / len(mpc[e]) ** 0.5 for e in epochs]
     sm = ma(mean_ret)
 
-    # ---- 1. Regime characterisation (interpretation gate, pre-analysis note) ----
+    # ---- 1. Regime characterisation (interpretation gate, fixed 2026-07-06) ----
     imax = sm.index(max(sm))
     tail = sum(sm[-10:]) / 10
     span = max(sm) - min(sm)
@@ -229,7 +232,7 @@ def main():
     print(f"monotonicity rho(epoch, smoothed return) = {rho_epoch:+.2f}")
     print(f"collapse-present (peak - tail > 0.5*span): {collapse}")
     print(f"median per-checkpoint SE of mean return: {sorted(se_ret)[len(se_ret)//2]:.1f}")
-    print("interpretation: collapse-present -> pre-registered thresholds carry their meaning;"
+    print("interpretation: collapse-present -> the decision-rule thresholds carry their meaning;"
           " near-monotone -> a weak rho is a 'no selection problem in this regime' null.")
 
     # ---- 2. Averaged metrics + composites ----
@@ -282,7 +285,7 @@ def main():
 
     # ---- 4. Decision rule ----
     rho = spearman(rof_comb, sm)
-    print("\n--- PRE-REGISTERED DECISION RULE ---")
+    print("\n--- STAGE-B DECISION RULE (fixed 2026-07-05 for the LLC run) ---")
     print(f"rho_s(jac_rof_combined, smoothed MPC) = {rho:+.3f}")
     if rho <= -0.45:
         print("VERDICT: rho <= -0.45 -> ROF generalises. Proceed: second environment + write-up.")
@@ -290,7 +293,7 @@ def main():
         print("VERDICT: |rho| < 0.30 -> run dataset-provenance control; scope-limit write-up; stop.")
     else:
         print("VERDICT: ambiguous band (-0.45, -0.30] -> two more metric seeds, judge pooled estimate.")
-    print("(Prediction on record: rho in [-0.65, -0.45], P(generalise)=0.65. "
+    print("(Stage-B prediction, made with the rule: rho in [-0.65, -0.45], P(generalise)=0.65. "
           "Interpret via the regime check above.)")
 
 

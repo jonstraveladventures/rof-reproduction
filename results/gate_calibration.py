@@ -17,8 +17,8 @@ import importlib.util
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-# The analysis repo: the parent of results/ inside LunarLander_RSSM, or the
-# LunarLander_RSSM sibling of results-llc/.
+# The analysis repo: the parent of results/, or a LunarLander_RSSM folder
+# beside one of its parents.
 REPO = next(p / s for p in HERE.parents for s in ("", "LunarLander_RSSM")
             if (p / s / "analyze_llc.py").exists())
 spec = importlib.util.spec_from_file_location("an", REPO / "analyze_llc.py")
@@ -60,7 +60,7 @@ RUNS.append(("LL-777", False, HERE / "mpc_dq_f1rs.txt", HERE / "metrics_dq_f1rs_
 RUNS.append(("paper", True, REPO / "logs" / "mpc_eval_logs.txt",
              REPO / "logs" / "metrics_eval_logs.txt", {"expected_seeds": (12345,)}))
 for s in (101, 202, 303, 404, 505, 606, 707, 808):
-    # r606 epoch 10 was overwritten (reacher-panel ledger, 2026-07-21).
+    # r606 epoch 10 was overwritten (recorded 2026-07-21).
     RUNS.append((f"R-{s}", False, HERE / f"mpc_r{s}.txt", HERE / f"metrics_r{s}_seed*.txt",
                  {"known_missing": (10,)} if s == 606 else {}))
 
