@@ -59,3 +59,12 @@ config:     eight-seed LunarLander panel (sp101..sp808, config.yaml, lunarlander
 purpose:    Whitened ROF for the domain contrast. Files: metrics_w_sp<s>_seed*.txt,
             metrics_w_r<s>_seed*.txt, dcw_provenance.txt. Design and results:
             addendum to docs/crof-coordinate-invariance.md; scorer results/score_contrast.py.
+
+run_utc:    2026-10-15 (reward-head ablation on seed 777; local CPU sweeps)
+git_commit: 4b69bbd (eval_metrics.py --whiten; differs from 511f6e6 only in comments)
+config:     config_zonly.yaml for 777-3080-Z, config.yaml for 777-3080-C; checkpoints of both
+            runs trained on the RTX 3080 (epochs 5-500); lunarlander_val_dataset,
+            n_jac_states=128, metric seeds 12345/1/2; CPU, torch 2.11.0
+purpose:    Raw and whitened ROF for the seed-777 pair of the reward-head ablation. Files:
+            metrics_w_777-3080-Z_seed*.txt, metrics_w_777-3080-C_seed*.txt. Figure:
+            figures/make_zonly_rof_figure.py (both seeds).

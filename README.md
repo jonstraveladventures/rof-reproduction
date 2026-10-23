@@ -44,6 +44,7 @@ The RSSM, planner and training code come from [nsmoly/LunarLander_RSSM](https://
 | `r101` to `r808` | Reacher eight-seed panel |
 | `v7` | `12345-3080-C` |
 | `zonly3080`, `zonly` | `12345-3080-Z`, `12345-5090-Z` |
+| `777-3080-Z`, `777-3080-C` | the same |
 | `dq_f1rs` | `777-L40S-C` |
 | `disc_scripted`, `dq_f25`, `dq_f75`, `dq_h25`, `llc`, `c_mpc` | earlier experiments not in the paper (scripted-data control, data-quality cells, continuous actions); see `docs/repro-guide.pdf` |
 
