@@ -10,6 +10,7 @@ The RSSM, planner and training code come from [nsmoly/LunarLander_RSSM](https://
 
 - `eval_metrics.py`: per-checkpoint offline metrics, including ROF on the good and bad validation pools. `--whiten` adds coordinate-invariant variants.
 - `analyze_llc.py`: log loading with completeness checks, MA-7 smoothing, the collapse rule and correlation tables.
+- `screen_all_metrics.py`: the offline-metric screen (27 metrics, four summaries each, on 17 runs) against MPC drawdown and final-10 return, judged by a permutation null on the largest |ρ|. Run it from the repository root: `python screen_all_metrics.py`.
 - `eval_edge.py`: planner-support and planner-advantage probe.
 - `eval_closedloop.py`: instrumented closed-loop MPC episodes.
 - `test_theorem1.py`: perturbation probes of the Fisher-support statement at the nonlinear model.
